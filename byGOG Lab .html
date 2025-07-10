@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>byGOG</title>
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --bg-grad: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      --card-bg: #fff;
+      --card-border: #e6eaf1;
+      --card-shadow: #b0b8c940;
+      --card-shadow2: #b0b8c930;
+      --card-shadow-hover: #b0b8c980;
+      --card-shadow2-hover: #b0b8c950;
+      --text: #23272f;
+      --text-hover: #1a237e;
+      --text-active: #0d1333;
+      --h2: #222;
+      --h3: #444;
+      --img-bg: #f7fafd;
+    }
+    .dark {
+      --bg: #181c22;
+      --bg-grad: linear-gradient(135deg, #23272f 0%, #181c22 100%);
+      --card-bg: #23272f;
+      --card-border: #2d3440;
+      --card-shadow: #0006;
+      --card-shadow2: #0003;
+      --card-shadow-hover: #000a;
+      --card-shadow2-hover: #0006;
+      --text: #e6eaf1;
+      --text-hover: #ffd600;
+      --text-active: #fffde7;
+      --h2: #fffde7;
+      --h3: #ffe082;
+      --img-bg: #23272f;
+    }
+    body {
+      font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+      background: var(--bg-grad);
+      margin: 0;
+      padding: 0 0 40px 0;
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+    h2 {
+      color: var(--h2);
+      font-size: 20px;
+      margin-top: 36px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    h3 {
+      color: var(--h3);
+      font-size: 16px;
+      margin-top: 22px;
+      margin-bottom: 7px;
+      font-weight: 500;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 0;
+    }
+    li {
+      margin: 0;
+      min-width: 210px;
+      flex: 1 1 220px;
+      max-width: 270px;
+      display: flex;
+    }
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--text);
+      background: var(--card-bg);
+      padding: 10px 16px;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px 0 var(--card-shadow), 0 1.5px 4px 0 var(--card-shadow2);
+      transition: box-shadow 0.18s, background 0.18s, transform 0.13s, color 0.18s;
+      font-size: 15px;
+      font-weight: 500;
+      min-width: 0;
+      width: 100%;
+      border: 1.5px solid var(--card-border);
+      position: relative;
+    }
+    a:hover {
+      box-shadow: 0 6px 24px 0 var(--card-shadow-hover), 0 2.5px 8px 0 var(--card-shadow2-hover);
+      background: var(--img-bg);
+      border-color: #a3bffa;
+      color: var(--text-hover);
+      transform: translateY(-2px) scale(1.025);
+    }
+    a:active {
+      background: var(--card-bg);
+      color: var(--text-active);
+      transform: scale(0.98);
+    }
+    img {
+      width: 24px;
+      height: 24px;
+      margin-right: 12px;
+      border-radius: 7px;
+      background: var(--img-bg);
+      border: 1px solid var(--card-border);
+      box-shadow: 0 1px 4px var(--card-shadow2);
+      flex-shrink: 0;
+    }
+    @media (max-width: 900px) {
+      ul { gap: 10px; }
+      li { min-width: 160px; max-width: 99vw; }
+      a { font-size: 14px; padding: 8px 10px; }
+      img { width: 20px; height: 20px; margin-right: 8px; }
+      .container {
+        padding: 0 6px;
+      }
+      .theme-toggle-container {
+        right: 8px;
+        top: 8px;
+      }
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+    .star {
+      color: #ffc107;
+      font-size: 18px;
+      margin-right: 7px;
+      animation: star-glow 1.5s infinite alternate;
+      vertical-align: middle;
+      cursor: pointer;
+      user-select: none;
+      transition: filter 0.2s;
+    }
+    @keyframes star-glow {
+      from { filter: drop-shadow(0 0 0px #ffd700); }
+      to   { filter: drop-shadow(0 0 7px #ffd700); }
+    }
+    .theme-toggle-container {
+      position: fixed;
+      top: 18px;
+      right: 28px;
+      z-index: 100;
+    }
+    #theme-toggle {
+      background: var(--card-bg);
+      color: var(--text);
+      border: 1.5px solid var(--card-border);
+      border-radius: 22px;
+      padding: 7px 18px;
+      font-size: 15px;
+      font-weight: 500;
+      box-shadow: 0 2px 12px 0 var(--card-shadow), 0 1.5px 4px 0 var(--card-shadow2);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+    }
+    #theme-toggle:hover {
+      background: var(--card-bg);
+      color: var(--text-hover);
+      border-color: #a3bffa;
+    }
+    .author-bar, .author-link, .author-avatar, .author-username, .author-ghlogo { display: none !important; }
+    .author-fab {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 9999;
+      background: rgba(255,255,255,0.82);
+      box-shadow: 0 4px 24px 0 #0002, 0 1.5px 4px 0 #0001;
+      border-radius: 18px;
+      padding: 5px 16px 5px 7px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+      border: 1.2px solid var(--card-border);
+      backdrop-filter: blur(6px);
+    }
+    .dark .author-fab {
+      background: rgba(30,34,40,0.88);
+      border-color: #2d3440;
+    }
+    .author-fab-link {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.18s;
+    }
+    .author-fab-avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid var(--card-border);
+      background: #fff;
+      object-fit: cover;
+    }
+    .author-fab-username {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.1px;
+      margin-left: 4px;
+    }
+    .author-fab-ghlogo {
+      width: 16px;
+      height: 16px;
+      margin-left: 2px;
+      opacity: 0.85;
+    }
+    .dark .author-fab-ghlogo {
+      filter: invert(1);
+    }
+    .author-fab:hover {
+      transform: scale(1.07) translateY(-2px);
+      box-shadow: 0 8px 32px 0 #0003, 0 2.5px 8px 0 #0002;
+      background: rgba(255,255,255,0.96);
+    }
+    .dark .author-fab:hover {
+      background: rgba(30,34,40,0.98);
+    }
+    @media (max-width: 900px) {
+      .author-fab {
+        right: 8px;
+        bottom: 8px;
+        padding: 3px 8px 3px 3px;
+      }
+      .author-fab-link { font-size: 13px; }
+      .author-fab-avatar { width: 18px; height: 18px; }
+      .author-fab-ghlogo { width: 13px; height: 13px; }
+      .author-fab-username { font-size: 13px; }
+    }
+    .author-fab-ghlogo-light { display: inline; }
+    .author-fab-ghlogo-dark { display: none; }
+    .dark .author-fab-ghlogo-light { display: none; }
+    .dark .author-fab-ghlogo-dark { display: inline; filter: none; }
+    /* Modern Tooltip - Gelişmiş */
+    a[data-tooltip] {
+      position: relative;
+    }
+    a[data-tooltip]:hover:after, a[data-tooltip]:focus:after {
+      min-width: 240px;
+      max-width: 340px;
+      text-align: center;
+      line-height: 1.7;
+      padding: 32px 28px 16px 28px;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    a[data-tooltip]:hover img[data-tooltip-logo],
+    a[data-tooltip]:focus img[data-tooltip-logo] {
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: calc(130% + 8px);
+      transform: translateX(-50%);
+      width: 28px;
+      height: 28px;
+      z-index: 10000;
+      box-shadow: 0 2px 8px #0001;
+      border-radius: 7px;
+      border: 1.5px solid #fff8;
+      background: #fff;
+      pointer-events: none;
+      transition: box-shadow 0.18s, transform 0.18s;
+    }
+    img[data-tooltip-logo] {
+      display: none;
+    }
+    @media (max-width: 900px) {
+      a[data-tooltip]:hover:after, a[data-tooltip]:focus:after {
+        min-width: 140px;
+        max-width: 90vw;
+        padding: 20px 10px 8px 10px;
+        font-size: 11px;
+      }
+      a[data-tooltip]:hover img[data-tooltip-logo],
+      a[data-tooltip]:focus img[data-tooltip-logo] {
+        width: 20px;
+        height: 20px;
+        bottom: calc(130% + 2px);
+      }
+    }
+    .dark a[data-tooltip]:hover:after {
+      background: linear-gradient(135deg, var(--card-bg) 80%, #23272f 100%);
+      color: var(--text);
+      border-color: #ffd600;
+    }
+    .custom-tooltip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 50%;
+      bottom: 120%;
+      transform: translateX(-50%);
+      min-width: 140px;
+      max-width: 220px;
+      background: linear-gradient(135deg, var(--card-bg) 80%, #e3e9f7 100%);
+      color: var(--text);
+      padding: 12px 14px 8px 14px;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px 0 #0003, 0 2.5px 8px 0 #0002;
+      border: 2px solid #a3bffa;
+      font-size: 11px;
+      font-weight: 500;
+      text-align: center;
+      line-height: 1.5;
+      z-index: 9999;
+      letter-spacing: 0.01em;
+      white-space: pre-line;
+      pointer-events: none;
+      transition: opacity 0.18s cubic-bezier(.4,1.6,.6,1), transform 0.18s cubic-bezier(.4,1.6,.6,1);
+      opacity: 0;
+    }
+    a:hover .custom-tooltip, a:focus .custom-tooltip {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .custom-tooltip img {
+      width: 18px;
+      height: 18px;
+      margin-bottom: 6px;
+      border-radius: 5px;
+      box-shadow: 0 1px 4px #0001;
+      border: 1px solid #fff8;
+      background: #fff;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: 900px) {
+      .custom-tooltip {
+        min-width: 90px;
+        max-width: 80vw;
+        padding: 7px 6px 5px 6px;
+        font-size: 10px;
+        border-radius: 8px;
+      }
+      .custom-tooltip img {
+        width: 13px;
+        height: 13px;
+        margin-bottom: 3px;
+      }
+    }
+    .dark .custom-tooltip {
+      background: linear-gradient(135deg, var(--card-bg) 80%, #23272f 100%);
+      color: var(--text);
+      border-color: #ffd600;
+    }
+  </style>
+</head>
+<body>
+  <div class="author-fab">
+    <a href="https://github.com/byGOG" target="_blank" class="author-fab-link" title="byGOG GitHub Profili">
+      <img src="https://avatars.githubusercontent.com/u/8117821?v=4" alt="byGOG avatar" class="author-fab-avatar">
+      <span class="author-fab-username">@byGOG</span>
+      <img src="https://github.githubassets.com/favicons/favicon.svg" alt="GitHub" class="author-fab-ghlogo author-fab-ghlogo-light">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" class="author-fab-ghlogo author-fab-ghlogo-dark">
+    </a>
+  </div>
+  <div class="theme-toggle-container">
+    <button id="theme-toggle" aria-label="Tema Değiştir">🌙 Dark</button>
+  </div>
+  <div class="container">
+    <h2>Sistem Araçları</h2>
+    <h3>Sistem Bilgisi & İzleme</h3>
+    <ul>
+      <li><a href="https://www.hwinfo.com/" target="_blank">
+        <img src="https://www.hwinfo.com/favicon.ico">
+        HWiNFO
+        <span class="custom-tooltip"><img src="https://www.hwinfo.com/favicon.ico">Donanım izleme ve detaylı sistem bilgisi</span>
+      </a></li>
+      <li><a href="https://github.com/lptstr/winfetch" target="_blank">
+        <img src="https://github.com/favicon.ico">
+        Winfetch
+        <span class="custom-tooltip"><img src="https://github.com/favicon.ico">Terminalde sistem bilgisi görselleştirme</span>
+      </a></li>
+      <li><a href="https://learn.microsoft.com/tr-tr/sysinternals/downloads/sysinternals-suite" target="_blank">
+        <img src="https://learn.microsoft.com/favicon.ico">
+        Sysinternals
+        <span class="custom-tooltip"><img src="https://learn.microsoft.com/favicon.ico">Gelişmiş Windows sistem araçları paketi</span>
+      </a></li>
+    </ul>
+    <h3>Optimizasyon & Temizlik</h3>
+    <ul>
+      <li><a href="https://www.bleachbit.org/" target="_blank">
+        <img src="https://www.bleachbit.org/favicon.ico">
+        BleachBit
+        <span class="custom-tooltip"><img src="https://www.bleachbit.org/favicon.ico">Sistem temizliği ve gereksiz dosya silme</span>
+      </a></li>
+      <li><a href="https://www.bcuninstaller.com/" target="_blank">
+        <img src="https://www.bcuninstaller.com/assets/favicon-96x96.png">
+        BCUninstaller
+        <span class="custom-tooltip"><img src="https://www.bcuninstaller.com/assets/favicon-96x96.png">Toplu program kaldırıcı ve temizleyici</span>
+      </a></li>
+      <li><a href="https://github.com/undergroundwires/privacy.sexy" target="_blank">
+        <img src="https://github.com/favicon.ico">
+        Privacy.sexy
+        <span class="custom-tooltip"><img src="https://github.com/favicon.ico">Gizlilik ve güvenlik ayarlarını otomatikleştirir</span>
+      </a></li>
+      <li><a href="https://sandboxie-plus.com/" target="_blank">
+        <img src="https://raw.githubusercontent.com/sandboxie-plus/Sandboxie/refs/heads/master/Sandboxie/apps/res/start-icon.ico">
+        Sandboxie Plus
+        <span class="custom-tooltip"><img src="https://raw.githubusercontent.com/sandboxie-plus/Sandboxie/refs/heads/master/Sandboxie/apps/res/start-icon.ico">Uygulamaları izole ortamda çalıştırma</span>
+      </a></li>
+      <li><a href="https://massgrave.dev/" target="_blank">
+        <span class="star" title="Önerilen">★</span>
+        <img src="https://massgrave.dev/img/favicon.ico">
+        Massgrave.dev
+        <span class="custom-tooltip"><img src="https://massgrave.dev/img/favicon.ico">Windows ve Office etkinleştirme araçları</span>
+      </a></li>
+      <li><a href="https://github.com/ionuttbara/windows-defender-remover" target="_blank">
+        <img src="https://github.com/favicon.ico">
+        Windows Defender Remover
+        <span class="custom-tooltip"><img src="https://github.com/favicon.ico">Windows Defender'ı sistemden kaldırır</span>
+      </a></li>
+    </ul>
+    <h3>Sürücü & Donanım</h3>
+    <ul>
+      <li><a href="https://github.com/lostindark/DriverStoreExplorer" target="_blank">
+        <img src="https://github.com/favicon.ico">
+        DriverStoreExplorer
+        <span class="custom-tooltip"><img src="https://github.com/favicon.ico">Windows sürücü deposunu yönetir ve temizler</span>
+      </a></li>
+      <li><a href="https://www.snappy-driver-installer.org/" target="_blank">
+        <span class="star" title="Önerilen">★</span>
+        <img src="https://sdi-tool.org/html/images/favicon.ico">
+        Snappy Driver Installer
+        <span class="custom-tooltip"><img src="https://sdi-tool.org/html/images/favicon.ico">Otomatik sürücü bulma ve güncelleme</span>
+      </a></li>
+      <li><a href="https://www.partitionwizard.com/" target="_blank">
+        <img src="https://www.partitionwizard.com/favicon.ico">
+        Partition Wizard
+        <span class="custom-tooltip"><img src="https://www.partitionwizard.com/favicon.ico">Disk bölümlendirme ve yönetim aracı</span>
+      </a></li>
+    </ul>
+
+    <h2>Kurulum & Paket Yöneticileri</h2>
+    <h3>Toplu Kurulum</h3>
+    <ul>
+      <li><a href="https://ninite.com/" target="_blank">
+        <span class="star" title="Önerilen">★</span>
+        <img src="https://ninite.com/static/favicon-50c60524c110e749f013a1ca48f80b80.png">
+        Ninite
+        <span class="custom-tooltip"><img src="https://ninite.com/static/favicon-50c60524c110e749f013a1ca48f80b80.png">Popüler programları toplu ve otomatik kurar</span>
+      </a></li>
+      <li><a href="https://www.quickinstaller.net/" target="_blank">
+        <img src="https://www.quickinstaller.net/favicon.ico">
+        QuickInstaller
+        <span class="custom-tooltip"><img src="https://www.quickinstaller.net/favicon.ico">Hızlı ve kolay yazılım kurulum platformu</span>
+      </a></li>
+      <li><a href="https://packagepicker.co/" target="_blank">
+        <img src="https://packagepicker.co/favicon.svg">
+        PackagePicker
+        <span class="custom-tooltip"><img src="https://packagepicker.co/favicon.svg">Toplu yazılım kurulum listeleri oluşturur</span>
+      </a></li>
+      <li><a href="https://winstall.app/" target="_blank">
+        <img src="https://winstall.app/favicon.ico">
+        Winstall.app
+        <span class="custom-tooltip"><img src="https://winstall.app/favicon.ico">Toplu winget komutları oluşturur</span>
+      </a></li>
+      <li><a href="https://winget.run/" target="_blank">
+        <img src="https://winget.run/favicon.ico">
+        WinGet.run
+        <span class="custom-tooltip"><img src="https://winget.run/favicon.ico">Winget paketlerini arar ve komut oluşturur</span>
+      </a></li>
+      <li><a href="https://chocolatey.org/" target="_blank">
+        <img src="https://chocolatey.org/favicon.ico">
+        Chocolatey
+        <span class="custom-tooltip"><img src="https://chocolatey.org/favicon.ico">Komut satırı ile yazılım kurulum yöneticisi</span>
+      </a></li>
+      <li><a href="https://scoop.sh/" target="_blank">
+        <img src="https://scoop.sh/favicon.ico">
+        Scoop
+        <span class="custom-tooltip"><img src="https://scoop.sh/favicon.ico">Komut satırı tabanlı yazılım paket yöneticisi</span>
+      </a></li>
+      <li><a href="https://ruckzuck.tools/" target="_blank">
+        <img src="https://ruckzuck.tools/favicon.ico">
+        RuckZuck
+        <span class="custom-tooltip"><img src="https://ruckzuck.tools/favicon.ico">Hızlı yazılım yükleme ve güncelleme aracı</span>
+      </a></li>
+      <li><a href="https://github.com/ChrisTitusTech/winutil" target="_blank">
+        <img src="https://github.com/favicon.ico">
+        Chris Titus Tech WinUtil
+        <span class="custom-tooltip"><img src="https://github.com/favicon.ico">Windows için toplu kurulum ve optimizasyon aracı</span>
+      </a></li>
+      <li><a href="https://os.click/en" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f5a5.svg">
+        OS.Click
+        <span class="custom-tooltip"><img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f5a5.svg">Farklı işletim sistemlerini indirme platformu</span>
+      </a></li>
+      <li><a href="https://www.marticliment.com/unigetui/" target="_blank">
+        <img src="https://raw.githubusercontent.com/marticliment/UniGetUI/refs/heads/main/media/Icon%20sizes/128.png">
+        UnigetUI
+        <span class="custom-tooltip"><img src="https://raw.githubusercontent.com/marticliment/UniGetUI/refs/heads/main/media/Icon%20sizes/128.png">Çoklu paket yöneticisi arayüzü</span>
+      </a></li>
+    </ul>
+    <h3>Windows/Office İndirme & Aktivasyon</h3>
+    <ul>
+      <li><a href="https://github.com/pbatard/Fido" target="_blank">
+        <img src="https://github.com/favicon.ico">
+        Fido
+        <span class="custom-tooltip"><img src="https://github.com/favicon.ico">Windows ve Office ISO dosyalarını kolayca indirme</span>
+      </a></li>
+      <li><a href="https://github.com/WindowsAddict/IDM-Activation-Script" target="_blank">
+        <img src="https://github.com/favicon.ico">
+        IDM Activation Script
+        <span class="custom-tooltip"><img src="https://github.com/favicon.ico">IDM için aktivasyon scripti</span>
+      </a></li>
+      <li><a href="https://rufus.ie/tr/" target="_blank">
+        <img src="https://rufus.ie/favicon.ico">
+        Rufus
+        <span class="custom-tooltip"><img src="https://rufus.ie/favicon.ico">USB'den kurulum medyası oluşturma</span>
+      </a></li>
+      <li><a href="https://www.microsoft.com/tr-tr/software-download/windows10" target="_blank">
+        <img src="https://www.microsoft.com/favicon.ico">
+        Windows 10 İndir
+        <span class="custom-tooltip"><img src="https://www.microsoft.com/favicon.ico">Orijinal Windows 10 ISO dosyası indir</span>
+      </a></li>
+      <li><a href="https://www.microsoft.com/tr-tr/software-download/windows11" target="_blank">
+        <img src="https://www.microsoft.com/favicon.ico">
+        Windows 11 İndir
+        <span class="custom-tooltip"><img src="https://www.microsoft.com/favicon.ico">Orijinal Windows 11 ISO dosyası indir</span>
+      </a></li>
+      <li><a href="https://atlasos.net/" target="_blank">
+        <img src="https://atlasos.net/favicon.ico">
+        AtlasOS
+        <span class="custom-tooltip"><img src="https://atlasos.net/favicon.ico">Optimize edilmiş Windows dağıtımı</span>
+      </a></li>
+      <li><a href="https://www.revi.cc/" target="_blank">
+        <img src="https://www.revi.cc/img/favicon.png">
+        ReviOS
+        <span class="custom-tooltip"><img src="https://www.revi.cc/img/favicon.png">Performans ve gizlilik odaklı Windows sürümü</span>
+      </a></li>
+    </ul>
+
+    <h2>Dosya & Disk Araçları</h2>
+    <h3>Sıkıştırma & Kopyalama</h3>
+    <ul>
+      <li><a href="https://www.7-zip.org/" target="_blank">
+        <img src="https://www.7-zip.org/favicon.ico">
+        7-Zip
+        <span class="custom-tooltip"><img src="https://www.7-zip.org/favicon.ico">Açık kaynaklı dosya sıkıştırma ve arşivleme</span>
+      </a></li>
+      <li><a href="https://www.rarlab.com/" target="_blank">
+        <img src="https://www.rarlab.com/favicon.ico">
+        WinRAR
+        <span class="custom-tooltip"><img src="https://www.rarlab.com/favicon.ico">Popüler dosya sıkıştırma ve arşivleme programı</span>
+      </a></li>
+      <li><a href="https://www.codesector.com/teracopy" target="_blank">
+        <img src="https://www.codesector.com/favicon.ico">
+        TeraCopy
+        <span class="custom-tooltip"><img src="https://www.codesector.com/favicon.ico">Hızlı ve güvenli dosya kopyalama aracı</span>
+      </a></li>
+    </ul>
+    <h3>Disk Analiz & Arama</h3>
+    <ul>
+      <li><a href="https://diskanalyzer.com/" target="_blank">
+        <img src="https://www.glenn.delahoy.com/wp-content/uploads/2018/08/logo-300x300.png">
+        WizTree
+        <span class="custom-tooltip"><img src="https://www.glenn.delahoy.com/wp-content/uploads/2018/08/logo-300x300.png">Diskte büyük dosyaları ve alan kullanımını analiz eder</span>
+      </a></li>
+      <li><a href="https://www.voidtools.com/tr-tr/" target="_blank">
+        <img src="https://www.voidtools.com/favicon.ico">
+        Everything
+        <span class="custom-tooltip"><img src="https://www.voidtools.com/favicon.ico">Windows için anında dosya ve klasör arama</span>
+      </a></li>
+    </ul>
+    <h3>Bulut & Yedekleme</h3>
+    <ul>
+      <li><a href="https://www.dropbox.com/" target="_blank">
+        <img src="https://fjord.dropboxstatic.com/warp/conversion/dropbox/warp/icons/Dropbox-logo-nav.svg" style="width:24px;height:24px;border-radius:7px;">
+        Dropbox
+        <span class="custom-tooltip"><img src="https://fjord.dropboxstatic.com/warp/conversion/dropbox/warp/icons/Dropbox-logo-nav.svg" style="width:18px;height:18px;border-radius:5px;">Dosya yedekleme ve bulut depolama hizmeti</span>
+      </a></li>
+      <li><a href="https://workspace.google.com/products/drive/" target="_blank">
+        <img src="https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png">
+        Google Drive
+        <span class="custom-tooltip"><img src="https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png">Google'ın bulut depolama ve dosya paylaşım servisi</span>
+      </a></li>
+      <li><a href="https://imageglass.org/" target="_blank">
+        <img src="https://imageglass.org/img/iglogo.svg" style="width:24px;height:24px;border-radius:7px;">
+        ImageGlass
+        <span class="custom-tooltip"><img src="https://imageglass.org/img/iglogo.svg" style="width:18px;height:18px;border-radius:5px;">Hafif ve modern resim görüntüleyici</span>
+      </a></li>
+      <li><a href="https://hluk.github.io/CopyQ/" target="_blank">
+        <img src="https://hluk.github.io/CopyQ/images/logo.png" style="width:24px;height:24px;border-radius:7px;">
+        CopyQ
+        <span class="custom-tooltip"><img src="https://hluk.github.io/CopyQ/images/logo.png" style="width:18px;height:18px;border-radius:5px;">Gelişmiş pano (clipboard) yöneticisi</span>
+      </a></li>
+      <li><a href="https://getsharex.com/" target="_blank">
+        <img src="https://getsharex.com/favicon.ico">
+        ShareX
+        <span class="custom-tooltip"><img src="https://getsharex.com/favicon.ico">Ekran görüntüsü alma ve paylaşma aracı</span>
+      </a></li>
+    </ul>
+
+    <h2>Ağ, VPN & Güvenlik</h2>
+    <h3>VPN & Proxy</h3>
+    <ul>
+      <li><a href="https://ublockorigin.com/" target="_blank">
+        <img src="https://ublockorigin.com/img/favicons/favicon.ico" style="width:24px;height:24px;border-radius:7px;">
+        uBlock Origin
+        <span class="custom-tooltip"><img src="https://ublockorigin.com/img/favicons/favicon.ico" style="width:18px;height:18px;border-radius:5px;">Gelişmiş, açık kaynaklı reklam ve içerik engelleyici</span>
+      </a></li>
+      <li><a href="https://protonvpn.com/" target="_blank">
+        <img src="https://protonvpn.com/favicon.ico">
+        ProtonVPN
+        <span class="custom-tooltip"><img src="https://protonvpn.com/favicon.ico">Güvenli ve hızlı VPN hizmeti</span>
+      </a></li>
+      <li><a href="https://openvpn.net/client/" target="_blank">
+        <img src="https://openvpn.net/favicon.ico">
+        OpenVPN
+        <span class="custom-tooltip"><img src="https://openvpn.net/favicon.ico">Açık kaynaklı VPN istemcisi</span>
+      </a></li>
+      <li><a href="https://antizapret.prostovpn.org/" target="_blank">
+        <img src="https://antizapret.prostovpn.org/img/unlock.png">
+        Antizapret
+        <span class="custom-tooltip"><img src="https://antizapret.prostovpn.org/img/unlock.png">Engelli sitelere erişim için VPN hizmeti</span>
+      </a></li>
+      <li><a href="https://github.com/ValdikSS/GoodbyeDPI" target="_blank">
+        <img src="https://github.com/favicon.ico">
+        GoodbyeDPI
+        <span class="custom-tooltip"><img src="https://github.com/favicon.ico">DPI tabanlı engellemeleri aşmak için araç</span>
+      </a></li>
+      <li><a href="https://github.com/cagritaskn/GoodbyeDPI-Turkey" target="_blank">
+        <img src="https://github.com/favicon.ico">
+        GoodbyeDPI-Turkey
+        <span class="custom-tooltip"><img src="https://github.com/favicon.ico">Türkiye için DPI engelini aşma aracı</span>
+      </a></li>
+    </ul>
+    <h3>Şifre & Gizlilik</h3>
+    <ul>
+      <li><a href="https://bitwarden.com/" target="_blank">
+        <img src="https://bitwarden.com/favicon.ico">
+        Bitwarden
+        <span class="custom-tooltip"><img src="https://bitwarden.com/favicon.ico">Açık kaynaklı şifre yöneticisi</span>
+      </a></li>
+      <li><a href="https://browserleaks.com/" target="_blank">
+        <img src="https://browserleaks.com/favicon.ico">
+        BrowserLeaks
+        <span class="custom-tooltip"><img src="https://browserleaks.com/favicon.ico">Tarayıcı gizliliği ve sızıntı testleri</span>
+      </a></li>
+    </ul>
+
+    <h2>Medya & Eğlence</h2>
+    <h3>Müzik & Video Oynatıcılar</h3>
+    <ul>
+      <li><a href="https://www.aimp.ru/" target="_blank">
+        <img src="https://www.aimp.ru/favicon.ico">
+        AIMP
+        <span class="custom-tooltip"><img src="https://www.aimp.ru/favicon.ico">Gelişmiş müzik çalar</span>
+      </a></li>
+      <li><a href="https://www.videolan.org/vlc/" target="_blank">
+        <img src="https://images.videolan.org/images/icons-VLC/vlc.mini.svg" style="width:24px;height:24px;border-radius:7px;">
+        VLC Media Player
+        <span class="custom-tooltip"><img src="https://images.videolan.org/images/icons-VLC/vlc.mini.svg" style="width:18px;height:18px;border-radius:5px;">Çok formatlı medya oynatıcı</span>
+      </a></li>
+      <li><a href="https://codecguide.com/" target="_blank">
+        <img src="https://codecguide.com/mpc_logo.png" style="width:24px;height:24px;border-radius:7px;">
+        Codec Guide
+        <span class="custom-tooltip"><img src="https://codecguide.com/mpc_logo.png" style="width:18px;height:18px;border-radius:5px;">K-Lite Codec Pack ile medya codec'leri</span>
+      </a></li>
+      <li><a href="https://www.stremio.com/" target="_blank">
+        <img src="https://www.stremio.com/website/stremio-purple-small.png" style="width:24px;height:24px;border-radius:7px;">
+        Stremio
+        <span class="custom-tooltip"><img src="https://www.stremio.com/website/stremio-purple-small.png" style="width:18px;height:18px;border-radius:5px;">Film ve dizi akış platformu</span>
+      </a></li>
+      <li><a href="https://inatflix.org/" target="_blank">
+        <img src="https://inatflix.org/favicon.ico">
+        iNatFlix
+        <span class="custom-tooltip"><img src="https://inatflix.org/favicon.ico">Dijital yayın ve film platformu</span>
+      </a></li>
+      <li><a href="https://tv.garden/" target="_blank">
+        <img src="https://tv.garden/favicon.ico">
+        tv.garden
+        <span class="custom-tooltip"><img src="https://tv.garden/favicon.ico">Çevrim içi TV ve yayın platformu</span>
+      </a></li>
+      <li><a href="https://open.spotify.com/" target="_blank">
+        <img src="https://open.spotify.com/favicon.ico">
+        Spotify
+        <span class="custom-tooltip"><img src="https://open.spotify.com/favicon.ico">Popüler müzik dinleme platformu</span>
+      </a></li>
+    </ul>
+    <h3>Dönüştürücüler & İndiriciler</h3>
+    <ul>
+      <li><a href="https://handbrake.fr/" target="_blank">
+        <img src="https://handbrake.fr/favicon.ico">
+        HandBrake
+        <span class="custom-tooltip"><img src="https://handbrake.fr/favicon.ico">Açık kaynaklı video dönüştürücü</span>
+      </a></li>
+      <li><a href="https://github.com/DJDoubleD/QobuzDownloaderX-MOD" target="_blank">
+        <img src="https://github.com/favicon.ico">
+        QobuzDownloaderX-MOD
+        <span class="custom-tooltip"><img src="https://github.com/favicon.ico">Qobuz müzik indirme aracı</span>
+      </a></li>
+      <li><a href="https://github.com/WilliamSchack/Spotify-Downloader" target="_blank">
+        <img src="https://github.com/favicon.ico">
+        Spotify-Downloader
+        <span class="custom-tooltip"><img src="https://github.com/favicon.ico">Spotify müziklerini indirme aracı</span>
+      </a></li>
+      <li><a href="https://github.com/SpotX-Official/SpotX" target="_blank">
+        <img src="https://github.com/favicon.ico">
+        SpotX
+        <span class="custom-tooltip"><img src="https://github.com/favicon.ico">Spotify için reklamsız deneyim aracı</span>
+      </a></li>
+    </ul>
+
+    <h2>Yazılım Geliştirme & Editörler</h2>
+    <h3>Editörler & IDE</h3>
+    <ul>
+      <li><a href="https://notepad-plus-plus.org/" target="_blank">
+        <img src="https://notepad-plus-plus.org/favicon.ico">
+        Notepad++
+        <span class="custom-tooltip"><img src="https://notepad-plus-plus.org/favicon.ico">Gelişmiş metin ve kod editörü</span>
+      </a></li>
+      <li><a href="https://code.visualstudio.com/" target="_blank">
+        <img src="https://code.visualstudio.com/favicon.ico">
+        Visual Studio Code
+        <span class="custom-tooltip"><img src="https://code.visualstudio.com/favicon.ico">Popüler kod editörü ve IDE</span>
+      </a></li>
+      <li><a href="https://winconfigs.netlify.app/" target="_blank">
+        <img src="https://winconfigs.netlify.app/Assets/logo.png" style="width:24px;height:24px;border-radius:7px;">
+        WinConfigs
+        <span class="custom-tooltip"><img src="https://winconfigs.netlify.app/Assets/logo.png" style="width:18px;height:18px;border-radius:5px;">Windows yapılandırma dosyaları arşivi</span>
+      </a></li>
+      <li><a href="https://cmder.app/" target="_blank">
+        <img src="https://cmder.app/favicon.ico">
+        Cmder
+        <span class="custom-tooltip"><img src="https://cmder.app/favicon.ico">Gelişmiş Windows terminali</span>
+      </a></li>
+    </ul>
+    <h3>Programlama & Script</h3>
+    <ul>
+      <li><a href="https://www.java.com/tr/" target="_blank">
+        <img src="https://www.java.com/favicon.ico">
+        Java
+        <span class="custom-tooltip"><img src="https://www.java.com/favicon.ico">Java programlama dili ve çalışma zamanı</span>
+      </a></li>
+      <li><a href="https://zenprivacy.net/" target="_blank">
+        <img src="https://zenprivacy.net/favicon.ico">
+        ZenPrivacy
+        <span class="custom-tooltip"><img src="https://zenprivacy.net/favicon.ico">Gizlilik ve güvenlik araçları platformu</span>
+      </a></li>
+    </ul>
+
+    <h2>Yapay Zekâ & Asistanlar</h2>
+    <ul>
+      <li><a href="https://chatgpt.com/" target="_blank">
+        <img src="https://chatgpt.com/favicon.ico">
+        ChatGPT
+        <span class="custom-tooltip"><img src="https://chatgpt.com/favicon.ico">OpenAI ChatGPT ile yapay zekâ sohbeti</span>
+      </a></li>
+      <li><a href="https://claude.ai/" target="_blank">
+        <img src="https://claude.ai/favicon.ico">
+        Claude AI
+        <span class="custom-tooltip"><img src="https://claude.ai/favicon.ico">Claude AI ile yapay zekâ sohbeti</span>
+      </a></li>
+      <li><a href="https://copilot.microsoft.com/" target="_blank">
+        <img src="https://copilot.microsoft.com/favicon.ico">
+        Copilot
+        <span class="custom-tooltip"><img src="https://copilot.microsoft.com/favicon.ico">Microsoft Copilot ile yapay zekâ asistanı</span>
+      </a></li>
+      <li><a href="https://gemini.google.com/" target="_blank">
+        <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg">
+        Gemini
+        <span class="custom-tooltip"><img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg">Google Gemini ile yapay zekâ sohbeti</span>
+      </a></li>
+      <li><a href="https://www.perplexity.ai/" target="_blank">
+        <img src="https://www.perplexity.ai/favicon.ico">
+        Perplexity AI
+        <span class="custom-tooltip"><img src="https://www.perplexity.ai/favicon.ico">Perplexity AI ile yapay zekâ arama ve sohbet</span>
+      </a></li>
+    </ul>
+
+    <h2>Uzaktan Erişim & Destek</h2>
+    <ul>
+      <li><a href="https://anydesk.com/tr" target="_blank">
+        <img src="https://anydesk.com/favicon.ico">
+        AnyDesk
+        <span class="custom-tooltip"><img src="https://anydesk.com/favicon.ico">Uzaktan masaüstü erişim ve destek</span>
+      </a></li>
+      <li><a href="https://rustdesk.com/" target="_blank">
+        <img src="https://rustdesk.com/_astro/favicon.B_ZzjaxD.svg" style="width:24px;height:24px;border-radius:7px;">
+        RustDesk
+        <span class="custom-tooltip"><img src="https://rustdesk.com/_astro/favicon.B_ZzjaxD.svg" style="width:18px;height:18px;border-radius:5px;">Açık kaynaklı uzaktan masaüstü erişimi</span>
+      </a></li>
+      <li><a href="https://www.teamviewer.com/tr/" target="_blank">
+        <img src="https://www.teamviewer.com/favicon.ico">
+        TeamViewer
+        <span class="custom-tooltip"><img src="https://www.teamviewer.com/favicon.ico">Popüler uzaktan destek ve erişim aracı</span>
+      </a></li>
+    </ul>
+
+    <h2>Web Tarayıcıları</h2>
+    <ul>
+      <li><a href="https://brave.com/tr/" target="_blank">
+        <img src="https://brave.com/favicon.ico">
+        Brave
+        <span class="custom-tooltip"><img src="https://brave.com/favicon.ico">Gizlilik odaklı hızlı web tarayıcı</span>
+      </a></li>
+      <li><a href="https://www.google.com/chrome/" target="_blank">
+        <img src="https://www.google.com/chrome/static/images/favicons/favicon.ico">
+        Google Chrome
+        <span class="custom-tooltip"><img src="https://www.google.com/chrome/static/images/favicons/favicon.ico">Google'ın hızlı ve popüler web tarayıcısı</span>
+      </a></li>
+      <li><a href="https://www.mozilla.org/tr/firefox/new/" target="_blank">
+        <img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" style="width:24px;height:24px;border-radius:7px;">
+        Mozilla Firefox
+        <span class="custom-tooltip"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" style="width:18px;height:18px;border-radius:5px;">Açık kaynaklı web tarayıcı</span>
+      </a></li>
+      <li><a href="https://zen-browser.app/" target="_blank">
+        <img src="https://zen-browser.app/favicon.ico">
+        Zen Browser
+        <span class="custom-tooltip"><img src="https://zen-browser.app/favicon.ico">Güvenli ve hızlı web tarayıcı</span>
+      </a></li>
+      <li><a href="https://github.com/dessant/buster" target="_blank">
+        <img src="https://github.com/favicon.ico">
+        Buster (Captcha Solver)
+        <span class="custom-tooltip"><img src="https://github.com/favicon.ico">reCAPTCHA sesli doğrulama çözücü eklentisi</span>
+      </a></li>
+      <li><a href="https://sponsor.ajay.app/" target="_blank">
+        <img src="https://sponsor.ajay.app/LogoSponsorBlockSimple256px.png" style="width:24px;height:24px;border-radius:7px;">
+        SponsorBlock
+        <span class="custom-tooltip"><img src="https://sponsor.ajay.app/LogoSponsorBlockSimple256px.png" style="width:18px;height:18px;border-radius:5px;">YouTube sponsor ve gereksiz bölümleri otomatik atlayan eklenti</span>
+      </a></li>
+    </ul>
+
+    <h2>Oyun & Topluluk</h2>
+    <h3>Oyun Platformları</h3>
+    <ul>
+      <li><a href="https://store.steampowered.com/" target="_blank">
+        <img src="https://store.steampowered.com/favicon.ico">
+        Steam
+        <span class="custom-tooltip"><img src="https://store.steampowered.com/favicon.ico">Dijital oyun mağazası ve platformu</span>
+      </a></li>
+    </ul>
+    <h3>Sohbet & Topluluk</h3>
+    <ul>
+      <li><a href="https://discord.com/" target="_blank">
+        <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/6286368c5f5cc306ac2a4672_Jobs%20and%20Career%20Opportunities%20at%20Discord-2%201.svg" style="width:24px;height:24px;border-radius:7px;">
+        Discord
+        <span class="custom-tooltip"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/6286368c5f5cc306ac2a4672_Jobs%20and%20Career%20Opportunities%20at%20Discord-2%201.svg" style="width:18px;height:18px;border-radius:5px;">Topluluk ve oyun odaklı sohbet platformu</span>
+      </a></li>
+      <li><a href="https://telegram.org/" target="_blank">
+        <img src="https://telegram.org/favicon.ico">
+        Telegram
+        <span class="custom-tooltip"><img src="https://telegram.org/favicon.ico">Güvenli ve hızlı mesajlaşma uygulaması</span>
+      </a></li>
+    </ul>
+    <h2>Taşınabilir Uygulama Platformları</h2>
+    <ul>
+      <li><a href="https://portableappz.blogspot.com/" target="_blank">
+        <img src="https://www.blogger.com/favicon.ico" style="width:24px;height:24px;border-radius:7px;">
+        PortableAppZ
+        <span class="custom-tooltip"><img src="https://www.blogger.com/favicon.ico" style="width:18px;height:18px;border-radius:5px;">Taşınabilir (portable) yazılım arşivi ve blogu</span>
+      </a></li>
+      <li><a href="https://portableapps.com/" target="_blank">
+        <img src="https://portableapps.com/sites/all/themes/responsive_bartik_pac/favicon.ico" style="width:24px;height:24px;border-radius:7px;">
+        PortableApps
+        <span class="custom-tooltip"><img src="https://portableapps.com/sites/all/themes/responsive_bartik_pac/favicon.ico" style="width:18px;height:18px;border-radius:5px;">En popüler taşınabilir uygulama platformu</span>
+      </a></li>
+      <li><a href="https://portapps.io/" target="_blank">
+        <img src="https://portapps.io/img/logo.png" style="width:24px;height:24px;border-radius:7px;">
+        Portapps.io
+        <span class="custom-tooltip"><img src="https://portapps.io/img/logo.png" style="width:18px;height:18px;border-radius:5px;">Açık kaynak taşınabilir uygulama koleksiyonu</span>
+      </a></li>
+    </ul>
+  </div>
+  <script>
+    const btn = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        root.classList.add('dark');
+        btn.textContent = '☀️ Light';
+      } else {
+        root.classList.remove('dark');
+        btn.textContent = '🌙 Dark';
+      }
+      localStorage.setItem('theme', theme);
+    }
+    btn.onclick = () => {
+      const isDark = root.classList.contains('dark');
+      setTheme(isDark ? 'light' : 'dark');
+    };
+    // İlk yüklemede localStorage'dan tema oku
+    const saved = localStorage.getItem('theme');
+    if (saved === 'dark') setTheme('dark');
+    else setTheme('light');
+  </script>
+</body>
+</html>
