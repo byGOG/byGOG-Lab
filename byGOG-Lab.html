@@ -51,35 +51,48 @@
     h2 {
       font-family: 'Tektur', 'Segoe UI', 'Roboto', Arial, sans-serif;
       color: var(--h2);
-      font-size: 20px;
-      margin-top: 36px;
-      margin-bottom: 10px;
+      font-size: 22px;
+      margin-top: 48px;
+      margin-bottom: 0px;
       letter-spacing: 0.5px;
+      border-bottom: 2.5px solid #a3bffa;
+      padding-bottom: 7px;
+      background: none;
     }
     ul {
       list-style: none;
       padding: 0;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 18px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
       margin-bottom: 0;
+      margin-top: 32px;
+      justify-items: center;
+    }
+    @media (max-width: 1200px) {
+      ul { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 700px) {
+      ul { grid-template-columns: 1fr; }
     }
     li {
       margin: 0;
-      min-width: 210px;
-      flex: 1 1 220px;
-      max-width: 270px;
+      min-width: 220px;
+      flex: 1 1 240px;
+      max-width: 320px;
       display: flex;
+      justify-content: center;
+      align-items: center;
     }
     a {
       display: flex;
       align-items: center;
+      justify-content: center;
       text-decoration: none;
       color: var(--text);
       background: var(--card-bg);
-      padding: 10px 16px;
-      border-radius: 14px;
+      padding: 10px 14px;
+      border-radius: 12px;
       box-shadow: 0 2px 12px 0 var(--card-shadow), 0 1.5px 4px 0 var(--card-shadow2);
       transition: box-shadow 0.18s, background 0.18s, transform 0.13s, color 0.18s;
       font-size: 15px;
@@ -88,6 +101,7 @@
       width: 100%;
       border: 1.5px solid var(--card-border);
       position: relative;
+      margin: 0;
     }
     a:hover {
       box-shadow: 0 6px 24px 0 var(--card-shadow-hover), 0 2.5px 8px 0 var(--card-shadow2-hover);
@@ -112,9 +126,9 @@
       flex-shrink: 0;
     }
     @media (max-width: 900px) {
-      ul { gap: 10px; }
-      li { min-width: 160px; max-width: 99vw; }
-      a { font-size: 14px; padding: 8px 10px; }
+      ul { gap: 6px; margin-top: 18px; }
+      li { min-width: 90vw; max-width: 99vw; }
+      a { font-size: 14px; padding: 8px 8px; margin: 0; }
       img { width: 20px; height: 20px; margin-right: 8px; }
       .container {
         padding: 0 6px;
@@ -125,9 +139,9 @@
       }
     }
     .container {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 24px 48px 0 48px;
       box-sizing: border-box;
     }
     .star {
@@ -227,17 +241,7 @@
       font-weight: 700;
       letter-spacing: 0.2px;
       margin-left: 10px;
-      background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .dark .author-fab-username {
-      background: linear-gradient(135deg, #f7fafc 0%, #e2e8f0 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
     .author-fab-ghlogo {
       width: 16px;
@@ -557,6 +561,7 @@
     <h2>Dosya & Disk Yönetimi</h2>
     <ul>
       <li><a href="https://www.7-zip.org/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/refs/heads/main/svg/7zip.svg">7-Zip<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/refs/heads/main/svg/7zip.svg">Açık kaynaklı dosya sıkıştırma ve arşivleme</span></a></li>
+      <li><a href="https://github.com/M2Team/NanaZip" target="_blank"><img src="https://github.com/favicon.ico" alt="NanaZip">NanaZip<span class="custom-tooltip"><img src="https://github.com/favicon.ico" alt="NanaZip">Modern Windows için 7-Zip tabanlı, açık kaynaklı dosya sıkıştırma ve arşivleme programı. MSIX paket, yeni arayüz ve gelişmiş entegrasyon.</span></a></li>
       <li><a href="https://www.codesector.com/teracopy" target="_blank"><img src="https://www.codesector.com/favicon.ico">TeraCopy<span class="custom-tooltip"><img src="https://www.codesector.com/favicon.ico">Hızlı ve güvenli dosya kopyalama aracı</span></a></li>
       <li><a href="https://www.rarlab.com/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/refs/heads/main/svg/winrar.svg">WinRAR<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/refs/heads/main/svg/winrar.svg">Popüler dosya sıkıştırma ve arşivleme programı</span></a></li>
       <li><a href="https://code.kliu.org/hashcheck/" target="_blank"><img src="https://code.kliu.org/favicon.ico" alt="HashCheck">HashCheck Shell Extension<span class="custom-tooltip"><img src="https://code.kliu.org/favicon.ico" alt="HashCheck">Windows Gezgini'ne entegre, hızlı ve açık kaynaklı dosya bütünlüğü (hash) kontrol aracı</span></a></li>
@@ -639,12 +644,13 @@
     <h2>Android Modlu Uygulamalar</h2>
     <ul>
       <li><a href="https://vancedapp.com/" target="_blank"><img src="https://vancedapp.com/favicon.ico" alt="VancedApp" style="width:24px;height:24px;">VancedApp<span class="custom-tooltip"><img src="https://vancedapp.com/favicon.ico" alt="VancedApp" style="width:18px;height:18px;">YouTube Vanced ve benzeri modlu Android uygulamaları</span></a></li>
-      <li><a href="https://github.com/Team-xManager/xManager" target="_blank"><img src="https://github.githubassets.com/favicons/favicon.svg" alt="xManager" style="width:24px;height:24px;">xManager<span class="custom-tooltip"><img src="https://github.githubassets.com/favicons/favicon.svg" alt="xManager" style="width:18px;height:18px;">Spotify için reklamsız ve gelişmiş Android uygulama yöneticisi</span></a></li>
+      <li><a href="https://www.xmanagerapp.com/" target="_blank"><img src="https://github.githubassets.com/favicons/favicon.svg" alt="xManager" style="width:24px;height:24px;">xManager<span class="custom-tooltip"><img src="https://github.githubassets.com/favicons/favicon.svg" alt="xManager" style="width:18px;height:18px;">Spotify için reklamsız ve gelişmiş Android uygulama yöneticisi</span></a></li>
     </ul>
 
     <h2>Yazılım Geliştirme Araçları</h2>
     <ul>
       <li><a href="https://cmder.app/" target="_blank"><img src="https://cmder.app/favicon.ico">Cmder<span class="custom-tooltip"><img src="https://cmder.app/favicon.ico">Gelişmiş Windows terminali</span></a></li>
+      <li><a href="https://www.virtualbox.org/" target="_blank"><img src="https://www.virtualbox.org/favicon.ico" alt="VirtualBox">VirtualBox<span class="custom-tooltip"><img src="https://www.virtualbox.org/favicon.ico" alt="VirtualBox">Güçlü, açık kaynaklı sanallaştırma yazılımı. Windows, Linux, macOS ve diğer platformlarda sanal makine çalıştırmak için kullanılır.</span></a></li>
       <li><a href="https://code.visualstudio.com/" target="_blank"><img src="https://code.visualstudio.com/favicon.ico">Visual Studio Code<span class="custom-tooltip"><img src="https://code.visualstudio.com/favicon.ico">Popüler kod editörü ve IDE</span></a></li>
       <li><a href="https://notepad-plus-plus.org/" target="_blank"><img src="https://notepad-plus-plus.org/favicon.ico">Notepad++<span class="custom-tooltip"><img src="https://notepad-plus-plus.org/favicon.ico">Gelişmiş metin ve kod editörü</span></a></li>
       <li><a href="https://cursor.com/" target="_blank"><img src="https://cursor.com/favicon.ico" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">Cursor<span class="custom-tooltip"><img src="https://cursor.com/favicon.ico" style="width:18px;height:18px;vertical-align:middle;">Yapay zekâ destekli modern kod editörü. Kod tamamlama, doğal dil ile düzenleme ve gelişmiş üretkenlik özellikleri sunar.</span></a></li>
