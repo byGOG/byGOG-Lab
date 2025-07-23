@@ -280,60 +280,6 @@
     .koyu .author-fab-ghlogo-light { display: none; }
     .koyu .author-fab-ghlogo-dark { display: inline; filter: none; }
     /* Modern Tooltip - Gelişmiş */
-    a[data-tooltip] {
-      position: relative;
-    }
-    a[data-tooltip]:hover:after, a[data-tooltip]:focus:after {
-      min-width: 240px;
-      max-width: 340px;
-      text-align: center;
-      line-height: 1.7;
-      padding: 32px 28px 16px 28px;
-      font-size: 12px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    a[data-tooltip]:hover img[data-tooltip-logo],
-    a[data-tooltip]:focus img[data-tooltip-logo] {
-      display: block;
-      position: absolute;
-      left: 50%;
-      bottom: calc(130% + 8px);
-      transform: translateX(-50%);
-      width: 28px;
-      height: 28px;
-      z-index: 10000;
-      box-shadow: 0 2px 8px #0001;
-      border-radius: 7px;
-      border: 1.5px solid #fff8;
-      background: #fff;
-      pointer-events: none;
-      transition: box-shadow 0.18s, transform 0.18s;
-    }
-    img[data-tooltip-logo] {
-      display: none;
-    }
-    @media (max-width: 900px) {
-      a[data-tooltip]:hover:after, a[data-tooltip]:focus:after {
-        min-width: 140px;
-        max-width: 90vw;
-        padding: 20px 10px 8px 10px;
-        font-size: 11px;
-      }
-      a[data-tooltip]:hover img[data-tooltip-logo],
-      a[data-tooltip]:focus img[data-tooltip-logo] {
-        width: 20px;
-        height: 20px;
-        bottom: calc(130% + 2px);
-      }
-    }
-    .koyu a[data-tooltip]:hover:after {
-      background: linear-gradient(135deg, var(--card-bg) 80%, #23272f 100%);
-      color: var(--text);
-      border-color: #ffd600;
-    }
     .custom-tooltip {
       display: flex;
       flex-direction: column;
