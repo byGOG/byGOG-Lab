@@ -7,4 +7,4 @@
 ## 🚀 Hızlı Başlangıç (Windows)
 
 ```powershell
-"start https://raw.githack.com/byGOG/byGOG-Lab/main/byGOG-Lab.html"
+start https://raw.githack.com/byGOG/byGOG-Lab/main/byGOG-Lab.html
