@@ -138,6 +138,13 @@
         right: 8px;
         top: 8px;
       }
+      .search-container {
+        margin-bottom: 24px;
+      }
+      #search-input {
+        padding: 12px 16px;
+        font-size: 14px;
+      }
     }
     .container {
       max-width: 1300px;
@@ -145,6 +152,29 @@
       padding: 24px 48px 0 48px;
       box-sizing: border-box;
     }
+    .search-container {
+      margin-bottom: 32px;
+      margin-top: 0;
+    }
+    #search-input {
+      width: 100%;
+      padding: 14px 20px;
+      font-size: 16px;
+      font-family: 'Tektur', 'Segoe UI', sans-serif;
+      color: var(--text);
+      background-color: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px 0 var(--card-shadow), 0 1.5px 4px 0 var(--card-shadow2);
+      box-sizing: border-box;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    #search-input:focus {
+      outline: none;
+      border-color: #a3bffa;
+      box-shadow: 0 4px 18px 0 var(--card-shadow-hover), 0 2.5px 8px 0 var(--card-shadow2-hover);
+    }
+    .koyu #search-input:focus { border-color: #ffd600; }
     .star {
       color: #ffc107;
       font-size: 18px;
@@ -391,6 +421,9 @@
     <button id="theme-toggle" aria-label="Tema Değiştir">🌙</button>
   </div>
   <div class="container">
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Araçları, siteleri ve linkleri ara...">
+    </div>
     <div class="category-card">
       <h2>⭐ Önerilenler</h2>
       <ul>
@@ -499,6 +532,12 @@
       </ul>
     </div>
     <div class="category-card">
+      <h2>Masaüstü Özelleştirme & Arayüz Araçları</h2>
+      <ul>
+        <li><a href="https://www.rocksdanister.com/lively/" target="_blank"><img src="https://www.rocksdanister.com/lively/favicon.ico" alt="Lively Wallpaper">Lively Wallpaper<span class="custom-tooltip"><img src="https://www.rocksdanister.com/lively/favicon.ico" alt="Lively Wallpaper">Hareketli ve interaktif masaüstü duvar kağıtları</span></a></li>
+      </ul>
+    </div>
+    <div class="category-card">
       <h2>Sürücü & Donanım</h2>
       <ul>
         <li><a href="https://www.snappy-driver-installer.org/" target="_blank"><span class="star" title="Önerilen">★</span><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Snappy.png" alt="Snappy Driver Installer">Snappy Driver Installer Origin<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Snappy.png" alt="Snappy Driver Installer">Otomatik sürücü bulma ve güncelleme</span></a></li>
@@ -536,7 +575,7 @@
       </ul>
     </div>
     <div class="category-card">
-      <h2>Windows İndirme & Kurulum</h2>
+      <h2>Windows İndirme & Kurulum</h2> 
       <ul>
         <li><a href="https://www.microsoft.com/tr-tr/software-download/windows10" target="_blank"><img src="https://www.microsoft.com/favicon.ico">Windows 10 İndir<span class="custom-tooltip"><img src="https://www.microsoft.com/favicon.ico">Orijinal Windows 10 ISO dosyası indir</span></a></li>
         <li><a href="https://www.microsoft.com/tr-tr/software-download/windows11" target="_blank"><img src="https://www.microsoft.com/favicon.ico">Windows 11 İndir<span class="custom-tooltip"><img src="https://www.microsoft.com/favicon.ico">Orijinal Windows 11 ISO dosyası indir</span></a></li>
@@ -556,7 +595,8 @@
       <ul>
         <li><a href="https://otp.landian.vip/en-us/" target="_blank"><span class="star" title="Önerilen">★</span><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/OfficeToolPlus.png" alt="Office Tool Plus">Office Tool Plus<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/OfficeToolPlus.png">Microsoft Office dağıtımı, kurulumu ve yönetimi için gelişmiş araç</span></a></li>
         <li><a href="https://massgrave.dev/" target="_blank"><span class="star" title="Önerilen">★</span><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/massgrave.png" alt="Massgrave.dev">Massgrave.dev<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/massgrave.png">Windows ve Office etkinleştirme araçları</span></a></li>
-        <li><a href="https://github.com/WindowsAddict/IDM-Activation-Script" target="_blank"><img src="https://github.com/favicon.ico">IDM Activation Script<span class="custom-tooltip"><img src="https://github.com/favicon.ico">IDM için aktivasyon scripti</span></a></li>
+        <li><a href="https://github.com/Coporton/IDM-Activation-Script" target="_blank"><img src="https://github.com/favicon.ico">IDM Activation Script<span class="custom-tooltip"><img src="https://github.com/favicon.ico">IDM için aktivasyon scripti</span></a></li>
+        <li><a href="https://github.com/WindowsAddict/IDM-Activation-Script" target="_blank"><img src="https://github.com/favicon.ico">IDM Activation Script (Arşiv)<span class="custom-tooltip"><img src="https://github.com/favicon.ico">IDM için aktivasyon scripti (Arşivlenmiş)</span></a></li>
       </ul>
     </div>
 
@@ -650,6 +690,7 @@
     <div class="category-card">
       <h2>Medya Dönüştürücüler & İndiriciler</h2>
       <ul>
+        <li><a href="https://www.internetdownloadmanager.com/" target="_blank"><img src="https://www.internetdownloadmanager.com/favicon.ico" alt="Internet Download Manager">Internet Download Manager<span class="custom-tooltip"><img src="https://www.internetdownloadmanager.com/favicon.ico" alt="Internet Download Manager">Popüler indirme yöneticisi ve hızlandırıcısı</span></a></li>
         <li><a href="https://handbrake.fr/" target="_blank"><img src="https://handbrake.fr/favicon.ico">HandBrake<span class="custom-tooltip"><img src="https://handbrake.fr/favicon.ico">Açık kaynaklı video dönüştürücü</span></a></li>
         <li><a href="https://github.com/DJDoubleD/QobuzDownloaderX-MOD" target="_blank"><img src="https://github.com/favicon.ico">QobuzDownloaderX-MOD<span class="custom-tooltip"><img src="https://github.com/favicon.ico">Qobuz müzik indirme aracı</span></a></li>
         <li><a href="https://github.com/SpotX-Official/SpotX" target="_blank"><img src="https://github.com/favicon.ico">SpotX<span class="custom-tooltip"><img src="https://github.com/favicon.ico">Spotify için reklamsız deneyim aracı</span></a></li>
@@ -844,6 +885,34 @@
       const saved = localStorage.getItem('theme');
       setTheme(saved === 'koyu');
     })();
+
+    // Arama çubuğu işlevselliği
+    const searchInput = document.getElementById('search-input');
+    const categoryCards = document.querySelectorAll('.category-card');
+
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase().trim();
+
+      categoryCards.forEach(card => {
+        const items = card.querySelectorAll('li');
+        let hasVisibleItem = false;
+
+        items.forEach(item => {
+          const link = item.querySelector('a');
+          const linkText = link.textContent.toLowerCase();
+          const tooltip = link.querySelector('.custom-tooltip');
+          const tooltipText = tooltip ? tooltip.textContent.toLowerCase() : '';
+          
+          if (linkText.includes(query) || tooltipText.includes(query)) {
+            item.style.display = '';
+            hasVisibleItem = true;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        card.style.display = hasVisibleItem ? '' : 'none';
+      });
+    });
   </script>
 </body>
 </html>
