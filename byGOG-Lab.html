@@ -73,9 +73,6 @@
     @media (max-width: 1200px) {
       ul { grid-template-columns: repeat(3, 1fr); }
     }
-    @media (max-width: 700px) {
-      ul { grid-template-columns: 1fr; }
-    }
     li {
       margin: 0;
       min-width: 220px;
@@ -125,26 +122,6 @@
       border: 1px solid var(--card-border);
       box-shadow: 0 1px 4px var(--card-shadow2);
       flex-shrink: 0;
-    }
-    @media (max-width: 900px) {
-      ul { gap: 6px; margin-top: 18px; }
-      li { min-width: 90vw; max-width: 99vw; }
-      a { font-size: 14px; padding: 8px 8px; margin: 0; }
-      img { width: 20px; height: 20px; margin-right: 8px; }
-      .container {
-        padding: 0 6px;
-      }
-      .theme-toggle-container {
-        right: 8px;
-        top: 8px;
-      }
-      .search-container {
-        margin-bottom: 24px;
-      }
-      #search-input {
-        padding: 12px 16px;
-        font-size: 14px;
-      }
     }
     .container {
       max-width: 1300px;
@@ -260,13 +237,6 @@
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       image-rendering: auto;
     }
-    @media (max-width: 900px) {
-      .author-fab-avatar {
-        width: 32px;
-        height: 32px;
-        border-width: 2px;
-      }
-    }
     .author-fab-username {
       font-size: 18px;
       font-weight: 700;
@@ -293,17 +263,6 @@
       background: linear-gradient(135deg, rgba(40,44,52,1) 0%, rgba(30,34,42,1) 100%);
       box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 6px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
       border-color: rgba(59,130,246,0.4);
-    }
-    @media (max-width: 900px) {
-      .author-fab {
-        right: 8px;
-        bottom: 8px;
-        padding: 6px 14px 6px 8px;
-      }
-      .author-fab-link { font-size: 13px; }
-      .author-fab-avatar { width: 24px; height: 24px; border-width: 1.5px; }
-      .author-fab-ghlogo { width: 13px; height: 13px; }
-      .author-fab-username { font-size: 13px; margin-left: 6px; }
     }
     .author-fab-ghlogo-light { display: inline; }
     .author-fab-ghlogo-dark { display: none; }
@@ -354,20 +313,6 @@
       display: block;
       margin-left: auto;
       margin-right: auto;
-    }
-    @media (max-width: 900px) {
-      .custom-tooltip {
-        min-width: 90px;
-        max-width: 80vw;
-        padding: 7px 6px 5px 6px;
-        font-size: 10px;
-        border-radius: 8px;
-      }
-      .custom-tooltip img {
-        width: 13px;
-        height: 13px;
-        margin-bottom: 3px;
-      }
     }
     .koyu .custom-tooltip {
       background: linear-gradient(135deg, var(--card-bg) 80%, #23272f 100%);
