@@ -60,6 +60,17 @@
       padding-bottom: 7px;
       background: none;
     }
+    h3 {
+      font-family: 'Tektur', 'Segoe UI', 'Roboto', Arial, sans-serif;
+      color: var(--h3);
+      font-size: 18px;
+      margin-top: 24px;
+      margin-bottom: 0px;
+      letter-spacing: 0.5px;
+      border-bottom: 1.5px solid #a3bffa;
+      padding-bottom: 5px;
+      background: none;
+    }
     ul {
       list-style: none;
       padding: 0;
@@ -67,7 +78,7 @@
       grid-template-columns: repeat(5, 1fr);
       gap: 8px;
       margin-bottom: 0;
-      margin-top: 32px;
+      margin-top: 16px;
       justify-items: center;
     }
     @media (max-width: 1200px) {
@@ -379,463 +390,477 @@
       </ul>
     </div>
     <div class="category-card">
-      <h2>Sistem Araçları</h2>
-      <ul>
-        <li><a href="https://www.cpuid.com/softwares/cpu-z.html" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/cpu-z.png" alt="CPU-Z">CPU-Z<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/cpu-z.png">Sistem bilgisi ve donanım tanımlama aracı</span></a></li>
-        <li><a href="https://www.hwinfo.com/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/hwinfo.png" alt="HWiNFO">HWiNFO<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/hwinfo.png">Donanım izleme ve detaylı sistem bilgisi</span></a></li>
-        <li><a href="https://www.ocbase.com/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/occt.svg" alt="OCCT" style="width:24px;height:24px;margin-right:12px;"><span class="small-text">OCCT</span><span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/occt.svg" style="width:24px;height:24px;">Sistem kararlılığı, stres testi ve donanım izleme aracı</span></a></li>
-        <li><a href="https://www.techpowerup.com/gpuz/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/gpu-z.png" alt="GPU-Z">GPU-Z<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/gpu-z.png">Ekran kartı bilgisi ve izleme aracı</span></a></li>
-        <li><a href="https://geeks3d.com/furmark/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/furmark.png" alt="FurMark">FurMark<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/furmark.png" alt="FurMark">Ücretsiz, popüler GPU stres testi ve benchmark aracı. Ekran kartı kararlılığını ve soğutma performansını ölçmek için kullanılır.</span></a></li>
-        <li><a href="https://learn.microsoft.com/tr-tr/sysinternals/downloads/sysinternals-suite" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/microsoft.png" alt="Sysinternals">Sysinternals<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/microsoft.png" alt="Sysinternals">Gelişmiş Windows sistem araçları paketi</span></a></li>
-      </ul>
+      <h2>Windows & Office</h2>
+      <div class="sub-category">
+        <h3>Windows İndirme & Kurulum</h3>
+        <ul>
+          <li><a href="https://www.microsoft.com/tr-tr/software-download/windows10" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/Microsoft.svg" alt="Microsoft" style="width:24px;height:24px;">Windows 10 İndir<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/Microsoft.svg" alt="Microsoft" style="width:18px;height:18px;">Orijinal Windows 10 ISO dosyası indir</span></a></li>
+          <li><a href="https://www.microsoft.com/tr-tr/software-download/windows11" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/Microsoft.svg" alt="Microsoft" style="width:24px;height:24px;">Windows 11 İndir<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/Microsoft.svg" alt="Microsoft" style="width:18px;height:18px;">Orijinal Windows 11 ISO dosyası indir</span></a></li>
+          <li><a href="https://rufus.ie/tr/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/rufus.svg" alt="Rufus">Rufus<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/rufus.svg" alt="Rufus">USB'den kurulum medyası oluşturma</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Özel Windows Dağıtımları</h3>
+        <ul>
+          <li><a href="https://atlasos.net/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/atlasos.svg" alt="AtlasOS">AtlasOS<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/atlasos.svg" alt="AtlasOS">Optimize edilmiş Windows dağıtımı</span></a></li>
+          <li><a href="https://www.revi.cc/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/revi.svg" alt="ReviOS">ReviOS<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/revi.svg" alt="ReviOS">Performans ve gizlilik odaklı Windows sürümü</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Office & Aktivasyon Araçları</h3>
+        <ul>
+          <li><a href="https://www.officetool.plus/" target="_blank"><span class="star" title="Önerilen">★</span><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/otp.svg" alt="Office Tool Plus">Office Tool Plus<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/otp.svg" alt="Office Tool Plus">Microsoft Office dağıtımı, kurulumu ve yönetimi için gelişmiş araç</span></a></li>
+          <li><a href="https://massgrave.dev/" target="_blank"><span class="star" title="Önerilen">★</span><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/massgrave.svg" alt="Massgrave.dev">Massgrave.dev<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/massgrave.svg" alt="Massgrave.dev">Windows ve Office etkinleştirme araçları</span></a></li>
+          <li><a href="https://github.com/lstprjct/IDM-Activation-Script" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg" alt="IDM Activation Script">IDM Activation Script<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg" alt="IDM Activation Script">IDM için aktivasyon scripti</span></a></li>
+        </ul>
+      </div>
     </div>
     <div class="category-card">
-      <h2>Gizlilik & Telemetri Araçları</h2>
-      <ul>
-        <li>
-          <a href="https://www.oo-software.com/en/shutup10" target="_blank">
-            <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/oosu10.png" alt="O&O ShutUp10++">
-            O&O ShutUp10++
-            <span class="custom-tooltip">
+      <h2>Sistem Araçları & Bakım</h2>
+      <div class="sub-category">
+        <h3>Sistem Araçları</h3>
+        <ul>
+          <li><a href="https://www.cpuid.com/softwares/cpu-z.html" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/cpu-z.png" alt="CPU-Z">CPU-Z<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/cpu-z.png">Sistem bilgisi ve donanım tanımlama aracı</span></a></li>
+          <li><a href="https://www.hwinfo.com/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/hwinfo.png" alt="HWiNFO">HWiNFO<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/hwinfo.png">Donanım izleme ve detaylı sistem bilgisi</span></a></li>
+          <li><a href="https://www.ocbase.com/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/occt.svg" alt="OCCT" style="width:24px;height:24px;margin-right:12px;"><span class="small-text">OCCT</span><span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/occt.svg" style="width:24px;height:24px;">Sistem kararlılığı, stres testi ve donanım izleme aracı</span></a></li>
+          <li><a href="https://www.techpowerup.com/gpuz/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/gpu-z.png" alt="GPU-Z">GPU-Z<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/gpu-z.png">Ekran kartı bilgisi ve izleme aracı</span></a></li>
+          <li><a href="https://geeks3d.com/furmark/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/furmark.png" alt="FurMark">FurMark<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/furmark.png" alt="FurMark">Ücretsiz, popüler GPU stres testi ve benchmark aracı. Ekran kartı kararlılığını ve soğutma performansını ölçmek için kullanılır.</span></a></li>
+          <li><a href="https://learn.microsoft.com/tr-tr/sysinternals/downloads/sysinternals-suite" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/microsoft.png" alt="Sysinternals">Sysinternals<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/microsoft.png" alt="Sysinternals">Gelişmiş Windows sistem araçları paketi</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Sürücü & Donanım</h3>
+        <ul>
+          <li><a href="https://www.snappy-driver-installer.org/" target="_blank"><span class="star" title="Önerilen">★</span><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Snappy.png" alt="Snappy Driver Installer">Snappy Driver Installer Origin<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Snappy.png" alt="Snappy Driver Installer">Otomatik sürücü bulma ve güncelleme</span></a></li>
+          <li><a href="https://www.amd.com/en/support/download/drivers.html" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/AMD.svg" style="width:24px;height:24px;border-radius:7px;vertical-align:middle;margin-right:8px;"><span style="vertical-align:middle;display:inline-block;">AMD Software</span><span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/AMD.svg" style="width:18px;height:18px;border-radius:5px;">AMD ekran kartı ve işlemci sürücülerini indir</span></a></li>
+          <li><a href="https://github.com/lostindark/DriverStoreExplorer" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/DriverStoreExplorer.png" style="width:24px;height:24px;border-radius:7px;">Driver Store Explorer<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/DriverStoreExplorer.png" style="width:18px;height:18px;border-radius:5px;">Windows sürücü deposunu yönetir ve temizler</span></a></li>
+          <li><a href="https://www.guru3d.com/download/display-driver-uninstaller-download/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/ddu.png" style="width:24px;height:24px;border-radius:7px;">Display Driver Uninstaller<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/ddu.png" style="width:18px;height:18px;border-radius:5px;">NVIDIA, AMD ve Intel ekran kartı sürücülerini tamamen kaldırma aracı</span></a></li>
+          <li><a href="https://www.intel.com/content/www/us/en/support/detect.html" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/intel.svg" style="width:24px;height:24px;border-radius:7px;">Intel Driver & Support Assistant<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/intel.svg" style="width:18px;height:18px;border-radius:5px;">Intel donanımınızı otomatik algılar ve en güncel sürücüleri önerir</span></a></li>
+          <li><a href="https://www.nvidia.com/tr-tr/software/nvidia-app/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/nvidia.svg" alt="NVIDIA" style="width:24px;height:24px;">NVIDIA App<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/nvidia.svg" alt="NVIDIA" style="width:18px;height:18px;">NVIDIA ekran kartları için sürücü, oyun ve yapay zekâ destekli araç yönetimi</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Optimizasyon & Temizlik</h3>
+        <ul>
+          <li><a href="https://www.bcuninstaller.com/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/BCUninstaller.svg" style="width:24px;height:24px;border-radius:7px;">BCUninstaller<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/BCUninstaller.svg" style="width:18px;height:18px;border-radius:5px;">Toplu program kaldırıcı ve temizleyici</span></a></li>
+          <li><a href="https://www.bleachbit.org/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/BleachBit.svg" style="width:24px;height:24px;border-radius:7px;">BleachBit<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/BleachBit.svg" style="width:18px;height:18px;border-radius:5px;">Sistem temizliği ve gereksiz dosya silme</span></a></li>
+          <li><a href="https://sandboxie-plus.com/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/sandboxie.png" style="width:24px;height:24px;border-radius:7px;">Sandboxie Plus<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/sandboxie.png" style="width:18px;height:18px;border-radius:5px;">Uygulamaları izole ortamda çalıştırma</span></a></li>
+          <li><a href="https://winconfigs.netlify.app/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winconfigs.png" style="width:24px;height:24px;border-radius:7px;">WinConfigs<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winconfigs.png" style="width:18px;height:18px;border-radius:5px;">Windows yapılandırma dosyaları arşivi</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Dosya & Disk Yönetimi</h3>
+        <ul>
+          <li><a href="https://www.7-zip.org/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/7-Zip.svg" alt="7-Zip">7-Zip<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/7-Zip.svg" alt="7-Zip">Açık kaynaklı dosya sıkıştırma ve arşivleme</span></a></li>
+          <li><a href="https://github.com/M2Team/NanaZip" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg" alt="NanaZip">NanaZip<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg" alt="NanaZip">Modern Windows için 7-Zip tabanlı, açık kaynaklı dosya sıkıştırma ve arşivleme programı. MSIX paket, yeni arayüz ve gelişmiş entegrasyon.</span></a></li>
+          <li><a href="https://www.codesector.com/teracopy" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/TeraCopy.svg" alt="TeraCopy">TeraCopy<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/TeraCopy.svg" alt="TeraCopy">Hızlı ve güvenli dosya kopyalama aracı</span></a></li>
+          <li><a href="https://www.rarlab.com/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/WinRAR.svg" alt="WinRAR">WinRAR<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/WinRAR.svg" alt="WinRAR">Popüler dosya sıkıştırma ve arşivleme programı</span></a></li>
+          <li><a href="https://code.kliu.org/hashcheck/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/hashcheck.svg" alt="HashCheck">HashCheck Shell Extension<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/hashcheck.svg" alt="HashCheck">Windows Gezgini'ne entegre, hızlı ve açık kaynaklı dosya bütünlüğü (hash) kontrol aracı</span></a></li>
+          <li><a href="https://winmerge.org/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/WinMerge.svg" alt="WinMerge">WinMerge<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/WinMerge.svg" alt="WinMerge">Açık kaynaklı, dosya ve klasör karşılaştırma/birleştirme aracı. Farkları görsel olarak gösterir ve senkronizasyon sağlar.</span></a></li>
+          <li><a href="https://macrorit.com/partition-magic-manager/free-edition.html" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Macrorit.svg" alt="Macrorit Partition Expert">Macrorit Partition Expert<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Macrorit.svg" alt="Macrorit Partition Expert">Ücretsiz, gelişmiş disk bölümlendirme ve yönetim aracı. Veri kaybı olmadan disk bölme, birleştirme, biçimlendirme ve kurtarma özellikleri.</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Disk Analizi & Dosya Arama</h3>
+        <ul>
+          <li><a href="https://www.voidtools.com/tr-tr/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Everything.svg" alt="Everything">Everything<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Everything.svg" alt="Everything">Windows için anında dosya ve klasör arama</span></a></li>
+          <li><a href="https://diskanalyzer.com/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/WizTree.svg" alt="WizTree">WizTree<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/WizTree.svg" alt="WizTree">Diskte büyük dosyaları ve alan kullanımını analiz eder</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="category-card">
+      <h2>Güvenlik & Gizlilik</h2>
+      <div class="sub-category">
+        <h3>Antivirüs & Kötü Amaçlı Yazılım Temizleyiciler</h3>
+        <ul>
+          <li>
+            <a href="https://www.avira.com/tr/free-antivirus-windows" target="_blank">
+              <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/avira.png" alt="Avira Free Antivirus" style="width:24px;height:24px;border-radius:7px;">
+              Avira Free Antivirus
+              <span class="custom-tooltip">
+                <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/avira.png" alt="Avira Free Antivirus" style="width:18px;height:18px;border-radius:5px;">
+                Ücretsiz, ödüllü antivirüs ve gerçek zamanlı koruma
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.bitdefender.com/en-us/consumer/free-antivirus" target="_blank">
+              <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/bitdefender.png" alt="Bitdefender Free Antivirus" style="width:24px;height:24px;border-radius:7px;">
+              Bitdefender Free Antivirus
+              <span class="custom-tooltip">
+                <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/bitdefender.png" alt="Bitdefender Free Antivirus" style="width:18px;height:18px;border-radius:5px;">
+                Hafif, ücretsiz ve güçlü antivirüs koruması
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.malwarebytes.com/" target="_blank">
+              <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/malwarebytes.png" alt="Malwarebytes" style="width:24px;height:24px;border-radius:7px;">
+              Malwarebytes
+              <span class="custom-tooltip">
+                <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/malwarebytes.png" alt="Malwarebytes" style="width:18px;height:18px;border-radius:5px;">
+                Gelişmiş kötü amaçlı yazılım temizleme ve gerçek zamanlı koruma aracı
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Gizlilik & Telemetri Araçları</h3>
+        <ul>
+          <li>
+            <a href="https://www.oo-software.com/en/shutup10" target="_blank">
               <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/oosu10.png" alt="O&O ShutUp10++">
-              Windows 10 ve 11 için ücretsiz, taşınabilir gizlilik ve telemetri kapatma aracı
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="https://wpd.app/" target="_blank">
-            <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/wpd.png" alt="WPD">
-            WPD
-            <span class="custom-tooltip">
+              O&O ShutUp10++
+              <span class="custom-tooltip">
+                <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/oosu10.png" alt="O&O ShutUp10++">
+                Windows 10 ve 11 için ücretsiz, taşınabilir gizlilik ve telemetri kapatma aracı
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://wpd.app/" target="_blank">
               <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/wpd.png" alt="WPD">
-              Windows için taşınabilir, reklamsız ve gelişmiş gizlilik kontrol paneli
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="https://privacy.sexy/" target="_blank">
-            <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/privacy.sexy.svg" alt="Privacy.sexy">Privacy.sexy
-            <span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/privacy.sexy.svg" alt="Privacy.sexy">Gizlilik ve güvenlik ayarlarını otomatikleştirir</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/ionuttbara/windows-defender-remover" target="_blank">
-            <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/DefenderRemover.png" alt="Windows Defender Remover">Windows Defender Remover
-            <span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/DefenderRemover.png" alt="Windows Defender Remover">Windows Defender'ı sistemden kaldırır</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://zenprivacy.net/" target="_blank">
-            <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/ZenPrivacy.png" alt="ZenPrivacy">Zen Privacy
-            <span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/ZenPrivacy.png" alt="ZenPrivacy">Gizlilik ve güvenlik araçları platformu</span>
-          </a>
-        </li>
-      </ul>
+              WPD
+              <span class="custom-tooltip">
+                <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/wpd.png" alt="WPD">
+                Windows için taşınabilir, reklamsız ve gelişmiş gizlilik kontrol paneli
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://privacy.sexy/" target="_blank">
+              <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/privacy.sexy.svg" alt="Privacy.sexy">Privacy.sexy
+              <span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/privacy.sexy.svg" alt="Privacy.sexy">Gizlilik ve güvenlik ayarlarını otomatikleştirir</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/ionuttbara/windows-defender-remover" target="_blank">
+              <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/DefenderRemover.png" alt="Windows Defender Remover">Windows Defender Remover
+              <span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/DefenderRemover.png" alt="Windows Defender Remover">Windows Defender'ı sistemden kaldırır</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://zenprivacy.net/" target="_blank">
+              <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/ZenPrivacy.png" alt="ZenPrivacy">Zen Privacy
+              <span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/ZenPrivacy.png" alt="ZenPrivacy">Gizlilik ve güvenlik araçları platformu</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Ağ, VPN & Güvenlik Araçları</h3>
+        <ul>
+          <li><a href="https://antizapret.prostovpn.org/" target="_blank"><img src="https://antizapret.prostovpn.org/img/unlock.png">Antizapret<span class="custom-tooltip"><img src="https://antizapret.prostovpn.org/img/unlock.png">Engelli sitelere erişim için VPN hizmeti</span></a></li>
+          <li><a href="https://github.com/cagritaskn/GoodbyeDPI-Turkey" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">GoodbyeDPI-Turkey<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Türkiye için DPI engelini aşma aracı</span></a></li>
+          <li><a href="https://github.com/ValdikSS/GoodbyeDPI" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">GoodbyeDPI<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">DPI tabanlı engellemeleri aşmak için araç</span></a></li>
+          <li><a href="https://openvpn.net/client/" target="_blank"><img src="https://openvpn.net/favicon.ico">OpenVPN<span class="custom-tooltip"><img src="https://openvpn.net/favicon.ico">Açık kaynaklı VPN istemcisi</span></a></li>
+          <li><a href="https://protonvpn.com/" target="_blank"><img src="https://protonvpn.com/favicon.ico">ProtonVPN<span class="custom-tooltip"><img src="https://protonvpn.com/favicon.ico">Güvenli ve hızlı VPN hizmeti</span></a></li>
+          <li><a href="https://www.torproject.org/tr/" target="_blank"><img src="https://www.torproject.org/static/images/favicon/favicon.ico" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">Tor Browser<span class="custom-tooltip"><img src="https://www.torproject.org/static/images/favicon/favicon.ico" style="width:18px;height:18px;vertical-align:middle;">Sansürü aşmak ve gizliliği korumak için anonim tarayıcı</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Şifre & Gizlilik Araçları</h3>
+        <ul>
+          <li><a href="https://bitwarden.com/" target="_blank"><img src="https://bitwarden.com/favicon.ico">Bitwarden<span class="custom-tooltip"><img src="https://bitwarden.com/favicon.ico">Açık kaynaklı şifre yöneticisi</span></a></li>
+          <li><a href="https://browserleaks.com/" target="_blank"><img src="https://browserleaks.com/favicon.ico">BrowserLeaks<span class="custom-tooltip"><img src="https://browserleaks.com/favicon.ico">Tarayıcı gizliliği ve sızıntı testleri</span></a></li>
+          <li><a href="https://relay.firefox.com/" target="_blank"><img src="https://relay.firefox.com/favicon.ico" alt="Firefox Relay" style="width:24px;height:24px;">Firefox Relay<span class="custom-tooltip"><img src="https://relay.firefox.com/favicon.ico" alt="Firefox Relay" style="width:18px;height:18px;">E-posta gizliliği ve maskeleme servisi</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>DNS Servisleri</h3>
+        <ul>
+          <li><a href="https://nextdns.io/" target="_blank"><img src="https://nextdns.io/favicon.ico">NextDNS<span class="custom-tooltip"><img src="https://nextdns.io/favicon.ico">Reklam, izleyici ve zararlı yazılımları engelleyen, özelleştirilebilir DNS hizmeti</span></a></li>
+          <li><a href="https://dnsforge.de/" target="_blank"><img src="https://dnsforge.de/favicon.ico">DNSForge<span class="custom-tooltip"><img src="https://dnsforge.de/favicon.ico">Almanya merkezli, gizlilik odaklı, reklamsız ve izleyicisiz DNS hizmeti</span></a></li>
+          <li><a href="https://one.one.one.one/tr-TR/dns/" target="_blank"><img src="https://one.one.one.one/favicon.ico" alt="Cloudflare 1.1.1.1" style="width:24px;height:24px;">Cloudflare<span class="custom-tooltip"><img src="https://one.one.one.one/favicon.ico" alt="Cloudflare 1.1.1.1" style="width:18px;height:18px;">Hızlı, gizlilik odaklı ve ücretsiz DNS hizmeti</span></a></li>
+        </ul>
+      </div>
     </div>
     <div class="category-card">
-      <h2>Antivirüs & Kötü Amaçlı Yazılım Temizleyiciler</h2>
-      <ul>
-        <li>
-          <a href="https://www.avira.com/tr/free-antivirus-windows" target="_blank">
-            <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/avira.png" alt="Avira Free Antivirus" style="width:24px;height:24px;border-radius:7px;">
-            Avira Free Antivirus
-            <span class="custom-tooltip">
-              <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/avira.png" alt="Avira Free Antivirus" style="width:18px;height:18px;border-radius:5px;">
-              Ücretsiz, ödüllü antivirüs ve gerçek zamanlı koruma
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.bitdefender.com/en-us/consumer/free-antivirus" target="_blank">
-            <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/bitdefender.png" alt="Bitdefender Free Antivirus" style="width:24px;height:24px;border-radius:7px;">
-            Bitdefender Free Antivirus
-            <span class="custom-tooltip">
-              <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/bitdefender.png" alt="Bitdefender Free Antivirus" style="width:18px;height:18px;border-radius:5px;">
-              Hafif, ücretsiz ve güçlü antivirüs koruması
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.malwarebytes.com/" target="_blank">
-            <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/malwarebytes.png" alt="Malwarebytes" style="width:24px;height:24px;border-radius:7px;">
-            Malwarebytes
-            <span class="custom-tooltip">
-              <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/malwarebytes.png" alt="Malwarebytes" style="width:18px;height:18px;border-radius:5px;">
-              Gelişmiş kötü amaçlı yazılım temizleme ve gerçek zamanlı koruma aracı
-            </span>
-          </a>
-        </li>
-      </ul>
+      <h2>Yazılım & Paket Yöneticileri</h2>
+      <div class="sub-category">
+        <h3>Yazılım Kurulum & Paket Yöneticileri</h3>
+        <ul>
+          <li><a href="https://ninite.com/" target="_blank"><span class="star" title="Önerilen">★</span><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/ninite.png" alt="Ninite">Ninite<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/ninite.png">Popüler programları toplu ve otomatik kurar</span></a></li>
+          <li><a href="https://chocolatey.org/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/chocolatey.svg" alt="Chocolatey" style="width:24px;height:24px;">Chocolatey<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/chocolatey.svg" alt="Chocolatey" style="width:18px;height:18px;">Komut satırı ile yazılım kurulum yöneticisi</span></a></li>
+          <li><a href="https://winutil.christitus.com/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winutil.png" alt="WinUtil" style="width:24px;height:24px;border-radius:7px;">Chris Titus Tech's Windows Utility<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winutil.png" alt="WinUtil" style="width:18px;height:18px;border-radius:5px;">Windows için toplu kurulum ve optimizasyon aracı</span></a></li>
+          <li><a href="https://os.click/en" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/os.click.svg" alt="OS.Click" style="width:24px;height:24px;">OS.Click<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/os.click.svg" alt="OS.Click" style="width:18px;height:18px;">Farklı işletim sistemlerini indirme platformu</span></a></li>
+          <li><a href="https://packagepicker.co/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/packagepicker.svg" alt="PackagePicker" style="width:24px;height:24px;">PackagePicker<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/packagepicker.svg" alt="PackagePicker" style="width:18px;height:18px;">Toplu yazılım kurulum listeleri oluşturur</span></a></li>
+          <li><a href="https://www.marticliment.com/unigetui/" target="_blank"><img src="https://raw.githubusercontent.com/marticliment/UniGetUI/refs/heads/main/media/Icon%20sizes/128.png">UnigetUI<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/marticliment/UniGetUI/refs/heads/main/media/Icon%20sizes/128.png">Çoklu paket yöneticisi arayüzü</span></a></li>
+          <li><a href="https://winstall.app/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winstall.svg" alt="Winstall" style="width:24px;height:24px;">Winstall.app<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winstall.svg" alt="Winstall" style="width:18px;height:18px;">Toplu winget komutları oluşturur ve Windows için kolay yazılım kurulum listeleri sunar</span></a></li>
+          <li><a href="https://winget.run/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winget.run.svg" alt="WinGet.run" style="width:24px;height:24px;">WinGet.run<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winget.run.svg" alt="WinGet.run" style="width:18px;height:18px;">Winget paketlerini arar ve komut oluşturur</span></a></li>
+          <li><a href="https://www.quickinstaller.net/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/quickinstaller.png" alt="QuickInstaller" style="width:24px;height:24px;">QuickInstaller<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/quickinstaller.png" alt="QuickInstaller" style="width:18px;height:18px;">Hızlı ve kolay yazılım kurulum platformu</span></a></li>
+          <li><a href="https://ruckzuck.tools/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/ruckzuck.png" alt="RuckZuck" style="width:24px;height:24px;background:transparent;border-radius:7px;">RuckZuck<span class="custom-tooltip"><img src="https://ruckzuck.tools/favicon.ico">Hızlı yazılım yükleme ve güncelleme aracı</span></a></li>
+          <li><a href="https://scoop.sh/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/scoop.png" alt="Scoop">Scoop<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/scoop.png" alt="Scoop">Komut satırı tabanlı yazılım paket yöneticisi</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Taşınabilir Uygulama Platformları</h3>
+        <ul>
+          <li><a href="https://portableappz.blogspot.com/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/portableappz.png" alt="PortableAppZ" style="width:24px;height:24px;border-radius:7px;">PortableAppZ<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/portableappz.png" alt="PortableAppZ" style="width:18px;height:18px;border-radius:5px;">Taşınabilir (portable) yazılım arşivi ve blogu</span></a></li>
+          <li><a href="https://portableapps.com/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/PortableApps.svg" alt="PortableApps" style="width:24px;height:24px;border-radius:7px;">PortableApps<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/PortableApps.svg" alt="PortableApps" style="width:18px;height:18px;border-radius:5px;">En popüler taşınabilir uygulama platformu</span></a></li>
+          <li><a href="https://portapps.io/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/portapps.svg" alt="Portapps" style="width:24px;height:24px;border-radius:7px;">Portapps.io<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/portapps.svg" alt="Portapps" style="width:18px;height:18px;border-radius:5px;">Açık kaynak taşınabilir uygulama koleksiyonu</span></a></li>
+          <li><a href="https://www.sordum.org/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/sordum.svg" alt="Sordum.org" style="width:24px;height:24px;">Sordum.org<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/sordum.svg" alt="Sordum.org" style="width:18px;height:18px;">Ücretsiz taşınabilir Windows araçları ve yazılım çözümleri</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Yazılım Alternatifleri & Karşılaştırma</h3>
+        <ul>
+          <li>
+            <a href="https://alternativeto.net/" target="_blank">
+              <img src="https://alternativeto.net/static/icons/favicon-32x32.png" alt="AlternativeTo" style="width:24px;height:24px;border-radius:7px;">
+              AlternativeTo
+              <span class="custom-tooltip">
+                <img src="https://alternativeto.net/static/icons/favicon-32x32.png" alt="AlternativeTo" style="width:18px;height:18px;border-radius:5px;">
+                Popüler yazılımların alternatiflerini ve kullanıcı yorumlarını bulabileceğiniz karşılaştırma platformu
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="category-card">
-      <h2>Optimizasyon & Temizlik</h2>
-      <ul>
-        <li><a href="https://www.bcuninstaller.com/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/BCUninstaller.svg" style="width:24px;height:24px;border-radius:7px;">BCUninstaller<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/BCUninstaller.svg" style="width:18px;height:18px;border-radius:5px;">Toplu program kaldırıcı ve temizleyici</span></a></li>
-        <li><a href="https://www.bleachbit.org/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/BleachBit.svg" style="width:24px;height:24px;border-radius:7px;">BleachBit<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/BleachBit.svg" style="width:18px;height:18px;border-radius:5px;">Sistem temizliği ve gereksiz dosya silme</span></a></li>
-        <li><a href="https://sandboxie-plus.com/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/sandboxie.png" style="width:24px;height:24px;border-radius:7px;">Sandboxie Plus<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/sandboxie.png" style="width:18px;height:18px;border-radius:5px;">Uygulamaları izole ortamda çalıştırma</span></a></li>
-        <li><a href="https://winconfigs.netlify.app/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winconfigs.png" style="width:24px;height:24px;border-radius:7px;">WinConfigs<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winconfigs.png" style="width:18px;height:18px;border-radius:5px;">Windows yapılandırma dosyaları arşivi</span></a></li>
-      </ul>
+      <h2>İnternet & Tarayıcı</h2>
+      <div class="sub-category">
+        <h3>Web Tarayıcıları & Eklentiler</h3>
+        <ul>
+          <li><a href="https://brave.com/tr/" target="_blank"><img src="https://brave.com/favicon.ico">Brave<span class="custom-tooltip"><img src="https://brave.com/favicon.ico">Gizlilik odaklı hızlı web tarayıcı</span></a></li>
+          <li><a href="https://www.google.com/chrome/" target="_blank"><img src="https://www.google.com/chrome/static/images/favicons/favicon.ico">Google Chrome<span class="custom-tooltip"><img src="https://www.google.com/chrome/static/images/favicons/favicon.ico">Google'ın hızlı ve popüler web tarayıcısı</span></a></li>
+          <li><a href="https://www.mozilla.org/tr/firefox/new/" target="_blank"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" style="width:24px;height:24px;border-radius:7px;">Mozilla Firefox<span class="custom-tooltip"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" style="width:18px;height:18px;border-radius:5px;">Açık kaynaklı web tarayıcı</span></a></li>
+          <li><a href="https://zen-browser.app/" target="_blank"><img src="https://zen-browser.app/favicon.ico">Zen Browser<span class="custom-tooltip"><img src="https://zen-browser.app/favicon.ico">Güvenli ve hızlı web tarayıcı</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Tarayıcı Eklentileri & Güvenlik</h3>
+        <ul>
+          <li><a href="https://github.com/dessant/buster" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Buster (Captcha Solver)<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">reCAPTCHA sesli doğrulama çözücü eklentisi</span></a></li>
+          <li><a href="https://sponsor.ajay.app/" target="_blank"><img src="https://sponsor.ajay.app/LogoSponsorBlockSimple256px.png" style="width:24px;height:24px;border-radius:7px;">SponsorBlock<span class="custom-tooltip"><img src="https://sponsor.ajay.app/LogoSponsorBlockSimple256px.png" style="width:18px;height:18px;border-radius:5px;">YouTube sponsor ve gereksiz bölümleri otomatik atlayan eklenti</span></a></li>
+          <li><a href="https://ublockorigin.com/" target="_blank"><img src="https://ublockorigin.com/img/favicons/favicon.ico" style="width:24px;height:24px;border-radius:7px;">uBlock Origin<span class="custom-tooltip"><img src="https://ublockorigin.com/img/favicons/favicon.ico" style="width:18px;height:18px;border-radius:5px;">Gelişmiş, açık kaynaklı reklam ve içerik engelleyici</span></a></li>
+          <li><a href="https://privacybadger.org/tr/" target="_blank"><img src="https://www.eff.org/sites/all/themes/frontier/favicon.ico" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">Privacy Badger<span class="custom-tooltip"><img src="https://www.eff.org/sites/all/themes/frontier/favicon.ico" style="width:18px;height:18px;vertical-align:middle;">Otomatik izleyici engelleme ve gizlilik koruması sağlayan tarayıcı eklentisi</span></a></li>
+          <li><a href="https://greasyfork.org/tr" target="_blank"><img src="https://greasyfork.org/favicon.ico" alt="Greasy Fork" style="width:24px;height:24px;">Greasy Fork<span class="custom-tooltip"><img src="https://greasyfork.org/favicon.ico" alt="Greasy Fork" style="width:18px;height:18px;">Kullanıcı scriptleri ve tarayıcı betikleri arşivi</span></a></li>
+        </ul>
+      </div>
     </div>
     <div class="category-card">
-      <h2>Masaüstü Özelleştirme & Arayüz Araçları</h2>
-      <ul>
-        <li><a href="https://www.rocksdanister.com/lively/" target="_blank"><img src="https://www.rocksdanister.com/lively/favicon.ico" alt="Lively Wallpaper">Lively Wallpaper<span class="custom-tooltip"><img src="https://www.rocksdanister.com/lively/favicon.ico" alt="Lively Wallpaper">Hareketli ve interaktif masaüstü duvar kağıtları</span></a></li>
-      </ul>
+      <h2>Medya & İndirme</h2>
+      <div class="sub-category">
+        <h3>Torrent & İndirme Platformları</h3>
+        <ul>
+          <li><a href="https://www.zamunda.net/" target="_blank"><img src="https://www.zamunda.net/favicon.ico" alt="Zamunda" style="width:24px;height:24px;">Zamunda<span class="custom-tooltip"><img src="https://www.zamunda.net/favicon.ico" alt="Zamunda" style="width:18px;height:18px;">Popüler Türkçe torrent paylaşım platformu</span></a></li>
+          <li><a href="https://yts.mx/" target="_blank"><img src="https://yts.mx/assets/images/website/favicon.ico" alt="YTS" style="width:24px;height:24px;">YTS<span class="custom-tooltip"><img src="https://yts.mx/assets/images/website/favicon.ico" alt="YTS" style="width:18px;height:18px;">Yüksek kaliteli film torrent arşivi</span></a></li>
+          <li><a href="https://thepiratebay.org/" target="_blank"><img src="https://thepiratebay.org/favicon.ico" alt="The Pirate Bay" style="width:24px;height:24px;">The Pirate Bay<span class="custom-tooltip"><img src="https://thepiratebay.org/favicon.ico" alt="The Pirate Bay" style="width:18px;height:18px;">Dünyanın en büyük torrent arama motoru</span></a></li>
+          <li><a href="https://torrentsites.com/" target="_blank"><img src="https://torrentsites.com/favicon.ico" alt="TorrentSites" style="width:24px;height:24px;">TorrentSites<span class="custom-tooltip"><img src="https://torrentsites.com/favicon.ico" alt="TorrentSites" style="width:18px;height:18px;">En iyi torrent siteleri rehberi</span></a></li>
+          <li><a href="https://yourbittorrent.com/" target="_blank"><img src="https://yourbittorrent.com/favicon.ico" alt="YourBittorrent" style="width:24px;height:24px;">YourBittorrent<span class="custom-tooltip"><img src="https://yourbittorrent.com/favicon.ico" alt="YourBittorrent" style="width:18px;height:18px;">Geniş torrent arşivi ve paylaşım platformu</span></a></li>
+          <li><a href="https://eztvx.to/" target="_blank"><img src="https://eztvx.to/favicon.ico" alt="EZTV" style="width:24px;height:24px;">EZTV<span class="custom-tooltip"><img src="https://eztvx.to/favicon.ico" alt="EZTV" style="width:18px;height:18px;">Dizi ve TV şovları için torrent platformu</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Medya & Eğlence Platformları</h3>
+        <ul>
+          <li><a href="https://www.aimp.ru/" target="_blank"><img src="https://www.aimp.ru/favicon.ico">AIMP<span class="custom-tooltip"><img src="https://www.aimp.ru/favicon.ico">Gelişmiş müzik çalar</span></a></li>
+          <li><a href="https://codecguide.com/" target="_blank"><img src="https://codecguide.com/mpc_logo.png" style="width:24px;height:24px;border-radius:7px;">Codec Guide<span class="custom-tooltip"><img src="https://codecguide.com/mpc_logo.png" style="width:18px;height:18px;border-radius:5px;">K-Lite Codec Pack ile medya codec'leri</span></a></li>
+          <li><a href="https://www.videolan.org/vlc/" target="_blank"><img src="https://images.videolan.org/images/icons-VLC/vlc.mini.svg" style="width:24px;height:24px;border-radius:7px;">VLC Media Player<span class="custom-tooltip"><img src="https://images.videolan.org/images/icons-VLC/vlc.mini.svg" style="width:18px;height:18px;border-radius:5px;">Çok formatlı medya oynatıcı</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Müzik & Video Akış Platformları</h3>
+        <ul>
+          <li><a href="https://open.spotify.com/" target="_blank"><img src="https://open.spotify.com/favicon.ico">Spotify<span class="custom-tooltip"><img src="https://open.spotify.com/favicon.ico">Popüler müzik dinleme platformu</span></a></li>
+          <li><a href="https://www.stremio.com/" target="_blank"><img src="https://www.stremio.com/website/stremio-purple-small.png" style="width:24px;height:24px;border-radius:7px;">Stremio<span class="custom-tooltip"><img src="https://www.stremio.com/website/stremio-purple-small.png" style="width:18px;height:18px;border-radius:5px;">Film ve dizi akış platformu</span></a></li>
+          <li><a href="https://inatflix.org/" target="_blank"><img src="https://inatflix.org/favicon.ico">iNatFlix<span class="custom-tooltip"><img src="https://inatflix.org/favicon.ico">Dijital yayın ve film platformu</span></a></li>
+          <li><a href="https://tv.garden/" target="_blank"><img src="https://tv.garden/favicon.ico">tv.garden<span class="custom-tooltip"><img src="https://tv.garden/favicon.ico">Çevrim içi TV ve yayın platformu</span></a></li>
+          <li><a href="https://www.dojostreams.com/" target="_blank"><img src="https://www.dojostreams.com/favicon.ico" alt="Dojostreams" style="width:24px;height:24px;">Dojostreams<span class="custom-tooltip"><img src="https://www.dojostreams.com/favicon.ico" alt="Dojostreams" style="width:18px;height:18px;border-radius:5px;">Dünya genelinde IPTV, canlı TV ve film platformu</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Medya Dönüştürücüler & İndiriciler</h3>
+        <ul>
+          <li><a href="https://www.internetdownloadmanager.com/" target="_blank"><img src="https://www.internetdownloadmanager.com/favicon.ico" alt="Internet Download Manager">Internet Download Manager<span class="custom-tooltip"><img src="https://www.internetdownloadmanager.com/favicon.ico" alt="Internet Download Manager">Popüler indirme yöneticisi ve hızlandırıcısı</span></a></li>
+          <li><a href="https://handbrake.fr/" target="_blank"><img src="https://handbrake.fr/favicon.ico">HandBrake<span class="custom-tooltip"><img src="https://handbrake.fr/favicon.ico">Açık kaynaklı video dönüştürücü</span></a></li>
+          <li><a href="https://github.com/DJDoubleD/QobuzDownloaderX-MOD" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">QobuzDownloaderX-MOD<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Qobuz müzik indirme aracı</span></a></li>
+          <li><a href="https://github.com/SpotX-Official/SpotX" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">SpotX<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Spotify için reklamsız deneyim aracı</span></a></li>
+          <li><a href="https://github.com/WilliamSchack/Spotify-Downloader" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Spotify-Downloader<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Spotify müziklerini indirme aracı</span></a></li>
+          <li><a href="https://github.com/yt-dlp/yt-dlp" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">yt-dlp<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Zengin özelliklere sahip, komut satırı tabanlı video ve ses indirme aracı</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Dizi & Film İzleme Siteleri</h3>
+        <ul>
+          <li>
+            <a href="https://dizipal938.com/" target="_blank">
+              <img src="https://dizipal938.com/favicon.ico" alt="Dizipal" style="width:24px;height:24px;border-radius:7px;">
+              Dizipal
+              <span class="custom-tooltip">
+                <img src="https://dizipal938.com/favicon.ico" alt="Dizipal" style="width:18px;height:18px;border-radius:5px;">
+                Güncel dizi ve filmleri ücretsiz izleyebileceğiniz popüler platform
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Bulut Depolama & Yedekleme</h3>
+        <ul>
+          <li><a href="https://hluk.github.io/CopyQ/" target="_blank"><img src="https://hluk.github.io/CopyQ/images/logo.png" style="width:24px;height:24px;border-radius:7px;">CopyQ<span class="custom-tooltip"><img src="https://hluk.github.io/CopyQ/images/logo.png" style="width:18px;height:18px;border-radius:5px;">Gelişmiş pano (clipboard) yöneticisi</span></a></li>
+          <li><a href="https://www.dropbox.com/" target="_blank"><img src="https://fjord.dropboxstatic.com/warp/conversion/dropbox/warp/icons/Dropbox-logo-nav.svg" style="width:24px;height:24px;border-radius:7px;">Dropbox<span class="custom-tooltip"><img src="https://fjord.dropboxstatic.com/warp/conversion/dropbox/warp/icons/Dropbox-logo-nav.svg" style="width:18px;height:18px;border-radius:5px;">Dosya yedekleme ve bulut depolama hizmeti</span></a></li>
+          <li><a href="https://getsharex.com/" target="_blank"><img src="https://getsharex.com/favicon.ico">ShareX<span class="custom-tooltip"><img src="https://getsharex.com/favicon.ico">Ekran görüntüsü alma ve paylaşma aracı</span></a></li>
+          <li><a href="https://workspace.google.com/products/drive/" target="_blank"><img src="https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png">Google Drive<span class="custom-tooltip"><img src="https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png">Google'ın bulut depolama ve dosya paylaşım servisi</span></a></li>
+          <li><a href="https://imageglass.org/" target="_blank"><img src="https://imageglass.org/img/iglogo.svg" style="width:24px;height:24px;border-radius:7px;">ImageGlass<span class="custom-tooltip"><img src="https://imageglass.org/img/iglogo.svg" style="width:18px;height:18px;border-radius:5px;">Hafif ve modern resim görüntüleyici</span></a></li>
+        </ul>
+      </div>
     </div>
     <div class="category-card">
-      <h2>Sürücü & Donanım</h2>
-      <ul>
-        <li><a href="https://www.snappy-driver-installer.org/" target="_blank"><span class="star" title="Önerilen">★</span><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Snappy.png" alt="Snappy Driver Installer">Snappy Driver Installer Origin<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Snappy.png" alt="Snappy Driver Installer">Otomatik sürücü bulma ve güncelleme</span></a></li>
-        <li><a href="https://www.amd.com/en/support/download/drivers.html" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/AMD.svg" style="width:24px;height:24px;border-radius:7px;vertical-align:middle;margin-right:8px;"><span style="vertical-align:middle;display:inline-block;">AMD Software</span><span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/AMD.svg" style="width:18px;height:18px;border-radius:5px;">AMD ekran kartı ve işlemci sürücülerini indir</span></a></li>
-        <li><a href="https://github.com/lostindark/DriverStoreExplorer" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/DriverStoreExplorer.png" style="width:24px;height:24px;border-radius:7px;">Driver Store Explorer<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/DriverStoreExplorer.png" style="width:18px;height:18px;border-radius:5px;">Windows sürücü deposunu yönetir ve temizler</span></a></li>
-        <li><a href="https://www.guru3d.com/download/display-driver-uninstaller-download/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/ddu.png" style="width:24px;height:24px;border-radius:7px;">Display Driver Uninstaller<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/ddu.png" style="width:18px;height:18px;border-radius:5px;">NVIDIA, AMD ve Intel ekran kartı sürücülerini tamamen kaldırma aracı</span></a></li>
-        <li><a href="https://www.intel.com/content/www/us/en/support/detect.html" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/intel.svg" style="width:24px;height:24px;border-radius:7px;">Intel Driver & Support Assistant<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/intel.svg" style="width:18px;height:18px;border-radius:5px;">Intel donanımınızı otomatik algılar ve en güncel sürücüleri önerir</span></a></li>
-        <li><a href="https://www.nvidia.com/tr-tr/software/nvidia-app/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/nvidia.svg" alt="NVIDIA" style="width:24px;height:24px;">NVIDIA App<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/nvidia.svg" alt="NVIDIA" style="width:18px;height:18px;">NVIDIA ekran kartları için sürücü, oyun ve yapay zekâ destekli araç yönetimi</span></a></li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h2>Yazılım Kurulum & Paket Yöneticileri</h2>
-      <ul>
-        <li><a href="https://ninite.com/" target="_blank"><span class="star" title="Önerilen">★</span><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/ninite.png" alt="Ninite">Ninite<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/ninite.png">Popüler programları toplu ve otomatik kurar</span></a></li>
-        <li><a href="https://chocolatey.org/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/chocolatey.svg" alt="Chocolatey" style="width:24px;height:24px;">Chocolatey<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/chocolatey.svg" alt="Chocolatey" style="width:18px;height:18px;">Komut satırı ile yazılım kurulum yöneticisi</span></a></li>
-        <li><a href="https://winutil.christitus.com/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winutil.png" alt="WinUtil" style="width:24px;height:24px;border-radius:7px;">Chris Titus Tech's Windows Utility<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winutil.png" alt="WinUtil" style="width:18px;height:18px;border-radius:5px;">Windows için toplu kurulum ve optimizasyon aracı</span></a></li>
-        <li><a href="https://os.click/en" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/os.click.svg" alt="OS.Click" style="width:24px;height:24px;">OS.Click<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/os.click.svg" alt="OS.Click" style="width:18px;height:18px;">Farklı işletim sistemlerini indirme platformu</span></a></li>
-        <li><a href="https://packagepicker.co/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/packagepicker.svg" alt="PackagePicker" style="width:24px;height:24px;">PackagePicker<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/packagepicker.svg" alt="PackagePicker" style="width:18px;height:18px;">Toplu yazılım kurulum listeleri oluşturur</span></a></li>
-        <li><a href="https://www.marticliment.com/unigetui/" target="_blank"><img src="https://raw.githubusercontent.com/marticliment/UniGetUI/refs/heads/main/media/Icon%20sizes/128.png">UnigetUI<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/marticliment/UniGetUI/refs/heads/main/media/Icon%20sizes/128.png">Çoklu paket yöneticisi arayüzü</span></a></li>
-        <li><a href="https://winstall.app/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winstall.svg" alt="Winstall" style="width:24px;height:24px;">Winstall.app<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winstall.svg" alt="Winstall" style="width:18px;height:18px;">Toplu winget komutları oluşturur ve Windows için kolay yazılım kurulum listeleri sunar</span></a></li>
-        <li><a href="https://winget.run/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winget.run.svg" alt="WinGet.run" style="width:24px;height:24px;">WinGet.run<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/winget.run.svg" alt="WinGet.run" style="width:18px;height:18px;">Winget paketlerini arar ve komut oluşturur</span></a></li>
-        <li><a href="https://www.quickinstaller.net/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/quickinstaller.png" alt="QuickInstaller" style="width:24px;height:24px;">QuickInstaller<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/quickinstaller.png" alt="QuickInstaller" style="width:18px;height:18px;">Hızlı ve kolay yazılım kurulum platformu</span></a></li>
-        <li><a href="https://ruckzuck.tools/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/ruckzuck.png" alt="RuckZuck" style="width:24px;height:24px;background:transparent;border-radius:7px;">RuckZuck<span class="custom-tooltip"><img src="https://ruckzuck.tools/favicon.ico">Hızlı yazılım yükleme ve güncelleme aracı</span></a></li>
-        <li><a href="https://scoop.sh/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/scoop.png" alt="Scoop">Scoop<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/scoop.png" alt="Scoop">Komut satırı tabanlı yazılım paket yöneticisi</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Taşınabilir Uygulama Platformları</h2>
-      <ul>
-        <li><a href="https://portableappz.blogspot.com/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/portableappz.png" alt="PortableAppZ" style="width:24px;height:24px;border-radius:7px;">PortableAppZ<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/portableappz.png" alt="PortableAppZ" style="width:18px;height:18px;border-radius:5px;">Taşınabilir (portable) yazılım arşivi ve blogu</span></a></li>
-        <li><a href="https://portableapps.com/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/PortableApps.svg" alt="PortableApps" style="width:24px;height:24px;border-radius:7px;">PortableApps<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/PortableApps.svg" alt="PortableApps" style="width:18px;height:18px;border-radius:5px;">En popüler taşınabilir uygulama platformu</span></a></li>
-        <li><a href="https://portapps.io/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/portapps.svg" alt="Portapps" style="width:24px;height:24px;border-radius:7px;">Portapps.io<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/portapps.svg" alt="Portapps" style="width:18px;height:18px;border-radius:5px;">Açık kaynak taşınabilir uygulama koleksiyonu</span></a></li>
-        <li><a href="https://www.sordum.org/" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/sordum.svg" alt="Sordum.org" style="width:24px;height:24px;">Sordum.org<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/sordum.svg" alt="Sordum.org" style="width:18px;height:18px;">Ücretsiz taşınabilir Windows araçları ve yazılım çözümleri</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Windows İndirme & Kurulum</h2> 
-      <ul>
-        <li><a href="https://www.microsoft.com/tr-tr/software-download/windows10" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/Microsoft.svg" alt="Microsoft" style="width:24px;height:24px;">Windows 10 İndir<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/Microsoft.svg" alt="Microsoft" style="width:18px;height:18px;">Orijinal Windows 10 ISO dosyası indir</span></a></li>
-        <li><a href="https://www.microsoft.com/tr-tr/software-download/windows11" target="_blank"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/Microsoft.svg" alt="Microsoft" style="width:24px;height:24px;">Windows 11 İndir<span class="custom-tooltip"><img src="https://github.com/byGOG/byGOG-Lab/raw/main/icon/Microsoft.svg" alt="Microsoft" style="width:18px;height:18px;">Orijinal Windows 11 ISO dosyası indir</span></a></li>
-        <li><a href="https://rufus.ie/tr/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/rufus.svg" alt="Rufus">Rufus<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/rufus.svg" alt="Rufus">USB'den kurulum medyası oluşturma</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Özel Windows Dağıtımları</h2>
-      <ul>
-        <li><a href="https://atlasos.net/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/atlasos.svg" alt="AtlasOS">AtlasOS<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/atlasos.svg" alt="AtlasOS">Optimize edilmiş Windows dağıtımı</span></a></li>
-        <li><a href="https://www.revi.cc/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/revi.svg" alt="ReviOS">ReviOS<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/revi.svg" alt="ReviOS">Performans ve gizlilik odaklı Windows sürümü</span></a></li>
-      </ul>
+      <h2>Geliştirici & Tasarım</h2>
+      <div class="sub-category">
+        <h3>Yazılım Geliştirme Araçları</h3>
+        <ul>
+          <li><a href="https://cmder.app/" target="_blank"><img src="https://cmder.app/favicon.ico" alt="Cmder">Cmder<span class="custom-tooltip"><img src="https://cmder.app/favicon.ico" alt="Cmder">Gelişmiş Windows terminali</span></a></li>
+          <li><a href="https://www.virtualbox.org/" target="_blank"><img src="https://www.virtualbox.org/favicon.ico" alt="VirtualBox">VirtualBox<span class="custom-tooltip"><img src="https://www.virtualbox.org/favicon.ico" alt="VirtualBox">Güçlü, açık kaynaklı sanallaştırma yazılımı. Windows, Linux, macOS ve diğer platformlarda sanal makine çalıştırmak için kullanılır.</span></a></li>
+          <li><a href="https://code.visualstudio.com/" target="_blank"><img src="https://code.visualstudio.com/favicon.ico" alt="Visual Studio Code">Visual Studio Code<span class="custom-tooltip"><img src="https://code.visualstudio.com/favicon.ico" alt="Visual Studio Code">Popüler kod editörü ve IDE</span></a></li>
+          <li><a href="https://notepad-plus-plus.org/" target="_blank"><img src="https://notepad-plus-plus.org/favicon.ico" alt="Notepad++">Notepad++<span class="custom-tooltip"><img src="https://notepad-plus-plus.org/favicon.ico" alt="Notepad++">Gelişmiş metin ve kod editörü</span></a></li>
+          <li><a href="https://cursor.com/" target="_blank"><img src="https://cursor.com/favicon.ico" alt="Cursor" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">Cursor<span class="custom-tooltip"><img src="https://cursor.com/favicon.ico" alt="Cursor" style="width:18px;height:18px;vertical-align:middle;">Yapay zekâ destekli modern kod editörü. Kod tamamlama, doğal dil ile düzenleme ve gelişmiş üretkenlik özellikleri sunar.</span></a></li>
+          <li>
+            <a href="https://www.angusj.com/resourcehacker/" target="_blank">
+              <img src="https://www.angusj.com/favicon.ico" alt="Resource Hacker">Resource Hacker
+              <span class="custom-tooltip"><img src="https://www.angusj.com/favicon.ico" alt="Resource Hacker">Windows uygulamaları için ücretsiz kaynak derleyici ve düzenleyici. İkon, imleç, menü ve diyalog kutularını değiştirir.</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Programlama Dilleri & Araçlar</h3>
+        <ul>
+          <li><a href="https://www.java.com/tr/" target="_blank"><img src="https://www.java.com/favicon.ico">Java<span class="custom-tooltip"><img src="https://www.java.com/favicon.ico">Java programlama dili ve çalışma zamanı</span></a></li>
+          <li><a href="https://learn.microsoft.com/tr-tr/powershell/" target="_blank"><img src="https://learn.microsoft.com/favicon.ico">PowerShell<span class="custom-tooltip"><img src="https://learn.microsoft.com/favicon.ico">Resmi PowerShell dökümantasyonu, örnekler ve kurulum rehberleri</span></a></li>
+          <li><a href="https://developer.android.com/tools/adb" target="_blank"><img src="https://developer.android.com/favicon.ico" alt="ADB">Android Debug Bridge (adb)<span class="custom-tooltip"><img src="https://developer.android.com/favicon.ico" alt="ADB">Android cihazlarla bağlantı, uygulama yükleme, hata ayıklama ve komut satırı yönetimi için resmi araç</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Grafik & Tasarım Araçları</h3>
+        <ul>
+          <li>
+            <a href="https://inkscape.org/" target="_blank">
+              <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/inkscape.svg" alt="Inkscape" style="width:24px;height:24px;border-radius:7px;">
+              Inkscape
+              <span class="custom-tooltip">
+                <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/inkscape.svg" alt="Inkscape" style="width:18px;height:18px;border-radius:5px;">
+                Ücretsiz ve açık kaynaklı, profesyonel vektör grafik düzenleyici. SVG formatını destekler.
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="https://greenfishsoftware.org/" target="_blank">
+              <img src="https://greenfishsoftware.org/favicon.ico" alt="Greenfish Icon Editor">Greenfish Icon Editor
+              <span class="custom-tooltip"><img src="https://greenfishsoftware.org/favicon.ico" alt="Greenfish Icon Editor">Ücretsiz, açık kaynaklı ve taşınabilir ikon, imleç ve animasyon editörü.</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      
     </div>
     <div class="category-card">
-      <h2>Office & Aktivasyon Araçları</h2>
-      <ul>
-        <li><a href="https://www.officetool.plus/" target="_blank"><span class="star" title="Önerilen">★</span><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/otp.svg" alt="Office Tool Plus">Office Tool Plus<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/otp.svg" alt="Office Tool Plus">Microsoft Office dağıtımı, kurulumu ve yönetimi için gelişmiş araç</span></a></li>
-        <li><a href="https://massgrave.dev/" target="_blank"><span class="star" title="Önerilen">★</span><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/massgrave.svg" alt="Massgrave.dev">Massgrave.dev<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/massgrave.svg" alt="Massgrave.dev">Windows ve Office etkinleştirme araçları</span></a></li>
-        <li><a href="https://github.com/lstprjct/IDM-Activation-Script" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg" alt="IDM Activation Script">IDM Activation Script<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg" alt="IDM Activation Script">IDM için aktivasyon scripti</span></a></li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h2>Dosya & Disk Yönetimi</h2>
-      <ul>
-        <li><a href="https://www.7-zip.org/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/7-Zip.svg" alt="7-Zip">7-Zip<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/7-Zip.svg" alt="7-Zip">Açık kaynaklı dosya sıkıştırma ve arşivleme</span></a></li>
-        <li><a href="https://github.com/M2Team/NanaZip" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg" alt="NanaZip">NanaZip<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg" alt="NanaZip">Modern Windows için 7-Zip tabanlı, açık kaynaklı dosya sıkıştırma ve arşivleme programı. MSIX paket, yeni arayüz ve gelişmiş entegrasyon.</span></a></li>
-        <li><a href="https://www.codesector.com/teracopy" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/TeraCopy.svg" alt="TeraCopy">TeraCopy<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/TeraCopy.svg" alt="TeraCopy">Hızlı ve güvenli dosya kopyalama aracı</span></a></li>
-        <li><a href="https://www.rarlab.com/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/WinRAR.svg" alt="WinRAR">WinRAR<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/WinRAR.svg" alt="WinRAR">Popüler dosya sıkıştırma ve arşivleme programı</span></a></li>
-        <li><a href="https://code.kliu.org/hashcheck/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/hashcheck.svg" alt="HashCheck">HashCheck Shell Extension<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/hashcheck.svg" alt="HashCheck">Windows Gezgini'ne entegre, hızlı ve açık kaynaklı dosya bütünlüğü (hash) kontrol aracı</span></a></li>
-        <li><a href="https://winmerge.org/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/WinMerge.svg" alt="WinMerge">WinMerge<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/WinMerge.svg" alt="WinMerge">Açık kaynaklı, dosya ve klasör karşılaştırma/birleştirme aracı. Farkları görsel olarak gösterir ve senkronizasyon sağlar.</span></a></li>
-        <li><a href="https://macrorit.com/partition-magic-manager/free-edition.html" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Macrorit.svg" alt="Macrorit Partition Expert">Macrorit Partition Expert<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Macrorit.svg" alt="Macrorit Partition Expert">Ücretsiz, gelişmiş disk bölümlendirme ve yönetim aracı. Veri kaybı olmadan disk bölme, birleştirme, biçimlendirme ve kurtarma özellikleri.</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Disk Analizi & Dosya Arama</h2>
-      <ul>
-        <li><a href="https://www.voidtools.com/tr-tr/" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Everything.svg" alt="Everything">Everything<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/Everything.svg" alt="Everything">Windows için anında dosya ve klasör arama</span></a></li>
-        <li><a href="https://diskanalyzer.com/" target="_blank"><img src="https://diskanalyzer.com/apple-touch-icon.png" alt="WizTree" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">WizTree<span class="custom-tooltip"><img src="https://diskanalyzer.com/apple-touch-icon.png" alt="WizTree" style="width:18px;height:18px;vertical-align:middle;">Diskte büyük dosyaları ve alan kullanımını analiz eder</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Bulut Depolama & Yedekleme</h2>
-      <ul>
-        <li><a href="https://hluk.github.io/CopyQ/" target="_blank"><img src="https://hluk.github.io/CopyQ/images/logo.png" style="width:24px;height:24px;border-radius:7px;">CopyQ<span class="custom-tooltip"><img src="https://hluk.github.io/CopyQ/images/logo.png" style="width:18px;height:18px;border-radius:5px;">Gelişmiş pano (clipboard) yöneticisi</span></a></li>
-        <li><a href="https://www.dropbox.com/" target="_blank"><img src="https://fjord.dropboxstatic.com/warp/conversion/dropbox/warp/icons/Dropbox-logo-nav.svg" style="width:24px;height:24px;border-radius:7px;">Dropbox<span class="custom-tooltip"><img src="https://fjord.dropboxstatic.com/warp/conversion/dropbox/warp/icons/Dropbox-logo-nav.svg" style="width:18px;height:18px;border-radius:5px;">Dosya yedekleme ve bulut depolama hizmeti</span></a></li>
-        <li><a href="https://getsharex.com/" target="_blank"><img src="https://getsharex.com/favicon.ico">ShareX<span class="custom-tooltip"><img src="https://getsharex.com/favicon.ico">Ekran görüntüsü alma ve paylaşma aracı</span></a></li>
-        <li><a href="https://workspace.google.com/products/drive/" target="_blank"><img src="https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png">Google Drive<span class="custom-tooltip"><img src="https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png">Google'ın bulut depolama ve dosya paylaşım servisi</span></a></li>
-        <li><a href="https://imageglass.org/" target="_blank"><img src="https://imageglass.org/img/iglogo.svg" style="width:24px;height:24px;border-radius:7px;">ImageGlass<span class="custom-tooltip"><img src="https://imageglass.org/img/iglogo.svg" style="width:18px;height:18px;border-radius:5px;">Hafif ve modern resim görüntüleyici</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Torrent & İndirme Platformları</h2>
-      <ul>
-        <li><a href="https://www.zamunda.net/" target="_blank"><img src="https://www.zamunda.net/favicon.ico" alt="Zamunda" style="width:24px;height:24px;">Zamunda<span class="custom-tooltip"><img src="https://www.zamunda.net/favicon.ico" alt="Zamunda" style="width:18px;height:18px;">Popüler Türkçe torrent paylaşım platformu</span></a></li>
-        <li><a href="https://yts.mx/" target="_blank"><img src="https://yts.mx/assets/images/website/favicon.ico" alt="YTS" style="width:24px;height:24px;">YTS<span class="custom-tooltip"><img src="https://yts.mx/assets/images/website/favicon.ico" alt="YTS" style="width:18px;height:18px;">Yüksek kaliteli film torrent arşivi</span></a></li>
-        <li><a href="https://thepiratebay.org/" target="_blank"><img src="https://thepiratebay.org/favicon.ico" alt="The Pirate Bay" style="width:24px;height:24px;">The Pirate Bay<span class="custom-tooltip"><img src="https://thepiratebay.org/favicon.ico" alt="The Pirate Bay" style="width:18px;height:18px;">Dünyanın en büyük torrent arama motoru</span></a></li>
-        <li><a href="https://torrentsites.com/" target="_blank"><img src="https://torrentsites.com/favicon.ico" alt="TorrentSites" style="width:24px;height:24px;">TorrentSites<span class="custom-tooltip"><img src="https://torrentsites.com/favicon.ico" alt="TorrentSites" style="width:18px;height:18px;">En iyi torrent siteleri rehberi</span></a></li>
-        <li><a href="https://yourbittorrent.com/" target="_blank"><img src="https://yourbittorrent.com/favicon.ico" alt="YourBittorrent" style="width:24px;height:24px;">YourBittorrent<span class="custom-tooltip"><img src="https://yourbittorrent.com/favicon.ico" alt="YourBittorrent" style="width:18px;height:18px;">Geniş torrent arşivi ve paylaşım platformu</span></a></li>
-        <li><a href="https://eztvx.to/" target="_blank"><img src="https://eztvx.to/favicon.ico" alt="EZTV" style="width:24px;height:24px;">EZTV<span class="custom-tooltip"><img src="https://eztvx.to/favicon.ico" alt="EZTV" style="width:18px;height:18px;">Dizi ve TV şovları için torrent platformu</span></a></li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h2>Ağ, VPN & Güvenlik Araçları</h2>
-      <ul>
-        <li><a href="https://antizapret.prostovpn.org/" target="_blank"><img src="https://antizapret.prostovpn.org/img/unlock.png">Antizapret<span class="custom-tooltip"><img src="https://antizapret.prostovpn.org/img/unlock.png">Engelli sitelere erişim için VPN hizmeti</span></a></li>
-        <li><a href="https://github.com/cagritaskn/GoodbyeDPI-Turkey" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">GoodbyeDPI-Turkey<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Türkiye için DPI engelini aşma aracı</span></a></li>
-        <li><a href="https://github.com/ValdikSS/GoodbyeDPI" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">GoodbyeDPI<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">DPI tabanlı engellemeleri aşmak için araç</span></a></li>
-        <li><a href="https://openvpn.net/client/" target="_blank"><img src="https://openvpn.net/favicon.ico">OpenVPN<span class="custom-tooltip"><img src="https://openvpn.net/favicon.ico">Açık kaynaklı VPN istemcisi</span></a></li>
-        <li><a href="https://protonvpn.com/" target="_blank"><img src="https://protonvpn.com/favicon.ico">ProtonVPN<span class="custom-tooltip"><img src="https://protonvpn.com/favicon.ico">Güvenli ve hızlı VPN hizmeti</span></a></li>
-        <li><a href="https://www.torproject.org/tr/" target="_blank"><img src="https://www.torproject.org/static/images/favicon/favicon.ico" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">Tor Browser<span class="custom-tooltip"><img src="https://www.torproject.org/static/images/favicon/favicon.ico" style="width:18px;height:18px;vertical-align:middle;">Sansürü aşmak ve gizliliği korumak için anonim tarayıcı</span></a></li>
-      </ul>
+      <h2>Uygulamalar & Araçlar</h2>
+      <div class="sub-category">
+        <h3>Masaüstü Özelleştirme & Arayüz Araçları</h3>
+        <ul>
+          <li><a href="https://www.rocksdanister.com/lively/" target="_blank"><img src="https://www.rocksdanister.com/lively/favicon.ico" alt="Lively Wallpaper">Lively Wallpaper<span class="custom-tooltip"><img src="https://www.rocksdanister.com/lively/favicon.ico" alt="Lively Wallpaper">Hareketli ve interaktif masaüstü duvar kağıtları</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Çeviri & Dil Araçları</h3>
+        <ul>
+          <li>
+            <a href="https://www.deepl.com/tr/" target="_blank">
+              <img src="https://www.deepl.com/favicon.ico" alt="DeepL" style="width:24px;height:24px;border-radius:7px;">
+              DeepL
+              <span class="custom-tooltip">
+                <img src="https://www.deepl.com/favicon.ico" alt="DeepL" style="width:18px;height:18px;border-radius:5px;">
+                Yapay zekâ destekli, yüksek kaliteli metin çeviri servisi. Çoklu dil desteği ve gelişmiş çeviri doğruluğu.
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Yapay Zekâ & Asistan Araçları</h3>
+        <ul>
+          <li><a href="https://chatgpt.com/" target="_blank"><img src="https://chatgpt.com/favicon.ico">ChatGPT<span class="custom-tooltip"><img src="https://chatgpt.com/favicon.ico">OpenAI ChatGPT ile yapay zekâ sohbeti</span></a></li>
+          <li><a href="https://claude.ai/" target="_blank"><img src="https://claude.ai/favicon.ico">Claude AI<span class="custom-tooltip"><img src="https://claude.ai/favicon.ico">Claude AI ile yapay zekâ sohbeti</span></a></li>
+          <li><a href="https://copilot.microsoft.com/" target="_blank"><img src="https://copilot.microsoft.com/favicon.ico">Copilot<span class="custom-tooltip"><img src="https://copilot.microsoft.com/favicon.ico">Microsoft Copilot ile yapay zekâ asistanı</span></a></li>
+          <li><a href="https://gemini.google.com/" target="_blank"><img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg">Gemini<span class="custom-tooltip"><img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg">Google Gemini ile yapay zekâ sohbeti</span></a></li>
+          <li><a href="https://www.perplexity.ai/" target="_blank"><img src="https://www.perplexity.ai/favicon.ico">Perplexity AI<span class="custom-tooltip"><img src="https://www.perplexity.ai/favicon.ico">Perplexity AI ile yapay zekâ arama ve sohbet</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Uzaktan Erişim & Destek Araçları</h3>
+        <ul>
+          <li><a href="https://anydesk.com/tr" target="_blank"><img src="https://anydesk.com/favicon.ico">AnyDesk<span class="custom-tooltip"><img src="https://anydesk.com/favicon.ico">Uzaktan masaüstü erişim ve destek</span></a></li>
+          <li><a href="https://rustdesk.com/" target="_blank"><img src="https://rustdesk.com/_astro/favicon.B_ZzjaxD.svg" style="width:24px;height:24px;border-radius:7px;">RustDesk<span class="custom-tooltip"><img src="https://rustdesk.com/_astro/favicon.B_ZzjaxD.svg" style="width:18px;height:18px;border-radius:5px;">Açık kaynaklı uzaktan masaüstü erişimi</span></a></li>
+          <li><a href="https://www.teamviewer.com/tr/" target="_blank"><img src="https://www.teamviewer.com/favicon.ico">TeamViewer<span class="custom-tooltip"><img src="https://www.teamviewer.com/favicon.ico">Popüler uzaktan destek ve erişim aracı</span></a></li>
+        </ul>
+      </div>
     </div>
     <div class="category-card">
-      <h2>Şifre & Gizlilik Araçları</h2>
-      <ul>
-        <li><a href="https://bitwarden.com/" target="_blank"><img src="https://bitwarden.com/favicon.ico">Bitwarden<span class="custom-tooltip"><img src="https://bitwarden.com/favicon.ico">Açık kaynaklı şifre yöneticisi</span></a></li>
-        <li><a href="https://browserleaks.com/" target="_blank"><img src="https://browserleaks.com/favicon.ico">BrowserLeaks<span class="custom-tooltip"><img src="https://browserleaks.com/favicon.ico">Tarayıcı gizliliği ve sızıntı testleri</span></a></li>
-        <li><a href="https://relay.firefox.com/" target="_blank"><img src="https://relay.firefox.com/favicon.ico" alt="Firefox Relay" style="width:24px;height:24px;">Firefox Relay<span class="custom-tooltip"><img src="https://relay.firefox.com/favicon.ico" alt="Firefox Relay" style="width:18px;height:18px;">E-posta gizliliği ve maskeleme servisi</span></a></li>
-      </ul>
+      <h2>Mobil & İletişim</h2>
+      <div class="sub-category">
+        <h3>Android Modlu Uygulamalar</h3>
+        <ul>
+          <li><a href="https://vanced.to/" target="_blank"><img src="https://vancedapp.com/favicon.ico" alt="ReVanced Manager">ReVanced Manager<span class="custom-tooltip"><img src="https://vancedapp.com/favicon.ico" alt="VancedApp">YouTube Vanced ve benzeri modlu Android uygulamaları</span></a></li>
+          <li><a href="https://www.xmanagerapp.com/" target="_blank"><img src="https://www.xmanagerapp.com/favicon.ico" alt="xManager">xManager<span class="custom-tooltip"><img src="https://www.xmanagerapp.com/favicon.ico" alt="xManager">Spotify için reklamsız ve gelişmiş Android uygulama yöneticisi</span></a></li>
+          <li><a href="https://www.instamod.co/" target="_blank"><img src="https://www.instamod.co/wp-content/uploads/2024/05/cropped-instamod-logo-32x32.png" alt="InstaPro">InstaPro<span class="custom-tooltip"><img src="https://www.instamod.co/wp-content/uploads/2024/05/cropped-instamod-logo-32x32.png" alt="InstaMod">Instagram için reklamsız ve gelişmiş özellikler sunan modlu uygulama</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>İletişim & E-posta Servisleri</h3>
+        <ul>
+          <li><a href="https://discord.com/" target="_blank"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/6286368c5f5cc306ac2a4672_Jobs%20and%20Career%20Opportunities%20at%20Discord-2%201.svg" style="width:24px;height:24px;border-radius:7px;">Discord<span class="custom-tooltip"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/6286368c5f5cc306ac2a4672_Jobs%20and%20Career%20Opportunities%20at%20Discord-2%201.svg" style="width:18px;height:18px;border-radius:5px;">Topluluk ve oyun odaklı sohbet platformu</span></a></li>
+          <li><a href="https://telegram.org/" target="_blank"><img src="https://telegram.org/favicon.ico">Telegram<span class="custom-tooltip"><img src="https://telegram.org/favicon.ico">Güvenli ve hızlı mesajlaşma uygulaması</span></a></li>
+          <li><a href="https://www.whatsapp.com/" target="_blank"><img src="https://static.whatsapp.net/rsrc.php/v4/yz/r/ujTY9i_Jhs1.png" alt="WhatsApp" style="width:24px;height:24px;">WhatsApp<span class="custom-tooltip"><img src="https://static.whatsapp.net/rsrc.php/v4/yz/r/ujTY9i_Jhs1.png" alt="WhatsApp" style="width:18px;height:18px;">Popüler, uçtan uca şifreli mesajlaşma ve arama uygulaması</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>E-posta & Hesap Yönetimi</h3>
+        <ul>
+          <li><a href="https://login.microsoftonline.com/" target="_blank"><img src="https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_564db913a7fa0ca42727161c6d031bef.svg" alt="Microsoft" style="width:24px;height:24px;">Microsoft<span class="custom-tooltip"><img src="https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_564db913a7fa0ca42727161c6d031bef.svg" alt="Microsoft" style="width:18px;height:18px;border-radius:5px;">Microsoft hesabı ile oturum açma ve e-posta servisi</span></a></li>
+          <li><a href="https://login.yahoo.com/" target="_blank"><img src="https://s.yimg.com/wm/mbr/images/yahoo-apple-touch-v0.0.2.png" alt="Yahoo Mail" style="width:24px;height:24px;">Yahoo Mail<span class="custom-tooltip"><img src="https://s.yimg.com/wm/mbr/images/yahoo-apple-touch-v0.0.2.png" alt="Yahoo Mail" style="width:18px;height:18px;border-radius:5px;">Yahoo Mail ile e-posta servisi ve oturum açma</span></a></li>
+          <li><a href="https://mail.google.com/" target="_blank"><img src="https://workspace.google.com/lp/static/images/logo-gmail.png" alt="Gmail" style="width:24px;height:24px;">Gmail<span class="custom-tooltip"><img src="https://workspace.google.com/lp/static/images/logo-gmail.png" alt="Gmail" style="width:18px;height:18px;border-radius:5px;">Google Gmail ile e-posta servisi</span></a></li>
+          <li><a href="https://www.thunderbird.net/tr/" target="_blank"><img src="https://www.thunderbird.net/favicon.ico" alt="Thunderbird" style="width:24px;height:24px;">Thunderbird<span class="custom-tooltip"><img src="https://www.thunderbird.net/favicon.ico" alt="Thunderbird" style="width:18px;height:18px;border-radius:5px;">Açık kaynaklı, güçlü ve güvenli e-posta istemcisi</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Spor & Canlı Skor Platformları</h3>
+        <ul>
+          <li><a href="https://www.365scores.com/tr" target="_blank"><img src="https://www.365scores.com/favicon.ico" alt="365Scores" style="width:24px;height:24px;">365Scores<span class="custom-tooltip"><img src="https://www.365scores.com/favicon.ico" alt="365Scores" style="width:18px;height:18px;">Canlı skorlar, maç sonuçları ve spor haberleri</span></a></li>
+          <li><a href="https://www.sofascore.com/tr/" target="_blank"><img src="https://www.sofascore.com/favicon.ico" alt="SofaScore" style="width:24px;height:24px;">SofaScore<span class="custom-tooltip"><img src="https://www.sofascore.com/favicon.ico" alt="SofaScore" style="width:18px;height:18px;">Canlı skorlar, istatistikler ve spor analizleri</span></a></li>
+          <li><a href="https://www.fotmob.com/tr" target="_blank"><img src="https://www.fotmob.com/favicon.ico" alt="FotMob" style="width:24px;height:24px;">FotMob<span class="custom-tooltip"><img src="https://www.fotmob.com/favicon.ico" alt="FotMob" style="width:18px;height:18px;">Futbol odaklı canlı skor ve haber platformu</span></a></li>
+        </ul>
+      </div>
     </div>
     <div class="category-card">
-      <h2>DNS Servisleri</h2>
-      <ul>
-        <li><a href="https://nextdns.io/" target="_blank"><img src="https://nextdns.io/favicon.ico">NextDNS<span class="custom-tooltip"><img src="https://nextdns.io/favicon.ico">Reklam, izleyici ve zararlı yazılımları engelleyen, özelleştirilebilir DNS hizmeti</span></a></li>
-        <li><a href="https://dnsforge.de/" target="_blank"><img src="https://dnsforge.de/favicon.ico">DNSForge<span class="custom-tooltip"><img src="https://dnsforge.de/favicon.ico">Almanya merkezli, gizlilik odaklı, reklamsız ve izleyicisiz DNS hizmeti</span></a></li>
-        <li><a href="https://one.one.one.one/tr-TR/dns/" target="_blank"><img src="https://one.one.one.one/favicon.ico" alt="Cloudflare 1.1.1.1" style="width:24px;height:24px;">Cloudflare<span class="custom-tooltip"><img src="https://one.one.one.one/favicon.ico" alt="Cloudflare 1.1.1.1" style="width:18px;height:18px;">Hızlı, gizlilik odaklı ve ücretsiz DNS hizmeti</span></a></li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h2>Medya & Eğlence Platformları</h2>
-      <ul>
-        <li><a href="https://www.aimp.ru/" target="_blank"><img src="https://www.aimp.ru/favicon.ico">AIMP<span class="custom-tooltip"><img src="https://www.aimp.ru/favicon.ico">Gelişmiş müzik çalar</span></a></li>
-        <li><a href="https://codecguide.com/" target="_blank"><img src="https://codecguide.com/mpc_logo.png" style="width:24px;height:24px;border-radius:7px;">Codec Guide<span class="custom-tooltip"><img src="https://codecguide.com/mpc_logo.png" style="width:18px;height:18px;border-radius:5px;">K-Lite Codec Pack ile medya codec'leri</span></a></li>
-        <li><a href="https://www.videolan.org/vlc/" target="_blank"><img src="https://images.videolan.org/images/icons-VLC/vlc.mini.svg" style="width:24px;height:24px;border-radius:7px;">VLC Media Player<span class="custom-tooltip"><img src="https://images.videolan.org/images/icons-VLC/vlc.mini.svg" style="width:18px;height:18px;border-radius:5px;">Çok formatlı medya oynatıcı</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Müzik & Video Akış Platformları</h2>
-      <ul>
-        <li><a href="https://open.spotify.com/" target="_blank"><img src="https://open.spotify.com/favicon.ico">Spotify<span class="custom-tooltip"><img src="https://open.spotify.com/favicon.ico">Popüler müzik dinleme platformu</span></a></li>
-        <li><a href="https://www.stremio.com/" target="_blank"><img src="https://www.stremio.com/website/stremio-purple-small.png" style="width:24px;height:24px;border-radius:7px;">Stremio<span class="custom-tooltip"><img src="https://www.stremio.com/website/stremio-purple-small.png" style="width:18px;height:18px;border-radius:5px;">Film ve dizi akış platformu</span></a></li>
-        <li><a href="https://inatflix.org/" target="_blank"><img src="https://inatflix.org/favicon.ico">iNatFlix<span class="custom-tooltip"><img src="https://inatflix.org/favicon.ico">Dijital yayın ve film platformu</span></a></li>
-        <li><a href="https://tv.garden/" target="_blank"><img src="https://tv.garden/favicon.ico">tv.garden<span class="custom-tooltip"><img src="https://tv.garden/favicon.ico">Çevrim içi TV ve yayın platformu</span></a></li>
-        <li><a href="https://www.dojostreams.com/" target="_blank"><img src="https://www.dojostreams.com/favicon.ico" alt="Dojostreams" style="width:24px;height:24px;">Dojostreams<span class="custom-tooltip"><img src="https://www.dojostreams.com/favicon.ico" alt="Dojostreams" style="width:18px;height:18px;border-radius:5px;">Dünya genelinde IPTV, canlı TV ve film platformu</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Medya Dönüştürücüler & İndiriciler</h2>
-      <ul>
-        <li><a href="https://www.internetdownloadmanager.com/" target="_blank"><img src="https://www.internetdownloadmanager.com/favicon.ico" alt="Internet Download Manager">Internet Download Manager<span class="custom-tooltip"><img src="https://www.internetdownloadmanager.com/favicon.ico" alt="Internet Download Manager">Popüler indirme yöneticisi ve hızlandırıcısı</span></a></li>
-        <li><a href="https://handbrake.fr/" target="_blank"><img src="https://handbrake.fr/favicon.ico">HandBrake<span class="custom-tooltip"><img src="https://handbrake.fr/favicon.ico">Açık kaynaklı video dönüştürücü</span></a></li>
-        <li><a href="https://github.com/DJDoubleD/QobuzDownloaderX-MOD" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">QobuzDownloaderX-MOD<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Qobuz müzik indirme aracı</span></a></li>
-        <li><a href="https://github.com/SpotX-Official/SpotX" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">SpotX<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Spotify için reklamsız deneyim aracı</span></a></li>
-        <li><a href="https://github.com/WilliamSchack/Spotify-Downloader" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Spotify-Downloader<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Spotify müziklerini indirme aracı</span></a></li>
-        <li><a href="https://github.com/yt-dlp/yt-dlp" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">yt-dlp<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Zengin özelliklere sahip, komut satırı tabanlı video ve ses indirme aracı</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Spor & Canlı Skor Platformları</h2>
-      <ul>
-        <li><a href="https://www.365scores.com/tr" target="_blank"><img src="https://www.365scores.com/favicon.ico" alt="365Scores" style="width:24px;height:24px;">365Scores<span class="custom-tooltip"><img src="https://www.365scores.com/favicon.ico" alt="365Scores" style="width:18px;height:18px;">Canlı skorlar, maç sonuçları ve spor haberleri</span></a></li>
-        <li><a href="https://www.sofascore.com/tr/" target="_blank"><img src="https://www.sofascore.com/favicon.ico" alt="SofaScore" style="width:24px;height:24px;">SofaScore<span class="custom-tooltip"><img src="https://www.sofascore.com/favicon.ico" alt="SofaScore" style="width:18px;height:18px;">Canlı skorlar, istatistikler ve spor analizleri</span></a></li>
-        <li><a href="https://www.fotmob.com/tr" target="_blank"><img src="https://www.fotmob.com/favicon.ico" alt="FotMob" style="width:24px;height:24px;">FotMob<span class="custom-tooltip"><img src="https://www.fotmob.com/favicon.ico" alt="FotMob" style="width:18px;height:18px;">Futbol odaklı canlı skor ve haber platformu</span></a></li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h2>Android Modlu Uygulamalar</h2>
-      <ul>
-        <li><a href="https://vanced.to/" target="_blank"><img src="https://vancedapp.com/favicon.ico" alt="ReVanced Manager">ReVanced Manager<span class="custom-tooltip"><img src="https://vancedapp.com/favicon.ico" alt="VancedApp">YouTube Vanced ve benzeri modlu Android uygulamaları</span></a></li>
-        <li><a href="https://www.xmanagerapp.com/" target="_blank"><img src="https://www.xmanagerapp.com/favicon.ico" alt="xManager">xManager<span class="custom-tooltip"><img src="https://www.xmanagerapp.com/favicon.ico" alt="xManager">Spotify için reklamsız ve gelişmiş Android uygulama yöneticisi</span></a></li>
-        <li><a href="https://www.instamod.co/" target="_blank"><img src="https://www.instamod.co/wp-content/uploads/2024/05/cropped-instamod-logo-32x32.png" alt="InstaPro">InstaPro<span class="custom-tooltip"><img src="https://www.instamod.co/wp-content/uploads/2024/05/cropped-instamod-logo-32x32.png" alt="InstaMod">Instagram için reklamsız ve gelişmiş özellikler sunan modlu uygulama</span></a></li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h2>GitHub</h2>
-      <ul>
-        <li><a href="https://github.com/byGOG" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg" alt="GitHub">byGOG's GitHub<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Kişisel GitHub profilim ve projelerim</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Yazılım Geliştirme Araçları</h2>
-      <ul>
-        <li><a href="https://cmder.app/" target="_blank"><img src="https://cmder.app/favicon.ico" alt="Cmder">Cmder<span class="custom-tooltip"><img src="https://cmder.app/favicon.ico" alt="Cmder">Gelişmiş Windows terminali</span></a></li>
-        <li><a href="https://www.virtualbox.org/" target="_blank"><img src="https://www.virtualbox.org/favicon.ico" alt="VirtualBox">VirtualBox<span class="custom-tooltip"><img src="https://www.virtualbox.org/favicon.ico" alt="VirtualBox">Güçlü, açık kaynaklı sanallaştırma yazılımı. Windows, Linux, macOS ve diğer platformlarda sanal makine çalıştırmak için kullanılır.</span></a></li>
-        <li><a href="https://code.visualstudio.com/" target="_blank"><img src="https://code.visualstudio.com/favicon.ico" alt="Visual Studio Code">Visual Studio Code<span class="custom-tooltip"><img src="https://code.visualstudio.com/favicon.ico" alt="Visual Studio Code">Popüler kod editörü ve IDE</span></a></li>
-        <li><a href="https://notepad-plus-plus.org/" target="_blank"><img src="https://notepad-plus-plus.org/favicon.ico" alt="Notepad++">Notepad++<span class="custom-tooltip"><img src="https://notepad-plus-plus.org/favicon.ico" alt="Notepad++">Gelişmiş metin ve kod editörü</span></a></li>
-        <li><a href="https://cursor.com/" target="_blank"><img src="https://cursor.com/favicon.ico" alt="Cursor" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">Cursor<span class="custom-tooltip"><img src="https://cursor.com/favicon.ico" alt="Cursor" style="width:18px;height:18px;vertical-align:middle;">Yapay zekâ destekli modern kod editörü. Kod tamamlama, doğal dil ile düzenleme ve gelişmiş üretkenlik özellikleri sunar.</span></a></li>
-        <li>
-          <a href="https://www.angusj.com/resourcehacker/" target="_blank">
-            <img src="https://www.angusj.com/favicon.ico" alt="Resource Hacker">Resource Hacker
-            <span class="custom-tooltip"><img src="https://www.angusj.com/favicon.ico" alt="Resource Hacker">Windows uygulamaları için ücretsiz kaynak derleyici ve düzenleyici. İkon, imleç, menü ve diyalog kutularını değiştirir.</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Grafik & Tasarım Araçları</h2>
-      <ul>
-        <li>
-          <a href="https://inkscape.org/" target="_blank">
-            <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/inkscape.svg" alt="Inkscape" style="width:24px;height:24px;border-radius:7px;">
-            Inkscape
-            <span class="custom-tooltip">
-              <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/inkscape.svg" alt="Inkscape" style="width:18px;height:18px;border-radius:5px;">
-              Ücretsiz ve açık kaynaklı, profesyonel vektör grafik düzenleyici. SVG formatını destekler.
-            </span>
-          </a>
-        </li>
-        <li>
-          <a href="https://greenfishsoftware.org/" target="_blank">
-            <img src="https://greenfishsoftware.org/favicon.ico" alt="Greenfish Icon Editor">Greenfish Icon Editor
-            <span class="custom-tooltip"><img src="https://greenfishsoftware.org/favicon.ico" alt="Greenfish Icon Editor">Ücretsiz, açık kaynaklı ve taşınabilir ikon, imleç ve animasyon editörü.</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Programlama Dilleri & Araçlar</h2>
-      <ul>
-        <li><a href="https://www.java.com/tr/" target="_blank"><img src="https://www.java.com/favicon.ico">Java<span class="custom-tooltip"><img src="https://www.java.com/favicon.ico">Java programlama dili ve çalışma zamanı</span></a></li>
-        <li><a href="https://learn.microsoft.com/tr-tr/powershell/" target="_blank"><img src="https://learn.microsoft.com/favicon.ico">PowerShell<span class="custom-tooltip"><img src="https://learn.microsoft.com/favicon.ico">Resmi PowerShell dökümantasyonu, örnekler ve kurulum rehberleri</span></a></li>
-        <li><a href="https://developer.android.com/tools/adb" target="_blank"><img src="https://developer.android.com/favicon.ico" alt="ADB">Android Debug Bridge (adb)<span class="custom-tooltip"><img src="https://developer.android.com/favicon.ico" alt="ADB">Android cihazlarla bağlantı, uygulama yükleme, hata ayıklama ve komut satırı yönetimi için resmi araç</span></a></li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h2>Yapay Zekâ & Asistan Araçları</h2>
-      <ul>
-        <li><a href="https://chatgpt.com/" target="_blank"><img src="https://chatgpt.com/favicon.ico">ChatGPT<span class="custom-tooltip"><img src="https://chatgpt.com/favicon.ico">OpenAI ChatGPT ile yapay zekâ sohbeti</span></a></li>
-        <li><a href="https://claude.ai/" target="_blank"><img src="https://claude.ai/favicon.ico">Claude AI<span class="custom-tooltip"><img src="https://claude.ai/favicon.ico">Claude AI ile yapay zekâ sohbeti</span></a></li>
-        <li><a href="https://copilot.microsoft.com/" target="_blank"><img src="https://copilot.microsoft.com/favicon.ico">Copilot<span class="custom-tooltip"><img src="https://copilot.microsoft.com/favicon.ico">Microsoft Copilot ile yapay zekâ asistanı</span></a></li>
-        <li><a href="https://gemini.google.com/" target="_blank"><img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg">Gemini<span class="custom-tooltip"><img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg">Google Gemini ile yapay zekâ sohbeti</span></a></li>
-        <li><a href="https://www.perplexity.ai/" target="_blank"><img src="https://www.perplexity.ai/favicon.ico">Perplexity AI<span class="custom-tooltip"><img src="https://www.perplexity.ai/favicon.ico">Perplexity AI ile yapay zekâ arama ve sohbet</span></a></li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h2>Uzaktan Erişim & Destek Araçları</h2>
-      <ul>
-        <li><a href="https://anydesk.com/tr" target="_blank"><img src="https://anydesk.com/favicon.ico">AnyDesk<span class="custom-tooltip"><img src="https://anydesk.com/favicon.ico">Uzaktan masaüstü erişim ve destek</span></a></li>
-        <li><a href="https://rustdesk.com/" target="_blank"><img src="https://rustdesk.com/_astro/favicon.B_ZzjaxD.svg" style="width:24px;height:24px;border-radius:7px;">RustDesk<span class="custom-tooltip"><img src="https://rustdesk.com/_astro/favicon.B_ZzjaxD.svg" style="width:18px;height:18px;border-radius:5px;">Açık kaynaklı uzaktan masaüstü erişimi</span></a></li>
-        <li><a href="https://www.teamviewer.com/tr/" target="_blank"><img src="https://www.teamviewer.com/favicon.ico">TeamViewer<span class="custom-tooltip"><img src="https://www.teamviewer.com/favicon.ico">Popüler uzaktan destek ve erişim aracı</span></a></li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h2>İletişim & E-posta Servisleri</h2>
-      <ul>
-        <li><a href="https://discord.com/" target="_blank"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/6286368c5f5cc306ac2a4672_Jobs%20and%20Career%20Opportunities%20at%20Discord-2%201.svg" style="width:24px;height:24px;border-radius:7px;">Discord<span class="custom-tooltip"><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/6286368c5f5cc306ac2a4672_Jobs%20and%20Career%20Opportunities%20at%20Discord-2%201.svg" style="width:18px;height:18px;border-radius:5px;">Topluluk ve oyun odaklı sohbet platformu</span></a></li>
-        <li><a href="https://telegram.org/" target="_blank"><img src="https://telegram.org/favicon.ico">Telegram<span class="custom-tooltip"><img src="https://telegram.org/favicon.ico">Güvenli ve hızlı mesajlaşma uygulaması</span></a></li>
-        <li><a href="https://www.whatsapp.com/" target="_blank"><img src="https://static.whatsapp.net/rsrc.php/v4/yz/r/ujTY9i_Jhs1.png" alt="WhatsApp" style="width:24px;height:24px;">WhatsApp<span class="custom-tooltip"><img src="https://static.whatsapp.net/rsrc.php/v4/yz/r/ujTY9i_Jhs1.png" alt="WhatsApp" style="width:18px;height:18px;">Popüler, uçtan uca şifreli mesajlaşma ve arama uygulaması</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>E-posta & Hesap Yönetimi</h2>
-      <ul>
-        <li><a href="https://login.microsoftonline.com/" target="_blank"><img src="https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_564db913a7fa0ca42727161c6d031bef.svg" alt="Microsoft" style="width:24px;height:24px;">Microsoft<span class="custom-tooltip"><img src="https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_564db913a7fa0ca42727161c6d031bef.svg" alt="Microsoft" style="width:18px;height:18px;border-radius:5px;">Microsoft hesabı ile oturum açma ve e-posta servisi</span></a></li>
-        <li><a href="https://login.yahoo.com/" target="_blank"><img src="https://s.yimg.com/wm/mbr/images/yahoo-apple-touch-v0.0.2.png" alt="Yahoo Mail" style="width:24px;height:24px;">Yahoo Mail<span class="custom-tooltip"><img src="https://s.yimg.com/wm/mbr/images/yahoo-apple-touch-v0.0.2.png" alt="Yahoo Mail" style="width:18px;height:18px;border-radius:5px;">Yahoo Mail ile e-posta servisi ve oturum açma</span></a></li>
-        <li><a href="https://mail.google.com/" target="_blank"><img src="https://workspace.google.com/lp/static/images/logo-gmail.png" alt="Gmail" style="width:24px;height:24px;">Gmail<span class="custom-tooltip"><img src="https://workspace.google.com/lp/static/images/logo-gmail.png" alt="Gmail" style="width:18px;height:18px;border-radius:5px;">Google Gmail ile e-posta servisi</span></a></li>
-        <li><a href="https://www.thunderbird.net/tr/" target="_blank"><img src="https://www.thunderbird.net/favicon.ico" alt="Thunderbird" style="width:24px;height:24px;">Thunderbird<span class="custom-tooltip"><img src="https://www.thunderbird.net/favicon.ico" alt="Thunderbird" style="width:18px;height:18px;border-radius:5px;">Açık kaynaklı, güçlü ve güvenli e-posta istemcisi</span></a></li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h2>Web Tarayıcıları & Eklentiler</h2>
-      <ul>
-        <li><a href="https://brave.com/tr/" target="_blank"><img src="https://brave.com/favicon.ico">Brave<span class="custom-tooltip"><img src="https://brave.com/favicon.ico">Gizlilik odaklı hızlı web tarayıcı</span></a></li>
-        <li><a href="https://www.google.com/chrome/" target="_blank"><img src="https://www.google.com/chrome/static/images/favicons/favicon.ico">Google Chrome<span class="custom-tooltip"><img src="https://www.google.com/chrome/static/images/favicons/favicon.ico">Google'ın hızlı ve popüler web tarayıcısı</span></a></li>
-        <li><a href="https://www.mozilla.org/tr/firefox/new/" target="_blank"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" style="width:24px;height:24px;border-radius:7px;">Mozilla Firefox<span class="custom-tooltip"><img src="https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg" style="width:18px;height:18px;border-radius:5px;">Açık kaynaklı web tarayıcı</span></a></li>
-        <li><a href="https://zen-browser.app/" target="_blank"><img src="https://zen-browser.app/favicon.ico">Zen Browser<span class="custom-tooltip"><img src="https://zen-browser.app/favicon.ico">Güvenli ve hızlı web tarayıcı</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Tarayıcı Eklentileri & Güvenlik</h2>
-      <ul>
-        <li><a href="https://github.com/dessant/buster" target="_blank"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">Buster (Captcha Solver)<span class="custom-tooltip"><img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/GitHub.svg">reCAPTCHA sesli doğrulama çözücü eklentisi</span></a></li>
-        <li><a href="https://sponsor.ajay.app/" target="_blank"><img src="https://sponsor.ajay.app/LogoSponsorBlockSimple256px.png" style="width:24px;height:24px;border-radius:7px;">SponsorBlock<span class="custom-tooltip"><img src="https://sponsor.ajay.app/LogoSponsorBlockSimple256px.png" style="width:18px;height:18px;border-radius:5px;">YouTube sponsor ve gereksiz bölümleri otomatik atlayan eklenti</span></a></li>
-        <li><a href="https://ublockorigin.com/" target="_blank"><img src="https://ublockorigin.com/img/favicons/favicon.ico" style="width:24px;height:24px;border-radius:7px;">uBlock Origin<span class="custom-tooltip"><img src="https://ublockorigin.com/img/favicons/favicon.ico" style="width:18px;height:18px;border-radius:5px;">Gelişmiş, açık kaynaklı reklam ve içerik engelleyici</span></a></li>
-        <li><a href="https://privacybadger.org/tr/" target="_blank"><img src="https://www.eff.org/sites/all/themes/frontier/favicon.ico" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">Privacy Badger<span class="custom-tooltip"><img src="https://www.eff.org/sites/all/themes/frontier/favicon.ico" style="width:18px;height:18px;vertical-align:middle;">Otomatik izleyici engelleme ve gizlilik koruması sağlayan tarayıcı eklentisi</span></a></li>
-        <li><a href="https://greasyfork.org/tr" target="_blank"><img src="https://greasyfork.org/favicon.ico" alt="Greasy Fork" style="width:24px;height:24px;">Greasy Fork<span class="custom-tooltip"><img src="https://greasyfork.org/favicon.ico" alt="Greasy Fork" style="width:18px;height:18px;">Kullanıcı scriptleri ve tarayıcı betikleri arşivi</span></a></li>
-      </ul>
-    </div>
-
-    <div class="category-card">
-      <h2>Oyun & Topluluk Platformları</h2>
-      <ul>
-        <li><a href="https://store.steampowered.com/" target="_blank"><img src="https://store.steampowered.com/favicon.ico">Steam<span class="custom-tooltip"><img src="https://store.steampowered.com/favicon.ico">Dijital oyun mağazası ve platformu</span></a></li>
-        <li><a href="https://store.epicgames.com/tr/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg" alt="Epic Games Store" style="width:32px;height:32px;">Epic Games<span class="custom-tooltip"><img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg" alt="Epic Games Store" style="width:32px;height:32px;">Epic Games'in dijital oyun mağazası ve platformu</span></a></li>
-        <li><a href="https://www.battle.net/" target="_blank"><img src="https://bnetstorefront.akamaized.net/static/favicon-192x192.png" alt="Battle.net" style="width:32px;height:32px;">Battle.net<span class="custom-tooltip"><img src="https://bnetstorefront.akamaized.net/static/favicon-192x192.png" alt="Battle.net" style="width:32px;height:32px;">Blizzard oyunları için resmi platform ve mağaza</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Oyun Repack & Crack Siteleri</h2>
-      <ul>
-        <li><a href="https://fitgirl-repacks.site/" target="_blank"><img src="https://fitgirl-repacks.site/favicon.ico" alt="FitGirl Repacks" style="width:24px;height:24px;">FitGirl Repacks<span class="custom-tooltip"><img src="https://fitgirl-repacks.site/favicon.ico" alt="FitGirl Repacks" style="width:18px;height:18px;">Popüler oyunlar için yüksek sıkıştırmalı repack arşivi</span></a></li>
-        <li><a href="https://www.skidrowcodex.net/" target="_blank"><img src="https://www.skidrowcodex.net/favicon.ico" alt="Skidrow Codex" style="width:24px;height:24px;">Skidrow Codex<span class="custom-tooltip"><img src="https://www.skidrowcodex.net/favicon.ico" alt="Skidrow Codex" style="width:18px;height:18px;">Oyun crack ve repack paylaşımları</span></a></li>
-        <li><a href="https://www.skidrowreloaded.com/" target="_blank"><img src="https://www.skidrowreloaded.com/wp-content/uploads/2024/05/cropped-faviicon-115x115.png" alt="Skidrow Reloaded" style="width:24px;height:24px;">Skidrow Reloaded<span class="custom-tooltip"><img src="https://www.skidrowreloaded.com/wp-content/uploads/2024/05/cropped-faviicon-115x115.png" alt="Skidrow Reloaded" style="width:18px;height:18px;">Güncel oyun crack ve repack platformu</span></a></li>
-        <li><a href="https://dodi-repacks.site/" target="_blank"><img src="https://dodi-repacks.site/favicon.ico" alt="DODI Repacks" style="width:24px;height:24px;">DODI Repacks<span class="custom-tooltip"><img src="https://dodi-repacks.site/favicon.ico" alt="DODI Repacks" style="width:18px;height:18px;">Küçük boyutlu ve hızlı oyun repack arşivi</span></a></li>
-        <li><a href="https://elamigos.site/" target="_blank"><img src="https://elamigos.site/favicon.ico" alt="ElAmigos" style="width:24px;height:24px;">ElAmigos<span class="custom-tooltip"><img src="https://elamigos.site/favicon.ico" alt="ElAmigos" style="width:18px;height:18px;">Güvenilir oyun repack ve ISO arşivi</span></a></li>
-        <li><a href="https://appsurl.com/" target="_blank"><img src="https://appsurl.com/favicon.ico" alt="AppsURL" style="width:24px;height:24px;">AppsURL<span class="custom-tooltip"><img src="https://appsurl.com/favicon.ico" alt="AppsURL" style="width:18px;height:18px;">Korsan yazılım içeren, keygen ve crack sunan bir platformdur</span></a></li>
-        <li><a href="https://www.warezturkey.me/" target="_blank"><img src="https://www.warezturkey.me/favicon.ico" alt="Warezturkey" style="width:24px;height:24px;">Warezturkey<span class="custom-tooltip"><img src="https://www.warezturkey.me/favicon.ico" alt="Warezturkey" style="width:18px;height:18px;">Yazılım, araç ve program arşivi</span></a></li>
-        <li><a href="https://www.cybermania.ws/" target="_blank"><img src="https://www.cybermania.ws/favicon.ico" alt="CyberMania" style="width:24px;height:24px;">CyberMania<span class="custom-tooltip"><img src="https://www.cybermania.ws/favicon.ico" alt="CyberMania" style="width:18px;height:18px;">Oyun, yazılım ve Android uygulama arşivi</span></a></li>
-        <li><a href="https://silentall.net/" target="_blank"><img src="https://silentall.net/favicon.ico" alt="Silentall">Silentall<span class="custom-tooltip"><img src="https://silentall.net/favicon.ico" alt="Silentall">Program, oyun ve katılımsız yazılım paylaşım platformu</span></a></li>
-        <li><a href="https://www.solidshare.net/" target="_blank"><img src="https://www.solidshare.net/templates/Turkish/favicon.ico" alt="SolidShare" style="width:24px;height:24px;">SolidShare<span class="custom-tooltip"><img src="https://www.solidshare.net/templates/Turkish/favicon.ico" alt="SolidShare" style="width:18px;height:18px;">Katılımsız programlar ve güncel yazılım arşivi</span></a></li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Yazılım Alternatifleri & Karşılaştırma</h2>
-      <ul>
-        <li>
-          <a href="https://alternativeto.net/" target="_blank">
-            <img src="https://alternativeto.net/static/icons/favicon-32x32.png" alt="AlternativeTo" style="width:24px;height:24px;border-radius:7px;">
-            AlternativeTo
-            <span class="custom-tooltip">
-              <img src="https://alternativeto.net/static/icons/favicon-32x32.png" alt="AlternativeTo" style="width:18px;height:18px;border-radius:5px;">
-              Popüler yazılımların alternatiflerini ve kullanıcı yorumlarını bulabileceğiniz karşılaştırma platformu
-            </span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Çeviri & Dil Araçları</h2>
-      <ul>
-        <li>
-          <a href="https://www.deepl.com/tr/" target="_blank">
-            <img src="https://www.deepl.com/favicon.ico" alt="DeepL" style="width:24px;height:24px;border-radius:7px;">
-            DeepL
-            <span class="custom-tooltip">
-              <img src="https://www.deepl.com/favicon.ico" alt="DeepL" style="width:18px;height:18px;border-radius:5px;">
-              Yapay zekâ destekli, yüksek kaliteli metin çeviri servisi. Çoklu dil desteği ve gelişmiş çeviri doğruluğu.
-            </span>
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div class="category-card">
-      <h2>Dizi & Film İzleme Siteleri</h2>
-      <ul>
-        <li>
-          <a href="https://dizipal938.com/" target="_blank">
-            <img src="https://dizipal938.com/favicon.ico" alt="Dizipal" style="width:24px;height:24px;border-radius:7px;">
-            Dizipal
-            <span class="custom-tooltip">
-              <img src="https://dizipal938.com/favicon.ico" alt="Dizipal" style="width:18px;height:18px;border-radius:5px;">
-              Güncel dizi ve filmleri ücretsiz izleyebileceğiniz popüler platform
-            </span>
-          </a>
-        </li>
-      </ul>
+      <h2>Oyun</h2>
+      <div class="sub-category">
+        <h3>Oyun & Topluluk Platformları</h3>
+        <ul>
+          <li><a href="https://store.steampowered.com/" target="_blank"><img src="https://store.steampowered.com/favicon.ico">Steam<span class="custom-tooltip"><img src="https://store.steampowered.com/favicon.ico">Dijital oyun mağazası ve platformu</span></a></li>
+          <li><a href="https://store.epicgames.com/tr/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg" alt="Epic Games Store" style="width:32px;height:32px;">Epic Games<span class="custom-tooltip"><img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg" alt="Epic Games Store" style="width:32px;height:32px;">Epic Games'in dijital oyun mağazası ve platformu</span></a></li>
+          <li><a href="https://www.battle.net/" target="_blank"><img src="https://bnetstorefront.akamaized.net/static/favicon-192x192.png" alt="Battle.net" style="width:32px;height:32px;">Battle.net<span class="custom-tooltip"><img src="https://bnetstorefront.akamaized.net/static/favicon-192x192.png" alt="Battle.net" style="width:32px;height:32px;">Blizzard oyunları için resmi platform ve mağaza</span></a></li>
+        </ul>
+      </div>
+      <div class="sub-category">
+        <h3>Oyun Repack & Crack Siteleri</h3>
+        <ul>
+          <li><a href="https://fitgirl-repacks.site/" target="_blank"><img src="https://fitgirl-repacks.site/favicon.ico" alt="FitGirl Repacks" style="width:24px;height:24px;">FitGirl Repacks<span class="custom-tooltip"><img src="https://fitgirl-repacks.site/favicon.ico" alt="FitGirl Repacks" style="width:18px;height:18px;">Popüler oyunlar için yüksek sıkıştırmalı repack arşivi</span></a></li>
+          <li><a href="https://www.skidrowcodex.net/" target="_blank"><img src="https://www.skidrowcodex.net/favicon.ico" alt="Skidrow Codex" style="width:24px;height:24px;">Skidrow Codex<span class="custom-tooltip"><img src="https://www.skidrowcodex.net/favicon.ico" alt="Skidrow Codex" style="width:18px;height:18px;">Oyun crack ve repack paylaşımları</span></a></li>
+          <li><a href="https://www.skidrowreloaded.com/" target="_blank"><img src="https://www.skidrowreloaded.com/wp-content/uploads/2024/05/cropped-faviicon-115x115.png" alt="Skidrow Reloaded" style="width:24px;height:24px;">Skidrow Reloaded<span class="custom-tooltip"><img src="https://www.skidrowreloaded.com/wp-content/uploads/2024/05/cropped-faviicon-115x115.png" alt="Skidrow Reloaded" style="width:18px;height:18px;">Güncel oyun crack ve repack platformu</span></a></li>
+          <li><a href="https://dodi-repacks.site/" target="_blank"><img src="https://dodi-repacks.site/favicon.ico" alt="DODI Repacks" style="width:24px;height:24px;">DODI Repacks<span class="custom-tooltip"><img src="https://dodi-repacks.site/favicon.ico" alt="DODI Repacks" style="width:18px;height:18px;">Küçük boyutlu ve hızlı oyun repack arşivi</span></a></li>
+          <li><a href="https://elamigos.site/" target="_blank"><img src="https://elamigos.site/favicon.ico" alt="ElAmigos" style="width:24px;height:24px;">ElAmigos<span class="custom-tooltip"><img src="https://elamigos.site/favicon.ico" alt="ElAmigos" style="width:18px;height:18px;">Güvenilir oyun repack ve ISO arşivi</span></a></li>
+          <li><a href="https://appsurl.com/" target="_blank"><img src="https://appsurl.com/favicon.ico" alt="AppsURL" style="width:24px;height:24px;">AppsURL<span class="custom-tooltip"><img src="https://appsurl.com/favicon.ico" alt="AppsURL" style="width:18px;height:18px;">Korsan yazılım içeren, keygen ve crack sunan bir platformdur</span></a></li>
+          <li><a href="https://www.warezturkey.me/" target="_blank"><img src="https://www.warezturkey.me/favicon.ico" alt="Warezturkey" style="width:24px;height:24px;">Warezturkey<span class="custom-tooltip"><img src="https://www.warezturkey.me/favicon.ico" alt="Warezturkey" style="width:18px;height:18px;">Yazılım, araç ve program arşivi</span></a></li>
+          <li><a href="https://www.cybermania.ws/" target="_blank"><img src="https://www.cybermania.ws/favicon.ico" alt="CyberMania" style="width:24px;height:24px;">CyberMania<span class="custom-tooltip"><img src="https://www.cybermania.ws/favicon.ico" alt="CyberMania" style="width:18px;height:18px;">Oyun, yazılım ve Android uygulama arşivi</span></a></li>
+          <li><a href="https://silentall.net/" target="_blank"><img src="https://silentall.net/favicon.ico" alt="Silentall">Silentall<span class="custom-tooltip"><img src="https://silentall.net/favicon.ico" alt="Silentall">Program, oyun ve katılımsız yazılım paylaşım platformu</span></a></li>
+          <li><a href="https://www.solidshare.net/" target="_blank"><img src="https://www.solidshare.net/templates/Turkish/favicon.ico" alt="SolidShare" style="width:24px;height:24px;">SolidShare<span class="custom-tooltip"><img src="https://www.solidshare.net/templates/Turkish/favicon.ico" alt="SolidShare" style="width:18px;height:18px;">Katılımsız programlar ve güncel yazılım arşivi</span></a></li>
+        </ul>
+      </div>
     </div>
   </div>
   <script>
@@ -866,28 +891,62 @@
     // Arama çubuğu işlevselliği
     const searchInput = document.getElementById('search-input');
     const categoryCards = document.querySelectorAll('.category-card');
+    const önerilenlerCard = document.querySelector('.category-card:first-child');
 
     searchInput.addEventListener('input', function() {
       const query = this.value.toLowerCase().trim();
 
-      categoryCards.forEach(card => {
-        const items = card.querySelectorAll('li');
-        let hasVisibleItem = false;
+      // Önerilenler kartını her zaman arama dışı tut
+      const önerilenlerItems = önerilenlerCard.querySelectorAll('li');
+      let önerilenlerVisible = false;
+      önerilenlerItems.forEach(item => {
+        const link = item.querySelector('a');
+        const linkText = link.textContent.toLowerCase();
+        const tooltip = link.querySelector('.custom-tooltip');
+        const tooltipText = tooltip ? tooltip.textContent.toLowerCase() : '';
+        if (linkText.includes(query) || tooltipText.includes(query)) {
+          item.style.display = '';
+          önerilenlerVisible = true;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      önerilenlerCard.style.display = önerilenlerVisible ? '' : 'none';
 
-        items.forEach(item => {
-          const link = item.querySelector('a');
-          const linkText = link.textContent.toLowerCase();
-          const tooltip = link.querySelector('.custom-tooltip');
-          const tooltipText = tooltip ? tooltip.textContent.toLowerCase() : '';
-          
-          if (linkText.includes(query) || tooltipText.includes(query)) {
-            item.style.display = '';
-            hasVisibleItem = true;
+
+      categoryCards.forEach((card, index) => {
+        if (index === 0) return; // Önerilenler kartını atla
+
+        const subCategories = card.querySelectorAll('.sub-category');
+        let hasVisibleSubCategory = false;
+
+        subCategories.forEach(subCategory => {
+          const items = subCategory.querySelectorAll('li');
+          let hasVisibleItem = false;
+
+          items.forEach(item => {
+            const link = item.querySelector('a');
+            const linkText = link.textContent.toLowerCase();
+            const tooltip = link.querySelector('.custom-tooltip');
+            const tooltipText = tooltip ? tooltip.textContent.toLowerCase() : '';
+            
+            if (linkText.includes(query) || tooltipText.includes(query)) {
+              item.style.display = '';
+              hasVisibleItem = true;
+            } else {
+              item.style.display = 'none';
+            }
+          });
+
+          if (hasVisibleItem) {
+            subCategory.style.display = '';
+            hasVisibleSubCategory = true;
           } else {
-            item.style.display = 'none';
+            subCategory.style.display = 'none';
           }
         });
-        card.style.display = hasVisibleItem ? '' : 'none';
+
+        card.style.display = hasVisibleSubCategory ? '' : 'none';
       });
     });
   </script>
