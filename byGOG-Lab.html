@@ -378,7 +378,7 @@
   </div>
   <div class="container">
     <div class="search-container">
-      <input type="text" id="search-input" placeholder="Araçları, siteleri ve linkleri ara...">
+      <input type="text" id="search-input" placeholder="İsim veya içerik ara...">
     </div>
     <div class="category-card">
       <h2>⭐ Önerilenler</h2>
@@ -889,64 +889,48 @@
     })();
 
     // Arama çubuğu işlevselliği
-    const searchInput = document.getElementById('search-input');
-    const categoryCards = document.querySelectorAll('.category-card');
-    const önerilenlerCard = document.querySelector('.category-card:first-child');
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('search-input');
+      const allCards = document.querySelectorAll('.category-card');
 
-    searchInput.addEventListener('input', function() {
-      const query = this.value.toLowerCase().trim();
+      searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase().trim();
 
-      // Önerilenler kartını her zaman arama dışı tut
-      const önerilenlerItems = önerilenlerCard.querySelectorAll('li');
-      let önerilenlerVisible = false;
-      önerilenlerItems.forEach(item => {
-        const link = item.querySelector('a');
-        const linkText = link.textContent.toLowerCase();
-        const tooltip = link.querySelector('.custom-tooltip');
-        const tooltipText = tooltip ? tooltip.textContent.toLowerCase() : '';
-        if (linkText.includes(query) || tooltipText.includes(query)) {
-          item.style.display = '';
-          önerilenlerVisible = true;
-        } else {
-          item.style.display = 'none';
-        }
-      });
-      önerilenlerCard.style.display = önerilenlerVisible ? '' : 'none';
-
-
-      categoryCards.forEach((card, index) => {
-        if (index === 0) return; // Önerilenler kartını atla
-
-        const subCategories = card.querySelectorAll('.sub-category');
-        let hasVisibleSubCategory = false;
-
-        subCategories.forEach(subCategory => {
-          const items = subCategory.querySelectorAll('li');
-          let hasVisibleItem = false;
-
-          items.forEach(item => {
-            const link = item.querySelector('a');
-            const linkText = link.textContent.toLowerCase();
-            const tooltip = link.querySelector('.custom-tooltip');
-            const tooltipText = tooltip ? tooltip.textContent.toLowerCase() : '';
-            
-            if (linkText.includes(query) || tooltipText.includes(query)) {
-              item.style.display = '';
-              hasVisibleItem = true;
-            } else {
-              item.style.display = 'none';
-            }
-          });
-
-          if (hasVisibleItem) {
-            subCategory.style.display = '';
-            hasVisibleSubCategory = true;
+        allCards.forEach(card => {
+          let isCardVisible = false;
+          
+          const subCategories = card.querySelectorAll('.sub-category');
+          if (subCategories.length > 0) {
+            subCategories.forEach(subCategory => {
+              let isSubCategoryVisible = false;
+              const items = subCategory.querySelectorAll('li');
+              items.forEach(item => {
+                const linkText = item.textContent.toLowerCase();
+                const isMatch = linkText.includes(query);
+                item.style.display = isMatch ? '' : 'none';
+                if (isMatch) {
+                  isSubCategoryVisible = true;
+                }
+              });
+              subCategory.style.display = isSubCategoryVisible ? '' : 'none';
+              if (isSubCategoryVisible) {
+                isCardVisible = true;
+              }
+            });
           } else {
-            subCategory.style.display = 'none';
+            const items = card.querySelectorAll('li');
+            items.forEach(item => {
+              const linkText = item.textContent.toLowerCase();
+              const isMatch = linkText.includes(query);
+              item.style.display = isMatch ? '' : 'none';
+              if (isMatch) {
+                isCardVisible = true;
+              }
+            });
           }
+          
+          card.style.display = isCardVisible ? '' : 'none';
         });
-
-        card.style.display = hasVisibleSubCategory ? '' : 'none';
       });
     });
   </script>
