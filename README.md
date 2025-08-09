@@ -1,14 +1,5 @@
 # byGOG Lab
 
-🧪 Bu proje, web geliştirme denemeleri yapabileceğiniz basit bir HTML laboratuvar ortamını hızlıca başlatmanızı sağlar.
+## 🌐 Web Sitesi
 
----
-
-## 🚀 Hızlı Başlangıç
-
-Aşağıdaki komutları kullanarak laboratuvar sayfasını doğrudan tarayıcınızda açabilirsiniz.
-
-### Windows
-
-```powershell
-start https://raw.githack.com/byGOG/byGOG-Lab/main/byGOG-Lab.html
+Projenin kendisine [buradan](https://bygog.github.io/byGOG-Lab/) ulaşabilirsiniz.
