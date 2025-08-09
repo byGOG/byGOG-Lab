@@ -37,17 +37,6 @@ byGOG Lab, sık kullanılan ve faydalı bulunan yazılımların, araçların ve 
 *   ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 *   ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-## 🤝 Katkıda Bulunma
-
-Katkılarınız, bu projeyi daha da iyi bir hale getirmemize yardımcı olur. Katkıda bulunmak için lütfen aşağıdaki adımları izleyin:
-
-1.  Projeyi Fork'layın
-2.  Yeni bir dal oluşturun (`git checkout -b feature/AmazingFeature`)
-3.  Değişikliklerinizi yapın
-4.  Değişikliklerinizi commit'leyin (`git commit -m 'Add some AmazingFeature'`)
-5.  Dalınızı push'layın (`git push origin feature/AmazingFeature`)
-6.  Bir Pull Request açın
-
 ## 📝 Lisans
 
 Bu proje MIT Lisansı ile lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasına bakın.
