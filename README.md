@@ -2,4 +2,4 @@
 
 ## 🌐 Web Sitesi
 
-Projenin kendisine [buradan](https://bygog.github.io/byGOG-Lab/) ulaşabilirsiniz.
+Projenin kendisine <a href="https://bygog.github.io/byGOG-Lab/" target="_blank">buradan</a> ulaşabilirsiniz.
