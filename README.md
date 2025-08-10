@@ -12,3 +12,10 @@ Aşağıdaki komutları kullanarak laboratuvar sayfasını doğrudan tarayıcın
 
 ```powershell
 start https://raw.githack.com/byGOG/byGOG-Lab/main/byGOG-Lab.html
+```
+
+### Linux & macOS
+
+```bash
+xdg-open https://raw.githack.com/byGOG/byGOG-Lab/main/byGOG-Lab.html
+```
