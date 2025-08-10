@@ -405,6 +405,7 @@
   <div class="container">
     <div class="search-container">
       <input type="text" id="search-input" placeholder="İsim veya içerik ara...">
+      <div id="search-status" aria-live="polite"></div>
     </div>
     <div class="category-card">
       <h2>⭐ Önerilenler</h2>
@@ -932,9 +933,11 @@
     document.addEventListener('DOMContentLoaded', () => {
       const searchInput = document.getElementById('search-input');
       const allCards = document.querySelectorAll('.category-card');
+      const searchStatus = document.getElementById('search-status');
 
       searchInput.addEventListener('input', () => {
         const query = searchInput.value.toLowerCase().trim();
+        let matchCount = 0;
 
         allCards.forEach(card => {
           let isCardVisible = false;
@@ -950,6 +953,7 @@
                 item.style.display = isMatch ? '' : 'none';
                 if (isMatch) {
                   isSubCategoryVisible = true;
+                  matchCount++;
                 }
               });
               subCategory.style.display = isSubCategoryVisible ? '' : 'none';
@@ -965,12 +969,15 @@
               item.style.display = isMatch ? '' : 'none';
               if (isMatch) {
                 isCardVisible = true;
+                matchCount++;
               }
             });
           }
-          
+
           card.style.display = isCardVisible ? '' : 'none';
         });
+
+        searchStatus.textContent = query ? `${matchCount} sonuç bulundu` : '';
       });
     });
   </script>
