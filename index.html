@@ -547,7 +547,10 @@
     });
     // Sayfa yüklenince tema uygula
     (function() {
-      const saved = localStorage.getItem('theme');
+      let saved = localStorage.getItem('theme');
+      if (!saved) {
+        saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'koyu' : 'aydinlik';
+      }
       setTheme(saved === 'koyu');
     })();
 
