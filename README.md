@@ -31,6 +31,10 @@ byGOG Lab, teknoloji meraklıları ve geliştiriciler için özenle seçilmiş, 
 *   **ℹ️ Detaylı Bilgiler:** Fare ile bağlantıların üzerine gelindiğinde, araçlar hakkında kısa açıklamalar görüntülenir.
 *   **⭐ Önerilenler:** Sık kullanılan ve önerilen araçlar için özel bir "Önerilenler" bölümü bulunmaktadır.
 
+## 📸 Örnek Ekran Görüntüsü
+
+![Ana Sayfa](icon/screenshot.svg)
+
 ## 🛠️ Kullanılan Teknolojiler
 
 *   ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
@@ -47,6 +51,16 @@ npm run build
 ```
 
 Bu komutlar `styles.css` ve `scripts/` altındaki JavaScript dosyalarının küçültülmüş sürümlerini `dist/` klasörüne yazar.
+
+## 🤝 Katkıda Bulunma
+
+Katkılarınızı bekliyoruz! Başlamak için:
+
+1. Depoyu fork'layın ve yerel ortamınıza klonlayın.
+2. Yeni bir dal oluşturun (`git checkout -b feature/yenilik`).
+3. Değişikliklerinizi commit'leyin (`git commit -m 'Açıklama'`).
+4. Dalı GitHub'a gönderin (`git push origin feature/yenilik`).
+5. Açıklayıcı bir Pull Request açın.
 
 ## 📝 Lisans
 

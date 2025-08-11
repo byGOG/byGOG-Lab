@@ -74,7 +74,8 @@ function renderCategories(data, container) {
 function setupSearch() {
   const searchInput = document.getElementById('search-input');
   const searchStatus = document.getElementById('search-status');
-  searchInput.addEventListener('input', () => {
+  let debounceTimer;
+  function performSearch() {
     const query = searchInput.value.toLowerCase().trim();
     const cards = document.querySelectorAll('.category-card');
     let matchCount = 0;
@@ -108,6 +109,10 @@ function setupSearch() {
       card.style.display = isCardVisible ? '' : 'none';
     });
     searchStatus.textContent = query ? `${matchCount} sonuç bulundu` : '';
+  }
+  searchInput.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(performSearch, 300);
   });
 }
 
@@ -138,7 +143,12 @@ function setupThemeToggle() {
 document.addEventListener('DOMContentLoaded', async () => {
   setupThemeToggle();
   const container = document.getElementById('links-container');
-  const data = await fetchLinks();
-  renderCategories(data, container);
+  try {
+    const data = await fetchLinks();
+    renderCategories(data, container);
+  } catch (err) {
+    container.textContent = 'Bağlantılar yüklenemedi.';
+    console.error(err);
+  }
   setupSearch();
 });
