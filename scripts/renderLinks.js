@@ -29,22 +29,13 @@ function createLinkItem(link) {
     a.appendChild(iconWrapper);
   }
 
-  if (link.pricing) {
-    const priceType = link.pricing.toLowerCase().includes('ücretsiz') ? 'free' : 'paid';
-    const priceImg = document.createElement('img');
-    priceImg.loading = 'lazy';
-    priceImg.src = priceType === 'free' ? 'icon/price-free.svg' : 'icon/price-paid.svg';
-    priceImg.alt = link.pricing;
-    priceImg.className = 'price-badge';
-    if (iconWrapper) {
-      iconWrapper.appendChild(priceImg);
-    } else {
-      priceImg.classList.add('price-standalone');
-      a.appendChild(priceImg);
-    }
-  }
-
   a.appendChild(document.createTextNode(link.name));
+  if (link.license) {
+    const licenseSpan = document.createElement('span');
+    licenseSpan.className = 'license-badge';
+    licenseSpan.textContent = link.license;
+    a.appendChild(licenseSpan);
+  }
   if (link.description) {
     const tooltip = document.createElement('span');
     tooltip.className = 'custom-tooltip';
