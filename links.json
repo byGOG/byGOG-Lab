@@ -198,7 +198,7 @@
             },
             {
               "url": "https://www.amd.com/en/support/download/drivers.html",
-              "name": "",
+              "name": "AMD Software",
               "recommended": false,
               "description": "AMD ekran kartı ve işlemci sürücülerini indir",
               "icon": "icon/AMD.svg",
