@@ -40,8 +40,9 @@ function createLinkItem(link) {
   li.appendChild(a);
   if (link.license) {
     const lic = document.createElement('span');
-    lic.className = 'license-tag';
-    lic.textContent = ` (${link.license})`;
+    const licType = link.license.toLowerCase().includes('foss') ? 'foss' : 'proprietary';
+    lic.className = `license-tag ${licType}`;
+    lic.textContent = link.license;
     li.appendChild(lic);
   }
   return li;
