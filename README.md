@@ -37,6 +37,17 @@ byGOG Lab, teknoloji meraklıları ve geliştiriciler için özenle seçilmiş, 
 *   ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 *   ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
+## 🔧 Geliştirme
+
+Minify edilmiş dosyaları yeniden oluşturmak için:
+
+```bash
+npm install
+npm run build
+```
+
+Bu komutlar `styles.css` ve `scripts/` altındaki JavaScript dosyalarının küçültülmüş sürümlerini `dist/` klasörüne yazar.
+
 ## 📝 Lisans
 
 Bu proje MIT Lisansı ile lisanslanmıştır. Daha fazla bilgi için `LICENSE` dosyasına bakın.
