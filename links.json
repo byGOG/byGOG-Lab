@@ -10,8 +10,7 @@
           "description": "Otomatik sürücü bulma ve güncelleme",
           "icon": "icon/Snappy.svg",
           "alt": "Snappy Driver Installer",
-          "tags": [],
-          "license": "Özgür Yazılım"
+          "tags": []
         },
         {
           "url": "https://ninite.com/",
@@ -20,8 +19,7 @@
           "description": "Popüler programları toplu ve otomatik kurar",
           "icon": "icon/ninite.svg",
           "alt": "Ninite",
-          "tags": [],
-          "license": "Paylaşımlı Yazılım"
+          "tags": []
         },
         {
           "url": "https://massgrave.dev/",
@@ -30,8 +28,7 @@
           "description": "Windows ve Office etkinleştirme araçları",
           "icon": "icon/massgrave.svg",
           "alt": "Massgrave.dev",
-          "tags": [],
-          "license": "Açık Kaynak"
+          "tags": []
         },
         {
           "url": "https://www.officetool.plus/",
@@ -40,8 +37,7 @@
           "description": "Microsoft Office dağıtımı, kurulumu ve yönetimi için gelişmiş araç",
           "icon": "icon/otp.svg",
           "alt": "Office Tool Plus",
-          "tags": [],
-          "license": "Açık Kaynak"
+          "tags": []
         }
       ]
     },
@@ -58,8 +54,7 @@
               "description": "Orijinal Windows 10 ISO dosyası indir",
               "icon": "icon/Microsoft.svg",
               "alt": "Microsoft",
-              "tags": [],
-              "license": "Ticari Yazılım"
+              "tags": []
             },
             {
               "url": "https://www.microsoft.com/tr-tr/software-download/windows11",
@@ -68,8 +63,7 @@
               "description": "Orijinal Windows 11 ISO dosyası indir",
               "icon": "icon/Microsoft.svg",
               "alt": "Microsoft",
-              "tags": [],
-              "license": "Ticari Yazılım"
+              "tags": []
             },
             {
               "url": "https://rufus.ie/tr/",
@@ -78,8 +72,7 @@
               "description": "USB'den kurulum medyası oluşturma",
               "icon": "icon/rufus.svg",
               "alt": "Rufus",
-              "tags": [],
-              "license": "Özgür Yazılım"
+              "tags": []
             },
             {
               "url": "https://www.ventoy.net/",
@@ -88,8 +81,7 @@
               "description": "Birden fazla işletim sistemi için çoklu önyükleme USB aracı",
               "icon": "icon/ventoy.svg",
               "alt": "Ventoy",
-              "tags": [],
-              "license": "Özgür Yazılım"
+              "tags": []
             }
           ]
         },
@@ -103,8 +95,7 @@
               "description": "Optimize edilmiş Windows dağıtımı",
               "icon": "icon/atlasos.svg",
               "alt": "AtlasOS",
-              "tags": [],
-              "license": "Açık Kaynak"
+              "tags": []
             },
             {
               "url": "https://www.revi.cc/",
@@ -113,8 +104,7 @@
               "description": "Performans ve gizlilik odaklı Windows sürümü",
               "icon": "icon/revi.svg",
               "alt": "ReviOS",
-              "tags": [],
-              "license": "Açık Kaynak"
+              "tags": []
             }
           ]
         },
@@ -128,8 +118,7 @@
               "description": "Microsoft Office dağıtımı, kurulumu ve yönetimi için gelişmiş araç",
               "icon": "icon/otp.svg",
               "alt": "Office Tool Plus",
-              "tags": [],
-              "license": "Açık Kaynak"
+              "tags": []
             },
             {
               "url": "https://massgrave.dev/",
@@ -138,8 +127,7 @@
               "description": "Windows ve Office etkinleştirme araçları",
               "icon": "icon/massgrave.svg",
               "alt": "Massgrave.dev",
-              "tags": [],
-              "license": "Açık Kaynak"
+              "tags": []
             },
             {
               "url": "https://github.com/lstprjct/IDM-Activation-Script",
@@ -148,8 +136,7 @@
               "description": "IDM için aktivasyon scripti",
               "icon": "icon/GitHub.svg",
               "alt": "IDM Activation Script",
-              "tags": [],
-              "license": "Açık Kaynak"
+              "tags": []
             }
           ]
         }
@@ -168,8 +155,7 @@
               "description": "Sistem bilgisi ve donanım tanımlama aracı",
               "icon": "icon/cpu-z.svg",
               "alt": "CPU-Z",
-              "tags": [],
-              "license": "Ücretsiz Yazılım"
+              "tags": []
             },
             {
               "url": "https://www.hwinfo.com/",
@@ -178,8 +164,7 @@
               "description": "Donanım izleme ve detaylı sistem bilgisi",
               "icon": "icon/hwinfo.svg",
               "alt": "HWiNFO",
-              "tags": [],
-              "license": "Paylaşımlı Yazılım"
+              "tags": []
             },
             {
               "url": "https://www.ocbase.com/",
@@ -188,8 +173,7 @@
               "description": "Sistem kararlılığı, stres testi ve donanım izleme aracı",
               "icon": "icon/occt.svg",
               "alt": "OCCT",
-              "tags": [],
-              "license": "Paylaşımlı Yazılım"
+              "tags": []
             },
             {
               "url": "https://www.techpowerup.com/gpuz/",
@@ -198,8 +182,7 @@
               "description": "Ekran kartı bilgisi ve izleme aracı",
               "icon": "icon/gpu-z.svg",
               "alt": "GPU-Z",
-              "tags": [],
-              "license": "Ücretsiz Yazılım"
+              "tags": []
             },
             {
               "url": "https://geeks3d.com/furmark/",
@@ -208,8 +191,7 @@
               "description": "Ücretsiz, popüler GPU stres testi ve benchmark aracı. Ekran kartı kararlılığını ve soğutma performansını ölçmek için kullanılır.",
               "icon": "icon/furmark.svg",
               "alt": "FurMark",
-              "tags": [],
-              "license": "Ücretsiz Yazılım"
+              "tags": []
             },
             {
               "url": "https://learn.microsoft.com/tr-tr/sysinternals/downloads/sysinternals-suite",
@@ -218,8 +200,7 @@
               "description": "Windows sistemlerini yönetmek, sorun gidermek ve tanılamak için 70'ten fazla gelişmiş yardımcı programdan oluşan bir koleksiyon.",
               "icon": "icon/Microsoft.svg",
               "alt": "Sysinternals",
-              "tags": [],
-              "license": "Ücretsiz Yazılım"
+              "tags": []
             }
           ]
         },
@@ -233,8 +214,7 @@
               "description": "Otomatik sürücü bulma ve güncelleme",
               "icon": "icon/Snappy.svg",
               "alt": "Snappy Driver Installer",
-              "tags": [],
-              "license": "Özgür Yazılım"
+              "tags": []
             },
             {
               "url": "https://www.amd.com/en/support/download/drivers.html",
@@ -243,8 +223,7 @@
               "description": "AMD ekran kartı ve işlemci sürücülerini indir",
               "icon": "icon/AMD.svg",
               "alt": null,
-              "tags": [],
-              "license": "Ticari Yazılım"
+              "tags": []
             },
             {
               "url": "https://github.com/lostindark/DriverStoreExplorer",
@@ -253,8 +232,7 @@
               "description": "Windows sürücü deposunu yönetir ve temizler",
               "icon": "icon/DriverStoreExplorer.svg",
               "alt": null,
-              "tags": [],
-              "license": "Açık Kaynak"
+              "tags": []
             },
             {
               "url": "https://www.guru3d.com/download/display-driver-uninstaller-download/",
@@ -263,8 +241,7 @@
               "description": "NVIDIA, AMD ve Intel ekran kartı sürücülerini tamamen kaldırma aracı",
               "icon": "icon/ddu.svg",
               "alt": null,
-              "tags": [],
-              "license": "Ücretsiz Yazılım"
+              "tags": []
             },
             {
               "url": "https://www.intel.com/content/www/us/en/support/detect.html",
@@ -661,8 +638,7 @@
               "description": "Popüler programları toplu ve otomatik kurar",
               "icon": "icon/ninite.svg",
               "alt": "Ninite",
-              "tags": [],
-              "license": "Paylaşımlı Yazılım"
+              "tags": []
             },
             {
               "url": "https://chocolatey.org/",
