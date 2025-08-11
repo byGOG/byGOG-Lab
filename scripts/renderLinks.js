@@ -4,6 +4,14 @@ export async function fetchLinks() {
   return response.json();
 }
 
+const licenseIconMap = {
+  'Özgür Yazılım': 'icon/license-foss.svg',
+  'Açık Kaynak': 'icon/license-os.svg',
+  'Paylaşımlı Yazılım': 'icon/license-shareware.svg',
+  'Ticari Yazılım': 'icon/license-proprietary.svg',
+  'Ücretsiz Yazılım': 'icon/license-freeware.svg'
+};
+
 function createLinkItem(link) {
   const li = document.createElement('li');
   const a = document.createElement('a');
@@ -31,10 +39,15 @@ function createLinkItem(link) {
 
   a.appendChild(document.createTextNode(link.name));
   if (link.license) {
-    const licenseSpan = document.createElement('span');
-    licenseSpan.className = 'license-badge';
-    licenseSpan.textContent = link.license;
-    a.appendChild(licenseSpan);
+    const iconSrc = licenseIconMap[link.license];
+    if (iconSrc) {
+      const licenseImg = document.createElement('img');
+      licenseImg.loading = 'lazy';
+      licenseImg.src = iconSrc;
+      licenseImg.alt = link.license;
+      licenseImg.className = 'license-icon';
+      a.appendChild(licenseImg);
+    }
   }
   if (link.description) {
     const tooltip = document.createElement('span');
