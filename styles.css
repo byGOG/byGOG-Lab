@@ -112,15 +112,35 @@
       color: var(--text-active);
       transform: scale(0.98);
     }
-    img {
+    .icon-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-right: 12px;
+    }
+    .site-icon {
       width: 24px;
       height: 24px;
-      margin-right: 12px;
       border-radius: 7px;
       background: var(--img-bg);
       border: 1px solid var(--card-border);
       box-shadow: 0 1px 4px var(--card-shadow2);
       flex-shrink: 0;
+      display: block;
+    }
+    .license-badge {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px var(--img-bg);
+    }
+    .icon-wrapper .license-badge {
+      position: absolute;
+      bottom: -4px;
+      right: -4px;
+    }
+    .license-standalone {
+      margin-right: 12px;
+      vertical-align: middle;
     }
     .container {
       max-width: 1300px;
@@ -337,34 +357,6 @@
       border-color: #ffd600;
     }
 
-    .license-tag {
-      margin-left: 6px;
-      padding: 2px 6px;
-      border-radius: 6px;
-      font-size: 0.75em;
-      font-weight: 600;
-      display: inline-block;
-    }
-    .license-tag.foss {
-      background: #d1fae5;
-      border: 1px solid #10b981;
-      color: #065f46;
-    }
-    .koyu .license-tag.foss {
-      background: #065f46;
-      border-color: #10b981;
-      color: #d1fae5;
-    }
-    .license-tag.proprietary {
-      background: #fee2e2;
-      border: 1px solid #f87171;
-      color: #7f1d1d;
-    }
-    .koyu .license-tag.proprietary {
-      background: #7f1d1d;
-      border-color: #f87171;
-      color: #fee2e2;
-    }
     .category-card {
       background: var(--card-bg);
       border: 1.5px solid var(--card-border);
