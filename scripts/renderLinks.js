@@ -29,18 +29,18 @@ function createLinkItem(link) {
     a.appendChild(iconWrapper);
   }
 
-  if (link.license) {
-    const licType = link.license.toLowerCase().includes('foss') ? 'foss' : 'proprietary';
-    const licImg = document.createElement('img');
-    licImg.loading = 'lazy';
-    licImg.src = licType === 'foss' ? 'icon/license-foss.svg' : 'icon/license-proprietary.svg';
-    licImg.alt = link.license;
-    licImg.className = 'license-badge';
+  if (link.pricing) {
+    const priceType = link.pricing.toLowerCase().includes('ücretsiz') ? 'free' : 'paid';
+    const priceImg = document.createElement('img');
+    priceImg.loading = 'lazy';
+    priceImg.src = priceType === 'free' ? 'icon/price-free.svg' : 'icon/price-paid.svg';
+    priceImg.alt = link.pricing;
+    priceImg.className = 'price-badge';
     if (iconWrapper) {
-      iconWrapper.appendChild(licImg);
+      iconWrapper.appendChild(priceImg);
     } else {
-      licImg.classList.add('license-standalone');
-      a.appendChild(licImg);
+      priceImg.classList.add('price-standalone');
+      a.appendChild(priceImg);
     }
   }
 
