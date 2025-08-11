@@ -1,0 +1,12 @@
+{
+  "name": "bygog-lab",
+  "version": "1.0.0",
+  "description": "byGOG Lab build setup",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node -e \"console.log('No tests specified')\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
