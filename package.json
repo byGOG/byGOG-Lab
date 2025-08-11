@@ -1,0 +1,17 @@
+{
+  "name": "bygog-lab",
+  "version": "1.0.0",
+  "description": "🧪 Bu proje, web geliştirme denemeleri yapabileceğiniz basit bir HTML laboratuvar ortamını hızlıca başlatmanızı sağlar.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jsdom": "^22.1.0"
+  }
+}
