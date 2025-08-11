@@ -338,9 +338,42 @@
     }
 
     .license-tag {
-      margin-left: 4px;
-      font-size: 0.85em;
-      opacity: 0.7;
+      margin-left: 8px;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-size: 0.7em;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      line-height: 1;
+    }
+    .license-tag::before {
+      font-size: 0.9em;
+    }
+    .license-tag.foss {
+      background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+      color: #042f2e;
+      border: none;
+    }
+    .koyu .license-tag.foss {
+      background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+      color: #d1fae5;
+    }
+    .license-tag.foss::before {
+      content: '\\1F513';
+    }
+    .license-tag.proprietary {
+      background: linear-gradient(135deg, #fca5a5 0%, #ef4444 100%);
+      color: #7f1d1d;
+      border: none;
+    }
+    .koyu .license-tag.proprietary {
+      background: linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%);
+      color: #fee2e2;
+    }
+    .license-tag.proprietary::before {
+      content: '\\1F512';
     }
     .category-card {
       background: var(--card-bg);

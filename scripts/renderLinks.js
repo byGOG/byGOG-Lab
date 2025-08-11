@@ -37,13 +37,16 @@ function createLinkItem(link) {
     tooltip.appendChild(document.createTextNode(link.description));
     a.appendChild(tooltip);
   }
-  li.appendChild(a);
   if (link.license) {
     const lic = document.createElement('span');
-    lic.className = 'license-tag';
-    lic.textContent = ` (${link.license})`;
-    li.appendChild(lic);
+    const fossLicenses = ['foss', 'mit', 'gpl', 'apache', 'bsd', 'mpl', 'lgpl', 'epl', 'artistic', 'isc', 'cc', 'osi'];
+    const licLower = link.license.toLowerCase();
+    const licType = fossLicenses.some(l => licLower.includes(l)) ? 'foss' : 'proprietary';
+    lic.className = `license-tag ${licType}`;
+    lic.textContent = link.license;
+    a.appendChild(lic);
   }
+  li.appendChild(a);
   return li;
 }
 
