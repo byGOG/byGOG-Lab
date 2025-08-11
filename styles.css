@@ -13,6 +13,10 @@
       --h2: #222;
       --h3: #444;
       --img-bg: #f7fafd;
+      --lic-foss-bg: #e8f5e9;
+      --lic-foss-text: #2e7d32;
+      --lic-prop-bg: #ffebee;
+      --lic-prop-text: #c62828;
       color-scheme: light;
     }
     .koyu {
@@ -30,6 +34,10 @@
       --h2: #fffde7;
       --h3: #ffe082;
       --img-bg: #23272f;
+      --lic-foss-bg: #1b5e20;
+      --lic-foss-text: #c8e6c9;
+      --lic-prop-bg: #5c1b1b;
+      --lic-prop-text: #ffcdd2;
       color-scheme: dark;
     }
     body {
@@ -331,10 +339,29 @@
       margin-left: auto;
       margin-right: auto;
     }
-    .koyu .custom-tooltip {
+.koyu .custom-tooltip {
       background: linear-gradient(135deg, var(--card-bg) 80%, #23272f 100%);
       color: var(--text);
       border-color: #ffd600;
+    }
+
+    .license-tag {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .license-foss {
+      background: var(--lic-foss-bg);
+      color: var(--lic-foss-text);
+    }
+    .license-proprietary {
+      background: var(--lic-prop-bg);
+      color: var(--lic-prop-text);
     }
     .category-card {
       background: var(--card-bg);
