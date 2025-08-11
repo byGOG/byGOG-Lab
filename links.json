@@ -10,6 +10,7 @@
           "description": "Otomatik sürücü bulma ve güncelleme",
           "icon": "icon/Snappy.svg",
           "alt": "Snappy Driver Installer",
+          "license": "FOSS",
           "tags": []
         },
         {
@@ -19,6 +20,7 @@
           "description": "Popüler programları toplu ve otomatik kurar",
           "icon": "icon/ninite.svg",
           "alt": "Ninite",
+          "license": "Tescilli/Unknown",
           "tags": []
         },
         {
@@ -28,6 +30,7 @@
           "description": "Windows ve Office etkinleştirme araçları",
           "icon": "icon/massgrave.svg",
           "alt": "Massgrave.dev",
+          "license": "Tescilli/Unknown",
           "tags": []
         },
         {
@@ -37,6 +40,7 @@
           "description": "Microsoft Office dağıtımı, kurulumu ve yönetimi için gelişmiş araç",
           "icon": "icon/otp.svg",
           "alt": "Office Tool Plus",
+          "license": "FOSS",
           "tags": []
         }
       ]
@@ -54,6 +58,7 @@
               "description": "Orijinal Windows 10 ISO dosyası indir",
               "icon": "icon/Microsoft.svg",
               "alt": "Microsoft",
+              "license": "Tescilli/Unknown",
               "tags": []
             },
             {
@@ -63,6 +68,7 @@
               "description": "Orijinal Windows 11 ISO dosyası indir",
               "icon": "icon/Microsoft.svg",
               "alt": "Microsoft",
+              "license": "Tescilli/Unknown",
               "tags": []
             },
             {
@@ -72,6 +78,7 @@
               "description": "USB'den kurulum medyası oluşturma",
               "icon": "icon/rufus.svg",
               "alt": "Rufus",
+              "license": "FOSS",
               "tags": []
             },
             {
@@ -81,6 +88,7 @@
               "description": "Birden fazla işletim sistemi için çoklu önyükleme USB aracı",
               "icon": "icon/ventoy.svg",
               "alt": "Ventoy",
+              "license": "FOSS",
               "tags": []
             }
           ]
@@ -95,6 +103,7 @@
               "description": "Optimize edilmiş Windows dağıtımı",
               "icon": "icon/atlasos.svg",
               "alt": "AtlasOS",
+              "license": "FOSS",
               "tags": []
             },
             {
@@ -104,6 +113,7 @@
               "description": "Performans ve gizlilik odaklı Windows sürümü",
               "icon": "icon/revi.svg",
               "alt": "ReviOS",
+              "license": "FOSS",
               "tags": []
             }
           ]
@@ -118,6 +128,7 @@
               "description": "Microsoft Office dağıtımı, kurulumu ve yönetimi için gelişmiş araç",
               "icon": "icon/otp.svg",
               "alt": "Office Tool Plus",
+              "license": "FOSS",
               "tags": []
             },
             {
@@ -127,6 +138,7 @@
               "description": "Windows ve Office etkinleştirme araçları",
               "icon": "icon/massgrave.svg",
               "alt": "Massgrave.dev",
+              "license": "Tescilli/Unknown",
               "tags": []
             },
             {
@@ -136,6 +148,7 @@
               "description": "IDM için aktivasyon scripti",
               "icon": "icon/GitHub.svg",
               "alt": "IDM Activation Script",
+              "license": "FOSS",
               "tags": []
             }
           ]
@@ -155,6 +168,7 @@
               "description": "Sistem bilgisi ve donanım tanımlama aracı",
               "icon": "icon/cpu-z.svg",
               "alt": "CPU-Z",
+              "license": "Tescilli/Unknown",
               "tags": []
             },
             {
@@ -164,6 +178,7 @@
               "description": "Donanım izleme ve detaylı sistem bilgisi",
               "icon": "icon/hwinfo.svg",
               "alt": "HWiNFO",
+              "license": "Tescilli/Unknown",
               "tags": []
             },
             {
@@ -173,6 +188,7 @@
               "description": "Sistem kararlılığı, stres testi ve donanım izleme aracı",
               "icon": "icon/occt.svg",
               "alt": "OCCT",
+              "license": "Tescilli/Unknown",
               "tags": []
             },
             {
@@ -182,6 +198,7 @@
               "description": "Ekran kartı bilgisi ve izleme aracı",
               "icon": "icon/gpu-z.svg",
               "alt": "GPU-Z",
+              "license": "Tescilli/Unknown",
               "tags": []
             },
             {
@@ -191,6 +208,7 @@
               "description": "Ücretsiz, popüler GPU stres testi ve benchmark aracı. Ekran kartı kararlılığını ve soğutma performansını ölçmek için kullanılır.",
               "icon": "icon/furmark.svg",
               "alt": "FurMark",
+              "license": "Tescilli/Unknown",
               "tags": []
             },
             {
@@ -200,6 +218,7 @@
               "description": "Windows sistemlerini yönetmek, sorun gidermek ve tanılamak için 70'ten fazla gelişmiş yardımcı programdan oluşan bir koleksiyon.",
               "icon": "icon/Microsoft.svg",
               "alt": "Sysinternals",
+              "license": "Tescilli/Unknown",
               "tags": []
             }
           ]
@@ -214,6 +233,7 @@
               "description": "Otomatik sürücü bulma ve güncelleme",
               "icon": "icon/Snappy.svg",
               "alt": "Snappy Driver Installer",
+              "license": "FOSS",
               "tags": []
             },
             {
@@ -223,6 +243,7 @@
               "description": "AMD ekran kartı ve işlemci sürücülerini indir",
               "icon": "icon/AMD.svg",
               "alt": null,
+              "license": "Tescilli/Unknown",
               "tags": []
             },
             {
@@ -232,6 +253,7 @@
               "description": "Windows sürücü deposunu yönetir ve temizler",
               "icon": "icon/DriverStoreExplorer.svg",
               "alt": null,
+              "license": "FOSS",
               "tags": []
             },
             {
@@ -241,6 +263,7 @@
               "description": "NVIDIA, AMD ve Intel ekran kartı sürücülerini tamamen kaldırma aracı",
               "icon": "icon/ddu.svg",
               "alt": null,
+              "license": "Tescilli/Unknown",
               "tags": []
             },
             {

@@ -38,6 +38,12 @@ function createLinkItem(link) {
     a.appendChild(tooltip);
   }
   li.appendChild(a);
+  if (link.license) {
+    const lic = document.createElement('span');
+    lic.className = 'license-tag';
+    lic.textContent = ` (${link.license})`;
+    li.appendChild(lic);
+  }
   return li;
 }
 
