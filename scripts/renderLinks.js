@@ -4,6 +4,14 @@ export async function fetchLinks() {
   return response.json();
 }
 
+const LICENSE_ICONS = {
+  'Açık Kaynak': 'icon/license-open-source.svg',
+  'Ücretsiz Yazılım': 'icon/license-freeware.svg',
+  'Paylaşımlı Yazılım': 'icon/license-shareware.svg',
+  'Özgür Yazılım': 'icon/license-free-software.svg',
+  'Ticari Yazılım': 'icon/license-commercial.svg'
+};
+
 function createLinkItem(link) {
   const li = document.createElement('li');
   const a = document.createElement('a');
@@ -29,22 +37,15 @@ function createLinkItem(link) {
     a.appendChild(iconWrapper);
   }
 
-  if (link.pricing) {
-    const priceType = link.pricing.toLowerCase().includes('ücretsiz') ? 'free' : 'paid';
-    const priceImg = document.createElement('img');
-    priceImg.loading = 'lazy';
-    priceImg.src = priceType === 'free' ? 'icon/price-free.svg' : 'icon/price-paid.svg';
-    priceImg.alt = link.pricing;
-    priceImg.className = 'price-badge';
-    if (iconWrapper) {
-      iconWrapper.appendChild(priceImg);
-    } else {
-      priceImg.classList.add('price-standalone');
-      a.appendChild(priceImg);
-    }
-  }
-
   a.appendChild(document.createTextNode(link.name));
+  if (link.license) {
+    const licImg = document.createElement('img');
+    licImg.loading = 'lazy';
+    licImg.src = LICENSE_ICONS[link.license] || '';
+    licImg.alt = link.license;
+    licImg.className = 'license-icon';
+    a.appendChild(licImg);
+  }
   if (link.description) {
     const tooltip = document.createElement('span');
     tooltip.className = 'custom-tooltip';
