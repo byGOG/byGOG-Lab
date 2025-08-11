@@ -6,7 +6,15 @@
     "build": "node build.js",
     "test": "node -e \"console.log('No tests specified')\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/byGOG/byGOG-Lab.git"
+  },
+  "keywords": ["windows", "utilities", "security"],
+  "author": "byGOG",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-css": "^5.3.2",
+    "terser": "^5.17.1"
+  }
 }

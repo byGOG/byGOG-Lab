@@ -9,7 +9,8 @@
           "recommended": true,
           "description": "Otomatik sürücü bulma ve güncelleme",
           "icon": "icon/Snappy.svg",
-          "alt": "Snappy Driver Installer"
+          "alt": "Snappy Driver Installer",
+          "tags": []
         },
         {
           "url": "https://ninite.com/",
@@ -17,7 +18,8 @@
           "recommended": true,
           "description": "Popüler programları toplu ve otomatik kurar",
           "icon": "icon/ninite.svg",
-          "alt": "Ninite"
+          "alt": "Ninite",
+          "tags": []
         },
         {
           "url": "https://massgrave.dev/",
@@ -25,7 +27,8 @@
           "recommended": true,
           "description": "Windows ve Office etkinleştirme araçları",
           "icon": "icon/massgrave.svg",
-          "alt": "Massgrave.dev"
+          "alt": "Massgrave.dev",
+          "tags": []
         },
         {
           "url": "https://www.officetool.plus/",
@@ -33,7 +36,8 @@
           "recommended": true,
           "description": "Microsoft Office dağıtımı, kurulumu ve yönetimi için gelişmiş araç",
           "icon": "icon/otp.svg",
-          "alt": "Office Tool Plus"
+          "alt": "Office Tool Plus",
+          "tags": []
         }
       ]
     },
@@ -49,7 +53,8 @@
               "recommended": false,
               "description": "Orijinal Windows 10 ISO dosyası indir",
               "icon": "icon/Microsoft.svg",
-              "alt": "Microsoft"
+              "alt": "Microsoft",
+              "tags": []
             },
             {
               "url": "https://www.microsoft.com/tr-tr/software-download/windows11",
@@ -57,7 +62,8 @@
               "recommended": false,
               "description": "Orijinal Windows 11 ISO dosyası indir",
               "icon": "icon/Microsoft.svg",
-              "alt": "Microsoft"
+              "alt": "Microsoft",
+              "tags": []
             },
             {
               "url": "https://rufus.ie/tr/",
@@ -65,7 +71,8 @@
               "recommended": false,
               "description": "USB'den kurulum medyası oluşturma",
               "icon": "icon/rufus.svg",
-              "alt": "Rufus"
+              "alt": "Rufus",
+              "tags": []
             },
             {
               "url": "https://www.ventoy.net/",
@@ -73,7 +80,8 @@
               "recommended": false,
               "description": "Birden fazla işletim sistemi için çoklu önyükleme USB aracı",
               "icon": "icon/ventoy.svg",
-              "alt": "Ventoy"
+              "alt": "Ventoy",
+              "tags": []
             }
           ]
         },
@@ -86,7 +94,8 @@
               "recommended": false,
               "description": "Optimize edilmiş Windows dağıtımı",
               "icon": "icon/atlasos.svg",
-              "alt": "AtlasOS"
+              "alt": "AtlasOS",
+              "tags": []
             },
             {
               "url": "https://www.revi.cc/",
@@ -94,7 +103,8 @@
               "recommended": false,
               "description": "Performans ve gizlilik odaklı Windows sürümü",
               "icon": "icon/revi.svg",
-              "alt": "ReviOS"
+              "alt": "ReviOS",
+              "tags": []
             }
           ]
         },
@@ -107,7 +117,8 @@
               "recommended": true,
               "description": "Microsoft Office dağıtımı, kurulumu ve yönetimi için gelişmiş araç",
               "icon": "icon/otp.svg",
-              "alt": "Office Tool Plus"
+              "alt": "Office Tool Plus",
+              "tags": []
             },
             {
               "url": "https://massgrave.dev/",
@@ -115,7 +126,8 @@
               "recommended": true,
               "description": "Windows ve Office etkinleştirme araçları",
               "icon": "icon/massgrave.svg",
-              "alt": "Massgrave.dev"
+              "alt": "Massgrave.dev",
+              "tags": []
             },
             {
               "url": "https://github.com/lstprjct/IDM-Activation-Script",
@@ -123,7 +135,8 @@
               "recommended": false,
               "description": "IDM için aktivasyon scripti",
               "icon": "icon/GitHub.svg",
-              "alt": "IDM Activation Script"
+              "alt": "IDM Activation Script",
+              "tags": []
             }
           ]
         }
@@ -141,7 +154,8 @@
               "recommended": false,
               "description": "Sistem bilgisi ve donanım tanımlama aracı",
               "icon": "icon/cpu-z.svg",
-              "alt": "CPU-Z"
+              "alt": "CPU-Z",
+              "tags": []
             },
             {
               "url": "https://www.hwinfo.com/",
@@ -149,7 +163,8 @@
               "recommended": false,
               "description": "Donanım izleme ve detaylı sistem bilgisi",
               "icon": "icon/hwinfo.svg",
-              "alt": "HWiNFO"
+              "alt": "HWiNFO",
+              "tags": []
             },
             {
               "url": "https://www.ocbase.com/",
@@ -157,7 +172,8 @@
               "recommended": false,
               "description": "Sistem kararlılığı, stres testi ve donanım izleme aracı",
               "icon": "icon/occt.svg",
-              "alt": "OCCT"
+              "alt": "OCCT",
+              "tags": []
             },
             {
               "url": "https://www.techpowerup.com/gpuz/",
@@ -165,7 +181,8 @@
               "recommended": false,
               "description": "Ekran kartı bilgisi ve izleme aracı",
               "icon": "icon/gpu-z.svg",
-              "alt": "GPU-Z"
+              "alt": "GPU-Z",
+              "tags": []
             },
             {
               "url": "https://geeks3d.com/furmark/",
@@ -173,7 +190,8 @@
               "recommended": false,
               "description": "Ücretsiz, popüler GPU stres testi ve benchmark aracı. Ekran kartı kararlılığını ve soğutma performansını ölçmek için kullanılır.",
               "icon": "icon/furmark.svg",
-              "alt": "FurMark"
+              "alt": "FurMark",
+              "tags": []
             },
             {
               "url": "https://learn.microsoft.com/tr-tr/sysinternals/downloads/sysinternals-suite",
@@ -181,7 +199,8 @@
               "recommended": false,
               "description": "Windows sistemlerini yönetmek, sorun gidermek ve tanılamak için 70'ten fazla gelişmiş yardımcı programdan oluşan bir koleksiyon.",
               "icon": "icon/Microsoft.svg",
-              "alt": "Sysinternals"
+              "alt": "Sysinternals",
+              "tags": []
             }
           ]
         },
@@ -194,7 +213,8 @@
               "recommended": true,
               "description": "Otomatik sürücü bulma ve güncelleme",
               "icon": "icon/Snappy.svg",
-              "alt": "Snappy Driver Installer"
+              "alt": "Snappy Driver Installer",
+              "tags": []
             },
             {
               "url": "https://www.amd.com/en/support/download/drivers.html",
@@ -202,7 +222,8 @@
               "recommended": false,
               "description": "AMD ekran kartı ve işlemci sürücülerini indir",
               "icon": "icon/AMD.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://github.com/lostindark/DriverStoreExplorer",
@@ -210,7 +231,8 @@
               "recommended": false,
               "description": "Windows sürücü deposunu yönetir ve temizler",
               "icon": "icon/DriverStoreExplorer.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.guru3d.com/download/display-driver-uninstaller-download/",
@@ -218,7 +240,8 @@
               "recommended": false,
               "description": "NVIDIA, AMD ve Intel ekran kartı sürücülerini tamamen kaldırma aracı",
               "icon": "icon/ddu.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.intel.com/content/www/us/en/support/detect.html",
@@ -226,7 +249,8 @@
               "recommended": false,
               "description": "Intel donanımınızı otomatik algılar ve en güncel sürücüleri önerir",
               "icon": "icon/intel.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.nvidia.com/tr-tr/software/nvidia-app/",
@@ -234,7 +258,8 @@
               "recommended": false,
               "description": "NVIDIA ekran kartları için sürücü, oyun ve yapay zekâ destekli araç yönetimi",
               "icon": "icon/nvidia.svg",
-              "alt": "NVIDIA"
+              "alt": "NVIDIA",
+              "tags": []
             }
           ]
         },
@@ -247,7 +272,8 @@
               "recommended": false,
               "description": "Toplu program kaldırıcı ve temizleyici",
               "icon": "icon/BCUninstaller.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.bleachbit.org/",
@@ -255,7 +281,8 @@
               "recommended": false,
               "description": "Sistem temizliği ve gereksiz dosya silme",
               "icon": "icon/BleachBit.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.oo-software.com/en/ooappbuster",
@@ -263,7 +290,8 @@
               "recommended": false,
               "description": "Gereksiz Windows uygulamalarını kaldırma aracı",
               "icon": "https://www.oo-software.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://sandboxie-plus.com/",
@@ -271,7 +299,8 @@
               "recommended": false,
               "description": "Uygulamaları izole ortamda çalıştırma",
               "icon": "icon/sandboxie.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://winconfigs.netlify.app/",
@@ -279,7 +308,8 @@
               "recommended": false,
               "description": "Windows yapılandırma dosyaları arşivi",
               "icon": "icon/winconfigs.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             }
           ]
         },
@@ -292,7 +322,8 @@
               "recommended": false,
               "description": "Açık kaynaklı dosya sıkıştırma ve arşivleme",
               "icon": "icon/7-Zip.svg",
-              "alt": "7-Zip"
+              "alt": "7-Zip",
+              "tags": []
             },
             {
               "url": "https://github.com/M2Team/NanaZip",
@@ -300,7 +331,8 @@
               "recommended": false,
               "description": "Modern Windows için 7-Zip tabanlı, açık kaynaklı dosya sıkıştırma ve arşivleme programı. MSIX paket, yeni arayüz ve gelişmiş entegrasyon.",
               "icon": "icon/GitHub.svg",
-              "alt": "NanaZip"
+              "alt": "NanaZip",
+              "tags": []
             },
             {
               "url": "https://www.codesector.com/teracopy",
@@ -308,7 +340,8 @@
               "recommended": false,
               "description": "Hızlı ve güvenli dosya kopyalama aracı",
               "icon": "icon/TeraCopy.svg",
-              "alt": "TeraCopy"
+              "alt": "TeraCopy",
+              "tags": []
             },
             {
               "url": "https://www.rarlab.com/",
@@ -316,7 +349,8 @@
               "recommended": false,
               "description": "Popüler dosya sıkıştırma ve arşivleme programı",
               "icon": "icon/WinRAR.svg",
-              "alt": "WinRAR"
+              "alt": "WinRAR",
+              "tags": []
             },
             {
               "url": "https://code.kliu.org/hashcheck/",
@@ -324,7 +358,8 @@
               "recommended": false,
               "description": "Windows Gezgini'ne entegre, hızlı ve açık kaynaklı dosya bütünlüğü (hash) kontrol aracı",
               "icon": "icon/hashcheck.svg",
-              "alt": "HashCheck"
+              "alt": "HashCheck",
+              "tags": []
             },
             {
               "url": "https://winmerge.org/",
@@ -332,7 +367,8 @@
               "recommended": false,
               "description": "Açık kaynaklı, dosya ve klasör karşılaştırma/birleştirme aracı. Farkları görsel olarak gösterir ve senkronizasyon sağlar.",
               "icon": "icon/WinMerge.svg",
-              "alt": "WinMerge"
+              "alt": "WinMerge",
+              "tags": []
             },
             {
               "url": "https://macrorit.com/partition-magic-manager/free-edition.html",
@@ -340,7 +376,8 @@
               "recommended": false,
               "description": "Ücretsiz, gelişmiş disk bölümlendirme ve yönetim aracı. Veri kaybı olmadan disk bölme, birleştirme, biçimlendirme ve kurtarma özellikleri.",
               "icon": "icon/Macrorit.svg",
-              "alt": "Macrorit Partition Expert"
+              "alt": "Macrorit Partition Expert",
+              "tags": []
             },
             {
               "url": "https://nilesoft.org/",
@@ -348,7 +385,8 @@
               "recommended": false,
               "description": "Windows Gezgini için güçlü bir eklenti",
               "icon": "icon/GitHub.svg",
-              "alt": "Nilesoft Shell"
+              "alt": "Nilesoft Shell",
+              "tags": []
             }
           ]
         },
@@ -361,7 +399,8 @@
               "recommended": false,
               "description": "Windows için anında dosya ve klasör arama",
               "icon": "icon/Everything.svg",
-              "alt": "Everything"
+              "alt": "Everything",
+              "tags": []
             },
             {
               "url": "https://diskanalyzer.com/",
@@ -369,7 +408,8 @@
               "recommended": false,
               "description": "Diskte büyük dosyaları ve alan kullanımını analiz eder",
               "icon": "icon/WizTree.svg",
-              "alt": "WizTree"
+              "alt": "WizTree",
+              "tags": []
             }
           ]
         }
@@ -387,7 +427,8 @@
               "recommended": false,
               "description": "Ücretsiz, ödüllü antivirüs ve gerçek zamanlı koruma",
               "icon": "icon/avira.svg",
-              "alt": "Avira Free Antivirus"
+              "alt": "Avira Free Antivirus",
+              "tags": []
             },
             {
               "url": "https://www.bitdefender.com/en-us/consumer/free-antivirus",
@@ -395,7 +436,8 @@
               "recommended": false,
               "description": "Hafif, ücretsiz ve güçlü antivirüs koruması",
               "icon": "icon/bitdefender.svg",
-              "alt": "Bitdefender Free Antivirus"
+              "alt": "Bitdefender Free Antivirus",
+              "tags": []
             },
             {
               "url": "https://www.malwarebytes.com/",
@@ -403,7 +445,8 @@
               "recommended": false,
               "description": "Gelişmiş kötü amaçlı yazılım temizleme ve gerçek zamanlı koruma aracı",
               "icon": "icon/malwarebytes.svg",
-              "alt": "Malwarebytes"
+              "alt": "Malwarebytes",
+              "tags": []
             }
           ]
         },
@@ -416,7 +459,8 @@
               "recommended": false,
               "description": "Windows 10 ve 11 için ücretsiz, taşınabilir gizlilik ve telemetri kapatma aracı",
               "icon": "icon/oosu10.svg",
-              "alt": "O&O ShutUp10++"
+              "alt": "O&O ShutUp10++",
+              "tags": []
             },
             {
               "url": "https://wpd.app/",
@@ -424,7 +468,8 @@
               "recommended": false,
               "description": "Windows için taşınabilir, reklamsız ve gelişmiş gizlilik kontrol paneli",
               "icon": "icon/wpd.svg",
-              "alt": "WPD"
+              "alt": "WPD",
+              "tags": []
             },
             {
               "url": "https://privacy.sexy/",
@@ -432,7 +477,8 @@
               "recommended": false,
               "description": "Gizlilik ve güvenlik ayarlarını otomatikleştirir",
               "icon": "icon/privacy.sexy.svg",
-              "alt": "Privacy.sexy"
+              "alt": "Privacy.sexy",
+              "tags": []
             },
             {
               "url": "https://github.com/ionuttbara/windows-defender-remover",
@@ -440,7 +486,8 @@
               "recommended": false,
               "description": "Windows Defender'ı sistemden kaldırır",
               "icon": "icon/DefenderRemover.svg",
-              "alt": "Windows Defender Remover"
+              "alt": "Windows Defender Remover",
+              "tags": []
             },
             {
               "url": "https://zenprivacy.net/",
@@ -448,7 +495,8 @@
               "recommended": false,
               "description": "Gizlilik ve güvenlik araçları platformu",
               "icon": "icon/ZenPrivacy.svg",
-              "alt": "ZenPrivacy"
+              "alt": "ZenPrivacy",
+              "tags": []
             }
           ]
         },
@@ -461,7 +509,8 @@
               "recommended": false,
               "description": "Engelli sitelere erişim için VPN hizmeti",
               "icon": "icon/antizapret.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://github.com/cagritaskn/GoodbyeDPI-Turkey",
@@ -469,7 +518,8 @@
               "recommended": false,
               "description": "Türkiye için DPI engelini aşma aracı",
               "icon": "icon/GitHub.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://github.com/ValdikSS/GoodbyeDPI",
@@ -477,7 +527,8 @@
               "recommended": false,
               "description": "DPI tabanlı engellemeleri aşmak için araç",
               "icon": "icon/GitHub.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://openvpn.net/client/",
@@ -485,7 +536,8 @@
               "recommended": false,
               "description": "Açık kaynaklı VPN istemcisi",
               "icon": "https://openvpn.net/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://protonvpn.com/",
@@ -493,7 +545,8 @@
               "recommended": false,
               "description": "Güvenli ve hızlı VPN hizmeti",
               "icon": "https://protonvpn.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.torproject.org/tr/",
@@ -501,7 +554,8 @@
               "recommended": false,
               "description": "Sansürü aşmak ve gizliliği korumak için anonim tarayıcı",
               "icon": "https://www.torproject.org/static/images/favicon/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             }
           ]
         },
@@ -514,7 +568,8 @@
               "recommended": false,
               "description": "Açık kaynaklı şifre yöneticisi",
               "icon": "https://bitwarden.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://browserleaks.com/",
@@ -522,7 +577,8 @@
               "recommended": false,
               "description": "Tarayıcı gizliliği ve sızıntı testleri",
               "icon": "https://browserleaks.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://relay.firefox.com/",
@@ -530,7 +586,8 @@
               "recommended": false,
               "description": "E-posta gizliliği ve maskeleme servisi",
               "icon": "https://relay.firefox.com/favicon.ico",
-              "alt": "Firefox Relay"
+              "alt": "Firefox Relay",
+              "tags": []
             }
           ]
         },
@@ -543,7 +600,8 @@
               "recommended": false,
               "description": "Reklam, izleyici ve zararlı yazılımları engelleyen, özelleştirilebilir DNS hizmeti",
               "icon": "https://nextdns.io/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://dnsforge.de/",
@@ -551,7 +609,8 @@
               "recommended": false,
               "description": "Almanya merkezli, gizlilik odaklı, reklamsız ve izleyicisiz DNS hizmeti",
               "icon": "https://dnsforge.de/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://one.one.one.one/tr-TR/dns/",
@@ -559,7 +618,8 @@
               "recommended": false,
               "description": "Hızlı, gizlilik odaklı ve ücretsiz DNS hizmeti",
               "icon": "https://one.one.one.one/favicon.ico",
-              "alt": "Cloudflare 1.1.1.1"
+              "alt": "Cloudflare 1.1.1.1",
+              "tags": []
             }
           ]
         }
@@ -577,7 +637,8 @@
               "recommended": true,
               "description": "Popüler programları toplu ve otomatik kurar",
               "icon": "icon/ninite.svg",
-              "alt": "Ninite"
+              "alt": "Ninite",
+              "tags": []
             },
             {
               "url": "https://chocolatey.org/",
@@ -585,7 +646,8 @@
               "recommended": false,
               "description": "Komut satırı ile yazılım kurulum yöneticisi",
               "icon": "icon/chocolatey.svg",
-              "alt": "Chocolatey"
+              "alt": "Chocolatey",
+              "tags": []
             },
             {
               "url": "https://winutil.christitus.com/",
@@ -593,7 +655,8 @@
               "recommended": false,
               "description": "Windows için toplu kurulum ve optimizasyon aracı",
               "icon": "icon/winutil.svg",
-              "alt": "WinUtil"
+              "alt": "WinUtil",
+              "tags": []
             },
             {
               "url": "https://os.click/en",
@@ -601,7 +664,8 @@
               "recommended": false,
               "description": "Farklı işletim sistemlerini indirme platformu",
               "icon": "icon/os.click.svg",
-              "alt": "OS.Click"
+              "alt": "OS.Click",
+              "tags": []
             },
             {
               "url": "https://packagepicker.co/",
@@ -609,7 +673,8 @@
               "recommended": false,
               "description": "Toplu yazılım kurulum listeleri oluşturur",
               "icon": "icon/packagepicker.svg",
-              "alt": "PackagePicker"
+              "alt": "PackagePicker",
+              "tags": []
             },
             {
               "url": "https://www.marticliment.com/unigetui/",
@@ -617,7 +682,8 @@
               "recommended": false,
               "description": "Çoklu paket yöneticisi arayüzü",
               "icon": "https://raw.githubusercontent.com/marticliment/UniGetUI/refs/heads/main/media/Icon%20sizes/128.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://winstall.app/",
@@ -625,7 +691,8 @@
               "recommended": false,
               "description": "Toplu winget komutları oluşturur ve Windows için kolay yazılım kurulum listeleri sunar",
               "icon": "icon/winstall.svg",
-              "alt": "Winstall"
+              "alt": "Winstall",
+              "tags": []
             },
             {
               "url": "https://winget.run/",
@@ -633,7 +700,8 @@
               "recommended": false,
               "description": "Winget paketlerini arar ve komut oluşturur",
               "icon": "icon/winget.run.svg",
-              "alt": "WinGet.run"
+              "alt": "WinGet.run",
+              "tags": []
             },
             {
               "url": "https://www.quickinstaller.net/",
@@ -641,7 +709,8 @@
               "recommended": false,
               "description": "Hızlı ve kolay yazılım kurulum platformu",
               "icon": "icon/quickinstaller.svg",
-              "alt": "QuickInstaller"
+              "alt": "QuickInstaller",
+              "tags": []
             },
             {
               "url": "https://ruckzuck.tools/",
@@ -649,7 +718,8 @@
               "recommended": false,
               "description": "Hızlı yazılım yükleme ve güncelleme aracı",
               "icon": "icon/ruckzuck.svg",
-              "alt": "RuckZuck"
+              "alt": "RuckZuck",
+              "tags": []
             },
             {
               "url": "https://scoop.sh/",
@@ -657,7 +727,8 @@
               "recommended": false,
               "description": "Komut satırı tabanlı yazılım paket yöneticisi",
               "icon": "icon/scoop.svg",
-              "alt": "Scoop"
+              "alt": "Scoop",
+              "tags": []
             }
           ]
         },
@@ -670,7 +741,8 @@
               "recommended": false,
               "description": "Taşınabilir (portable) yazılım arşivi ve blogu",
               "icon": "icon/portableappz.svg",
-              "alt": "PortableAppZ"
+              "alt": "PortableAppZ",
+              "tags": []
             },
             {
               "url": "https://portableapps.com/",
@@ -678,7 +750,8 @@
               "recommended": false,
               "description": "En popüler taşınabilir uygulama platformu",
               "icon": "icon/PortableApps.svg",
-              "alt": "PortableApps"
+              "alt": "PortableApps",
+              "tags": []
             },
             {
               "url": "https://portapps.io/",
@@ -686,7 +759,8 @@
               "recommended": false,
               "description": "Açık kaynak taşınabilir uygulama koleksiyonu",
               "icon": "icon/portapps.svg",
-              "alt": "Portapps"
+              "alt": "Portapps",
+              "tags": []
             },
             {
               "url": "https://www.sordum.org/",
@@ -694,7 +768,8 @@
               "recommended": false,
               "description": "Ücretsiz taşınabilir Windows araçları ve yazılım çözümleri",
               "icon": "icon/sordum.svg",
-              "alt": "Sordum.org"
+              "alt": "Sordum.org",
+              "tags": []
             }
           ]
         },
@@ -707,7 +782,8 @@
               "recommended": false,
               "description": "Popüler yazılımların alternatiflerini ve kullanıcı yorumlarını bulabileceğiniz karşılaştırma platformu",
               "icon": "https://alternativeto.net/static/icons/favicon-32x32.svg",
-              "alt": "AlternativeTo"
+              "alt": "AlternativeTo",
+              "tags": []
             }
           ]
         }
@@ -725,7 +801,8 @@
               "recommended": false,
               "description": "Gizlilik odaklı hızlı web tarayıcı",
               "icon": "https://brave.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.google.com/chrome/",
@@ -733,7 +810,8 @@
               "recommended": false,
               "description": "Google'ın hızlı ve popüler web tarayıcısı",
               "icon": "https://www.google.com/chrome/static/images/favicons/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.mozilla.org/tr/firefox/new/",
@@ -741,7 +819,8 @@
               "recommended": false,
               "description": "Açık kaynaklı web tarayıcı",
               "icon": "https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://zen-browser.app/",
@@ -749,7 +828,8 @@
               "recommended": false,
               "description": "Güvenli ve hızlı web tarayıcı",
               "icon": "https://zen-browser.app/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             }
           ]
         },
@@ -762,7 +842,8 @@
               "recommended": false,
               "description": "Her web sitesi için karanlık tema oluşturan tarayıcı eklentisi",
               "icon": "https://darkreader.org/images/darkreader-icon-256x256.png",
-              "alt": "Dark Reader"
+              "alt": "Dark Reader",
+              "tags": []
             },
             {
               "url": "https://github.com/dessant/buster",
@@ -770,7 +851,8 @@
               "recommended": false,
               "description": "reCAPTCHA sesli doğrulama çözücü eklentisi",
               "icon": "icon/GitHub.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://sponsor.ajay.app/",
@@ -778,7 +860,8 @@
               "recommended": false,
               "description": "YouTube sponsor ve gereksiz bölümleri otomatik atlayan eklenti",
               "icon": "https://sponsor.ajay.app/LogoSponsorBlockSimple256px.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://ublockorigin.com/",
@@ -786,7 +869,8 @@
               "recommended": false,
               "description": "Gelişmiş, açık kaynaklı reklam ve içerik engelleyici",
               "icon": "https://ublockorigin.com/img/favicons/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://privacybadger.org/tr/",
@@ -794,7 +878,8 @@
               "recommended": false,
               "description": "Otomatik izleyici engelleme ve gizlilik koruması sağlayan tarayıcı eklentisi",
               "icon": "https://www.eff.org/sites/all/themes/frontier/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://greasyfork.org/tr",
@@ -802,7 +887,8 @@
               "recommended": false,
               "description": "Kullanıcı scriptleri ve tarayıcı betikleri arşivi",
               "icon": "https://greasyfork.org/favicon.ico",
-              "alt": "Greasy Fork"
+              "alt": "Greasy Fork",
+              "tags": []
             }
           ]
         }
@@ -820,7 +906,8 @@
               "recommended": false,
               "description": "Popüler Türkçe torrent paylaşım platformu",
               "icon": "https://www.zamunda.net/favicon.ico",
-              "alt": "Zamunda"
+              "alt": "Zamunda",
+              "tags": []
             },
             {
               "url": "https://yts.mx/",
@@ -828,7 +915,8 @@
               "recommended": false,
               "description": "Yüksek kaliteli film torrent arşivi",
               "icon": "https://yts.mx/assets/images/website/favicon.ico",
-              "alt": "YTS"
+              "alt": "YTS",
+              "tags": []
             },
             {
               "url": "https://thepiratebay.org/",
@@ -836,7 +924,8 @@
               "recommended": false,
               "description": "Dünyanın en büyük torrent arama motoru",
               "icon": "https://thepiratebay.org/favicon.ico",
-              "alt": "The Pirate Bay"
+              "alt": "The Pirate Bay",
+              "tags": []
             },
             {
               "url": "https://torrentsites.com/",
@@ -844,7 +933,8 @@
               "recommended": false,
               "description": "En iyi torrent siteleri rehberi",
               "icon": "https://torrentsites.com/favicon.ico",
-              "alt": "TorrentSites"
+              "alt": "TorrentSites",
+              "tags": []
             },
             {
               "url": "https://yourbittorrent.com/",
@@ -852,7 +942,8 @@
               "recommended": false,
               "description": "Geniş torrent arşivi ve paylaşım platformu",
               "icon": "https://yourbittorrent.com/favicon.ico",
-              "alt": "YourBittorrent"
+              "alt": "YourBittorrent",
+              "tags": []
             },
             {
               "url": "https://eztvx.to/",
@@ -860,7 +951,8 @@
               "recommended": false,
               "description": "Dizi ve TV şovları için torrent platformu",
               "icon": "https://eztvx.to/favicon.ico",
-              "alt": "EZTV"
+              "alt": "EZTV",
+              "tags": []
             },
             {
               "url": "https://lucida.to/",
@@ -868,7 +960,8 @@
               "recommended": false,
               "description": "Özel torrent ve DDL paylaşım platformu",
               "icon": "https://lucida.to/favicon.ico",
-              "alt": "Lucida"
+              "alt": "Lucida",
+              "tags": []
             },
             {
               "url": "https://doubledouble.top/",
@@ -876,7 +969,8 @@
               "recommended": false,
               "description": "Özel torrent ve DDL paylaşım platformu",
               "icon": "https://doubledouble.top/favicon.ico",
-              "alt": "DoubleDouble"
+              "alt": "DoubleDouble",
+              "tags": []
             }
           ]
         },
@@ -889,7 +983,8 @@
               "recommended": false,
               "description": "Gelişmiş müzik çalar",
               "icon": "https://www.aimp.ru/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://codecguide.com/",
@@ -897,7 +992,8 @@
               "recommended": false,
               "description": "K-Lite Codec Pack ile medya codec'leri",
               "icon": "https://codecguide.com/mpc_logo.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.videolan.org/vlc/",
@@ -905,7 +1001,8 @@
               "recommended": false,
               "description": "Çok formatlı medya oynatıcı",
               "icon": "https://images.videolan.org/images/icons-VLC/vlc.mini.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             }
           ]
         },
@@ -918,7 +1015,8 @@
               "recommended": false,
               "description": "Popüler müzik dinleme platformu",
               "icon": "https://open.spotify.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.stremio.com/",
@@ -926,7 +1024,8 @@
               "recommended": false,
               "description": "Film ve dizi akış platformu",
               "icon": "https://www.stremio.com/website/stremio-purple-small.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://inatflix.org/",
@@ -934,7 +1033,8 @@
               "recommended": false,
               "description": "Dijital yayın ve film platformu",
               "icon": "https://inatflix.org/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://tv.garden/",
@@ -942,7 +1042,8 @@
               "recommended": false,
               "description": "Çevrim içi TV ve yayın platformu",
               "icon": "https://tv.garden/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.dojostreams.com/",
@@ -950,7 +1051,8 @@
               "recommended": false,
               "description": "Dünya genelinde IPTV, canlı TV ve film platformu",
               "icon": "https://www.dojostreams.com/favicon.ico",
-              "alt": "Dojostreams"
+              "alt": "Dojostreams",
+              "tags": []
             }
           ]
         },
@@ -963,7 +1065,8 @@
               "recommended": false,
               "description": "Beatport istatistikleri ve en iyi parçalar",
               "icon": "https://www.beatstats.com/favicon.ico",
-              "alt": "BeatStats"
+              "alt": "BeatStats",
+              "tags": []
             },
             {
               "url": "https://www.beatport.com/",
@@ -971,7 +1074,8 @@
               "recommended": false,
               "description": "Elektronik müzik ve DJ kültürü için dijital mağaza",
               "icon": "https://www.beatport.com/favicon.ico",
-              "alt": "Beatport"
+              "alt": "Beatport",
+              "tags": []
             }
           ]
         },
@@ -984,7 +1088,8 @@
               "recommended": false,
               "description": "Popüler indirme yöneticisi ve hızlandırıcısı",
               "icon": "https://www.internetdownloadmanager.com/favicon.ico",
-              "alt": "Internet Download Manager"
+              "alt": "Internet Download Manager",
+              "tags": []
             },
             {
               "url": "https://jdownloader.org/",
@@ -992,7 +1097,8 @@
               "recommended": false,
               "description": "Ücretsiz, açık kaynaklı indirme yöneticisi",
               "icon": "https://jdownloader.org/assets/images/logo/jd_logo_256_256.png",
-              "alt": "JDownloader"
+              "alt": "JDownloader",
+              "tags": []
             },
             {
               "url": "https://handbrake.fr/",
@@ -1000,7 +1106,8 @@
               "recommended": false,
               "description": "Açık kaynaklı video dönüştürücü",
               "icon": "https://handbrake.fr/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://github.com/DJDoubleD/QobuzDownloaderX-MOD",
@@ -1008,7 +1115,8 @@
               "recommended": false,
               "description": "Qobuz müzik indirme aracı",
               "icon": "icon/GitHub.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://github.com/SpotX-Official/SpotX",
@@ -1016,7 +1124,8 @@
               "recommended": false,
               "description": "Spotify için reklamsız deneyim aracı",
               "icon": "icon/GitHub.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://github.com/WilliamSchack/Spotify-Downloader",
@@ -1024,7 +1133,8 @@
               "recommended": false,
               "description": "Spotify müziklerini indirme aracı",
               "icon": "icon/GitHub.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://github.com/yt-dlp/yt-dlp",
@@ -1032,7 +1142,8 @@
               "recommended": false,
               "description": "Zengin özelliklere sahip, komut satırı tabanlı video ve ses indirme aracı",
               "icon": "icon/GitHub.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             }
           ]
         },
@@ -1045,7 +1156,8 @@
               "recommended": false,
               "description": "Güncel dizi ve filmleri ücretsiz izleyebileceğiniz popüler platform",
               "icon": "https://dizipal938.com/favicon.ico",
-              "alt": "Dizipal"
+              "alt": "Dizipal",
+              "tags": []
             }
           ]
         },
@@ -1058,7 +1170,8 @@
               "recommended": false,
               "description": "Gelişmiş pano (clipboard) yöneticisi",
               "icon": "https://hluk.github.io/CopyQ/images/logo.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.dropbox.com/",
@@ -1066,7 +1179,8 @@
               "recommended": false,
               "description": "Dosya yedekleme ve bulut depolama hizmeti",
               "icon": "https://fjord.dropboxstatic.com/warp/conversion/dropbox/warp/icons/Dropbox-logo-nav.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://getsharex.com/",
@@ -1074,7 +1188,8 @@
               "recommended": false,
               "description": "Ekran görüntüsü alma ve paylaşma aracı",
               "icon": "https://getsharex.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://workspace.google.com/products/drive/",
@@ -1082,7 +1197,8 @@
               "recommended": false,
               "description": "Google'ın bulut depolama ve dosya paylaşım servisi",
               "icon": "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://imageglass.org/",
@@ -1090,7 +1206,8 @@
               "recommended": false,
               "description": "Hafif ve modern resim görüntüleyici",
               "icon": "https://imageglass.org/img/iglogo.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             }
           ]
         }
@@ -1108,7 +1225,8 @@
               "recommended": false,
               "description": "Gelişmiş Windows terminali",
               "icon": "https://cmder.app/favicon.ico",
-              "alt": "Cmder"
+              "alt": "Cmder",
+              "tags": []
             },
             {
               "url": "https://www.virtualbox.org/",
@@ -1116,7 +1234,8 @@
               "recommended": false,
               "description": "Güçlü, açık kaynaklı sanallaştırma yazılımı. Windows, Linux, macOS ve diğer platformlarda sanal makine çalıştırmak için kullanılır.",
               "icon": "https://www.virtualbox.org/favicon.ico",
-              "alt": "VirtualBox"
+              "alt": "VirtualBox",
+              "tags": []
             },
             {
               "url": "https://code.visualstudio.com/",
@@ -1124,7 +1243,8 @@
               "recommended": false,
               "description": "Popüler kod editörü ve IDE",
               "icon": "https://code.visualstudio.com/favicon.ico",
-              "alt": "Visual Studio Code"
+              "alt": "Visual Studio Code",
+              "tags": []
             },
             {
               "url": "https://notepad-plus-plus.org/",
@@ -1132,7 +1252,8 @@
               "recommended": false,
               "description": "Gelişmiş metin ve kod editörü",
               "icon": "https://notepad-plus-plus.org/favicon.ico",
-              "alt": "Notepad++"
+              "alt": "Notepad++",
+              "tags": []
             },
             {
               "url": "https://cursor.com/",
@@ -1140,7 +1261,8 @@
               "recommended": false,
               "description": "Yapay zekâ destekli modern kod editörü. Kod tamamlama, doğal dil ile düzenleme ve gelişmiş üretkenlik özellikleri sunar.",
               "icon": "https://cursor.com/favicon.ico",
-              "alt": "Cursor"
+              "alt": "Cursor",
+              "tags": []
             },
             {
               "url": "https://www.angusj.com/resourcehacker/",
@@ -1148,7 +1270,8 @@
               "recommended": false,
               "description": "Windows uygulamaları için ücretsiz kaynak derleyici ve düzenleyici. İkon, imleç, menü ve diyalog kutularını değiştirir.",
               "icon": "https://www.angusj.com/favicon.ico",
-              "alt": "Resource Hacker"
+              "alt": "Resource Hacker",
+              "tags": []
             }
           ]
         },
@@ -1161,7 +1284,8 @@
               "recommended": false,
               "description": "Java programlama dili ve çalışma zamanı",
               "icon": "https://www.java.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://learn.microsoft.com/tr-tr/powershell/",
@@ -1169,7 +1293,8 @@
               "recommended": false,
               "description": "Resmi PowerShell dökümantasyonu, örnekler ve kurulum rehberleri",
               "icon": "https://learn.microsoft.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://developer.android.com/tools/adb",
@@ -1177,7 +1302,8 @@
               "recommended": false,
               "description": "Android cihazlarla bağlantı, uygulama yükleme, hata ayıklama ve komut satırı yönetimi için resmi araç",
               "icon": "https://developer.android.com/favicon.ico",
-              "alt": "ADB"
+              "alt": "ADB",
+              "tags": []
             }
           ]
         },
@@ -1190,7 +1316,8 @@
               "recommended": false,
               "description": "Ücretsiz ve açık kaynaklı, profesyonel vektör grafik düzenleyici. SVG formatını destekler.",
               "icon": "icon/inkscape.svg",
-              "alt": "Inkscape"
+              "alt": "Inkscape",
+              "tags": []
             },
             {
               "url": "https://greenfishsoftware.org/",
@@ -1198,7 +1325,8 @@
               "recommended": false,
               "description": "Ücretsiz, açık kaynaklı ve taşınabilir ikon, imleç ve animasyon editörü.",
               "icon": "https://greenfishsoftware.org/favicon.ico",
-              "alt": "Greenfish Icon Editor"
+              "alt": "Greenfish Icon Editor",
+              "tags": []
             }
           ]
         }
@@ -1216,7 +1344,8 @@
               "recommended": false,
               "description": "Hareketli ve interaktif masaüstü duvar kağıtları",
               "icon": "https://www.rocksdanister.com/lively/favicon.ico",
-              "alt": "Lively Wallpaper"
+              "alt": "Lively Wallpaper",
+              "tags": []
             }
           ]
         },
@@ -1229,7 +1358,8 @@
               "recommended": false,
               "description": "Yapay zekâ destekli, yüksek kaliteli metin çeviri servisi. Çoklu dil desteği ve gelişmiş çeviri doğruluğu.",
               "icon": "https://www.deepl.com/favicon.ico",
-              "alt": "DeepL"
+              "alt": "DeepL",
+              "tags": []
             }
           ]
         },
@@ -1242,7 +1372,8 @@
               "recommended": false,
               "description": "OpenAI ChatGPT ile yapay zekâ sohbeti",
               "icon": "https://chatgpt.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://claude.ai/",
@@ -1250,7 +1381,8 @@
               "recommended": false,
               "description": "Claude AI ile yapay zekâ sohbeti",
               "icon": "https://claude.ai/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://copilot.microsoft.com/",
@@ -1258,7 +1390,8 @@
               "recommended": false,
               "description": "Microsoft Copilot ile yapay zekâ asistanı",
               "icon": "https://copilot.microsoft.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://gemini.google.com/",
@@ -1266,7 +1399,8 @@
               "recommended": false,
               "description": "Google Gemini ile yapay zekâ sohbeti",
               "icon": "https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.perplexity.ai/",
@@ -1274,7 +1408,8 @@
               "recommended": false,
               "description": "Perplexity AI ile yapay zekâ arama ve sohbet",
               "icon": "https://www.perplexity.ai/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             }
           ]
         },
@@ -1287,7 +1422,8 @@
               "recommended": false,
               "description": "Uzaktan masaüstü erişim ve destek",
               "icon": "https://anydesk.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://rustdesk.com/",
@@ -1295,7 +1431,8 @@
               "recommended": false,
               "description": "Açık kaynaklı uzaktan masaüstü erişimi",
               "icon": "https://rustdesk.com/_astro/favicon.B_ZzjaxD.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.teamviewer.com/tr/",
@@ -1303,7 +1440,8 @@
               "recommended": false,
               "description": "Popüler uzaktan destek ve erişim aracı",
               "icon": "https://www.teamviewer.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             }
           ]
         }
@@ -1321,7 +1459,8 @@
               "recommended": false,
               "description": "YouTube Vanced ve benzeri modlu Android uygulamaları",
               "icon": "https://vancedapp.com/favicon.ico",
-              "alt": "ReVanced Manager"
+              "alt": "ReVanced Manager",
+              "tags": []
             },
             {
               "url": "https://www.xmanagerapp.com/",
@@ -1329,7 +1468,8 @@
               "recommended": false,
               "description": "Spotify için reklamsız ve gelişmiş Android uygulama yöneticisi",
               "icon": "https://www.xmanagerapp.com/favicon.ico",
-              "alt": "xManager"
+              "alt": "xManager",
+              "tags": []
             },
             {
               "url": "https://www.instamod.co/",
@@ -1337,7 +1477,8 @@
               "recommended": false,
               "description": "Instagram için reklamsız ve gelişmiş özellikler sunan modlu uygulama",
               "icon": "https://www.instamod.co/wp-content/uploads/2024/05/cropped-instamod-logo-32x32.svg",
-              "alt": "InstaPro"
+              "alt": "InstaPro",
+              "tags": []
             }
           ]
         },
@@ -1350,7 +1491,8 @@
               "recommended": false,
               "description": "Topluluk ve oyun odaklı sohbet platformu",
               "icon": "https://assets-global.website-files.com/6257adef93867e50d84d30e2/6286368c5f5cc306ac2a4672_Jobs%20and%20Career%20Opportunities%20at%20Discord-2%201.svg",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://telegram.org/",
@@ -1358,7 +1500,8 @@
               "recommended": false,
               "description": "Güvenli ve hızlı mesajlaşma uygulaması",
               "icon": "https://telegram.org/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://www.whatsapp.com/",
@@ -1366,7 +1509,8 @@
               "recommended": false,
               "description": "Popüler, uçtan uca şifreli mesajlaşma ve arama uygulaması",
               "icon": "https://static.whatsapp.net/rsrc.php/v4/yz/r/ujTY9i_Jhs1.svg",
-              "alt": "WhatsApp"
+              "alt": "WhatsApp",
+              "tags": []
             }
           ]
         },
@@ -1379,7 +1523,8 @@
               "recommended": false,
               "description": "Microsoft hesabı ile oturum açma ve e-posta servisi",
               "icon": "https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_564db913a7fa0ca42727161c6d031bef.svg",
-              "alt": "Microsoft"
+              "alt": "Microsoft",
+              "tags": []
             },
             {
               "url": "https://login.yahoo.com/",
@@ -1387,7 +1532,8 @@
               "recommended": false,
               "description": "Yahoo Mail ile e-posta servisi ve oturum açma",
               "icon": "https://s.yimg.com/wm/mbr/images/yahoo-apple-touch-v0.0.2.svg",
-              "alt": "Yahoo Mail"
+              "alt": "Yahoo Mail",
+              "tags": []
             },
             {
               "url": "https://mail.google.com/",
@@ -1395,7 +1541,8 @@
               "recommended": false,
               "description": "Google Gmail ile e-posta servisi",
               "icon": "https://workspace.google.com/lp/static/images/logo-gmail.svg",
-              "alt": "Gmail"
+              "alt": "Gmail",
+              "tags": []
             },
             {
               "url": "https://www.thunderbird.net/tr/",
@@ -1403,7 +1550,8 @@
               "recommended": false,
               "description": "Açık kaynaklı, güçlü ve güvenli e-posta istemcisi",
               "icon": "https://www.thunderbird.net/favicon.ico",
-              "alt": "Thunderbird"
+              "alt": "Thunderbird",
+              "tags": []
             }
           ]
         },
@@ -1416,7 +1564,8 @@
               "recommended": false,
               "description": "Canlı skorlar, maç sonuçları ve spor haberleri",
               "icon": "https://www.365scores.com/favicon.ico",
-              "alt": "365Scores"
+              "alt": "365Scores",
+              "tags": []
             },
             {
               "url": "https://www.sofascore.com/tr/",
@@ -1424,7 +1573,8 @@
               "recommended": false,
               "description": "Canlı skorlar, istatistikler ve spor analizleri",
               "icon": "https://www.sofascore.com/favicon.ico",
-              "alt": "SofaScore"
+              "alt": "SofaScore",
+              "tags": []
             },
             {
               "url": "https://www.fotmob.com/tr",
@@ -1432,7 +1582,8 @@
               "recommended": false,
               "description": "Futbol odaklı canlı skor ve haber platformu",
               "icon": "https://www.fotmob.com/favicon.ico",
-              "alt": "FotMob"
+              "alt": "FotMob",
+              "tags": []
             }
           ]
         }
@@ -1450,7 +1601,8 @@
               "recommended": false,
               "description": "Dijital oyun mağazası ve platformu",
               "icon": "https://store.steampowered.com/favicon.ico",
-              "alt": null
+              "alt": null,
+              "tags": []
             },
             {
               "url": "https://store.epicgames.com/tr/",
@@ -1458,7 +1610,8 @@
               "recommended": false,
               "description": "Epic Games'in dijital oyun mağazası ve platformu",
               "icon": "https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg",
-              "alt": "Epic Games Store"
+              "alt": "Epic Games Store",
+              "tags": []
             },
             {
               "url": "https://www.battle.net/",
@@ -1466,7 +1619,8 @@
               "recommended": false,
               "description": "Blizzard oyunları için resmi platform ve mağaza",
               "icon": "https://bnetstorefront.akamaized.net/static/favicon-192x192.svg",
-              "alt": "Battle.net"
+              "alt": "Battle.net",
+              "tags": []
             }
           ]
         },
@@ -1479,7 +1633,8 @@
               "recommended": false,
               "description": "Popüler oyunlar için yüksek sıkıştırmalı repack arşivi",
               "icon": "https://fitgirl-repacks.site/favicon.ico",
-              "alt": "FitGirl Repacks"
+              "alt": "FitGirl Repacks",
+              "tags": []
             },
             {
               "url": "https://www.skidrowcodex.net/",
@@ -1487,7 +1642,8 @@
               "recommended": false,
               "description": "Oyun crack ve repack paylaşımları",
               "icon": "https://www.skidrowcodex.net/favicon.ico",
-              "alt": "Skidrow Codex"
+              "alt": "Skidrow Codex",
+              "tags": []
             },
             {
               "url": "https://www.skidrowreloaded.com/",
@@ -1495,7 +1651,8 @@
               "recommended": false,
               "description": "Güncel oyun crack ve repack platformu",
               "icon": "https://www.skidrowreloaded.com/wp-content/uploads/2024/05/cropped-faviicon-115x115.svg",
-              "alt": "Skidrow Reloaded"
+              "alt": "Skidrow Reloaded",
+              "tags": []
             },
             {
               "url": "https://dodi-repacks.site/",
@@ -1503,7 +1660,8 @@
               "recommended": false,
               "description": "Küçük boyutlu ve hızlı oyun repack arşivi",
               "icon": "https://dodi-repacks.site/favicon.ico",
-              "alt": "DODI Repacks"
+              "alt": "DODI Repacks",
+              "tags": []
             },
             {
               "url": "https://elamigos.site/",
@@ -1511,7 +1669,8 @@
               "recommended": false,
               "description": "Güvenilir oyun repack ve ISO arşivi",
               "icon": "https://elamigos.site/favicon.ico",
-              "alt": "ElAmigos"
+              "alt": "ElAmigos",
+              "tags": []
             },
             {
               "url": "https://appsurl.com/",
@@ -1519,7 +1678,8 @@
               "recommended": false,
               "description": "Korsan yazılım içeren, keygen ve crack sunan bir platformdur",
               "icon": "https://appsurl.com/favicon.ico",
-              "alt": "AppsURL"
+              "alt": "AppsURL",
+              "tags": []
             },
             {
               "url": "https://www.warezturkey.me/",
@@ -1527,7 +1687,8 @@
               "recommended": false,
               "description": "Yazılım, araç ve program arşivi",
               "icon": "https://www.warezturkey.me/favicon.ico",
-              "alt": "Warezturkey"
+              "alt": "Warezturkey",
+              "tags": []
             },
             {
               "url": "https://www.cybermania.ws/",
@@ -1535,7 +1696,8 @@
               "recommended": false,
               "description": "Oyun, yazılım ve Android uygulama arşivi",
               "icon": "https://www.cybermania.ws/favicon.ico",
-              "alt": "CyberMania"
+              "alt": "CyberMania",
+              "tags": []
             },
             {
               "url": "https://silentall.net/",
@@ -1543,7 +1705,8 @@
               "recommended": false,
               "description": "Program, oyun ve katılımsız yazılım paylaşım platformu",
               "icon": "https://silentall.net/favicon.ico",
-              "alt": "Silentall"
+              "alt": "Silentall",
+              "tags": []
             },
             {
               "url": "https://www.solidshare.net/",
@@ -1551,7 +1714,8 @@
               "recommended": false,
               "description": "Katılımsız programlar ve güncel yazılım arşivi",
               "icon": "https://www.solidshare.net/templates/Turkish/favicon.ico",
-              "alt": "SolidShare"
+              "alt": "SolidShare",
+              "tags": []
             }
           ]
         }
