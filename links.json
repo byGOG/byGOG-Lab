@@ -1618,7 +1618,7 @@
               "name": "Battle.net",
               "recommended": false,
               "description": "Blizzard oyunları için resmi platform ve mağaza",
-              "icon": "https://bnetstorefront.akamaized.net/static/favicon-192x192.svg",
+              "icon": "icon/battle.net.svg",
               "alt": "Battle.net",
               "tags": []
             }
