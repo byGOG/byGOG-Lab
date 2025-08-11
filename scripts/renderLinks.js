@@ -16,13 +16,34 @@ function createLinkItem(link) {
     star.textContent = '★';
     a.appendChild(star);
   }
+  let iconWrapper;
   if (link.icon) {
+    iconWrapper = document.createElement('span');
+    iconWrapper.className = 'icon-wrapper';
     const img = document.createElement('img');
     img.loading = 'lazy';
     img.src = link.icon;
     if (link.alt) img.alt = link.alt;
-    a.appendChild(img);
+    img.className = 'site-icon';
+    iconWrapper.appendChild(img);
+    a.appendChild(iconWrapper);
   }
+
+  if (link.license) {
+    const licType = link.license.toLowerCase().includes('foss') ? 'foss' : 'proprietary';
+    const licImg = document.createElement('img');
+    licImg.loading = 'lazy';
+    licImg.src = licType === 'foss' ? 'icon/license-foss.svg' : 'icon/license-proprietary.svg';
+    licImg.alt = link.license;
+    licImg.className = 'license-badge';
+    if (iconWrapper) {
+      iconWrapper.appendChild(licImg);
+    } else {
+      licImg.classList.add('license-standalone');
+      a.appendChild(licImg);
+    }
+  }
+
   a.appendChild(document.createTextNode(link.name));
   if (link.description) {
     const tooltip = document.createElement('span');
@@ -38,13 +59,6 @@ function createLinkItem(link) {
     a.appendChild(tooltip);
   }
   li.appendChild(a);
-  if (link.license) {
-    const lic = document.createElement('span');
-    const licType = link.license.toLowerCase().includes('foss') ? 'foss' : 'proprietary';
-    lic.className = `license-tag ${licType}`;
-    lic.textContent = link.license;
-    li.appendChild(lic);
-  }
   return li;
 }
 
