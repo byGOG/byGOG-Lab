@@ -11,7 +11,7 @@
           "icon": "icon/Snappy.svg",
           "alt": "Snappy Driver Installer",
           "tags": [],
-          "pricing": "Ücretsiz"
+          "license": "Özgür Yazılım"
         },
         {
           "url": "https://ninite.com/",
@@ -21,7 +21,7 @@
           "icon": "icon/ninite.svg",
           "alt": "Ninite",
           "tags": [],
-          "pricing": "Ücretli"
+          "license": "Paylaşımlı Yazılım"
         },
         {
           "url": "https://massgrave.dev/",
@@ -31,7 +31,7 @@
           "icon": "icon/massgrave.svg",
           "alt": "Massgrave.dev",
           "tags": [],
-          "pricing": "Ücretli"
+          "license": "Açık Kaynak"
         },
         {
           "url": "https://www.officetool.plus/",
@@ -41,7 +41,7 @@
           "icon": "icon/otp.svg",
           "alt": "Office Tool Plus",
           "tags": [],
-          "pricing": "Ücretsiz"
+          "license": "Açık Kaynak"
         }
       ]
     },
@@ -59,7 +59,7 @@
               "icon": "icon/Microsoft.svg",
               "alt": "Microsoft",
               "tags": [],
-              "pricing": "Ücretli"
+              "license": "Ticari Yazılım"
             },
             {
               "url": "https://www.microsoft.com/tr-tr/software-download/windows11",
@@ -69,7 +69,7 @@
               "icon": "icon/Microsoft.svg",
               "alt": "Microsoft",
               "tags": [],
-              "pricing": "Ücretli"
+              "license": "Ticari Yazılım"
             },
             {
               "url": "https://rufus.ie/tr/",
@@ -79,7 +79,7 @@
               "icon": "icon/rufus.svg",
               "alt": "Rufus",
               "tags": [],
-              "pricing": "Ücretsiz"
+              "license": "Özgür Yazılım"
             },
             {
               "url": "https://www.ventoy.net/",
@@ -89,7 +89,7 @@
               "icon": "icon/ventoy.svg",
               "alt": "Ventoy",
               "tags": [],
-              "pricing": "Ücretsiz"
+              "license": "Özgür Yazılım"
             }
           ]
         },
@@ -104,7 +104,7 @@
               "icon": "icon/atlasos.svg",
               "alt": "AtlasOS",
               "tags": [],
-              "pricing": "Ücretsiz"
+              "license": "Açık Kaynak"
             },
             {
               "url": "https://www.revi.cc/",
@@ -114,7 +114,7 @@
               "icon": "icon/revi.svg",
               "alt": "ReviOS",
               "tags": [],
-              "pricing": "Ücretsiz"
+              "license": "Açık Kaynak"
             }
           ]
         },
@@ -129,7 +129,7 @@
               "icon": "icon/otp.svg",
               "alt": "Office Tool Plus",
               "tags": [],
-              "pricing": "Ücretsiz"
+              "license": "Açık Kaynak"
             },
             {
               "url": "https://massgrave.dev/",
@@ -139,7 +139,7 @@
               "icon": "icon/massgrave.svg",
               "alt": "Massgrave.dev",
               "tags": [],
-              "pricing": "Ücretli"
+              "license": "Açık Kaynak"
             },
             {
               "url": "https://github.com/lstprjct/IDM-Activation-Script",
@@ -149,7 +149,7 @@
               "icon": "icon/GitHub.svg",
               "alt": "IDM Activation Script",
               "tags": [],
-              "pricing": "Ücretsiz"
+              "license": "Açık Kaynak"
             }
           ]
         }
@@ -169,7 +169,7 @@
               "icon": "icon/cpu-z.svg",
               "alt": "CPU-Z",
               "tags": [],
-              "pricing": "Ücretli"
+              "license": "Ücretsiz Yazılım"
             },
             {
               "url": "https://www.hwinfo.com/",
@@ -179,7 +179,7 @@
               "icon": "icon/hwinfo.svg",
               "alt": "HWiNFO",
               "tags": [],
-              "pricing": "Ücretli"
+              "license": "Paylaşımlı Yazılım"
             },
             {
               "url": "https://www.ocbase.com/",
@@ -189,7 +189,7 @@
               "icon": "icon/occt.svg",
               "alt": "OCCT",
               "tags": [],
-              "pricing": "Ücretli"
+              "license": "Paylaşımlı Yazılım"
             },
             {
               "url": "https://www.techpowerup.com/gpuz/",
@@ -199,7 +199,7 @@
               "icon": "icon/gpu-z.svg",
               "alt": "GPU-Z",
               "tags": [],
-              "pricing": "Ücretli"
+              "license": "Ücretsiz Yazılım"
             },
             {
               "url": "https://geeks3d.com/furmark/",
@@ -209,7 +209,7 @@
               "icon": "icon/furmark.svg",
               "alt": "FurMark",
               "tags": [],
-              "pricing": "Ücretli"
+              "license": "Ücretsiz Yazılım"
             },
             {
               "url": "https://learn.microsoft.com/tr-tr/sysinternals/downloads/sysinternals-suite",
@@ -219,7 +219,7 @@
               "icon": "icon/Microsoft.svg",
               "alt": "Sysinternals",
               "tags": [],
-              "pricing": "Ücretli"
+              "license": "Ücretsiz Yazılım"
             }
           ]
         },
@@ -234,7 +234,7 @@
               "icon": "icon/Snappy.svg",
               "alt": "Snappy Driver Installer",
               "tags": [],
-              "pricing": "Ücretsiz"
+              "license": "Özgür Yazılım"
             },
             {
               "url": "https://www.amd.com/en/support/download/drivers.html",
@@ -244,7 +244,7 @@
               "icon": "icon/AMD.svg",
               "alt": null,
               "tags": [],
-              "pricing": "Ücretli"
+              "license": "Ticari Yazılım"
             },
             {
               "url": "https://github.com/lostindark/DriverStoreExplorer",
@@ -254,7 +254,7 @@
               "icon": "icon/DriverStoreExplorer.svg",
               "alt": null,
               "tags": [],
-              "pricing": "Ücretsiz"
+              "license": "Açık Kaynak"
             },
             {
               "url": "https://www.guru3d.com/download/display-driver-uninstaller-download/",
@@ -264,7 +264,7 @@
               "icon": "icon/ddu.svg",
               "alt": null,
               "tags": [],
-              "pricing": "Ücretli"
+              "license": "Ücretsiz Yazılım"
             },
             {
               "url": "https://www.intel.com/content/www/us/en/support/detect.html",
@@ -661,7 +661,8 @@
               "description": "Popüler programları toplu ve otomatik kurar",
               "icon": "icon/ninite.svg",
               "alt": "Ninite",
-              "tags": []
+              "tags": [],
+              "license": "Paylaşımlı Yazılım"
             },
             {
               "url": "https://chocolatey.org/",
