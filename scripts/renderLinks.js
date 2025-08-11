@@ -37,6 +37,13 @@ function createLinkItem(link) {
     tooltip.appendChild(document.createTextNode(link.description));
     a.appendChild(tooltip);
   }
+  if (link.license) {
+    const lic = document.createElement('span');
+    const licenseKey = link.license.toLowerCase();
+    lic.className = `license-tag ${licenseKey.includes('foss') ? 'license-foss' : 'license-proprietary'}`;
+    lic.textContent = link.license;
+    a.appendChild(lic);
+  }
   li.appendChild(a);
   return li;
 }
