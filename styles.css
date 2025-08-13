@@ -129,7 +129,7 @@
     }
     .container {
       max-width: 1300px;
-      margin: 0 auto;
+      margin: 0;
       padding: 24px 48px 0 48px;
       box-sizing: border-box;
     }
@@ -294,8 +294,8 @@
     .custom-tooltip {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-start;
+      justify-content: flex-start;
       position: absolute;
       left: 50%;
       bottom: 120%;
@@ -310,7 +310,7 @@
       border: 2px solid #a3bffa;
       font-size: 11px;
       font-weight: 500;
-      text-align: center;
+      text-align: left;
       line-height: 1.5;
       z-index: 9999;
       letter-spacing: 0.01em;
@@ -333,8 +333,8 @@
       border: 1.5px solid var(--card-border);
       box-shadow: 0 1px 4px #0001;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: 0;
+      margin-right: 0;
     }
 .koyu .custom-tooltip {
       background: linear-gradient(135deg, var(--card-bg) 80%, #23272f 100%);
