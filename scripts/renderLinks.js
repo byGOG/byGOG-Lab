@@ -125,6 +125,8 @@ function setupSearch() {
 function setupThemeToggle() {
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
   function setTheme(isDark) {
     if (isDark) {
       body.classList.add('koyu');
@@ -134,16 +136,24 @@ function setupThemeToggle() {
       themeToggle.textContent = '🌙';
     }
   }
+
   themeToggle.addEventListener('click', () => {
     const isDark = !body.classList.contains('koyu');
     setTheme(isDark);
     localStorage.setItem('theme', isDark ? 'koyu' : 'aydinlik');
   });
+
   let saved = localStorage.getItem('theme');
   if (!saved) {
-    saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'koyu' : 'aydinlik';
+    saved = mediaQuery.matches ? 'koyu' : 'aydinlik';
   }
   setTheme(saved === 'koyu');
+
+  mediaQuery.addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) {
+      setTheme(e.matches);
+    }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

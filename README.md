@@ -52,6 +52,14 @@ npm run build
 
 Bu komutlar `styles.css` ve `scripts/` altındaki JavaScript dosyalarının küçültülmüş sürümlerini `dist/` klasörüne yazar.
 
+## 🧪 Test
+
+```bash
+npm test
+```
+
+Bu komut `links.json` dosyasının temel yapısını doğrular.
+
 ## 🤝 Katkıda Bulunma
 
 Katkılarınızı bekliyoruz! Başlamak için:
@@ -61,6 +69,13 @@ Katkılarınızı bekliyoruz! Başlamak için:
 3. Değişikliklerinizi commit'leyin (`git commit -m 'Açıklama'`).
 4. Dalı GitHub'a gönderin (`git push origin feature/yenilik`).
 5. Açıklayıcı bir Pull Request açın.
+
+### `links.json` Rehberi
+
+- Her bağlantı için `url` ve `name` alanları zorunludur.
+- `recommended`, `description`, `icon`, `alt` ve `tags` alanları isteğe bağlıdır.
+- Kategoriler `title` ve `links` ya da `subcategories` içermelidir.
+- `subcategories` içindeki her öğe `title` ve `links` alanlarına sahip olmalıdır.
 
 ## 📝 Lisans
 
