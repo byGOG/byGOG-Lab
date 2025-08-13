@@ -194,6 +194,24 @@
               "tags": []
             },
             {
+              "url": "https://www.passmark.com/products/burnintest/",
+              "name": "BurnInTest",
+              "recommended": false,
+              "description": "Donanım kararlılığını test eden kapsamlı stres testi aracı",
+              "icon": "https://www.passmark.com/favicon.ico",
+              "alt": "BurnInTest",
+              "tags": []
+            },
+            {
+              "url": "https://www.passmark.com/products/performancetest/",
+              "name": "PerformanceTest",
+              "recommended": false,
+              "description": "Bilgisayar performansını ölçen benchmark yazılımı",
+              "icon": "https://www.passmark.com/favicon.ico",
+              "alt": "PerformanceTest",
+              "tags": []
+            },
+            {
               "url": "https://learn.microsoft.com/tr-tr/sysinternals/downloads/sysinternals-suite",
               "name": "Sysinternals Suite",
               "recommended": false,
@@ -487,6 +505,15 @@
               "description": "Windows Defender'ı sistemden kaldırır",
               "icon": "icon/DefenderRemover.svg",
               "alt": "Windows Defender Remover",
+              "tags": []
+            },
+            {
+              "url": "https://www.sordum.org/9480/defender-control-v2-1/",
+              "name": "Defender Control",
+              "recommended": false,
+              "description": "Windows Defender'ı kolayca devre dışı bırakma ve etkinleştirme aracı",
+              "icon": "https://www.sordum.org/favicon.ico",
+              "alt": "Defender Control",
               "tags": []
             },
             {
@@ -891,6 +918,29 @@
               "tags": []
             }
           ]
+        },
+        {
+          "title": "Ağ Testleri & Hız Ölçümleri",
+          "links": [
+            {
+              "url": "https://www.waveform.com/tools/bufferbloat",
+              "name": "Waveform Bufferbloat Test",
+              "recommended": false,
+              "description": "Bufferbloat sorununu ve bağlantı gecikmesini ölçen test aracı",
+              "icon": "https://www.waveform.com/favicon.ico",
+              "alt": "Waveform Bufferbloat Test",
+              "tags": []
+            },
+            {
+              "url": "https://dnsspeedtest.online/",
+              "name": "DNS Speed Test",
+              "recommended": false,
+              "description": "DNS sağlayıcılarının hızını karşılaştıran test",
+              "icon": "https://dnsspeedtest.online/favicon.ico",
+              "alt": "DNS Speed Test",
+              "tags": []
+            }
+          ]
         }
       ]
     },
@@ -1137,6 +1187,15 @@
               "tags": []
             },
             {
+              "url": "https://spicetify.app/",
+              "name": "Spicetify",
+              "recommended": false,
+              "description": "Spotify istemcisini özelleştirmek için komut satırı aracı",
+              "icon": "https://spicetify.app/favicon.ico",
+              "alt": "Spicetify",
+              "tags": []
+            },
+            {
               "url": "https://github.com/yt-dlp/yt-dlp",
               "name": "yt-dlp",
               "recommended": false,
@@ -1157,6 +1216,15 @@
               "description": "Güncel dizi ve filmleri ücretsiz izleyebileceğiniz popüler platform",
               "icon": "https://dizipal938.com/favicon.ico",
               "alt": "Dizipal",
+              "tags": []
+            },
+            {
+              "url": "https://diziwatch.tv/",
+              "name": "DiziWatch",
+              "recommended": false,
+              "description": "Çevrim içi dizi ve film izleme platformu",
+              "icon": "https://diziwatch.tv/favicon.ico",
+              "alt": "DiziWatch",
               "tags": []
             }
           ]
@@ -1198,6 +1266,15 @@
               "description": "Google'ın bulut depolama ve dosya paylaşım servisi",
               "icon": "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.svg",
               "alt": null,
+              "tags": []
+            },
+            {
+              "url": "https://localsend.org/tr",
+              "name": "LocalSend",
+              "recommended": false,
+              "description": "Yerel ağ üzerinden cihazlar arası dosya paylaşım aracı",
+              "icon": "https://localsend.org/img/favicon.ico",
+              "alt": "LocalSend",
               "tags": []
             },
             {
