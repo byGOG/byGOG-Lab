@@ -168,7 +168,7 @@
             },
             {
               "url": "https://www.ocbase.com/",
-              "name": "",
+              "name": "OCCT",
               "recommended": false,
               "description": "Sistem kararlılığı, stres testi ve donanım izleme aracı",
               "icon": "icon/occt.svg",
