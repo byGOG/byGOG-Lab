@@ -127,6 +127,13 @@
       flex-shrink: 0;
       display: block;
     }
+    .link-text {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
     .container {
       max-width: 1300px;
       margin: 0;

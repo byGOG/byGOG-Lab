@@ -29,7 +29,10 @@ function createLinkItem(link) {
     a.appendChild(iconWrapper);
   }
 
-  a.appendChild(document.createTextNode(link.name));
+  const nameSpan = document.createElement('span');
+  nameSpan.className = 'link-text';
+  nameSpan.textContent = link.name;
+  a.appendChild(nameSpan);
   if (link.description) {
     const tooltip = document.createElement('span');
     tooltip.className = 'custom-tooltip';
