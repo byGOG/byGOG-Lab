@@ -51,6 +51,7 @@ function createLinkItem(link) {
 }
 
 function renderCategories(data, container) {
+  const fragment = document.createDocumentFragment();
   data.categories.forEach(cat => {
     const card = document.createElement('div');
     card.className = 'category-card';
@@ -76,49 +77,53 @@ function renderCategories(data, container) {
       card.appendChild(ul);
     }
 
-    container.appendChild(card);
+    fragment.appendChild(card);
   });
+  container.appendChild(fragment);
 }
 
 function setupSearch() {
   const searchInput = document.getElementById('search-input');
   const searchStatus = document.getElementById('search-status');
+  const links = Array.from(document.querySelectorAll('.category-card li'));
+  const linksText = links.map(link => link.textContent.toLowerCase());
+
   let debounceTimer;
+
   function performSearch() {
     const query = searchInput.value.toLowerCase().trim();
-    const cards = document.querySelectorAll('.category-card');
     let matchCount = 0;
-    cards.forEach(card => {
-      let isCardVisible = false;
+
+    links.forEach((link, index) => {
+      const isMatch = linksText[index].includes(query);
+      link.style.display = isMatch ? '' : 'none';
+      if (isMatch) {
+        matchCount++;
+      }
+    });
+
+    document.querySelectorAll('.category-card').forEach(card => {
       const subCats = card.querySelectorAll('.sub-category');
       if (subCats.length) {
+        let isCardVisible = false;
         subCats.forEach(sc => {
-          let subVisible = false;
-          sc.querySelectorAll('li').forEach(li => {
-            const isMatch = li.textContent.toLowerCase().includes(query);
-            li.style.display = isMatch ? '' : 'none';
-            if (isMatch) {
-              subVisible = true;
-              matchCount++;
-            }
-          });
+          const visibleLinks = sc.querySelectorAll('li[style="display: "]');
+          const subVisible = visibleLinks.length > 0;
           sc.style.display = subVisible ? '' : 'none';
-          if (subVisible) isCardVisible = true;
-        });
-      } else {
-        card.querySelectorAll('li').forEach(li => {
-          const isMatch = li.textContent.toLowerCase().includes(query);
-          li.style.display = isMatch ? '' : 'none';
-          if (isMatch) {
+          if (subVisible) {
             isCardVisible = true;
-            matchCount++;
           }
         });
+        card.style.display = isCardVisible ? '' : 'none';
+      } else {
+        const visibleLinks = card.querySelectorAll('li[style="display: "]');
+        card.style.display = visibleLinks.length > 0 ? '' : 'none';
       }
-      card.style.display = isCardVisible ? '' : 'none';
     });
+
     searchStatus.textContent = query ? `${matchCount} sonuç bulundu` : '';
   }
+
   searchInput.addEventListener('input', () => {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(performSearch, 300);
