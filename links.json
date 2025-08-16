@@ -635,7 +635,7 @@
               "name": "DNSForge",
               "recommended": false,
               "description": "Almanya merkezli, gizlilik odaklı, reklamsız ve izleyicisiz DNS hizmeti",
-              "icon": "https://dnsforge.de/favicon.ico",
+              "icon": "https://dnsforge.de/favicon.png",
               "alt": null,
               "tags": []
             },
