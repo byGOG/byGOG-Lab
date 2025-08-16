@@ -612,7 +612,7 @@
               "name": "Firefox Relay",
               "recommended": false,
               "description": "E-posta gizliliği ve maskeleme servisi",
-              "icon": "https://relay.firefox.com/favicon.ico",
+              "icon": "https://relay.firefox.com/favicon.svg",
               "alt": "Firefox Relay",
               "tags": []
             }
