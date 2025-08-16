@@ -110,7 +110,7 @@ function setupSearch() {
       if (subCats.length) {
         let isCardVisible = false;
         subCats.forEach(sc => {
-          const visibleLinks = sc.querySelectorAll('li[style="display: "]');
+          const visibleLinks = sc.querySelectorAll('li:not([style*="display: none"])');
           const subVisible = visibleLinks.length > 0;
           sc.style.display = subVisible ? '' : 'none';
           if (subVisible) {
@@ -119,7 +119,7 @@ function setupSearch() {
         });
         card.style.display = isCardVisible ? '' : 'none';
       } else {
-        const visibleLinks = card.querySelectorAll('li[style="display: "]');
+        const visibleLinks = card.querySelectorAll('li:not([style*="display: none"])');
         card.style.display = visibleLinks.length > 0 ? '' : 'none';
       }
     });
