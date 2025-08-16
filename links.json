@@ -708,7 +708,7 @@
               "name": "UnigetUI",
               "recommended": false,
               "description": "Çoklu paket yöneticisi arayüzü",
-              "icon": "https://raw.githubusercontent.com/marticliment/UniGetUI/refs/heads/main/media/Icon%20sizes/128.svg",
+              "icon": "https://raw.githubusercontent.com/marticliment/UniGetUI/refs/heads/main/media/Icon%20sizes/128.png",
               "alt": null,
               "tags": []
             },
@@ -808,7 +808,7 @@
               "name": "AlternativeTo",
               "recommended": false,
               "description": "Popüler yazılımların alternatiflerini ve kullanıcı yorumlarını bulabileceğiniz karşılaştırma platformu",
-              "icon": "https://alternativeto.net/static/icons/favicon-32x32.svg",
+              "icon": "https://alternativeto.net/static/icons/a2/favicon.ico",
               "alt": "AlternativeTo",
               "tags": []
             }
