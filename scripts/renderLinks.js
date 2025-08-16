@@ -60,6 +60,8 @@ function renderCategories(data, container) {
     card.appendChild(h2);
 
     if (cat.subcategories) {
+      const subContainer = document.createElement('div');
+      subContainer.className = 'sub-category-container';
       cat.subcategories.forEach(sc => {
         const subDiv = document.createElement('div');
         subDiv.className = 'sub-category';
@@ -69,8 +71,9 @@ function renderCategories(data, container) {
         const ul = document.createElement('ul');
         sc.links.forEach(link => ul.appendChild(createLinkItem(link)));
         subDiv.appendChild(ul);
-        card.appendChild(subDiv);
+        subContainer.appendChild(subDiv);
       });
+      card.appendChild(subContainer);
     } else if (cat.links) {
       const ul = document.createElement('ul');
       cat.links.forEach(link => ul.appendChild(createLinkItem(link)));
