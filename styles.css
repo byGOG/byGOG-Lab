@@ -380,6 +380,18 @@
       margin-top: 18px;
       margin-bottom: 0;
     }
+    .sub-category-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .sub-category {
+      flex: 1 1 300px;
+    }
+    .sub-category h3 {
+      margin-top: 0;
+    }
     img[alt="RuckZuck"] {
       background: transparent !important;
     }
