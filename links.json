@@ -23,11 +23,11 @@
         },
         {
           "url": "https://massgrave.dev/",
-          "name": "Massgrave.dev",
+          "name": "Microsoft Activation Scripts (MAS)",
           "recommended": true,
           "description": "Windows ve Office etkinleştirme araçları",
           "icon": "icon/massgrave.svg",
-          "alt": "Massgrave.dev",
+          "alt": "Microsoft Activation Scripts (MAS)",
           "tags": []
         },
         {
@@ -122,11 +122,11 @@
             },
             {
               "url": "https://massgrave.dev/",
-              "name": "Massgrave.dev",
+              "name": "Microsoft Activation Scripts (MAS)",
               "recommended": true,
               "description": "Windows ve Office etkinleştirme araçları",
               "icon": "icon/massgrave.svg",
-              "alt": "Massgrave.dev",
+              "alt": "Microsoft Activation Scripts (MAS)",
               "tags": []
             },
             {
@@ -1384,7 +1384,7 @@
             },
             {
               "url": "https://developer.android.com/tools/adb",
-              "name": "Android Debug Bridge (adb)",
+              "name": "Android Hata Ayıklama Köprüsü (ADB)",
               "recommended": false,
               "description": "Android cihazlarla bağlantı, uygulama yükleme, hata ayıklama ve komut satırı yönetimi için resmi araç",
               "icon": "https://developer.android.com/favicon.ico",
