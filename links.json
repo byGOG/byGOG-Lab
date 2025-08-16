@@ -877,7 +877,7 @@
               "name": "Buster (Captcha Solver)",
               "recommended": false,
               "description": "reCAPTCHA sesli doğrulama çözücü eklentisi",
-              "icon": "icon/GitHub.svg",
+              "icon": "https://raw.githubusercontent.com/dessant/buster/main/src/assets/icons/app/icon.svg",
               "alt": null,
               "tags": []
             },
@@ -886,7 +886,7 @@
               "name": "SponsorBlock",
               "recommended": false,
               "description": "YouTube sponsor ve gereksiz bölümleri otomatik atlayan eklenti",
-              "icon": "https://sponsor.ajay.app/LogoSponsorBlockSimple256px.svg",
+              "icon": "https://sponsor.ajay.app/favicon-32x32.png",
               "alt": null,
               "tags": []
             },
@@ -913,7 +913,7 @@
               "name": "Greasy Fork",
               "recommended": false,
               "description": "Kullanıcı scriptleri ve tarayıcı betikleri arşivi",
-              "icon": "https://greasyfork.org/favicon.ico",
+              "icon": "https://greasyfork.org/vite/assets/blacklogo16-DftkYuVe.png",
               "alt": "Greasy Fork",
               "tags": []
             }
