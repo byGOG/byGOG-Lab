@@ -5,7 +5,7 @@
       "links": [
         {
           "url": "https://www.snappy-driver-installer.org/",
-          "name": "Snappy Driver Installer Origin",
+          "name": "Snappy Driver Installer",
           "recommended": true,
           "description": "Otomatik sürücü bulma ve güncelleme",
           "icon": "icon/Snappy.svg",
@@ -23,11 +23,11 @@
         },
         {
           "url": "https://massgrave.dev/",
-          "name": "Microsoft Activation Scripts (MAS)",
+          "name": "Microsoft Activation Scripts",
           "recommended": true,
           "description": "Windows ve Office etkinleştirme araçları",
           "icon": "icon/massgrave.svg",
-          "alt": "Microsoft Activation Scripts (MAS)",
+          "alt": "Microsoft Activation Scripts",
           "tags": []
         },
         {
@@ -122,11 +122,11 @@
             },
             {
               "url": "https://massgrave.dev/",
-              "name": "Microsoft Activation Scripts (MAS)",
+              "name": "Microsoft Activation Scripts",
               "recommended": true,
               "description": "Windows ve Office etkinleştirme araçları",
               "icon": "icon/massgrave.svg",
-              "alt": "Microsoft Activation Scripts (MAS)",
+              "alt": "Microsoft Activation Scripts",
               "tags": []
             },
             {
@@ -227,7 +227,7 @@
           "links": [
             {
               "url": "https://www.snappy-driver-installer.org/",
-              "name": "Snappy Driver Installer Origin",
+              "name": "Snappy Driver Installer",
               "recommended": true,
               "description": "Otomatik sürücü bulma ve güncelleme",
               "icon": "icon/Snappy.svg",
