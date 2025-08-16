@@ -1365,6 +1365,15 @@
               "tags": []
             },
             {
+              "url": "https://www.python.org/",
+              "name": "Python",
+              "recommended": false,
+              "description": "Genel amaçlı, dinamik ve çok platformlu programlama dili",
+              "icon": "https://www.python.org/static/favicon.ico",
+              "alt": "Python",
+              "tags": []
+            },
+            {
               "url": "https://learn.microsoft.com/tr-tr/powershell/",
               "name": "PowerShell",
               "recommended": false,
