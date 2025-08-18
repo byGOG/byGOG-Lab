@@ -1621,15 +1621,7 @@
         {
           "title": "E-posta & Hesap Yönetimi",
           "links": [
-            {
-              "url": "https://login.microsoftonline.com/",
-              "name": "Microsoft",
-              "recommended": false,
-              "description": "Microsoft hesabı ile oturum açma ve e-posta servisi.",
-              "icon": "https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_564db913a7fa0ca42727161c6d031bef.svg",
-              "alt": "Microsoft",
-              "tags": []
-            },
+            
             {
               "url": "https://outlook.live.com/",
               "name": "Outlook",
