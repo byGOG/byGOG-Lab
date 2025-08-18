@@ -1631,6 +1631,15 @@
               "tags": []
             },
             {
+              "url": "https://outlook.live.com/",
+              "name": "Outlook",
+              "recommended": false,
+              "description": "Microsoft Outlook ile e-posta servisi.",
+              "icon": "https://outlook.live.com/favicon.ico",
+              "alt": "Outlook",
+              "tags": []
+            },
+            {
               "url": "https://login.yahoo.com/",
               "name": "Yahoo Mail",
               "recommended": false,
