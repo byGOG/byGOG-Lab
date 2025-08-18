@@ -1012,6 +1012,42 @@
               "icon": "https://doubledouble.top/favicon.ico",
               "alt": "DoubleDouble",
               "tags": []
+            },
+            {
+              "url": "https://showrss.info/",
+              "name": "showRSS",
+              "recommended": false,
+              "description": "Dizi torrentleri için RSS beslemesi.",
+              "icon": "https://showrss.info/favicon.ico",
+              "alt": "showRSS",
+              "tags": []
+            },
+            {
+              "url": "https://www.1377x.to/",
+              "name": "1337x",
+              "recommended": false,
+              "description": "Torrent arama motoru.",
+              "icon": "https://www.1377x.to/favicon.ico",
+              "alt": "1337x",
+              "tags": []
+            },
+            {
+              "url": "https://therarbg.com/",
+              "name": "The RARBG",
+              "recommended": false,
+              "description": "Torrent web sitesi.",
+              "icon": "https://therarbg.com/favicon.ico",
+              "alt": "The RARBG",
+              "tags": []
+            },
+            {
+              "url": "https://ext.to/",
+              "name": "EXT Torrents",
+              "recommended": false,
+              "description": "Torrent web sitesi.",
+              "icon": "https://ext.to/favicon.ico",
+              "alt": "EXT Torrents",
+              "tags": []
             }
           ]
         },
@@ -1712,7 +1748,7 @@
           ]
         },
         {
-          "title": "Oyun Repack & Crack Siteleri",
+          "title": "Oyun Repack",
           "links": [
             {
               "url": "https://fitgirl-repacks.site/",
@@ -1721,6 +1757,24 @@
               "description": "Popüler oyunlar için yüksek sıkıştırmalı repack arşivi.",
               "icon": "https://fitgirl-repacks.site/favicon.ico",
               "alt": "FitGirl Repacks",
+              "tags": []
+            },
+            {
+              "url": "https://dodi-repacks.site/",
+              "name": "DODI Repacks",
+              "recommended": false,
+              "description": "Küçük boyutlu ve hızlı oyun repack arşivi.",
+              "icon": "https://dodi-repacks.site/favicon.ico",
+              "alt": "DODI Repacks",
+              "tags": []
+            },
+            {
+              "url": "https://elamigos.site/",
+              "name": "ElAmigos",
+              "recommended": false,
+              "description": "Güvenilir oyun repack ve ISO arşivi.",
+              "icon": "https://elamigos.site/favicon.ico",
+              "alt": "ElAmigos",
               "tags": []
             },
             {
@@ -1742,23 +1796,19 @@
               "tags": []
             },
             {
-              "url": "https://dodi-repacks.site/",
-              "name": "DODI Repacks",
+              "url": "https://gamecopyworld.com/",
+              "name": "GameCopyWorld",
               "recommended": false,
-              "description": "Küçük boyutlu ve hızlı oyun repack arşivi.",
-              "icon": "https://dodi-repacks.site/favicon.ico",
-              "alt": "DODI Repacks",
+              "description": "Oyun crack ve patch arşivi.",
+              "icon": "https://gamecopyworld.com/favicon.ico",
+              "alt": "GameCopyWorld",
               "tags": []
-            },
-            {
-              "url": "https://elamigos.site/",
-              "name": "ElAmigos",
-              "recommended": false,
-              "description": "Güvenilir oyun repack ve ISO arşivi.",
-              "icon": "https://elamigos.site/favicon.ico",
-              "alt": "ElAmigos",
-              "tags": []
-            },
+            }
+          ]
+        },
+        {
+          "title": "Crack Siteleri",
+          "links": [
             {
               "url": "https://appsurl.com/",
               "name": "AppsURL",
@@ -1793,15 +1843,6 @@
               "description": "Program, oyun ve katılımsız yazılım paylaşım platformu.",
               "icon": "https://silentall.net/favicon.ico",
               "alt": "Silentall",
-              "tags": []
-            },
-            {
-              "url": "https://gamecopyworld.com/",
-              "name": "GameCopyWorld",
-              "recommended": false,
-              "description": "Oyun crack ve patch arşivi.",
-              "icon": "https://gamecopyworld.com/favicon.ico",
-              "alt": "GameCopyWorld",
               "tags": []
             },
             {
