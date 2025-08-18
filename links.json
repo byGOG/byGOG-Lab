@@ -916,6 +916,15 @@
               "icon": "https://greasyfork.org/vite/assets/blacklogo16-DftkYuVe.png",
               "alt": "Greasy Fork",
               "tags": []
+            },
+            {
+              "url": "https://immersivetranslate.com/",
+              "name": "Immersive Translate",
+              "recommended": false,
+              "description": "Web sayfalarını anında çeviren tarayıcı eklentisi.",
+              "icon": "https://immersivetranslate.com/favicon.ico",
+              "alt": "Immersive Translate",
+              "tags": []
             }
           ]
         },
