@@ -1446,6 +1446,15 @@
               "icon": "https://www.deepl.com/favicon.ico",
               "alt": "DeepL",
               "tags": []
+            },
+            {
+              "url": "https://translate.google.com/",
+              "name": "Google Translate",
+              "recommended": false,
+              "description": "Google'ın ücretsiz metin çeviri servisi.",
+              "icon": "https://translate.google.com/favicon.ico",
+              "alt": "Google Translate",
+              "tags": []
             }
           ]
         },
