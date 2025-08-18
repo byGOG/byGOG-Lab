@@ -854,7 +854,7 @@
               "name": "Zen Browser",
               "recommended": false,
               "description": "Güvenli ve hızlı web tarayıcı.",
-              "icon": "https://zen-browser.app/favicon.ico",
+              "icon": "https://zen-browser.app/favicon.svg",
               "alt": null,
               "tags": []
             }
@@ -964,7 +964,7 @@
               "name": "Zamunda",
               "recommended": false,
               "description": "Popüler Türkçe torrent paylaşım platformu.",
-              "icon": "https://www.zamunda.net/favicon.ico",
+              "icon": "https://zamunda.net/pic/pic/favicon.png",
               "alt": "Zamunda",
               "tags": []
             },
@@ -982,26 +982,8 @@
               "name": "The Pirate Bay",
               "recommended": false,
               "description": "Dünyanın en büyük torrent arama motoru.",
-              "icon": "https://thepiratebay.org/favicon.ico",
+              "icon": "https://torrindex.net/images/tpb.jpg",
               "alt": "The Pirate Bay",
-              "tags": []
-            },
-            {
-              "url": "https://torrentsites.com/",
-              "name": "TorrentSites",
-              "recommended": false,
-              "description": "En iyi torrent siteleri rehberi.",
-              "icon": "https://torrentsites.com/favicon.ico",
-              "alt": "TorrentSites",
-              "tags": []
-            },
-            {
-              "url": "https://yourbittorrent.com/",
-              "name": "YourBittorrent",
-              "recommended": false,
-              "description": "Geniş torrent arşivi ve paylaşım platformu.",
-              "icon": "https://yourbittorrent.com/favicon.ico",
-              "alt": "YourBittorrent",
               "tags": []
             },
             {
