@@ -957,6 +957,83 @@
       "title": "Medya & İndirme",
       "subcategories": [
         {
+          "title": "Crack Siteleri",
+          "links": [
+            {
+              "url": "https://scloud.ws/",
+              "name": "scloud.ws",
+              "recommended": false,
+              "description": "SoundCloud Downloader.",
+              "icon": "https://scloud.ws/favicon.ico",
+              "alt": "scloud.ws",
+              "tags": []
+            },
+            {
+              "url": "https://softarchive.download/",
+              "name": "SoftArchive",
+              "recommended": false,
+              "description": "Software, scripts, and more.",
+              "icon": "https://softarchive.download/favicon.ico",
+              "alt": "SoftArchive",
+              "tags": []
+            },
+            {
+              "url": "https://www.fullprogramlarindir.net/",
+              "name": "Full Programlar İndir",
+              "recommended": false,
+              "description": "Full Programlar İndir.",
+              "icon": "https://www.fullprogramlarindir.net/favicon.ico",
+              "alt": "Full Programlar İndir",
+              "tags": []
+            },
+            {
+              "url": "https://cracksurl.com/",
+              "name": "CRACKSurl",
+              "recommended": false,
+              "description": "Korsan yazılım içeren, keygen ve crack sunan bir platformdur.",
+              "icon": "https://cracksurl.com/favicon.ico",
+              "alt": "CRACKSurl",
+              "tags": []
+            },
+            {
+              "url": "https://www.warezturkey.me/",
+              "name": "Warezturkey",
+              "recommended": false,
+              "description": "Yazılım, araç ve program arşivi.",
+              "icon": "https://www.warezturkey.me/favicon.ico",
+              "alt": "Warezturkey",
+              "tags": []
+            },
+            {
+              "url": "https://www.cybermania.ws/",
+              "name": "CyberMania",
+              "recommended": false,
+              "description": "Oyun, yazılım ve Android uygulama arşivi.",
+              "icon": "https://www.cybermania.ws/favicon.ico",
+              "alt": "CyberMania",
+              "tags": []
+            },
+            {
+              "url": "https://silentall.net/",
+              "name": "Silentall",
+              "recommended": false,
+              "description": "Program, oyun ve katılımsız yazılım paylaşım platformu.",
+              "icon": "https://silentall.net/favicon.ico",
+              "alt": "Silentall",
+              "tags": []
+            },
+            {
+              "url": "https://www.solidshare.net/",
+              "name": "SolidShare",
+              "recommended": false,
+              "description": "Katılımsız programlar ve güncel yazılım arşivi.",
+              "icon": "https://www.solidshare.net/templates/Turkish/favicon.ico",
+              "alt": "SolidShare",
+              "tags": []
+            }
+          ]
+        },
+        {
           "title": "Torrent & İndirme Platformları",
           "links": [
             {
@@ -1086,6 +1163,15 @@
         {
           "title": "Müzik & Video Akış Platformları",
           "links": [
+            {
+              "url": "https://music.youtube.com/",
+              "name": "YouTube Music",
+              "recommended": false,
+              "description": "YouTube'un müzik akış hizmeti.",
+              "icon": "https://music.youtube.com/favicon.ico",
+              "alt": "YouTube Music",
+              "tags": []
+            },
             {
               "url": "https://open.spotify.com/",
               "name": "Spotify",
@@ -1802,56 +1888,6 @@
               "description": "Oyun crack ve patch arşivi.",
               "icon": "https://gamecopyworld.com/favicon.ico",
               "alt": "GameCopyWorld",
-              "tags": []
-            }
-          ]
-        },
-        {
-          "title": "Crack Siteleri",
-          "links": [
-            {
-              "url": "https://cracksurl.com/",
-              "name": "CRACKSurl",
-              "recommended": false,
-              "description": "Korsan yazılım içeren, keygen ve crack sunan bir platformdur.",
-              "icon": "https://cracksurl.com/favicon.ico",
-              "alt": "CRACKSurl",
-              "tags": []
-            },
-            {
-              "url": "https://www.warezturkey.me/",
-              "name": "Warezturkey",
-              "recommended": false,
-              "description": "Yazılım, araç ve program arşivi.",
-              "icon": "https://www.warezturkey.me/favicon.ico",
-              "alt": "Warezturkey",
-              "tags": []
-            },
-            {
-              "url": "https://www.cybermania.ws/",
-              "name": "CyberMania",
-              "recommended": false,
-              "description": "Oyun, yazılım ve Android uygulama arşivi.",
-              "icon": "https://www.cybermania.ws/favicon.ico",
-              "alt": "CyberMania",
-              "tags": []
-            },
-            {
-              "url": "https://silentall.net/",
-              "name": "Silentall",
-              "recommended": false,
-              "description": "Program, oyun ve katılımsız yazılım paylaşım platformu.",
-              "icon": "https://silentall.net/favicon.ico",
-              "alt": "Silentall",
-              "tags": []
-            },
-            {
-              "url": "https://www.solidshare.net/",
-              "name": "SolidShare",
-              "recommended": false,
-              "description": "Katılımsız programlar ve güncel yazılım arşivi.",
-              "icon": "https://www.solidshare.net/templates/Turkish/favicon.ico",
-              "alt": "SolidShare",
               "tags": []
             }
           ]
