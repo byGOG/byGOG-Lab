@@ -43,11 +43,21 @@ byGOG Lab, teknoloji meraklıları ve geliştiriciler için özenle seçilmiş, 
 
 ## 🔧 Geliştirme
 
-Minify edilmiş dosyaları yeniden oluşturmak için:
-
+### Kurulum
 ```bash
 npm install
-npm run build
+```
+
+### Build İşlemleri
+```bash
+npm run build      # Dosyaları minify et ve dist/ klasörüne yaz
+npm run rebuild    # dist/ klasörünü temizle ve yeniden build et
+npm run clean      # dist/ klasörünü temizle
+```
+
+### Geliştirme Sunucusu
+```bash
+npm run dev        # Build et ve geliştirme sunucusunu başlat
 ```
 
 Bu komutlar `styles.css` ve `scripts/` altındaki JavaScript dosyalarının küçültülmüş sürümlerini `dist/` klasörüne yazar.
@@ -58,7 +68,7 @@ Bu komutlar `styles.css` ve `scripts/` altındaki JavaScript dosyalarının kü�
 npm test
 ```
 
-Bu komut `links.json` dosyasının temel yapısını doğrular.
+Bu komut `links.json` dosyasının yapısını ve tüm bağlantıları detaylı olarak doğrular.
 
 ## 🤝 Katkıda Bulunma
 

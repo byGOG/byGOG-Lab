@@ -125,6 +125,7 @@ function setupSearch() {
     });
 
     searchStatus.textContent = query ? `${matchCount} sonuç bulundu` : '';
+    searchStatus.setAttribute('aria-live', query ? 'polite' : 'off');
   }
 
   searchInput.addEventListener('input', () => {
@@ -174,8 +175,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const data = await fetchLinks();
     renderCategories(data, container);
   } catch (err) {
-    container.textContent = 'Bağlantılar yüklenemedi.';
-    console.error(err);
+    container.textContent = 'Bağlantılar yüklenemedi. Lütfen sayfayı yenileyin.';
+    console.error('Bağlantılar yüklenirken hata:', err);
   }
   setupSearch();
 });

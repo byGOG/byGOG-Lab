@@ -340,8 +340,8 @@
       border: 1.5px solid var(--card-border);
       box-shadow: 0 1px 4px #0001;
       display: block;
-      margin-left: 0;
-      margin-right: 0;
+      margin-left: auto;
+      margin-right: auto;
     }
 .koyu .custom-tooltip {
       background: linear-gradient(135deg, var(--card-bg) 80%, #23272f 100%);

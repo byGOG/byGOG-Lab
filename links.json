@@ -1190,15 +1190,7 @@
               "alt": null,
               "tags": []
             },
-            {
-              "url": "https://inatflix.org/",
-              "name": "iNatFlix",
-              "recommended": false,
-              "description": "Dijital yayın ve film platformu.",
-              "icon": "https://inatflix.org/favicon.ico",
-              "alt": null,
-              "tags": []
-            },
+
             {
               "url": "https://tv.garden/",
               "name": "tv.garden",
@@ -1338,6 +1330,15 @@
               "description": "Çevrim içi dizi ve film izleme platformu.",
               "icon": "https://diziwatch.tv/favicon.ico",
               "alt": "DiziWatch",
+              "tags": []
+            },
+            {
+              "url": "https://inatflix.org/",
+              "name": "Inatflix (HDFilmCehennemi)",
+              "recommended": false,
+              "description": "Full HD 1080p kalitede dizi, film ve animeleri ücretsiz izleme platformu.",
+              "icon": "https://inatflix.org/favicon.ico",
+              "alt": "Inatflix",
               "tags": []
             }
           ]
