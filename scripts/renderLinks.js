@@ -203,6 +203,48 @@ function setupThemeToggle() {
   });
 }
 
+function setupMouseTracking() {
+  const links = document.querySelectorAll('a');
+  
+  links.forEach(link => {
+    link.addEventListener('mousemove', (e) => {
+      const rect = link.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      
+      link.style.setProperty('--mouse-x', `${x}%`);
+      link.style.setProperty('--mouse-y', `${y}%`);
+    });
+  });
+}
+
+function setupAnimations() {
+  // Add staggered animation delays for list items
+  const listItems = document.querySelectorAll('li');
+  listItems.forEach((item, index) => {
+    item.style.animationDelay = `${0.1 + (index * 0.05)}s`;
+    item.style.animation = 'fadeInUp 0.5s ease-out forwards';
+    item.style.opacity = '0';
+  });
+  
+  // Trigger animations when elements come into view
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.animation = 'fadeInUp 0.5s ease-out forwards';
+      }
+    });
+  }, observerOptions);
+  
+  listItems.forEach(item => observer.observe(item));
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   setupThemeToggle();
   const container = document.getElementById('links-container');
@@ -214,4 +256,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('Bağlantılar yüklenirken hata:', err);
   }
   setupSearch();
+  setupMouseTracking();
+  setupAnimations();
 });
