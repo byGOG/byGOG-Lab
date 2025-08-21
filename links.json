@@ -957,22 +957,13 @@
       "title": "Medya & İndirme",
       "subcategories": [
         {
-          "title": "Crack Siteleri",
+          "title": "Yazılım İndirme & Arşivleri",
           "links": [
-            {
-              "url": "https://scloud.ws/",
-              "name": "scloud.ws",
-              "recommended": false,
-              "description": "SoundCloud Downloader.",
-              "icon": "https://scloud.ws/favicon.ico",
-              "alt": "scloud.ws",
-              "tags": []
-            },
             {
               "url": "https://softarchive.download/",
               "name": "SoftArchive",
               "recommended": false,
-              "description": "Software, scripts, and more.",
+              "description": "Yazılım, script ve araç arşivi.",
               "icon": "https://softarchive.download/favicon.ico",
               "alt": "SoftArchive",
               "tags": []
@@ -981,18 +972,9 @@
               "url": "https://www.fullprogramlarindir.net/",
               "name": "Full Programlar İndir",
               "recommended": false,
-              "description": "Full Programlar İndir.",
+              "description": "Türkçe yazılım indirme platformu.",
               "icon": "https://www.fullprogramlarindir.net/favicon.ico",
               "alt": "Full Programlar İndir",
-              "tags": []
-            },
-            {
-              "url": "https://cracksurl.com/",
-              "name": "CRACKSurl",
-              "recommended": false,
-              "description": "Korsan yazılım içeren, keygen ve crack sunan bir platformdur.",
-              "icon": "https://cracksurl.com/favicon.ico",
-              "alt": "CRACKSurl",
               "tags": []
             },
             {
@@ -1034,7 +1016,21 @@
           ]
         },
         {
-          "title": "Torrent & İndirme Platformları",
+          "title": "Crack & Keygen Siteleri",
+          "links": [
+            {
+              "url": "https://cracksurl.com/",
+              "name": "CRACKSurl",
+              "recommended": false,
+              "description": "Crack ve keygen paylaşım platformu.",
+              "icon": "https://cracksurl.com/favicon.ico",
+              "alt": "CRACKSurl",
+              "tags": []
+            }
+          ]
+        },
+        {
+          "title": "Torrent & DDL Platformları",
           "links": [
             {
               "url": "https://www.zamunda.net/",
@@ -1230,6 +1226,15 @@
               "description": "Elektronik müzik ve DJ kültürü için dijital mağaza.",
               "icon": "https://www.beatport.com/favicon.ico",
               "alt": "Beatport",
+              "tags": []
+            },
+            {
+              "url": "https://scloud.ws/",
+              "name": "scloud.ws",
+              "recommended": false,
+              "description": "SoundCloud müzik indirme platformu.",
+              "icon": "https://scloud.ws/favicon.ico",
+              "alt": "scloud.ws",
               "tags": []
             }
           ]
