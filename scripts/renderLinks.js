@@ -143,27 +143,62 @@ function setupThemeToggle() {
     if (isDark) {
       body.classList.add('koyu');
       themeToggle.textContent = '☀️';
+      themeToggle.setAttribute('aria-label', 'Açık temaya geç');
+      themeToggle.title = 'Açık temaya geç';
     } else {
       body.classList.remove('koyu');
       themeToggle.textContent = '🌙';
+      themeToggle.setAttribute('aria-label', 'Koyu temaya geç');
+      themeToggle.title = 'Koyu temaya geç';
     }
+    
+    // Smooth transition effect
+    body.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+    setTimeout(() => {
+      body.style.transition = '';
+    }, 500);
   }
 
-  themeToggle.addEventListener('click', () => {
+  function toggleTheme() {
     const isDark = !body.classList.contains('koyu');
     setTheme(isDark);
     localStorage.setItem('theme', isDark ? 'koyu' : 'aydinlik');
+    
+    // Add click animation
+    themeToggle.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      themeToggle.style.transform = '';
+    }, 150);
+  }
+
+  themeToggle.addEventListener('click', toggleTheme);
+  
+  // Keyboard support
+  themeToggle.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleTheme();
+    }
   });
 
+  // Load saved theme or use system preference
   let saved = localStorage.getItem('theme');
   if (!saved) {
     saved = mediaQuery.matches ? 'koyu' : 'aydinlik';
   }
   setTheme(saved === 'koyu');
 
+  // Listen for system theme changes
   mediaQuery.addEventListener('change', e => {
     if (!localStorage.getItem('theme')) {
       setTheme(e.matches);
+    }
+  });
+  
+  // Add theme change event for other components
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'theme') {
+      setTheme(e.newValue === 'koyu');
     }
   });
 }
