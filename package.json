@@ -4,10 +4,7 @@
   "description": "byGOG Lab build setup",
   "scripts": {
     "build": "node build.js",
-    "test": "node test/links.test.js",
-    "dev": "node build.js && npx http-server -p 8080 -o",
-    "clean": "rimraf dist",
-    "rebuild": "npm run clean && npm run build"
+    "test": "node test/links.test.js"
   },
   "repository": {
     "type": "git",

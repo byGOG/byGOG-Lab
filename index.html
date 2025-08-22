@@ -9,11 +9,8 @@
   <meta name="description" content="Windows ve Office kurulum rehberleri, sistem araçları, VPN ve güvenlik çözümleri gibi güvenilir yazılımlara bağlantılar sunan kapsamlı byGOG kaynak arşivi.">
   <meta name="keywords" content="Windows, Office, yazılım, araçlar, güvenlik, byGOG">
   <meta name="author" content="byGOG">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#a3bffa" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#fbbf24" media="(prefers-color-scheme: dark)">
   <title>byGOG</title>
-  <link rel="icon" type="image/x-icon" href="https://bygog.github.io/profil.jpg">
+  <link rel="icon" type="image/x-icon" href="https://github.com/byGOG/byGOG-Lab/raw/main/svg/sdio.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap" rel="stylesheet">
@@ -31,13 +28,9 @@
   </div>
   <div class="container">
     <div class="search-container">
-      <div class="search-wrapper">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="search-input" placeholder="İsim veya içerik ara...">
-        <button type="button" class="search-clear" aria-label="Aramayı temizle">×</button>
-      </div>
+      <label for="search-input" class="visually-hidden">Arama</label>
+      <input type="text" id="search-input" placeholder="İsim veya içerik ara...">
       <div id="search-status" aria-live="polite"></div>
-      <div class="search-suggestions" id="search-suggestions"></div>
     </div>
     <div id="links-container"></div>
   </div>

@@ -854,7 +854,7 @@
               "name": "Zen Browser",
               "recommended": false,
               "description": "Güvenli ve hızlı web tarayıcı.",
-              "icon": "https://zen-browser.app/favicon.svg",
+              "icon": "https://zen-browser.app/favicon.ico",
               "alt": null,
               "tags": []
             }
@@ -957,87 +957,14 @@
       "title": "Medya & İndirme",
       "subcategories": [
         {
-          "title": "Yazılım İndirme & Arşivleri",
-          "links": [
-            {
-              "url": "https://softarchive.download/",
-              "name": "SoftArchive",
-              "recommended": false,
-              "description": "Yazılım, script ve araç arşivi.",
-              "icon": "https://softarchive.download/favicon.ico",
-              "alt": "SoftArchive",
-              "tags": []
-            },
-            {
-              "url": "https://www.fullprogramlarindir.net/",
-              "name": "Full Programlar İndir",
-              "recommended": false,
-              "description": "Türkçe yazılım indirme platformu.",
-              "icon": "https://www.fullprogramlarindir.net/favicon.ico",
-              "alt": "Full Programlar İndir",
-              "tags": []
-            },
-            {
-              "url": "https://www.warezturkey.me/",
-              "name": "Warezturkey",
-              "recommended": false,
-              "description": "Yazılım, araç ve program arşivi.",
-              "icon": "https://www.warezturkey.me/favicon.ico",
-              "alt": "Warezturkey",
-              "tags": []
-            },
-            {
-              "url": "https://www.cybermania.ws/",
-              "name": "CyberMania",
-              "recommended": false,
-              "description": "Oyun, yazılım ve Android uygulama arşivi.",
-              "icon": "https://www.cybermania.ws/favicon.ico",
-              "alt": "CyberMania",
-              "tags": []
-            },
-            {
-              "url": "https://silentall.net/",
-              "name": "Silentall",
-              "recommended": false,
-              "description": "Program, oyun ve katılımsız yazılım paylaşım platformu.",
-              "icon": "https://silentall.net/favicon.ico",
-              "alt": "Silentall",
-              "tags": []
-            },
-            {
-              "url": "https://www.solidshare.net/",
-              "name": "SolidShare",
-              "recommended": false,
-              "description": "Katılımsız programlar ve güncel yazılım arşivi.",
-              "icon": "https://www.solidshare.net/templates/Turkish/favicon.ico",
-              "alt": "SolidShare",
-              "tags": []
-            }
-          ]
-        },
-        {
-          "title": "Crack & Keygen Siteleri",
-          "links": [
-            {
-              "url": "https://cracksurl.com/",
-              "name": "CRACKSurl",
-              "recommended": false,
-              "description": "Crack ve keygen paylaşım platformu.",
-              "icon": "https://cracksurl.com/favicon.ico",
-              "alt": "CRACKSurl",
-              "tags": []
-            }
-          ]
-        },
-        {
-          "title": "Torrent & DDL Platformları",
+          "title": "Torrent & İndirme Platformları",
           "links": [
             {
               "url": "https://www.zamunda.net/",
               "name": "Zamunda",
               "recommended": false,
               "description": "Popüler Türkçe torrent paylaşım platformu.",
-              "icon": "https://zamunda.net/pic/pic/favicon.png",
+              "icon": "https://www.zamunda.net/favicon.ico",
               "alt": "Zamunda",
               "tags": []
             },
@@ -1055,8 +982,26 @@
               "name": "The Pirate Bay",
               "recommended": false,
               "description": "Dünyanın en büyük torrent arama motoru.",
-              "icon": "https://torrindex.net/images/tpb.jpg",
+              "icon": "https://thepiratebay.org/favicon.ico",
               "alt": "The Pirate Bay",
+              "tags": []
+            },
+            {
+              "url": "https://torrentsites.com/",
+              "name": "TorrentSites",
+              "recommended": false,
+              "description": "En iyi torrent siteleri rehberi.",
+              "icon": "https://torrentsites.com/favicon.ico",
+              "alt": "TorrentSites",
+              "tags": []
+            },
+            {
+              "url": "https://yourbittorrent.com/",
+              "name": "YourBittorrent",
+              "recommended": false,
+              "description": "Geniş torrent arşivi ve paylaşım platformu.",
+              "icon": "https://yourbittorrent.com/favicon.ico",
+              "alt": "YourBittorrent",
               "tags": []
             },
             {
@@ -1084,42 +1029,6 @@
               "description": "Özel torrent ve DDL paylaşım platformu.",
               "icon": "https://doubledouble.top/favicon.ico",
               "alt": "DoubleDouble",
-              "tags": []
-            },
-            {
-              "url": "https://showrss.info/",
-              "name": "showRSS",
-              "recommended": false,
-              "description": "Dizi torrentleri için RSS beslemesi.",
-              "icon": "https://showrss.info/favicon.ico",
-              "alt": "showRSS",
-              "tags": []
-            },
-            {
-              "url": "https://www.1377x.to/",
-              "name": "1337x",
-              "recommended": false,
-              "description": "Torrent arama motoru.",
-              "icon": "https://www.1377x.to/favicon.ico",
-              "alt": "1337x",
-              "tags": []
-            },
-            {
-              "url": "https://therarbg.com/",
-              "name": "The RARBG",
-              "recommended": false,
-              "description": "Torrent web sitesi.",
-              "icon": "https://therarbg.com/favicon.ico",
-              "alt": "The RARBG",
-              "tags": []
-            },
-            {
-              "url": "https://ext.to/",
-              "name": "EXT Torrents",
-              "recommended": false,
-              "description": "Torrent web sitesi.",
-              "icon": "https://ext.to/favicon.ico",
-              "alt": "EXT Torrents",
               "tags": []
             }
           ]
@@ -1160,15 +1069,6 @@
           "title": "Müzik & Video Akış Platformları",
           "links": [
             {
-              "url": "https://music.youtube.com/",
-              "name": "YouTube Music",
-              "recommended": false,
-              "description": "YouTube'un müzik akış hizmeti.",
-              "icon": "https://music.youtube.com/favicon.ico",
-              "alt": "YouTube Music",
-              "tags": []
-            },
-            {
               "url": "https://open.spotify.com/",
               "name": "Spotify",
               "recommended": false,
@@ -1186,7 +1086,15 @@
               "alt": null,
               "tags": []
             },
-
+            {
+              "url": "https://inatflix.org/",
+              "name": "iNatFlix",
+              "recommended": false,
+              "description": "Dijital yayın ve film platformu.",
+              "icon": "https://inatflix.org/favicon.ico",
+              "alt": null,
+              "tags": []
+            },
             {
               "url": "https://tv.garden/",
               "name": "tv.garden",
@@ -1226,15 +1134,6 @@
               "description": "Elektronik müzik ve DJ kültürü için dijital mağaza.",
               "icon": "https://www.beatport.com/favicon.ico",
               "alt": "Beatport",
-              "tags": []
-            },
-            {
-              "url": "https://scloud.ws/",
-              "name": "scloud.ws",
-              "recommended": false,
-              "description": "SoundCloud müzik indirme platformu.",
-              "icon": "https://scloud.ws/favicon.ico",
-              "alt": "scloud.ws",
               "tags": []
             }
           ]
@@ -1335,15 +1234,6 @@
               "description": "Çevrim içi dizi ve film izleme platformu.",
               "icon": "https://diziwatch.tv/favicon.ico",
               "alt": "DiziWatch",
-              "tags": []
-            },
-            {
-              "url": "https://inatflix.org/",
-              "name": "Inatflix (HDFilmCehennemi)",
-              "recommended": false,
-              "description": "Full HD 1080p kalitede dizi, film ve animeleri ücretsiz izleme platformu.",
-              "icon": "https://inatflix.org/favicon.ico",
-              "alt": "Inatflix",
               "tags": []
             }
           ]
@@ -1731,7 +1621,15 @@
         {
           "title": "E-posta & Hesap Yönetimi",
           "links": [
-            
+            {
+              "url": "https://login.microsoftonline.com/",
+              "name": "Microsoft",
+              "recommended": false,
+              "description": "Microsoft hesabı ile oturum açma ve e-posta servisi.",
+              "icon": "https://aadcdn.msauth.net/shared/1.0/content/images/microsoft_logo_564db913a7fa0ca42727161c6d031bef.svg",
+              "alt": "Microsoft",
+              "tags": []
+            },
             {
               "url": "https://outlook.live.com/",
               "name": "Outlook",
@@ -1742,7 +1640,7 @@
               "tags": []
             },
             {
-              "url": "https://mail.yahoo.com/",
+              "url": "https://login.yahoo.com/",
               "name": "Yahoo Mail",
               "recommended": false,
               "description": "Yahoo Mail ile e-posta servisi ve oturum açma.",
@@ -1840,7 +1738,7 @@
           ]
         },
         {
-          "title": "Oyun Repack",
+          "title": "Oyun Repack & Crack Siteleri",
           "links": [
             {
               "url": "https://fitgirl-repacks.site/",
@@ -1849,24 +1747,6 @@
               "description": "Popüler oyunlar için yüksek sıkıştırmalı repack arşivi.",
               "icon": "https://fitgirl-repacks.site/favicon.ico",
               "alt": "FitGirl Repacks",
-              "tags": []
-            },
-            {
-              "url": "https://dodi-repacks.site/",
-              "name": "DODI Repacks",
-              "recommended": false,
-              "description": "Küçük boyutlu ve hızlı oyun repack arşivi.",
-              "icon": "https://dodi-repacks.site/favicon.ico",
-              "alt": "DODI Repacks",
-              "tags": []
-            },
-            {
-              "url": "https://elamigos.site/",
-              "name": "ElAmigos",
-              "recommended": false,
-              "description": "Güvenilir oyun repack ve ISO arşivi.",
-              "icon": "https://elamigos.site/favicon.ico",
-              "alt": "ElAmigos",
               "tags": []
             },
             {
@@ -1888,12 +1768,75 @@
               "tags": []
             },
             {
+              "url": "https://dodi-repacks.site/",
+              "name": "DODI Repacks",
+              "recommended": false,
+              "description": "Küçük boyutlu ve hızlı oyun repack arşivi.",
+              "icon": "https://dodi-repacks.site/favicon.ico",
+              "alt": "DODI Repacks",
+              "tags": []
+            },
+            {
+              "url": "https://elamigos.site/",
+              "name": "ElAmigos",
+              "recommended": false,
+              "description": "Güvenilir oyun repack ve ISO arşivi.",
+              "icon": "https://elamigos.site/favicon.ico",
+              "alt": "ElAmigos",
+              "tags": []
+            },
+            {
+              "url": "https://appsurl.com/",
+              "name": "AppsURL",
+              "recommended": false,
+              "description": "Korsan yazılım içeren, keygen ve crack sunan bir platformdur.",
+              "icon": "https://appsurl.com/favicon.ico",
+              "alt": "AppsURL",
+              "tags": []
+            },
+            {
+              "url": "https://www.warezturkey.me/",
+              "name": "Warezturkey",
+              "recommended": false,
+              "description": "Yazılım, araç ve program arşivi.",
+              "icon": "https://www.warezturkey.me/favicon.ico",
+              "alt": "Warezturkey",
+              "tags": []
+            },
+            {
+              "url": "https://www.cybermania.ws/",
+              "name": "CyberMania",
+              "recommended": false,
+              "description": "Oyun, yazılım ve Android uygulama arşivi.",
+              "icon": "https://www.cybermania.ws/favicon.ico",
+              "alt": "CyberMania",
+              "tags": []
+            },
+            {
+              "url": "https://silentall.net/",
+              "name": "Silentall",
+              "recommended": false,
+              "description": "Program, oyun ve katılımsız yazılım paylaşım platformu.",
+              "icon": "https://silentall.net/favicon.ico",
+              "alt": "Silentall",
+              "tags": []
+            },
+            {
               "url": "https://gamecopyworld.com/",
               "name": "GameCopyWorld",
               "recommended": false,
               "description": "Oyun crack ve patch arşivi.",
               "icon": "https://gamecopyworld.com/favicon.ico",
               "alt": "GameCopyWorld",
+              "tags": []
+            },
+            {
+              "url": "https://www.solidshare.net/",
+              "name": "SolidShare",
+              "recommended": false,
+              "description": "Katılımsız programlar ve güncel yazılım arşivi.",
+              "icon": "https://www.solidshare.net/templates/Turkish/favicon.ico",
+              "alt": "SolidShare",
               "tags": []
             }
           ]
