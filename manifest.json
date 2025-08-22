@@ -1,0 +1,20 @@
+{
+  "name": "byGOG Lab",
+  "short_name": "byGOG Lab",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#23272f",
+  "icons": [
+    {
+      "src": "icon/GitHub.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "icon/GitHub.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

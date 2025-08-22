@@ -403,6 +403,7 @@
     img[alt="RuckZuck"] {
       background: transparent !important;
     }
+    
     /* Responsive adjustments */
 @media (min-width: 1600px) {
   ul {
@@ -426,6 +427,12 @@
   ul {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+  h2 {
+    font-size: 22px;
+  }
+  h3 {
+    font-size: 18px;
+  }
 }
 @media (max-width: 600px) {
   .container {
@@ -441,8 +448,50 @@
   .author-fab {
     right: 16px;
     bottom: 16px;
+    padding: 8px 18px 8px 12px;
+  }
+  .author-fab-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  .author-fab-username {
+    font-size: 18px;
   }
   ul {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  .category-card {
+    padding: 16px 10px;
+  }
+  .theme-toggle-container {
+    top: 16px;
+    right: 16px;
+  }
+  #theme-toggle {
+    padding: 6px 16px;
+    font-size: 14px;
+  }
+  .author-fab {
+    right: 12px;
+    bottom: 12px;
+    padding: 6px 16px 6px 10px;
+  }
+  .author-fab-avatar {
+    width: 36px;
+    height: 36px;
+  }
+  .author-fab-username {
+    font-size: 16px;
   }
 }
