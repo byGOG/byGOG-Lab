@@ -402,7 +402,7 @@
               "name": "Nilesoft Shell",
               "recommended": false,
               "description": "Windows Gezgini için güçlü bir eklenti.",
-              "icon": "icon/GitHub.svg",
+              "icon": "icon/Nilesoftshell.svg",
               "alt": "Nilesoft Shell",
               "tags": []
             }
@@ -562,7 +562,7 @@
               "name": "OpenVPN",
               "recommended": false,
               "description": "Açık kaynaklı VPN istemcisi.",
-              "icon": "https://openvpn.net/favicon.ico",
+              "icon": "icon/openvpn.svg",
               "alt": null,
               "tags": []
             },
@@ -571,7 +571,7 @@
               "name": "ProtonVPN",
               "recommended": false,
               "description": "Güvenli ve hızlı VPN hizmeti.",
-              "icon": "https://protonvpn.com/favicon.ico",
+              "icon": "icon/Protonvpn.svg",
               "alt": null,
               "tags": []
             },
@@ -580,7 +580,7 @@
               "name": "Tor Browser",
               "recommended": false,
               "description": "Sansürü aşmak ve gizliliği korumak için anonim tarayıcı.",
-              "icon": "https://www.torproject.org/static/images/favicon/favicon.ico",
+              "icon": "icon/tor.svg",
               "alt": null,
               "tags": []
             }
@@ -594,7 +594,7 @@
               "name": "Bitwarden",
               "recommended": false,
               "description": "Açık kaynaklı şifre yöneticisi.",
-              "icon": "https://bitwarden.com/favicon.ico",
+              "icon": "icon/Bitwarden.svg",
               "alt": null,
               "tags": []
             },
@@ -808,7 +808,7 @@
               "name": "AlternativeTo",
               "recommended": false,
               "description": "Popüler yazılımların alternatiflerini ve kullanıcı yorumlarını bulabileceğiniz karşılaştırma platformu.",
-              "icon": "https://alternativeto.net/static/icons/a2/favicon.ico",
+              "icon": "icon/AlternativeTo.svg",
               "alt": "AlternativeTo",
               "tags": []
             }
@@ -827,7 +827,7 @@
               "name": "Brave",
               "recommended": false,
               "description": "Gizlilik odaklı hızlı web tarayıcı.",
-              "icon": "https://brave.com/favicon.ico",
+              "icon": "icon/Brave.svg",
               "alt": null,
               "tags": []
             },
@@ -836,7 +836,7 @@
               "name": "Google Chrome",
               "recommended": false,
               "description": "Google'ın hızlı ve popüler web tarayıcısı.",
-              "icon": "https://www.google.com/chrome/static/images/favicons/favicon.ico",
+              "icon": "icon/chrome.svg",
               "alt": null,
               "tags": []
             },
@@ -845,7 +845,7 @@
               "name": "Mozilla Firefox",
               "recommended": false,
               "description": "Açık kaynaklı web tarayıcı.",
-              "icon": "https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo.eb1324e44442.svg",
+              "icon": "icon/Firefox.svg",
               "alt": null,
               "tags": []
             },
@@ -854,7 +854,7 @@
               "name": "Zen Browser",
               "recommended": false,
               "description": "Güvenli ve hızlı web tarayıcı.",
-              "icon": "https://zen-browser.app/favicon.svg",
+              "icon": "icon/ZenBrowser.svg",
               "alt": null,
               "tags": []
             }
@@ -877,7 +877,7 @@
               "name": "Buster (Captcha Solver)",
               "recommended": false,
               "description": "ReCAPTCHA sesli doğrulama çözücü eklentisi.",
-              "icon": "https://raw.githubusercontent.com/dessant/buster/main/src/assets/icons/app/icon.svg",
+              "icon": "icon/Buster.svg",
               "alt": null,
               "tags": []
             },
@@ -895,7 +895,7 @@
               "name": "uBlock Origin",
               "recommended": false,
               "description": "Gelişmiş, açık kaynaklı reklam ve içerik engelleyici.",
-              "icon": "https://ublockorigin.com/img/favicons/favicon.ico",
+              "icon": "icon/ublock.svg",
               "alt": null,
               "tags": []
             },
@@ -904,7 +904,7 @@
               "name": "Privacy Badger",
               "recommended": false,
               "description": "Otomatik izleyici engelleme ve gizlilik koruması sağlayan tarayıcı eklentisi.",
-              "icon": "https://www.eff.org/sites/all/themes/frontier/favicon.ico",
+              "icon": "icon/PrivacyBadger.svg",
               "alt": null,
               "tags": []
             },
@@ -1055,7 +1055,7 @@
               "name": "The Pirate Bay",
               "recommended": false,
               "description": "Dünyanın en büyük torrent arama motoru.",
-              "icon": "https://torrindex.net/images/tpb.jpg",
+              "icon": "icon/ThePirateBay.svg",
               "alt": "The Pirate Bay",
               "tags": []
             },
@@ -1132,7 +1132,7 @@
               "name": "AIMP",
               "recommended": false,
               "description": "Gelişmiş müzik çalar.",
-              "icon": "https://www.aimp.ru/favicon.ico",
+              "icon": "icon/aimp.svg",
               "alt": null,
               "tags": []
             },
@@ -1150,7 +1150,7 @@
               "name": "VLC Media Player",
               "recommended": false,
               "description": "Çok formatlı medya oynatıcı.",
-              "icon": "https://images.videolan.org/images/icons-VLC/vlc.mini.svg",
+              "icon": "icon/vlc.svg",
               "alt": null,
               "tags": []
             }
@@ -1164,7 +1164,7 @@
               "name": "YouTube Music",
               "recommended": false,
               "description": "YouTube'un müzik akış hizmeti.",
-              "icon": "https://music.youtube.com/favicon.ico",
+              "icon": "icon/youtubemusic.svg",
               "alt": "YouTube Music",
               "tags": []
             },
@@ -1173,7 +1173,7 @@
               "name": "Spotify",
               "recommended": false,
               "description": "Popüler müzik dinleme platformu.",
-              "icon": "https://open.spotify.com/favicon.ico",
+              "icon": "icon/Spotify.svg",
               "alt": null,
               "tags": []
             },
