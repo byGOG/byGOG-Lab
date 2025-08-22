@@ -91,7 +91,7 @@ function setupSearch() {
   const searchClear = document.querySelector('.search-clear');
   const searchSuggestions = document.getElementById('search-suggestions');
   const links = Array.from(document.querySelectorAll('.category-card li'));
-  
+
   let searchData = [];
   let currentSuggestionIndex = -1;
   let debounceTimer;
@@ -105,7 +105,7 @@ function setupSearch() {
       const category = link.closest('.category-card')?.querySelector('h2')?.textContent || '';
       const subcategory = link.closest('.sub-category')?.querySelector('h3')?.textContent || '';
       const description = linkElement.querySelector('.custom-tooltip')?.textContent || '';
-      
+
       searchData.push({
         element: link,
         text: text,
@@ -119,9 +119,9 @@ function setupSearch() {
     });
   }
 
-  function performSearch() {
+    function performSearch() {
     const query = searchInput.value.toLowerCase().trim();
-    
+
     if (!query) {
       // Show all results
       links.forEach(link => link.style.display = '');
@@ -135,9 +135,9 @@ function setupSearch() {
     let matchCount = 0;
     const matchedItems = [];
 
-    // Search through all data
+        // Search through all data (flexible matching)
     searchData.forEach(item => {
-      const isMatch = 
+      const isMatch =
         item.text.includes(query) ||
         item.category.includes(query) ||
         item.subcategory.includes(query) ||
@@ -172,37 +172,37 @@ function setupSearch() {
       }
     });
 
-    // Update search status with animation
+    // Update search status
     if (query) {
       searchStatus.innerHTML = `<span class="search-results-count">${matchCount} sonuç bulundu</span>`;
       searchStatus.setAttribute('aria-live', 'polite');
-      
+
       // Show search suggestions
       showSearchSuggestions(matchedItems, query);
     } else {
-      searchStatus.innerHTML = '';
+      searchStatus.textContent = '';
       searchStatus.setAttribute('aria-live', 'off');
       searchSuggestions.classList.remove('visible');
     }
   }
 
-  function showSearchSuggestions(matchedItems, query) {
+    function showSearchSuggestions(matchedItems, query) {
     if (matchedItems.length === 0) {
       searchSuggestions.classList.remove('visible');
       return;
     }
 
-    // Create suggestion items (max 8)
+    // Create suggestion items (max 8) with exact word matching info
     const suggestions = matchedItems.slice(0, 8);
     searchSuggestions.innerHTML = '';
 
     suggestions.forEach(item => {
       const suggestionItem = document.createElement('div');
       suggestionItem.className = 'suggestion-item';
-      
+
       const icon = item.element.querySelector('.site-icon');
       const iconHtml = icon ? `<img src="${icon.src}" alt="" class="suggestion-icon">` : '<div class="suggestion-icon">📱</div>';
-      
+
       suggestionItem.innerHTML = `
         ${iconHtml}
         <div class="suggestion-text">${item.originalText}</div>
@@ -212,13 +212,13 @@ function setupSearch() {
       suggestionItem.addEventListener('click', () => {
         // Scroll to the item
         item.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
+
         // Highlight the item temporarily
         item.element.style.animation = 'searchResultPulse 1s ease-out';
         setTimeout(() => {
           item.element.style.animation = '';
         }, 1000);
-        
+
         // Clear search
         searchInput.value = '';
         performSearch();
@@ -232,6 +232,8 @@ function setupSearch() {
     searchSuggestions.classList.add('visible');
   }
 
+
+
   function clearSearch() {
     searchInput.value = '';
     searchInput.focus();
@@ -240,7 +242,7 @@ function setupSearch() {
 
   function handleKeyboardNavigation(e) {
     const suggestions = searchSuggestions.querySelectorAll('.suggestion-item');
-    
+
     if (!searchSuggestions.classList.contains('visible') || suggestions.length === 0) {
       return;
     }
@@ -279,15 +281,15 @@ function setupSearch() {
   searchInput.addEventListener('input', () => {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(performSearch, 300);
-    
+
     // Show/hide clear button
     searchClear.classList.toggle('visible', searchInput.value.length > 0);
   });
 
   searchInput.addEventListener('keydown', handleKeyboardNavigation);
-  
+
   searchClear.addEventListener('click', clearSearch);
-  
+
   // Click outside to close suggestions
   document.addEventListener('click', (e) => {
     if (!searchInput.contains(e.target) && !searchSuggestions.contains(e.target)) {
@@ -297,12 +299,12 @@ function setupSearch() {
 
   // Initialize
   prepareSearchData();
-  
+
   // Update search data when content changes
   const observer = new MutationObserver(() => {
     prepareSearchData();
   });
-  
+
   observer.observe(document.getElementById('links-container'), {
     childList: true,
     subtree: true

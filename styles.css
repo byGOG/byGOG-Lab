@@ -210,10 +210,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      scroll-padding-top: 120px;
     }
     
-    /* Ensure proper spacing for sticky search */
+    /* Ensure proper spacing for search */
     #links-container {
       margin-top: 20px;
       width: 100%;
@@ -235,7 +234,7 @@
       margin-left: auto;
       margin-right: auto;
     }
-    
+
     .search-container::before {
       content: '';
       position: absolute;
@@ -246,13 +245,13 @@
       background: var(--bg);
       z-index: -1;
     }
-    
+
     .search-wrapper {
       position: relative;
       display: flex;
       align-items: center;
     }
-    
+
     .search-icon {
       position: absolute;
       left: 16px;
@@ -265,7 +264,7 @@
       transition: all 0.3s ease;
       z-index: 2;
     }
-    
+
     .search-clear {
       position: absolute;
       right: 16px;
@@ -286,16 +285,16 @@
       z-index: 2;
       font-size: 14px;
     }
-    
+
     .search-clear:hover {
       background: var(--accent-hover);
       transform: translateY(-50%) scale(1.1);
     }
-    
+
     .search-clear.visible {
       opacity: 1;
     }
-    
+
     #search-input {
       width: 100%;
       padding: 16px 24px 16px 48px;
@@ -311,17 +310,17 @@
       position: relative;
       overflow: hidden;
     }
-    
+
     #search-input::placeholder {
       color: var(--text);
       opacity: 0.6;
       transition: opacity 0.3s ease;
     }
-    
+
     #search-input:focus::placeholder {
-      opacity: 0.4;
+      opacity: 0.5;
     }
-    
+
     #search-input::before {
       content: '';
       position: absolute;
@@ -333,29 +332,29 @@
       transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       pointer-events: none;
     }
-    
+
     #search-input:hover::before {
       left: 100%;
     }
-    
+
     #search-input:hover {
       border-color: var(--accent);
       box-shadow: 0 4px 16px 0 var(--card-shadow-hover), 0 2px 8px 0 var(--card-shadow2-hover);
       transform: translateY(-1px);
     }
-    
+
     #search-input:focus {
       outline: none;
       border-color: var(--accent);
       box-shadow: 0 6px 24px 0 var(--card-shadow-hover), 0 3px 12px 0 var(--card-shadow2-hover);
       transform: translateY(-2px) scale(1.01);
     }
-    
-    .koyu #search-input:focus { 
+
+    .koyu #search-input:focus {
       border-color: var(--accent);
       box-shadow: 0 6px 24px 0 var(--card-shadow-hover), 0 3px 12px 0 var(--card-shadow2-hover);
     }
-    
+
     /* Search Status Styling */
     #search-status {
       margin-top: 8px;
@@ -366,7 +365,7 @@
       min-height: 20px;
       transition: all 0.3s ease;
     }
-    
+
     .search-results-count {
       background: var(--accent);
       color: var(--card-bg);
@@ -376,13 +375,13 @@
       display: inline-block;
       animation: searchResultPulse 0.6s ease-out;
     }
-    
+
     @keyframes searchResultPulse {
       0% { transform: scale(0.8); opacity: 0; }
       50% { transform: scale(1.1); }
       100% { transform: scale(1); opacity: 1; }
     }
-    
+
     /* Search Suggestions */
     .search-suggestions {
       position: absolute;
@@ -395,19 +394,20 @@
       box-shadow: 0 4px 20px var(--card-shadow-hover);
       max-height: 300px;
       overflow-y: auto;
-      z-index: 1000;
+      z-index: 1001;
       opacity: 0;
       transform: translateY(-10px);
       transition: all 0.3s ease;
       pointer-events: none;
+      margin-top: 5px;
     }
-    
+
     .search-suggestions.visible {
       opacity: 1;
       transform: translateY(0);
       pointer-events: auto;
     }
-    
+
     .suggestion-item {
       padding: 12px 16px;
       cursor: pointer;
@@ -417,33 +417,33 @@
       align-items: center;
       gap: 12px;
     }
-    
+
     .suggestion-item:last-child {
       border-bottom: none;
     }
-    
+
     .suggestion-item:hover {
       background: var(--img-bg);
       color: var(--text-hover);
     }
-    
+
     .suggestion-item.selected {
       background: var(--accent);
       color: var(--card-bg);
     }
-    
+
     .suggestion-icon {
       width: 20px;
       height: 20px;
       border-radius: 4px;
       flex-shrink: 0;
     }
-    
+
     .suggestion-text {
       flex: 1;
       font-size: 14px;
     }
-    
+
     .suggestion-category {
       font-size: 12px;
       opacity: 0.7;
@@ -868,60 +868,30 @@
     padding: 12px;
   }
   
-  .search-container {
-    max-width: 100%;
-    margin-bottom: 20px;
-    padding: 16px 0;
-    top: 0;
-    z-index: 1001;
-  }
-  
-  .search-container::before {
-    left: -50px;
-    right: -50px;
-  }
-  
-  .search-wrapper {
-    position: relative;
-  }
-  
-  .search-icon {
-    left: 12px;
-    font-size: 16px;
-  }
-  
-  .search-clear {
-    right: 12px;
-    width: 20px;
-    height: 20px;
-    font-size: 12px;
-  }
-  
   #search-input {
     padding: 12px 16px 12px 40px;
     font-size: 16px;
-    border-radius: 12px;
   }
-  
+
   .search-suggestions {
     max-height: 250px;
     top: calc(100% + 5px);
   }
-  
+
   .suggestion-item {
     padding: 10px 12px;
     font-size: 13px;
   }
-  
+
   .suggestion-icon {
     width: 18px;
     height: 18px;
   }
-  
+
   .suggestion-category {
     font-size: 11px;
   }
-  
+
   .search-results-count {
     font-size: 12px;
     padding: 3px 10px;
@@ -1161,10 +1131,20 @@
   background: var(--img-bg);
 }
 
-.koyu #search-input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 4px 18px 0 var(--card-shadow-hover), 0 2.5px 8px 0 var(--card-shadow2-hover);
-}
+    .koyu .search-container {
+      background: var(--bg);
+      border-bottom-color: var(--card-border);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .koyu .search-container::before {
+      background: var(--bg);
+    }
+
+    .koyu #search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 4px 18px 0 var(--card-shadow-hover), 0 2.5px 8px 0 var(--card-shadow2-hover);
+    }
 
 .koyu .custom-tooltip {
   background: linear-gradient(135deg, var(--card-bg) 80%, var(--img-bg) 100%);
@@ -1286,57 +1266,25 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-    .koyu .search-container {
-      background: var(--bg);
-      border-bottom-color: var(--card-border);
-      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-    }
-    
-    .koyu .search-container::before {
-      background: var(--bg);
-    }
+
 
 /* Tablet and Large Screen Optimizations */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .search-container {
-    max-width: 700px;
-    padding: 24px 0;
+  #search-input {
+    padding: 18px 24px;
+    font-size: 18px;
   }
-  
-  .search-container::before {
-    left: -100px;
-    right: -100px;
+
+  #search-input {
+    padding: 20px 24px;
+    font-size: 18px;
   }
 }
 
 @media (min-width: 1025px) {
-  .search-container {
-    max-width: 800px;
-    padding: 28px 0;
-  }
-  
-  .search-container::before {
-    left: -150px;
-    right: -150px;
+  #search-input {
+    padding: 20px 24px;
+    font-size: 18px;
   }
 }
 
-/* Ensure search suggestions appear above other content */
-.search-suggestions {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  box-shadow: 0 4px 20px var(--card-shadow-hover);
-  max-height: 300px;
-  overflow-y: auto;
-  z-index: 1001;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-  pointer-events: none;
-  margin-top: 5px;
-}
