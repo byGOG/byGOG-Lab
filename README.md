@@ -1,10 +1,8 @@
 <div align="center">
   <a href="https://bygog.github.io/byGOG-Lab/">
-    <img src="https://raw.githubusercontent.com/byGOG/byGOG-Lab/main/icon/os.click.svg" alt="Logo" width="80" height="80">
+    <img src="https://github.com/byGOG/byGOG-Lab/blob/main/icon/byGOG-Lab-logo.svg" alt="Logo"
+
   </a>
-
-  <h3 align="center">byGOG Lab</h3>
-
   <p align="center">
     Kişisel olarak derlenmiş, kullanışlı yazılım ve araçların bir koleksiyonu.
     <br />
