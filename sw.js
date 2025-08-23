@@ -1,11 +1,13 @@
 const CACHE_NAME = 'bygog-lab-cache-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/scripts/renderLinks.js',
-  '/links.json',
-  '/icon/GitHub.svg'
+  '.',
+  'index.html',
+  'manifest.json',
+  'dist/styles.css',
+  'dist/renderLinks.js',
+  'links.json',
+  'icon/byGOG-Lab-icon.svg',
+  'icon/byGOG-Lab-logo.svg'
 ];
 
 self.addEventListener('install', event => {

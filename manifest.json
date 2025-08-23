@@ -1,7 +1,8 @@
 {
   "name": "byGOG Lab",
   "short_name": "byGOG Lab",
-  "start_url": "/index.html",
+  "scope": "/byGOG-Lab/",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#f5f7fa",
   "theme_color": "#23272f",
