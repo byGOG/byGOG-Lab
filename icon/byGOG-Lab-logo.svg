@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="200" viewBox="0 0 640 200" role="img" aria-labelledby="t d">
+  <title id="t">byGOG Lab — Logo</title>
+  <desc id="d">Solda şişe ikon, sağda “byGOG Lab” kelime işareti olan yatay logo.</desc>
+  <style>
+    :root { --bg:transparent; --fg:#0B0F17; --acc:#0077FF; }
+    @media (prefers-color-scheme: dark) {
+      :root { --fg:#E6EDF3; --acc:#00D4FF; }
+    }
+    .outline{fill:none;stroke:var(--fg);stroke-width:8;stroke-linecap:round;stroke-linejoin:round}
+    .acc{fill:var(--acc)}
+    .word{fill:var(--fg); font:700 44px/1.1 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif; letter-spacing: .2px}
+    .sub{fill:var(--fg); opacity:.6; font:600 18px/1.2 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif; letter-spacing:.3px}
+  </style>
+  <g transform="translate(20,20) scale(0.8)">
+    <defs>
+      <clipPath id="clip-flask-h">
+        <path d="M96 40h64a8 8 0 0 1 0 16h-8v56l52 90a18 18 0 0 1-16 26H68a18 18 0 0 1-16-26l52-90V56h-8a8 8 0 0 1 0-16Z"/>
+      </clipPath>
+      <linearGradient id="liquid-h" x1="0" y1="150" x2="0" y2="220" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="var(--acc)" stop-opacity="0.95"/>
+        <stop offset="1" stop-color="var(--acc)" stop-opacity="0.7"/>
+      </linearGradient>
+    </defs>
+    <path class="outline" d="M96 40h64a8 8 0 0 1 0 16h-8v56l52 90a18 18 0 0 1-16 26H68a18 18 0 0 1-16-26l52-90V56h-8a8 8 0 0 1 0-16Z"/>
+    <g clip-path="url(#clip-flask-h)">
+      <path fill="url(#liquid-h)" d="M56 192 Q128 152 200 192 L200 232 L56 232 Z"/>
+    </g>
+    <circle class="acc" cx="168" cy="60" r="6"/>
+    <circle class="acc" cx="184" cy="74" r="4"/>
+    <line class="outline" x1="104" y1="56" x2="152" y2="56"/>
+  </g>
+  <g transform="translate(240,92)">
+    <text class="word">byGOG Lab</text>
+    <text class="sub" y="34">minimal • hızlı • modern</text>
+  </g>
+</svg>
