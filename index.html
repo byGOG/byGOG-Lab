@@ -28,11 +28,16 @@
     <button id="theme-toggle" aria-label="Tema Değiştir">🌙</button>
   </div>
   <div class="container">
-    <div class="search-container">
-      <label for="search-input" class="visually-hidden">Arama</label>
-      <input type="text" id="search-input" placeholder="İsim veya içerik ara...">
-      <div id="search-status" aria-live="polite"></div>
-    </div>
+    <header class="site-header">
+      <div class="logo-container">
+        <img src="icon/byGOG-Lab-logo.svg" alt="byGOG Lab Logo" class="logo">
+      </div>
+      <div class="search-container">
+        <label for="search-input" class="visually-hidden">Arama</label>
+        <input type="text" id="search-input" placeholder="İsim veya içerik ara...">
+        <div id="search-status" aria-live="polite"></div>
+      </div>
+    </header>
     <div id="links-container"></div>
   </div>
   <script type="module" src="dist/renderLinks.js"></script>
