@@ -316,7 +316,7 @@
     .custom-tooltip {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
       justify-content: flex-start;
       position: absolute;
       left: 50%;
@@ -332,7 +332,7 @@
       border: 2px solid #a3bffa;
       font-size: 12px;
       font-weight: 500;
-      text-align: left;
+      text-align: center;
       line-height: 1.5;
       z-index: 9999;
       letter-spacing: 0.01em;
@@ -355,8 +355,7 @@
       border: 1.5px solid var(--card-border);
       box-shadow: 0 1px 4px #0001;
       display: block;
-      margin-left: 0;
-      margin-right: 0;
+      margin: 0 auto 8px;
     }
 .koyu .custom-tooltip {
       background: linear-gradient(135deg, var(--card-bg) 80%, #23272f 100%);
