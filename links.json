@@ -109,6 +109,29 @@
           ]
         },
         {
+          "title": "Linux Dağıtımları",
+          "links": [
+            {
+              "url": "https://manjaro.org/",
+              "name": "Manjaro",
+              "recommended": false,
+              "description": "Arch Linux tabanlı, kullanıcı dostu ve popüler bir Linux dağıtımı.",
+              "icon": "icon/manjaro.svg",
+              "alt": "Manjaro",
+              "tags": []
+            },
+            {
+              "url": "https://ubuntu.com/desktop",
+              "name": "Ubuntu Desktop",
+              "recommended": false,
+              "description": "En popüler, Debian tabanlı Linux dağıtımlarından biri.",
+              "icon": "icon/ubuntu.svg",
+              "alt": "Ubuntu",
+              "tags": []
+            }
+          ]
+        },
+        {
           "title": "Office & Aktivasyon Araçları",
           "links": [
             {
