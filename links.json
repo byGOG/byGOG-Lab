@@ -1356,7 +1356,7 @@
               "name": "CopyQ",
               "recommended": false,
               "description": "Gelişmiş pano (clipboard) yöneticisi.",
-              "icon": "https://hluk.github.io/CopyQ/images/logo.svg",
+              "icon": "icon/CopyQ.svg",
               "alt": null,
               "tags": []
             },
@@ -1365,7 +1365,7 @@
               "name": "Dropbox",
               "recommended": false,
               "description": "Dosya yedekleme ve bulut depolama hizmeti.",
-              "icon": "https://fjord.dropboxstatic.com/warp/conversion/dropbox/warp/icons/Dropbox-logo-nav.svg",
+              "icon": "icon/Dropbox.svg",
               "alt": null,
               "tags": []
             },
@@ -1379,11 +1379,11 @@
               "tags": []
             },
             {
-              "url": "https://workspace.google.com/products/drive/",
+              "url": "https://drive.google.com/",
               "name": "Google Drive",
               "recommended": false,
               "description": "Google'ın bulut depolama ve dosya paylaşım servisi.",
-              "icon": "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.svg",
+              "icon": "icon/googledrive.svg",
               "alt": null,
               "tags": []
             },
@@ -1401,7 +1401,7 @@
               "name": "ImageGlass",
               "recommended": false,
               "description": "Hafif ve modern resim görüntüleyici.",
-              "icon": "https://imageglass.org/img/iglogo.svg",
+              "icon": "icon/ImageGlass.svg",
               "alt": null,
               "tags": []
             }
@@ -1429,7 +1429,7 @@
               "name": "VirtualBox",
               "recommended": false,
               "description": "Güçlü, açık kaynaklı sanallaştırma yazılımı. Windows, Linux, macOS ve diğer platformlarda sanal makine çalıştırmak için kullanılır.",
-              "icon": "https://www.virtualbox.org/favicon.ico",
+              "icon": "icon/VirtualBox.svg",
               "alt": "VirtualBox",
               "tags": []
             },
@@ -1438,7 +1438,7 @@
               "name": "Visual Studio Code",
               "recommended": false,
               "description": "Popüler kod editörü ve IDE.",
-              "icon": "https://code.visualstudio.com/favicon.ico",
+              "icon": "icon/VisualStudioCode.svg",
               "alt": "Visual Studio Code",
               "tags": []
             },
@@ -1447,7 +1447,7 @@
               "name": "Notepad++",
               "recommended": false,
               "description": "Gelişmiş metin ve kod editörü.",
-              "icon": "https://notepad-plus-plus.org/favicon.ico",
+              "icon": "icon/Notepad++.svg",
               "alt": "Notepad++",
               "tags": []
             },
@@ -1479,7 +1479,7 @@
               "name": "Java",
               "recommended": false,
               "description": "Java programlama dili ve çalışma zamanı.",
-              "icon": "https://www.java.com/favicon.ico",
+              "icon": "icon/JAVA.svg",
               "alt": null,
               "tags": []
             },
@@ -1488,7 +1488,7 @@
               "name": "Python",
               "recommended": false,
               "description": "Genel amaçlı, dinamik ve çok platformlu programlama dili.",
-              "icon": "https://www.python.org/static/favicon.ico",
+              "icon": "icon/Python.svg",
               "alt": "Python",
               "tags": []
             },
@@ -1506,7 +1506,7 @@
               "name": "Android Hata Ayıklama Köprüsü (ADB)",
               "recommended": false,
               "description": "Android cihazlarla bağlantı, uygulama yükleme, hata ayıklama ve komut satırı yönetimi için resmi araç.",
-              "icon": "https://developer.android.com/favicon.ico",
+              "icon": "icon/Android.svg",
               "alt": "ADB",
               "tags": []
             }
@@ -1562,7 +1562,7 @@
               "name": "DeepL",
               "recommended": false,
               "description": "Yapay zekâ destekli, yüksek kaliteli metin çeviri servisi. Çoklu dil desteği ve gelişmiş çeviri doğruluğu.",
-              "icon": "https://www.deepl.com/favicon.ico",
+              "icon": "icon/DeepL.svg",
               "alt": "DeepL",
               "tags": []
             },
@@ -1585,7 +1585,7 @@
               "name": "ChatGPT",
               "recommended": false,
               "description": "OpenAI ChatGPT ile yapay zekâ sohbeti.",
-              "icon": "https://chatgpt.com/favicon.ico",
+              "icon": "icon/ChatGPT.svg",
               "alt": null,
               "tags": []
             },
@@ -1644,7 +1644,7 @@
               "name": "RustDesk",
               "recommended": false,
               "description": "Açık kaynaklı uzaktan masaüstü erişimi.",
-              "icon": "https://rustdesk.com/_astro/favicon.B_ZzjaxD.svg",
+              "icon": "icon/RustDesk.svg",
               "alt": null,
               "tags": []
             },
@@ -1653,7 +1653,7 @@
               "name": "TeamViewer",
               "recommended": false,
               "description": "Popüler uzaktan destek ve erişim aracı.",
-              "icon": "https://www.teamviewer.com/favicon.ico",
+              "icon": "icon/TeamViewer.svg",
               "alt": null,
               "tags": []
             }
@@ -1672,7 +1672,7 @@
               "name": "ReVanced Manager",
               "recommended": false,
               "description": "YouTube Vanced ve benzeri modlu Android uygulamaları.",
-              "icon": "https://vancedapp.com/favicon.ico",
+              "icon": "icon/Vanced.svg",
               "alt": "ReVanced Manager",
               "tags": []
             },
@@ -1704,7 +1704,7 @@
               "name": "Discord",
               "recommended": false,
               "description": "Topluluk ve oyun odaklı sohbet platformu.",
-              "icon": "https://assets-global.website-files.com/6257adef93867e50d84d30e2/6286368c5f5cc306ac2a4672_Jobs%20and%20Career%20Opportunities%20at%20Discord-2%201.svg",
+              "icon": "icon/Discord.svg",
               "alt": null,
               "tags": []
             },
@@ -1713,7 +1713,7 @@
               "name": "Telegram",
               "recommended": false,
               "description": "Güvenli ve hızlı mesajlaşma uygulaması.",
-              "icon": "https://telegram.org/favicon.ico",
+              "icon": "icon/Telegram.svg",
               "alt": null,
               "tags": []
             },
@@ -1722,7 +1722,7 @@
               "name": "WhatsApp",
               "recommended": false,
               "description": "Popüler, uçtan uca şifreli mesajlaşma ve arama uygulaması.",
-              "icon": "https://static.whatsapp.net/rsrc.php/v4/yz/r/ujTY9i_Jhs1.svg",
+              "icon": "icon/whatsapp.svg",
               "alt": "WhatsApp",
               "tags": []
             }
@@ -1815,7 +1815,7 @@
               "name": "Steam",
               "recommended": false,
               "description": "Dijital oyun mağazası ve platformu.",
-              "icon": "https://store.steampowered.com/favicon.ico",
+              "icon": "icon/Steam.svg",
               "alt": null,
               "tags": []
             },
@@ -1824,7 +1824,7 @@
               "name": "Epic Games",
               "recommended": false,
               "description": "Epic Games'in dijital oyun mağazası ve platformu.",
-              "icon": "https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg",
+              "icon": "icon/EpicGames.svg",
               "alt": "Epic Games Store",
               "tags": []
             },
