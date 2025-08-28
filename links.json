@@ -567,7 +567,7 @@
               "name": "GoodbyeDPI-Turkey",
               "recommended": false,
               "description": "Türkiye için DPI engelini aşma aracı.",
-              "icon": "icon/GitHub.svg",
+              "icon": "icon/GoodbyeDPI.svg",
               "alt": null,
               "tags": []
             },
@@ -576,7 +576,7 @@
               "name": "GoodbyeDPI",
               "recommended": false,
               "description": "DPI tabanlı engellemeleri aşmak için araç.",
-              "icon": "icon/GitHub.svg",
+              "icon": "icon/GoodbyeDPI.svg",
               "alt": null,
               "tags": []
             },
@@ -626,7 +626,7 @@
               "name": "BrowserLeaks",
               "recommended": false,
               "description": "Tarayıcı gizliliği ve sızıntı testleri.",
-              "icon": "https://browserleaks.com/favicon.ico",
+              "icon": "icon/BrowserLeaks.svg",
               "alt": null,
               "tags": []
             },
@@ -635,7 +635,7 @@
               "name": "Firefox Relay",
               "recommended": false,
               "description": "E-posta gizliliği ve maskeleme servisi.",
-              "icon": "https://relay.firefox.com/favicon.svg",
+              "icon": "icon/Relay.svg",
               "alt": "Firefox Relay",
               "tags": []
             }
@@ -649,7 +649,7 @@
               "name": "NextDNS",
               "recommended": false,
               "description": "Reklam, izleyici ve zararlı yazılımları engelleyen, özelleştirilebilir DNS hizmeti.",
-              "icon": "https://nextdns.io/favicon.ico",
+              "icon": "icon/NextDNS.svg",
               "alt": null,
               "tags": []
             },
@@ -658,7 +658,7 @@
               "name": "DNSForge",
               "recommended": false,
               "description": "Almanya merkezli, gizlilik odaklı, reklamsız ve izleyicisiz DNS hizmeti.",
-              "icon": "https://dnsforge.de/favicon.png",
+              "icon": "icon/DNSForge.svg",
               "alt": null,
               "tags": []
             },
@@ -667,7 +667,7 @@
               "name": "Cloudflare",
               "recommended": false,
               "description": "Hızlı, gizlilik odaklı ve ücretsiz DNS hizmeti.",
-              "icon": "https://one.one.one.one/favicon.ico",
+              "icon": "icon/Cloudflare.svg",
               "alt": "Cloudflare 1.1.1.1",
               "tags": []
             }
@@ -731,7 +731,7 @@
               "name": "UnigetUI",
               "recommended": false,
               "description": "Çoklu paket yöneticisi arayüzü.",
-              "icon": "https://raw.githubusercontent.com/marticliment/UniGetUI/refs/heads/main/media/Icon%20sizes/128.png",
+              "icon": "icon/UniGetUI.svg",
               "alt": null,
               "tags": []
             },
