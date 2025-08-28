@@ -221,7 +221,7 @@
               "name": "BurnInTest",
               "recommended": false,
               "description": "Donanım kararlılığını test eden kapsamlı stres testi aracı.",
-              "icon": "https://www.passmark.com/favicon.ico",
+              "icon": "icon/BurnInTest.svg",
               "alt": "BurnInTest",
               "tags": []
             },
@@ -230,7 +230,7 @@
               "name": "PerformanceTest",
               "recommended": false,
               "description": "Bilgisayar performansını ölçen benchmark yazılımı.",
-              "icon": "https://www.passmark.com/favicon.ico",
+              "icon": "icon/PerformanceTest.svg",
               "alt": "PerformanceTest",
               "tags": []
             },
@@ -239,7 +239,7 @@
               "name": "Sysinternals Suite",
               "recommended": false,
               "description": "Windows sistemlerini yönetmek, sorun gidermek ve tanılamak için 70'ten fazla gelişmiş yardımcı programdan oluşan bir koleksiyon.",
-              "icon": "icon/Microsoft.svg",
+              "icon": "icon/Sysinternals.svg",
               "alt": "Sysinternals",
               "tags": []
             }
@@ -330,7 +330,7 @@
               "name": "O&O AppBuster",
               "recommended": false,
               "description": "Gereksiz Windows uygulamalarını kaldırma aracı.",
-              "icon": "https://www.oo-software.com/favicon.ico",
+              "icon": "icon/AppBuster.svg",
               "alt": null,
               "tags": []
             },
@@ -371,7 +371,7 @@
               "name": "NanaZip",
               "recommended": false,
               "description": "Modern Windows için 7-Zip tabanlı, açık kaynaklı dosya sıkıştırma ve arşivleme programı. MSIX paket, yeni arayüz ve gelişmiş entegrasyon.",
-              "icon": "icon/GitHub.svg",
+              "icon": "icon/NanaZip.svg",
               "alt": "NanaZip",
               "tags": []
             },
@@ -535,7 +535,7 @@
               "name": "Defender Control",
               "recommended": false,
               "description": "Windows Defender'ı kolayca devre dışı bırakma ve etkinleştirme aracı.",
-              "icon": "https://www.sordum.org/favicon.ico",
+              "icon": "icon/DefenderControl.svg",
               "alt": "Defender Control",
               "tags": []
             },
