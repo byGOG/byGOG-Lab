@@ -891,7 +891,7 @@
               "name": "Dark Reader",
               "recommended": false,
               "description": "Her web sitesi için karanlık tema oluşturan tarayıcı eklentisi.",
-              "icon": "https://darkreader.org/images/darkreader-icon-256x256.png",
+              "icon": "icon/darkreader.svg",
               "alt": "Dark Reader",
               "tags": []
             },
@@ -909,7 +909,7 @@
               "name": "SponsorBlock",
               "recommended": false,
               "description": "YouTube sponsor ve gereksiz bölümleri otomatik atlayan eklenti.",
-              "icon": "https://sponsor.ajay.app/favicon-32x32.png",
+              "icon": "icon/SponsorBlock.svg",
               "alt": null,
               "tags": []
             },
@@ -936,7 +936,7 @@
               "name": "Greasy Fork",
               "recommended": false,
               "description": "Kullanıcı scriptleri ve tarayıcı betikleri arşivi.",
-              "icon": "https://greasyfork.org/vite/assets/blacklogo16-DftkYuVe.png",
+              "icon": "icon/greasyfork.svg",
               "alt": "Greasy Fork",
               "tags": []
             },
@@ -945,7 +945,7 @@
               "name": "Immersive Translate",
               "recommended": false,
               "description": "Web sayfalarını anında çeviren tarayıcı eklentisi.",
-              "icon": "https://immersivetranslate.com/favicon.ico",
+              "icon": "icon/immersivetranslate.svg",
               "alt": "Immersive Translate",
               "tags": []
             }
