@@ -996,7 +996,7 @@
               "name": "Full Programlar İndir",
               "recommended": false,
               "description": "Türkçe yazılım indirme platformu.",
-              "icon": "https://www.fullprogramlarindir.net/favicon.ico",
+              "icon": "icon/fullprogramlarindir.svg",
               "alt": "Full Programlar İndir",
               "tags": []
             },
