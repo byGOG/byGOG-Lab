@@ -959,7 +959,7 @@
               "name": "Waveform Bufferbloat Test",
               "recommended": false,
               "description": "Bufferbloat sorununu ve bağlantı gecikmesini ölçen test aracı.",
-              "icon": "https://www.waveform.com/cdn/shop/t/41/assets/favicon.ico",
+              "icon": "icon/Waveform.svg",
               "alt": "Waveform Bufferbloat Test",
               "tags": []
             },
@@ -968,7 +968,7 @@
               "name": "DNS Speed Test",
               "recommended": false,
               "description": "DNS sağlayıcılarının hızını karşılaştıran test.",
-              "icon": "https://dnsspeedtest.online/favicon/favicon-32x32.png",
+              "icon": "icon/dnsspeedtest.svg",
               "alt": "DNS Speed Test",
               "tags": []
             }
@@ -987,7 +987,7 @@
               "name": "SoftArchive",
               "recommended": false,
               "description": "Yazılım, script ve araç arşivi.",
-              "icon": "https://softarchive.download/favicon.ico",
+              "icon": "icon/SoftArchive.svg",
               "alt": "SoftArchive",
               "tags": []
             },
