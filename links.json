@@ -645,6 +645,15 @@
           "title": "DNS Servisleri",
           "links": [
             {
+              "url": "https://adguard-dns.io/tr/public-dns.html",
+              "name": "AdGuard DNS",
+              "recommended": false,
+              "description": "Reklamları, izleyicileri, kötü amaçlı yazılımları ve kimlik avı sitelerini engelleyen ücretsiz DNS hizmeti.",
+              "icon": "icon/adguard.svg",
+              "alt": "AdGuard DNS",
+              "tags": []
+            },
+            {
               "url": "https://nextdns.io/",
               "name": "NextDNS",
               "recommended": false,
