@@ -1005,7 +1005,7 @@
               "name": "Warezturkey",
               "recommended": false,
               "description": "Yazılım, araç ve program arşivi.",
-              "icon": "https://www.warezturkey.me/favicon.ico",
+              "icon": "icon/warezturkey.svg",
               "alt": "Warezturkey",
               "tags": []
             },
@@ -1014,7 +1014,7 @@
               "name": "CyberMania",
               "recommended": false,
               "description": "Oyun, yazılım ve Android uygulama arşivi.",
-              "icon": "https://www.cybermania.ws/favicon.ico",
+              "icon": "icon/cybermania.svg",
               "alt": "CyberMania",
               "tags": []
             },
@@ -1023,7 +1023,7 @@
               "name": "Silentall",
               "recommended": false,
               "description": "Program, oyun ve katılımsız yazılım paylaşım platformu.",
-              "icon": "https://silentall.net/favicon.ico",
+              "icon": "icon/Silentall.svg",
               "alt": "Silentall",
               "tags": []
             },
@@ -1032,7 +1032,7 @@
               "name": "SolidShare",
               "recommended": false,
               "description": "Katılımsız programlar ve güncel yazılım arşivi.",
-              "icon": "https://www.solidshare.net/templates/Turkish/favicon.ico",
+              "icon": "icon/SolidShare.svg",
               "alt": "SolidShare",
               "tags": []
             }
@@ -1046,7 +1046,7 @@
               "name": "CRACKSurl",
               "recommended": false,
               "description": "Crack ve keygen paylaşım platformu.",
-              "icon": "https://cracksurl.com/favicon.ico",
+              "icon": "icon/CRACKSurl.svg",
               "alt": "CRACKSurl",
               "tags": []
             }
@@ -1059,8 +1059,8 @@
               "url": "https://www.zamunda.net/",
               "name": "Zamunda",
               "recommended": false,
-              "description": "Popüler Türkçe torrent paylaşım platformu.",
-              "icon": "https://zamunda.net/pic/pic/favicon.png",
+              "description": "Popüler torrent paylaşım platformu.",
+              "icon": "icon/zamunda.svg",
               "alt": "Zamunda",
               "tags": []
             },
@@ -1069,7 +1069,7 @@
               "name": "YTS",
               "recommended": false,
               "description": "Yüksek kaliteli film torrent arşivi.",
-              "icon": "https://yts.mx/assets/images/website/favicon.ico",
+              "icon": "icon/YTS.svg",
               "alt": "YTS",
               "tags": []
             },
