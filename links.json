@@ -1096,7 +1096,7 @@
               "name": "EZTV",
               "recommended": false,
               "description": "Dizi ve TV şovları için torrent platformu.",
-              "icon": "https://eztvx.to/favicon.ico",
+              "icon": "icon/eztv.svg",
               "alt": "EZTV",
               "tags": []
             },
@@ -1105,7 +1105,7 @@
               "name": "Lucida",
               "recommended": false,
               "description": "Özel torrent ve DDL paylaşım platformu.",
-              "icon": "https://lucida.to/favicon.ico",
+              "icon": "icon/Lucida.svg",
               "alt": "Lucida",
               "tags": []
             },
@@ -1114,7 +1114,7 @@
               "name": "DoubleDouble",
               "recommended": false,
               "description": "Özel torrent ve DDL paylaşım platformu.",
-              "icon": "https://doubledouble.top/favicon.ico",
+              "icon": "icon/DoubleDouble.svg",
               "alt": "DoubleDouble",
               "tags": []
             },
@@ -1123,7 +1123,7 @@
               "name": "showRSS",
               "recommended": false,
               "description": "Dizi torrentleri için RSS beslemesi.",
-              "icon": "https://showrss.info/favicon.ico",
+              "icon": "icon/showRSS.svg",
               "alt": "showRSS",
               "tags": []
             },
@@ -1132,7 +1132,7 @@
               "name": "1337x",
               "recommended": false,
               "description": "Torrent arama motoru.",
-              "icon": "https://www.1377x.to/favicon.ico",
+              "icon": "icon/1337x.svg",
               "alt": "1337x",
               "tags": []
             },
@@ -1141,7 +1141,7 @@
               "name": "The RARBG",
               "recommended": false,
               "description": "Torrent web sitesi.",
-              "icon": "https://therarbg.com/favicon.ico",
+              "icon": "icon/rarbg.svg",
               "alt": "The RARBG",
               "tags": []
             },
@@ -1150,7 +1150,7 @@
               "name": "EXT Torrents",
               "recommended": false,
               "description": "Torrent web sitesi.",
-              "icon": "https://ext.to/favicon.ico",
+              "icon": "icon/ext.svg",
               "alt": "EXT Torrents",
               "tags": []
             }
@@ -1173,7 +1173,7 @@
               "name": "Codec Guide",
               "recommended": false,
               "description": "K-Lite Codec Pack ile medya codec'leri.",
-              "icon": "https://codecguide.com/mpc_logo.svg",
+              "icon": "icon/codecguide.svg",
               "alt": null,
               "tags": []
             },
@@ -1214,7 +1214,7 @@
               "name": "Stremio",
               "recommended": false,
               "description": "Film ve dizi akış platformu.",
-              "icon": "https://www.stremio.com/website/stremio-purple-small.svg",
+              "icon": "icon/Stremio.svg",
               "alt": null,
               "tags": []
             },
@@ -1224,7 +1224,7 @@
               "name": "tv.garden",
               "recommended": false,
               "description": "Çevrim içi TV ve yayın platformu.",
-              "icon": "https://tv.garden/favicon.ico",
+              "icon": "icon/tv.garden.svg",
               "alt": null,
               "tags": []
             },
@@ -1233,7 +1233,7 @@
               "name": "Dojostreams",
               "recommended": false,
               "description": "Dünya genelinde IPTV, canlı TV ve film platformu.",
-              "icon": "https://www.dojostreams.com/favicon.ico",
+              "icon": "icon/Dojostreams.svg",
               "alt": "Dojostreams",
               "tags": []
             }
@@ -1247,7 +1247,7 @@
               "name": "BeatStats",
               "recommended": false,
               "description": "Beatport istatistikleri ve en iyi parçalar.",
-              "icon": "https://www.beatstats.com/favicon.ico",
+              "icon": "icon/BeatStats.svg",
               "alt": "BeatStats",
               "tags": []
             },
@@ -1256,7 +1256,7 @@
               "name": "Beatport",
               "recommended": false,
               "description": "Elektronik müzik ve DJ kültürü için dijital mağaza.",
-              "icon": "https://www.beatport.com/favicon.ico",
+              "icon": "icon/Beatport.svg",
               "alt": "Beatport",
               "tags": []
             },
@@ -1264,8 +1264,8 @@
               "url": "https://scloud.ws/",
               "name": "scloud.ws",
               "recommended": false,
-              "description": "SoundCloud müzik indirme platformu.",
-              "icon": "https://scloud.ws/favicon.ico",
+              "description": "Yazılım, araç ve program arşivi.",
+              "icon": "icon/scloud.svg",
               "alt": "scloud.ws",
               "tags": []
             }
@@ -1279,7 +1279,7 @@
               "name": "Internet Download Manager",
               "recommended": false,
               "description": "Popüler indirme yöneticisi ve hızlandırıcısı.",
-              "icon": "https://www.internetdownloadmanager.com/favicon.ico",
+              "icon": "icon/idm.svg",
               "alt": "Internet Download Manager",
               "tags": []
             },
@@ -1288,7 +1288,7 @@
               "name": "JDownloader",
               "recommended": false,
               "description": "Ücretsiz, açık kaynaklı indirme yöneticisi.",
-              "icon": "https://jdownloader.org/assets/images/logo/jd_logo_256_256.png",
+              "icon": "icon/jdownloader.svg",
               "alt": "JDownloader",
               "tags": []
             },
@@ -1297,7 +1297,7 @@
               "name": "HandBrake",
               "recommended": false,
               "description": "Açık kaynaklı video dönüştürücü.",
-              "icon": "https://handbrake.fr/favicon.ico",
+              "icon": "icon/HandBrake.svg",
               "alt": null,
               "tags": []
             },
@@ -1306,7 +1306,7 @@
               "name": "QobuzDownloaderX-MOD",
               "recommended": false,
               "description": "Qobuz müzik indirme aracı.",
-              "icon": "icon/GitHub.svg",
+              "icon": "icon/qbdlx.svg",
               "alt": null,
               "tags": []
             },
@@ -1315,7 +1315,7 @@
               "name": "SpotX",
               "recommended": false,
               "description": "Spotify için reklamsız deneyim aracı.",
-              "icon": "icon/GitHub.svg",
+              "icon": "icon/SpotX.svg",
               "alt": null,
               "tags": []
             },
@@ -1324,7 +1324,7 @@
               "name": "Spotify-Downloader",
               "recommended": false,
               "description": "Spotify müziklerini indirme aracı.",
-              "icon": "icon/GitHub.svg",
+              "icon": "icon/Spotify-Downloader.svg",
               "alt": null,
               "tags": []
             },
@@ -1333,7 +1333,7 @@
               "name": "Spicetify",
               "recommended": false,
               "description": "Spotify istemcisini özelleştirmek için komut satırı aracı.",
-              "icon": "https://spicetify.app/favicon.ico",
+              "icon": "icon/Spicetify.svg",
               "alt": "Spicetify",
               "tags": []
             },
@@ -1342,7 +1342,7 @@
               "name": "yt-dlp",
               "recommended": false,
               "description": "Zengin özelliklere sahip, komut satırı tabanlı video ve ses indirme aracı.",
-              "icon": "icon/GitHub.svg",
+              "icon": "icon/yt-dlp.svg",
               "alt": null,
               "tags": []
             }
@@ -1352,11 +1352,11 @@
           "title": "Dizi & Film İzleme Siteleri",
           "links": [
             {
-              "url": "https://dizipal938.com/",
+              "url": "https://dizipal1300.com/",
               "name": "Dizipal",
               "recommended": false,
               "description": "Güncel dizi ve filmleri ücretsiz izleyebileceğiniz popüler platform.",
-              "icon": "https://dizipal938.com/favicon.ico",
+              "icon": "icon/dizipal.svg",
               "alt": "Dizipal",
               "tags": []
             },
@@ -1365,17 +1365,17 @@
               "name": "DiziWatch",
               "recommended": false,
               "description": "Çevrim içi dizi ve film izleme platformu.",
-              "icon": "https://diziwatch.tv/favicon.ico",
+              "icon": "icon/DiziWatch.svg",
               "alt": "DiziWatch",
               "tags": []
             },
             {
-              "url": "https://inatflix.org/",
-              "name": "Inatflix (HDFilmCehennemi)",
+              "url": "https://hdfilmcehennemi18.org/",
+              "name": "HDFilmCehennemi",
               "recommended": false,
               "description": "Full HD 1080p kalitede dizi, film ve animeleri ücretsiz izleme platformu.",
-              "icon": "https://inatflix.org/favicon.ico",
-              "alt": "Inatflix",
+              "icon": "icon/hdfilmcehennemi.svg",
+              "alt": "HDFilmCehennemi",
               "tags": []
             }
           ]
@@ -1406,7 +1406,7 @@
               "name": "ShareX",
               "recommended": false,
               "description": "Ekran görüntüsü alma ve paylaşma aracı.",
-              "icon": "https://getsharex.com/favicon.ico",
+              "icon": "icon/ShareX.svg",
               "alt": null,
               "tags": []
             },
@@ -1424,7 +1424,7 @@
               "name": "LocalSend",
               "recommended": false,
               "description": "Yerel ağ üzerinden cihazlar arası dosya paylaşım aracı.",
-              "icon": "https://localsend.org/img/favicon.ico",
+              "icon": "icon/LocalSend.svg",
               "alt": "LocalSend",
               "tags": []
             },
@@ -1452,7 +1452,7 @@
               "name": "Cmder",
               "recommended": false,
               "description": "Gelişmiş Windows terminali.",
-              "icon": "https://cmder.app/favicon.ico",
+              "icon": "icon/Cmder.svg",
               "alt": "Cmder",
               "tags": []
             },
@@ -1488,7 +1488,7 @@
               "name": "Cursor",
               "recommended": false,
               "description": "Yapay zekâ destekli modern kod editörü. Kod tamamlama, doğal dil ile düzenleme ve gelişmiş üretkenlik özellikleri sunar.",
-              "icon": "https://cursor.com/favicon.ico",
+              "icon": "icon/Cursor.svg",
               "alt": "Cursor",
               "tags": []
             },
