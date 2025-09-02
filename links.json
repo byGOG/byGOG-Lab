@@ -128,6 +128,15 @@
               "icon": "icon/ubuntu.svg",
               "alt": "Ubuntu",
               "tags": []
+            },
+            {
+              "url": "https://distrowatch.com/",
+              "name": "DistroWatch",
+              "recommended": false,
+              "description": "Linux dağıtımları hakkında haberler, popülerlik sıralamaları ve diğer bilgileri sağlayan bir web sitesi.",
+              "icon": "https://distrowatch.com/favicon.ico",
+              "alt": "DistroWatch",
+              "tags": []
             }
           ]
         },
