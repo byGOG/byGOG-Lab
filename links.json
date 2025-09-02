@@ -1506,7 +1506,7 @@
               "name": "Resource Hacker",
               "recommended": false,
               "description": "Windows uygulamaları için ücretsiz kaynak derleyici ve düzenleyici. İkon, imleç, menü ve diyalog kutularını değiştirir.",
-              "icon": "https://www.angusj.com/favicon.ico",
+              "icon": "icon/ResourceHacker.svg",
               "alt": "Resource Hacker",
               "tags": []
             }
