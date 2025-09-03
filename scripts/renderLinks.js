@@ -31,7 +31,7 @@ function createLinkItem(link) {
 
   const nameSpan = document.createElement('span');
   nameSpan.className = 'link-text';
-  nameSpan.textContent = link.name;
+  nameSpan.textContent = normalizeText(link.name);
   a.appendChild(nameSpan);
   if (link.description) {
     const tooltip = document.createElement('span');
@@ -43,7 +43,7 @@ function createLinkItem(link) {
       if (link.alt) tipImg.alt = link.alt;
       tooltip.appendChild(tipImg);
     }
-    tooltip.appendChild(document.createTextNode(link.description));
+    tooltip.appendChild(document.createTextNode(normalizeText(link.description)));
     a.appendChild(tooltip);
   }
   li.appendChild(a);
@@ -56,7 +56,7 @@ function renderCategories(data, container) {
     const card = document.createElement('div');
     card.className = 'category-card';
     const h2 = document.createElement('h2');
-    h2.textContent = cat.title;
+    h2.textContent = normalizeText(cat.title);
     card.appendChild(h2);
 
     if (cat.subcategories) {
@@ -66,7 +66,7 @@ function renderCategories(data, container) {
         const subDiv = document.createElement('div');
         subDiv.className = 'sub-category';
         const h3 = document.createElement('h3');
-        h3.textContent = sc.title;
+        h3.textContent = normalizeText(sc.title);
         subDiv.appendChild(h3);
         const ul = document.createElement('ul');
         sc.links.forEach(link => ul.appendChild(createLinkItem(link)));
@@ -189,3 +189,50 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 });
+function normalizeText(s) {
+  if (!s) return s;
+  const map = [
+    ['�nerilenler', 'Önerilenler'],
+    ['�nerilen', 'Önerilen'],
+    ['Windows �ndirme', 'Windows İndirme'],
+    [' �ndir', ' İndir'],
+    ['�zel', 'Özel'],
+    ['Linux Da��t�mlar�', 'Linux Dağıtımları'],
+    ['da��t�mlar�ndan', 'dağıtımlarından'],
+    ['da��t�mlar�', 'dağıtımları'],
+    ['da��t�m�', 'dağıtımı'],
+    ['da��t�m', 'dağıtım'],
+    ['s�r�m�', 'sürümü'],
+    ['s�r�m', 'sürüm'],
+    ['g�venlik', 'güvenlik'],
+    ['Ara�lar�', 'Araçları'],
+    ['ara�lar�', 'araçları'],
+    ['ara�lar', 'araçlar'],
+    ['ara�', 'araç'],
+    ['kullan�c�', 'kullanıcı'],
+    ['pop�lerlik', 'popülerlik'],
+    ['pop�ler', 'popüler'],
+    ['i�in', 'için'],
+    ['i�erik', 'içerik'],
+    ['i�letim', 'işletim'],
+    ['�oklu', 'çoklu'],
+    ['�ny�kleme', 'önyükleme'],
+    ['ba�lant�lar', 'bağlantılar'],
+    ['ba�lant�', 'bağlantı'],
+    ['dosyas�', 'dosyası'],
+    ['olu�turma', 'oluşturma'],
+    ['g�ncelleme', 'güncelleme'],
+    ['Optimize edilmi�', 'Optimize edilmiş'],
+    ['odakl�', 'odaklı'],
+    ['hakk�nda', 'hakkında'],
+    ['di�er', 'diğer'],
+    ['sa�layan', 'sağlayan'],
+    ['Donan�m', 'Donanım'],
+    ['donan�m', 'donanım'],
+    ['tan�mlama', 'tanımlama'],
+    ['detayl�', 'detaylı']
+  ];
+  let out = s;
+  for (const [from, to] of map) out = out.replaceAll(from, to);
+  return out;
+}
