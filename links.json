@@ -1644,7 +1644,7 @@
               "name": "Copilot",
               "recommended": false,
               "description": "Microsoft Copilot ile yapay zekâ asistanı.",
-              "icon": "https://copilot.microsoft.com/favicon.ico",
+              "icon": "icon/Copilot.svg",
               "alt": null,
               "tags": []
             },
@@ -1653,7 +1653,7 @@
               "name": "Gemini",
               "recommended": false,
               "description": "Google Gemini ile yapay zekâ sohbeti.",
-              "icon": "https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg",
+              "icon": "icon/Gemini.svg",
               "alt": null,
               "tags": []
             },
@@ -1662,7 +1662,7 @@
               "name": "Perplexity AI",
               "recommended": false,
               "description": "Perplexity AI ile yapay zekâ arama ve sohbet.",
-              "icon": "https://www.perplexity.ai/favicon.ico",
+              "icon": "icon/Perplexity.svg",
               "alt": null,
               "tags": []
             }
@@ -1676,7 +1676,7 @@
               "name": "AnyDesk",
               "recommended": false,
               "description": "Uzaktan masaüstü erişim ve destek.",
-              "icon": "https://anydesk.com/favicon.ico",
+              "icon": "icon/AnyDesk.svg",
               "alt": null,
               "tags": []
             },
