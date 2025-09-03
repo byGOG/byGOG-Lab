@@ -116,7 +116,7 @@
               "name": "Manjaro",
               "recommended": false,
               "description": "Arch Linux tabanlı, kullanıcı dostu ve popüler bir Linux dağıtımı.",
-              "icon": "icon/manjaro.svg",
+              "icon": "icon/Manjaro.svg",
               "alt": "Manjaro",
               "tags": []
             },
@@ -1114,7 +1114,7 @@
               "name": "Lucida",
               "recommended": false,
               "description": "Özel torrent ve DDL paylaşım platformu.",
-              "icon": "icon/Lucida.svg",
+              "icon": "icon/lucida.svg",
               "alt": "Lucida",
               "tags": []
             },
@@ -1173,7 +1173,7 @@
               "name": "AIMP",
               "recommended": false,
               "description": "Gelişmiş müzik çalar.",
-              "icon": "icon/aimp.svg",
+              "icon": "icon/AIMP.svg",
               "alt": null,
               "tags": []
             },
@@ -1787,7 +1787,7 @@
               "name": "Yahoo Mail",
               "recommended": false,
               "description": "Yahoo Mail ile e-posta servisi ve oturum açma.",
-              "icon": "icon/Yahoo.svg",
+              "icon": "icon/yahoo.svg",
               "alt": "Yahoo Mail",
               "tags": []
             },
@@ -1828,7 +1828,7 @@
               "name": "SofaScore",
               "recommended": false,
               "description": "Canlı skorlar, istatistikler ve spor analizleri.",
-              "icon": "icon/SofaScore.svg",
+              "icon": "icon/Sofascore.svg",
               "alt": "SofaScore",
               "tags": []
             },
@@ -1888,7 +1888,7 @@
               "name": "FitGirl Repacks",
               "recommended": false,
               "description": "Popüler oyunlar için yüksek sıkıştırmalı repack arşivi.",
-              "icon": "icon/FitGirl.svg",
+              "icon": "icon/fitgirl.svg",
               "alt": "FitGirl Repacks",
               "tags": []
             },
@@ -1897,7 +1897,7 @@
               "name": "DODI Repacks",
               "recommended": false,
               "description": "Küçük boyutlu ve hızlı oyun repack arşivi.",
-              "icon": "icon/dodi.svg",
+              "icon": "icon/DODI.svg",
               "alt": "DODI Repacks",
               "tags": []
             },
