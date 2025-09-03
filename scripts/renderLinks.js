@@ -13,6 +13,7 @@ function createLinkItem(link) {
     const star = document.createElement('span');
     star.className = 'star';
     star.title = 'Önerilen';
+    star.setAttribute('aria-label', 'Önerilen');
     star.textContent = '★';
     a.appendChild(star);
   }
@@ -31,7 +32,9 @@ function createLinkItem(link) {
 
   const nameSpan = document.createElement('span');
   nameSpan.className = 'link-text';
-  nameSpan.textContent = normalizeText(link.name);
+  nameSpan.textContent = link.name;
+  // keep original for highlighting resets
+  li.dataset.nameOriginal = link.name || '';
   a.appendChild(nameSpan);
   if (link.description) {
     const tooltip = document.createElement('span');
@@ -43,9 +46,18 @@ function createLinkItem(link) {
       if (link.alt) tipImg.alt = link.alt;
       tooltip.appendChild(tipImg);
     }
-    tooltip.appendChild(document.createTextNode(normalizeText(link.description)));
+    tooltip.appendChild(document.createTextNode(link.description));
     a.appendChild(tooltip);
   }
+  // Enrich search index: name + description + tags
+  try {
+    const parts = [];
+    if (link.name) parts.push(link.name);
+    if (link.description) parts.push(link.description);
+    if (Array.isArray(link.tags) && link.tags.length) parts.push(link.tags.join(' '));
+    li.dataset.search = (parts.join(' ')).toLowerCase();
+    if (link.description) li.dataset.descOriginal = link.description;
+  } catch {}
   li.appendChild(a);
   return li;
 }
@@ -56,7 +68,7 @@ function renderCategories(data, container) {
     const card = document.createElement('div');
     card.className = 'category-card';
     const h2 = document.createElement('h2');
-    h2.textContent = normalizeText(cat.title);
+    h2.textContent = cat.title;
     card.appendChild(h2);
 
     if (cat.subcategories) {
@@ -66,17 +78,70 @@ function renderCategories(data, container) {
         const subDiv = document.createElement('div');
         subDiv.className = 'sub-category';
         const h3 = document.createElement('h3');
-        h3.textContent = normalizeText(sc.title);
+        h3.textContent = sc.title;
         subDiv.appendChild(h3);
         const ul = document.createElement('ul');
-        sc.links.forEach(link => ul.appendChild(createLinkItem(link)));
+        const sorted = [...sc.links].sort((a,b)=>{
+          const ar = a.recommended?1:0; const br = b.recommended?1:0;
+          if (ar!==br) return br-ar; // recommended first
+          // secondary by name for stable order
+          return String(a.name||'').localeCompare(String(b.name||''), 'tr');
+        });
+        let recInserted = false, othersInserted = false;
+        const hasRec = sorted.some(x=>!!x.recommended);
+        const hasNon = sorted.some(x=>!x.recommended);
+        sorted.forEach(link => {
+          if (hasRec && hasNon && link.recommended && !recInserted) {
+            const label = document.createElement('li');
+            label.className = 'group-label';
+            label.setAttribute('role','presentation');
+            label.textContent = 'Önerilenler';
+            ul.appendChild(label);
+            recInserted = true;
+          }
+          if (hasRec && hasNon && !link.recommended && !othersInserted) {
+            const label = document.createElement('li');
+            label.className = 'group-label';
+            label.setAttribute('role','presentation');
+            label.textContent = 'Diğerleri';
+            ul.appendChild(label);
+            othersInserted = true;
+          }
+          ul.appendChild(createLinkItem(link));
+        });
         subDiv.appendChild(ul);
         subContainer.appendChild(subDiv);
       });
       card.appendChild(subContainer);
     } else if (cat.links) {
       const ul = document.createElement('ul');
-      cat.links.forEach(link => ul.appendChild(createLinkItem(link)));
+      const sorted = [...cat.links].sort((a,b)=>{
+        const ar = a.recommended?1:0; const br = b.recommended?1:0;
+        if (ar!==br) return br-ar;
+        return String(a.name||'').localeCompare(String(b.name||''), 'tr');
+      });
+      let recInserted = false, othersInserted = false;
+      const hasRec = sorted.some(x=>!!x.recommended);
+      const hasNon = sorted.some(x=>!x.recommended);
+      sorted.forEach(link => {
+        if (hasRec && hasNon && link.recommended && !recInserted) {
+          const label = document.createElement('li');
+          label.className = 'group-label';
+          label.setAttribute('role','presentation');
+          label.textContent = 'Önerilenler';
+          ul.appendChild(label);
+          recInserted = true;
+        }
+        if (hasRec && hasNon && !link.recommended && !othersInserted) {
+          const label = document.createElement('li');
+          label.className = 'group-label';
+          label.setAttribute('role','presentation');
+          label.textContent = 'Diğerleri';
+          ul.appendChild(label);
+          othersInserted = true;
+        }
+        ul.appendChild(createLinkItem(link));
+      });
       card.appendChild(ul);
     }
 
@@ -89,19 +154,53 @@ function setupSearch() {
   const searchInput = document.getElementById('search-input');
   const searchStatus = document.getElementById('search-status');
   const links = Array.from(document.querySelectorAll('.category-card li'));
-  const linksText = links.map(link => link.textContent.toLowerCase());
+  const linksText = links.map(link => (link.dataset.search || link.textContent).toLowerCase());
 
   let debounceTimer;
 
   function performSearch() {
     const query = searchInput.value.toLowerCase().trim();
     let matchCount = 0;
+    const re = query ? new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi') : null;
 
     links.forEach((link, index) => {
       const isMatch = linksText[index].includes(query);
       link.style.display = isMatch ? '' : 'none';
       if (isMatch) {
         matchCount++;
+        // highlight name text
+        const span = link.querySelector('.link-text');
+        const original = link.dataset.nameOriginal || (span ? span.textContent : '');
+        if (span) {
+          if (re && query) {
+            span.innerHTML = original.replace(re, m => `<mark>${m}</mark>`);
+          } else {
+            span.textContent = original;
+          }
+        }
+        // highlight description text (tooltip)
+        const tooltip = link.querySelector('.custom-tooltip');
+        if (tooltip) {
+          const img = tooltip.querySelector('img');
+          const imgHtml = img ? img.outerHTML + ' ' : '';
+          const desc = link.dataset.descOriginal || '';
+          if (re && query && desc) {
+            tooltip.innerHTML = imgHtml + desc.replace(re, m => `<mark>${m}</mark>`);
+          } else if (desc) {
+            tooltip.innerHTML = imgHtml + desc;
+          }
+        }
+      } else {
+        // reset highlight if hidden
+        const span = link.querySelector('.link-text');
+        if (span) span.textContent = link.dataset.nameOriginal || span.textContent;
+        const tooltip = link.querySelector('.custom-tooltip');
+        if (tooltip) {
+          const img = tooltip.querySelector('img');
+          const imgHtml = img ? img.outerHTML + ' ' : '';
+          const desc = link.dataset.descOriginal || '';
+          if (desc) tooltip.innerHTML = imgHtml + desc;
+        }
       }
     });
 
@@ -131,21 +230,49 @@ function setupSearch() {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(performSearch, 300);
   });
+  // '/' to focus search; 'Esc' to clear
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey && !e.shiftKey) {
+      const t = e.target;
+      const tag = t && t.tagName ? t.tagName.toUpperCase() : '';
+      const editable = (t && t.isContentEditable) || tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
+      if (!editable) {
+        e.preventDefault();
+        searchInput.focus();
+        searchInput.select();
+      }
+    }
+  });
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (searchInput.value) {
+        searchInput.value = '';
+        performSearch();
+      }
+      e.stopPropagation();
+    }
+  });
 }
 
 function setupThemeToggle() {
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
   const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  const ICON_MOON = '🌙';
+  const ICON_SUN = '☀️';
 
   function setTheme(isDark) {
-    if (isDark) {
+    const nowDark = !!isDark;
+    if (nowDark) {
       body.classList.add('koyu');
-      themeToggle.textContent = '☀️';
+      themeToggle.textContent = ICON_SUN;
+      themeToggle.setAttribute('aria-label', 'Aydınlık temaya geç');
     } else {
       body.classList.remove('koyu');
-      themeToggle.textContent = '🌙';
+      themeToggle.textContent = ICON_MOON;
+      themeToggle.setAttribute('aria-label', 'Koyu temaya geç');
     }
+    themeToggle.setAttribute('aria-pressed', String(nowDark));
   }
 
   themeToggle.addEventListener('click', () => {
@@ -189,50 +316,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 });
-function normalizeText(s) {
-  if (!s) return s;
-  const map = [
-    ['�nerilenler', 'Önerilenler'],
-    ['�nerilen', 'Önerilen'],
-    ['Windows �ndirme', 'Windows İndirme'],
-    [' �ndir', ' İndir'],
-    ['�zel', 'Özel'],
-    ['Linux Da��t�mlar�', 'Linux Dağıtımları'],
-    ['da��t�mlar�ndan', 'dağıtımlarından'],
-    ['da��t�mlar�', 'dağıtımları'],
-    ['da��t�m�', 'dağıtımı'],
-    ['da��t�m', 'dağıtım'],
-    ['s�r�m�', 'sürümü'],
-    ['s�r�m', 'sürüm'],
-    ['g�venlik', 'güvenlik'],
-    ['Ara�lar�', 'Araçları'],
-    ['ara�lar�', 'araçları'],
-    ['ara�lar', 'araçlar'],
-    ['ara�', 'araç'],
-    ['kullan�c�', 'kullanıcı'],
-    ['pop�lerlik', 'popülerlik'],
-    ['pop�ler', 'popüler'],
-    ['i�in', 'için'],
-    ['i�erik', 'içerik'],
-    ['i�letim', 'işletim'],
-    ['�oklu', 'çoklu'],
-    ['�ny�kleme', 'önyükleme'],
-    ['ba�lant�lar', 'bağlantılar'],
-    ['ba�lant�', 'bağlantı'],
-    ['dosyas�', 'dosyası'],
-    ['olu�turma', 'oluşturma'],
-    ['g�ncelleme', 'güncelleme'],
-    ['Optimize edilmi�', 'Optimize edilmiş'],
-    ['odakl�', 'odaklı'],
-    ['hakk�nda', 'hakkında'],
-    ['di�er', 'diğer'],
-    ['sa�layan', 'sağlayan'],
-    ['Donan�m', 'Donanım'],
-    ['donan�m', 'donanım'],
-    ['tan�mlama', 'tanımlama'],
-    ['detayl�', 'detaylı']
-  ];
-  let out = s;
-  for (const [from, to] of map) out = out.replaceAll(from, to);
-  return out;
-}
+// normalizeText kaldırıldı: tüm içerik UTF-8'e düzeltildi ve doğrudan kullanılıyor.
