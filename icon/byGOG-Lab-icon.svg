@@ -1,30 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="t d">
-  <title id="t">byGOG Lab — Icon</title>
-  <desc id="d">Erlenmeyer şişesi formunda minimal ikon; içinde vurgulu sıvı ve kabarcıklar.</desc>
-  <style>
-    :root { --bg:#0B0F17; --fg:#E6EDF3; --acc:#00D4FF; }
-    @media (prefers-color-scheme: light) {
-      :root { --bg:#FFFFFF; --fg:#0B0F17; --acc:#0077FF; }
-    }
-    .bg{fill:var(--bg)}
-    .outline{fill:none;stroke:var(--fg);stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
-    .acc{fill:var(--acc)}
-  </style>
-  <rect class="bg" x="0" y="0" width="256" height="256" rx="32"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="t d">
+  <title id="t">byGOG Lab — App Icon</title>
+  <desc id="d">Modern kare ikon: akışkan mavi zemin üzerinde beyaz G monogramı ve iki teknoloji baloncuğu.</desc>
   <defs>
-    <clipPath id="clip-flask">
-      <path d="M96 40h64a8 8 0 0 1 0 16h-8v56l52 90a18 18 0 0 1-16 26H68a18 18 0 0 1-16-26l52-90V56h-8a8 8 0 0 1 0-16Z"/>
-    </clipPath>
-    <linearGradient id="liquid" x1="0" y1="150" x2="0" y2="220" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="var(--acc)" stop-opacity="0.95"/>
-      <stop offset="1" stop-color="var(--acc)" stop-opacity="0.7"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0EA5E9"/>
+      <stop offset="1" stop-color="#22D3EE"/>
     </linearGradient>
+    <style>
+      .ring{fill:none;stroke:#fff;stroke-width:28;stroke-linecap:round;stroke-linejoin:round}
+      .dot{fill:#fff}
+    </style>
   </defs>
-  <path class="outline" d="M96 40h64a8 8 0 0 1 0 16h-8v56l52 90a18 18 0 0 1-16 26H68a18 18 0 0 1-16-26l52-90V56h-8a8 8 0 0 1 0-16Z"/>
-  <g clip-path="url(#clip-flask)">
-    <path fill="url(#liquid)" d="M56 192 Q128 152 200 192 L200 232 L56 232 Z"/>
+
+  <rect x="0" y="0" width="512" height="512" rx="96" fill="url(#bg)"/>
+
+  <g transform="translate(0,0)">
+    <circle cx="256" cy="256" r="120" class="ring"/>
+    <path d="M276 292h84" class="ring"/>
   </g>
-  <circle class="acc" cx="168" cy="60" r="6"/>
-  <circle class="acc" cx="184" cy="74" r="4"/>
-  <line class="outline" x1="104" y1="56" x2="152" y2="56"/>
+
+  <circle cx="356" cy="132" r="12" class="dot"/>
+  <circle cx="384" cy="160" r="8" class="dot"/>
 </svg>
