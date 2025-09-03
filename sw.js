@@ -6,8 +6,8 @@ const urlsToCache = [
   'dist/styles.css',
   'dist/renderLinks.js',
   'links.json',
-  'icon/byGOG-Lab-icon.svg',
-  'icon/byGOG-Lab-logo.svg'
+  'icon/bygog-lab-icon.svg',
+  'icon/bygog-lab-logo.svg'
 ];
 
 self.addEventListener('install', event => {
