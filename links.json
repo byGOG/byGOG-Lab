@@ -1538,7 +1538,7 @@
               "name": "PowerShell",
               "recommended": false,
               "description": "Resmi PowerShell dökümantasyonu, örnekler ve kurulum rehberleri.",
-              "icon": "https://learn.microsoft.com/favicon.ico",
+              "icon": "icon/PowerShell.svg",
               "alt": null,
               "tags": []
             },
@@ -1570,7 +1570,7 @@
               "name": "Greenfish Icon Editor",
               "recommended": false,
               "description": "Ücretsiz, açık kaynaklı ve taşınabilir ikon, imleç ve animasyon editörü.",
-              "icon": "https://greenfishsoftware.org/favicon.ico",
+              "icon": "icon/Greenfish.svg",
               "alt": "Greenfish Icon Editor",
               "tags": []
             }
@@ -1589,7 +1589,7 @@
               "name": "Lively Wallpaper",
               "recommended": false,
               "description": "Hareketli ve interaktif masaüstü duvar kağıtları.",
-              "icon": "https://www.rocksdanister.com/lively/favicon.ico",
+              "icon": "icon/LivelyWallpaper.svg",
               "alt": "Lively Wallpaper",
               "tags": []
             }
@@ -1612,7 +1612,7 @@
               "name": "Google Translate",
               "recommended": false,
               "description": "Google'ın ücretsiz metin çeviri servisi.",
-              "icon": "https://translate.google.com/favicon.ico",
+              "icon": "icon/GoogleTranslate.svg",
               "alt": "Google Translate",
               "tags": []
             }
@@ -1635,7 +1635,7 @@
               "name": "Claude AI",
               "recommended": false,
               "description": "Claude AI ile yapay zekâ sohbeti.",
-              "icon": "https://claude.ai/favicon.ico",
+              "icon": "icon/Claude.svg",
               "alt": null,
               "tags": []
             },
