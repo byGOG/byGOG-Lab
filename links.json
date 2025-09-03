@@ -116,7 +116,7 @@
               "name": "Manjaro",
               "recommended": false,
               "description": "Arch Linux tabanlı, kullanıcı dostu ve popüler bir Linux dağıtımı.",
-              "icon": "icon/Manjaro.svg",
+              "icon": "icon/manjaro.svg",
               "alt": "Manjaro",
               "tags": []
             },
