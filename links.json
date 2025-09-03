@@ -1722,7 +1722,7 @@
               "name": "xManager",
               "recommended": false,
               "description": "Spotify için reklamsız ve gelişmiş Android uygulama yöneticisi.",
-              "icon": "https://www.xmanagerapp.com/favicon.ico",
+              "icon": "icon/xManager.svg",
               "alt": "xManager",
               "tags": []
             },
@@ -1731,7 +1731,7 @@
               "name": "InstaPro",
               "recommended": false,
               "description": "Instagram için reklamsız ve gelişmiş özellikler sunan modlu uygulama.",
-              "icon": "https://www.instamod.co/wp-content/uploads/2024/05/cropped-instamod-logo-32x32.svg",
+              "icon": "icon/InstaPro.svg",
               "alt": "InstaPro",
               "tags": []
             }
@@ -1778,7 +1778,7 @@
               "name": "Outlook",
               "recommended": false,
               "description": "Microsoft Outlook ile e-posta servisi.",
-              "icon": "https://outlook.live.com/favicon.ico",
+              "icon": "icon/Outlook.svg",
               "alt": "Outlook",
               "tags": []
             },
@@ -1787,7 +1787,7 @@
               "name": "Yahoo Mail",
               "recommended": false,
               "description": "Yahoo Mail ile e-posta servisi ve oturum açma.",
-              "icon": "https://s.yimg.com/wm/mbr/images/yahoo-apple-touch-v0.0.2.svg",
+              "icon": "icon/Yahoo.svg",
               "alt": "Yahoo Mail",
               "tags": []
             },
@@ -1796,7 +1796,7 @@
               "name": "Gmail",
               "recommended": false,
               "description": "Google Gmail ile e-posta servisi.",
-              "icon": "https://workspace.google.com/lp/static/images/logo-gmail.svg",
+              "icon": "icon/gmail.svg",
               "alt": "Gmail",
               "tags": []
             },
@@ -1805,7 +1805,7 @@
               "name": "Thunderbird",
               "recommended": false,
               "description": "Açık kaynaklı, güçlü ve güvenli e-posta istemcisi.",
-              "icon": "https://www.thunderbird.net/favicon.ico",
+              "icon": "icon/Thunderbird.svg",
               "alt": "Thunderbird",
               "tags": []
             }
@@ -1819,7 +1819,7 @@
               "name": "365Scores",
               "recommended": false,
               "description": "Canlı skorlar, maç sonuçları ve spor haberleri.",
-              "icon": "https://www.365scores.com/favicon.ico",
+              "icon": "icon/365Scores.svg",
               "alt": "365Scores",
               "tags": []
             },
@@ -1828,7 +1828,7 @@
               "name": "SofaScore",
               "recommended": false,
               "description": "Canlı skorlar, istatistikler ve spor analizleri.",
-              "icon": "https://www.sofascore.com/favicon.ico",
+              "icon": "icon/SofaScore.svg",
               "alt": "SofaScore",
               "tags": []
             },
@@ -1837,7 +1837,7 @@
               "name": "FotMob",
               "recommended": false,
               "description": "Futbol odaklı canlı skor ve haber platformu.",
-              "icon": "https://www.fotmob.com/favicon.ico",
+              "icon": "icon/FotMob.svg",
               "alt": "FotMob",
               "tags": []
             }
@@ -1888,7 +1888,7 @@
               "name": "FitGirl Repacks",
               "recommended": false,
               "description": "Popüler oyunlar için yüksek sıkıştırmalı repack arşivi.",
-              "icon": "https://fitgirl-repacks.site/favicon.ico",
+              "icon": "icon/FitGirl.svg",
               "alt": "FitGirl Repacks",
               "tags": []
             },
@@ -1897,7 +1897,7 @@
               "name": "DODI Repacks",
               "recommended": false,
               "description": "Küçük boyutlu ve hızlı oyun repack arşivi.",
-              "icon": "https://dodi-repacks.site/favicon.ico",
+              "icon": "icon/dodi.svg",
               "alt": "DODI Repacks",
               "tags": []
             },
@@ -1906,7 +1906,7 @@
               "name": "ElAmigos",
               "recommended": false,
               "description": "Güvenilir oyun repack ve ISO arşivi.",
-              "icon": "https://elamigos.site/favicon.ico",
+              "icon": "icon/ElAmigos.svg",
               "alt": "ElAmigos",
               "tags": []
             },
@@ -1915,7 +1915,7 @@
               "name": "Skidrow Codex",
               "recommended": false,
               "description": "Oyun crack ve repack paylaşımları.",
-              "icon": "https://www.skidrowcodex.net/favicon.ico",
+              "icon": "icon/skidrowcodex.svg",
               "alt": "Skidrow Codex",
               "tags": []
             },
@@ -1924,7 +1924,7 @@
               "name": "Skidrow Reloaded",
               "recommended": false,
               "description": "Güncel oyun crack ve repack platformu.",
-              "icon": "https://www.skidrowreloaded.com/wp-content/uploads/2024/05/cropped-faviicon-115x115.svg",
+              "icon": "icon/SkidrowReloaded.svg",
               "alt": "Skidrow Reloaded",
               "tags": []
             },
@@ -1933,7 +1933,7 @@
               "name": "GameCopyWorld",
               "recommended": false,
               "description": "Oyun crack ve patch arşivi.",
-              "icon": "https://gamecopyworld.com/favicon.ico",
+              "icon": "icon/GameCopyWorld.svg",
               "alt": "GameCopyWorld",
               "tags": []
             }
