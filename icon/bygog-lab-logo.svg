@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="640" height="200" viewBox="0 0 640 200" role="img" aria-labelledby="t d">
-  <title id="t">byGOG Lab — Logo</title>
-  <desc id="d">Modern, minimal logo: left monogram with tech bubbles, right clean wordmark.</desc>
+  <title id="t">byGOG Lab - Logo</title>
+  <desc id="d">Modern, yalın logo: solda teknoloji baloncuklu monogram, sağda temiz yazı logosu.</desc>
   <style>
     :root { --fg:#0B0F17; --fg-muted:#6B7280; --acc:#0EA5E9; }
     @media (prefers-color-scheme: dark) {
@@ -27,7 +27,7 @@
     <text class="word">
       <tspan>byGOG </tspan><tspan class="lab">Lab</tspan>
     </text>
-    <text class="tag" y="34">fast • clean • modern</text>
+    <text class="tag" y="34">hızlı • temiz • modern</text>
   </g>
 </svg>
 
