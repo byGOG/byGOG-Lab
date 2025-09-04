@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bygog-lab-cache-v2';
+const CACHE_NAME = 'bygog-lab-cache-v3';
 const urlsToCache = [
   '.',
   'index.html',
@@ -12,11 +12,23 @@ const urlsToCache = [
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
+    (async () => {
+      const cache = await caches.open(CACHE_NAME);
+      try {
+        await cache.addAll(urlsToCache);
+      } catch (_) {}
+      self.skipWaiting();
+    })()
+  );
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => (k !== CACHE_NAME ? caches.delete(k) : undefined)));
+      await self.clients.claim();
+    })()
   );
 });
 

@@ -2,7 +2,7 @@
   "name": "byGOG Lab",
   "short_name": "byGOG Lab",
   "scope": "/byGOG-Lab/",
-  "start_url": ".",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#f5f7fa",
   "theme_color": "#23272f",
@@ -10,12 +10,14 @@
     {
       "src": "icon/bygog-lab-icon.svg",
       "sizes": "192x192",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     },
     {
       "src": "icon/bygog-lab-icon.svg",
       "sizes": "512x512",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }

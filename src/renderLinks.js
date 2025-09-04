@@ -1,4 +1,3 @@
-// Rewritten for readability and small UX/accessibility improvements
 export async function fetchLinks() {
   const res = await fetch("links.json");
   if (!res.ok) throw new Error("links.json yüklenemedi");
