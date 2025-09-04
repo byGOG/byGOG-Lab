@@ -144,15 +144,6 @@
           "title": "Office & Aktivasyon Araçları",
           "links": [
             {
-              "url": "https://www.officetool.plus/",
-              "name": "Office Tool Plus",
-              "recommended": true,
-              "description": "Microsoft Office dağıtımı, kurulumu ve yönetimi için gelişmiş araç.",
-              "icon": "icon/otp.svg",
-              "alt": "Office Tool Plus",
-              "tags": []
-            },
-            {
               "url": "https://massgrave.dev/",
               "name": "Microsoft Activation Scripts",
               "recommended": true,
@@ -168,6 +159,38 @@
               "description": "IDM için aktivasyon scripti.",
               "icon": "icon/github.svg",
               "alt": "IDM Activation Script",
+              "tags": []
+            }
+          ]
+        },
+        {
+          "title": "Ofis Uygulamaları",
+          "links": [
+            {
+              "url": "https://tr.libreoffice.org/",
+              "name": "LibreOffice",
+              "recommended": false,
+              "description": "Ücretsiz ve açık kaynaklı ofis paketi.",
+              "icon": "icon/libreoffic.svg",
+              "alt": "LibreOffice",
+              "tags": []
+            },
+            {
+              "url": "https://www.freeoffice.com/tr/",
+              "name": "FreeOffice",
+              "recommended": false,
+              "description": "SoftMaker tarafından ücretsiz ofis paketi.",
+              "icon": "icon/freeoffice.svg",
+              "alt": "FreeOffice",
+              "tags": []
+            },
+            {
+              "url": "https://www.officetool.plus/",
+              "name": "Office Tool Plus",
+              "recommended": true,
+              "description": "Microsoft Office dağıtımı, kurulumu ve yönetimi için gelişmiş araç.",
+              "icon": "icon/otp.svg",
+              "alt": "Office Tool Plus",
               "tags": []
             }
           ]
@@ -496,6 +519,15 @@
               "description": "Gelişmiş kötü amaçlı yazılım temizleme ve gerçek zamanlı koruma aracı.",
               "icon": "icon/malwarebytes.svg",
               "alt": "Malwarebytes",
+              "tags": []
+            },
+            {
+              "url": "https://www.emsisoft.com/",
+              "name": "Emsisoft Anti-Malware",
+              "recommended": false,
+              "description": "Güçlü kötü amaçlı yazılım koruması ve temizleme aracı.",
+              "icon": "https://www.emsisoft.com/favicon.ico",
+              "alt": "Emsisoft",
               "tags": []
             }
           ]
@@ -851,6 +883,20 @@
               "description": "Popüler yazılımların alternatiflerini ve kullanıcı yorumlarını bulabileceğiniz karşılaştırma platformu.",
               "icon": "icon/alternativeto.svg",
               "alt": "AlternativeTo",
+              "tags": []
+            }
+          ]
+        },
+        {
+          "title": "Yazılım Portalları & İncelemeler",
+          "links": [
+            {
+              "url": "https://www.techspot.com/",
+              "name": "TechSpot",
+              "recommended": false,
+              "description": "Teknoloji haberleri, incelemeler ve yazılım indirmeleri.",
+              "icon": "icon/techspot.svg",
+              "alt": "TechSpot",
               "tags": []
             }
           ]
@@ -1227,7 +1273,6 @@
               "alt": null,
               "tags": []
             },
-
             {
               "url": "https://tv.garden/",
               "name": "tv.garden",
@@ -1393,29 +1438,11 @@
           "title": "Bulut Depolama & Yedekleme",
           "links": [
             {
-              "url": "https://hluk.github.io/CopyQ/",
-              "name": "CopyQ",
-              "recommended": false,
-              "description": "Gelişmiş pano (clipboard) yöneticisi.",
-              "icon": "icon/copyq.svg",
-              "alt": null,
-              "tags": []
-            },
-            {
               "url": "https://www.dropbox.com/",
               "name": "Dropbox",
               "recommended": false,
               "description": "Dosya yedekleme ve bulut depolama hizmeti.",
               "icon": "icon/dropbox.svg",
-              "alt": null,
-              "tags": []
-            },
-            {
-              "url": "https://getsharex.com/",
-              "name": "ShareX",
-              "recommended": false,
-              "description": "Ekran görüntüsü alma ve paylaşma aracı.",
-              "icon": "icon/sharex.svg",
               "alt": null,
               "tags": []
             },
@@ -1435,15 +1462,6 @@
               "description": "Yerel ağ üzerinden cihazlar arası dosya paylaşım aracı.",
               "icon": "icon/localsend.svg",
               "alt": "LocalSend",
-              "tags": []
-            },
-            {
-              "url": "https://imageglass.org/",
-              "name": "ImageGlass",
-              "recommended": false,
-              "description": "Hafif ve modern resim görüntüleyici.",
-              "icon": "icon/imageglass.svg",
-              "alt": null,
               "tags": []
             }
           ]
@@ -1699,6 +1717,38 @@
               "tags": []
             }
           ]
+        },
+        {
+          "title": "Üretkenlik & Yardımcı Araçlar",
+          "links": [
+            {
+              "url": "https://hluk.github.io/CopyQ/",
+              "name": "CopyQ",
+              "recommended": false,
+              "description": "Gelişmiş pano (clipboard) yöneticisi.",
+              "icon": "icon/copyq.svg",
+              "alt": null,
+              "tags": []
+            },
+            {
+              "url": "https://getsharex.com/",
+              "name": "ShareX",
+              "recommended": false,
+              "description": "Ekran görüntüsü alma ve paylaşma aracı.",
+              "icon": "icon/sharex.svg",
+              "alt": null,
+              "tags": []
+            },
+            {
+              "url": "https://imageglass.org/",
+              "name": "ImageGlass",
+              "recommended": false,
+              "description": "Hafif ve modern resim görüntüleyici.",
+              "icon": "icon/imageglass.svg",
+              "alt": null,
+              "tags": []
+            }
+          ]
         }
       ]
     },
@@ -1772,7 +1822,6 @@
         {
           "title": "E-posta & Hesap Yönetimi",
           "links": [
-            
             {
               "url": "https://outlook.live.com/",
               "name": "Outlook",
@@ -1943,5 +1992,3 @@
     }
   ]
 }
-
-

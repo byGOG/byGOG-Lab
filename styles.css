@@ -438,9 +438,14 @@
     .sub-category {
       flex: 1 1 300px;
     }
-    .sub-category h3 {
-      margin-top: 0;
-    }
+  .sub-category h3 {
+    margin-top: 0;
+  }
+
+  /* Hide group labels like "Önerilenler" and "Diğerleri" */
+  .group-label {
+    display: none !important;
+  }
     img[alt="RuckZuck"] {
       background: transparent !important;
     }
