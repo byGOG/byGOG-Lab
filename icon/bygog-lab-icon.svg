@@ -2,8 +2,8 @@
   <title id="t">byGOG Lab - Icon</title>
   <desc id="d">Yalın amblem: dairesel G ve iki baloncuk, yazısız.</desc>
   <style>
-    .mark-stroke{fill:none;stroke:#0B0F17;stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
-    .mark-fill{fill:#0EA5E9}
+    .mark-stroke{fill:none;stroke:#FFFFFF;stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
+    .mark-fill{fill:#FFFFFF}
   </style>
 
   <!-- Emblem centered within 160x160 viewBox -->
