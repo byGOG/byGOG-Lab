@@ -12,6 +12,5 @@
     <path class="mark-stroke" d="M114 68a46 46 0 1 1-46-46"/>
     <path class="mark-stroke" d="M86 92h40"/>
     <circle cx="112" cy="26" r="6" class="mark-fill"/>
-    <circle cx="128" cy="40" r="4" class="mark-fill"/>
   </g>
 </svg>
