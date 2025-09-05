@@ -1,35 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="t d">
-  <title id="t">byGOG Lab - Icon (Logo)</title>
-  <desc id="d">byGOG Lab logosu, ikon olarak ölçeklenmiş ve ortalanmış.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 160 160" role="img" aria-labelledby="t d">
+  <title id="t">byGOG Lab - Icon</title>
+  <desc id="d">Yalın amblem: dairesel G ve iki baloncuk, yazısız.</desc>
   <style>
-    :root { --fg:#0B0F17; --fg-muted:#6B7280; --acc:#0EA5E9; }
-    @media (prefers-color-scheme: dark) {
-      :root { --fg:#E6EDF3; --fg-muted:#9CA3AF; --acc:#22D3EE; }
-    }
-    .mark-stroke{fill:none;stroke:var(--fg);stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
-    .mark-fill{fill:var(--acc)}
-    .word{fill:var(--fg);font:700 44px/1.1 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;letter-spacing:.2px}
-    .lab{fill:var(--acc)}
-    .tag{fill:var(--fg-muted);font:600 16px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;letter-spacing:.3px}
+    .mark-stroke{fill:none;stroke:#0B0F17;stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
+    .mark-fill{fill:#0EA5E9}
   </style>
 
-  <!-- 640x200 logo, scaled to 512x160 and vertically centered -->
-  <g transform="translate(0,176) scale(0.8)">
-    <!-- Left emblem: circular G with bubbles -->
-    <g transform="translate(32,32)">
-      <circle cx="68" cy="68" r="56" class="mark-stroke"/>
-      <path class="mark-stroke" d="M114 68a46 46 0 1 1-46-46"/>
-      <path class="mark-stroke" d="M86 92h40"/>
-      <circle cx="112" cy="26" r="6" class="mark-fill"/>
-      <circle cx="128" cy="40" r="4" class="mark-fill"/>
-    </g>
-
-    <!-- Wordmark -->
-    <g transform="translate(240,92)">
-      <text class="word">
-        <tspan>byGOG </tspan><tspan class="lab">Lab</tspan>
-      </text>
-      <text class="tag" y="34">hızlı • temiz • modern</text>
-    </g>
+  <!-- Emblem centered within 160x160 viewBox -->
+  <g transform="translate(12,12)">
+    <circle cx="68" cy="68" r="56" class="mark-stroke"/>
+    <path class="mark-stroke" d="M114 68a46 46 0 1 1-46-46"/>
+    <path class="mark-stroke" d="M86 92h40"/>
+    <circle cx="112" cy="26" r="6" class="mark-fill"/>
+    <circle cx="128" cy="40" r="4" class="mark-fill"/>
   </g>
 </svg>
