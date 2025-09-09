@@ -134,7 +134,7 @@
               "name": "DistroWatch",
               "recommended": false,
               "description": "Linux dağıtımları hakkında haberler, popülerlik sıralamaları ve diğer bilgileri sağlayan bir web sitesi.",
-              "icon": "https://distrowatch.com/favicon.ico",
+              "icon": "icon/distrowatch.svg",
               "alt": "DistroWatch",
               "tags": []
             }
@@ -171,7 +171,7 @@
               "name": "LibreOffice",
               "recommended": false,
               "description": "Ücretsiz ve açık kaynaklı ofis paketi.",
-              "icon": "icon/libreoffic.svg",
+              "icon": "icon/libreoffice.svg",
               "alt": "LibreOffice",
               "tags": []
             },
@@ -526,7 +526,7 @@
               "name": "Emsisoft Anti-Malware",
               "recommended": false,
               "description": "Güçlü kötü amaçlı yazılım koruması ve temizleme aracı.",
-              "icon": "https://www.emsisoft.com/favicon.ico",
+              "icon": "icon/emsisoft.svg",
               "alt": "Emsisoft",
               "tags": []
             }
