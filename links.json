@@ -327,7 +327,7 @@
             },
             {
               "url": "https://www.intel.com/content/www/us/en/support/detect.html",
-              "name": "Intel Driver & Support Assistant",
+              "name": "Intel Driver ve Support Assistant",
               "recommended": false,
               "description": "Intel donanımınızı otomatik algılar ve en güncel sürücüleri önerir.",
               "icon": "icon/intel.svg",
@@ -368,7 +368,7 @@
             },
             {
               "url": "https://www.oo-software.com/en/ooappbuster",
-              "name": "O&O AppBuster",
+              "name": "OveO AppBuster",
               "recommended": false,
               "description": "Gereksiz Windows uygulamalarını kaldırma aracı.",
               "icon": "icon/appbuster.svg",
@@ -546,11 +546,11 @@
           "links": [
             {
               "url": "https://www.oo-software.com/en/shutup10",
-              "name": "O&O ShutUp10++",
+              "name": "OveO ShutUp10++",
               "recommended": false,
               "description": "Windows 10 ve 11 için ücretsiz, taşınabilir gizlilik ve telemetri kapatma aracı.",
               "icon": "icon/oosu10.svg",
-              "alt": "O&O ShutUp10++",
+              "alt": "OveO ShutUp10++",
               "tags": []
             },
             {
@@ -1021,7 +1021,7 @@
           ]
         },
         {
-          "title": "Ağ Testleri & Hız Ölçümleri",
+          "title": "Ağ Testleri ve Hız Ölçümleri",
           "links": [
             {
               "url": "https://www.waveform.com/tools/bufferbloat",
@@ -1046,7 +1046,7 @@
       ]
     },
     {
-      "title": "Medya & İndirme",
+      "title": "Medya ve İndirme",
       "subcategories": [
         {
           "title": "Yazılım İndirme ve Arşivleri",
@@ -1117,7 +1117,7 @@
           ]
         },
         {
-          "title": "Crack & Keygen Siteleri",
+          "title": "Crack ve Keygen Siteleri",
           "links": [
             {
               "url": "https://cracksurl.com/",
@@ -1131,7 +1131,7 @@
           ]
         },
         {
-          "title": "Torrent & DDL Platformları",
+          "title": "Torrent ve Doğrudan İndirme Platformları",
           "links": [
             {
               "url": "https://www.zamunda.net/",
@@ -1259,7 +1259,7 @@
           ]
         },
         {
-          "title": "Medya & Eğlence Platformları",
+          "title": "Medya ve Eğlence Platformları",
           "links": [
             {
               "url": "https://www.aimp.ru/",
@@ -1291,7 +1291,7 @@
           ]
         },
         {
-          "title": "Müzik & Video Akış Platformları",
+          "title": "Müzik ve Video Akış Platformları",
           "links": [
             {
               "url": "https://music.youtube.com/",
@@ -1364,7 +1364,7 @@
           ]
         },
         {
-          "title": "Medya Dönüştürücüler & İndiriciler",
+          "title": "Medya Dönüştürücüler ve İndiriciler",
           "links": [
             {
               "url": "https://www.internetdownloadmanager.com/",
@@ -1415,7 +1415,7 @@
           ]
         },
         {
-          "title": "Dizi & Film İzleme Siteleri",
+          "title": "Dizi ve Film İzleme Siteleri",
           "links": [
             {
               "url": "https://dizipal1300.com/",
@@ -1447,7 +1447,7 @@
           ]
         },
         {
-          "title": "Bulut Depolama & Yedekleme",
+          "title": "Bulut Depolama ve Yedekleme",
           "links": [
             {
               "url": "https://www.dropbox.com/",
@@ -1481,7 +1481,7 @@
       ]
     },
     {
-      "title": "Geliştirici & Tasarım",
+      "title": "Geliştirici ve Tasarım",
       "subcategories": [
         {
           "title": "Yazılım Geliştirme Araçları",
@@ -1543,7 +1543,7 @@
           ]
         },
         {
-          "title": "Programlama Dilleri & Araçlar",
+          "title": "Programlama Dilleri ve Araçlar",
           "links": [
             {
               "url": "https://www.java.com/tr/",
@@ -1584,7 +1584,7 @@
           ]
         },
         {
-          "title": "Grafik & Tasarım Araçları",
+          "title": "Grafik ve Tasarım Araçları",
           "links": [
             {
               "url": "https://inkscape.org/",
@@ -1609,10 +1609,10 @@
       ]
     },
     {
-      "title": "Uygulamalar & Araçlar",
+      "title": "Uygulamalar ve Araçlar",
       "subcategories": [
         {
-          "title": "Masaüstü Özelleştirme & Arayüz Araçları",
+          "title": "Masaüstü Özelleştirme ve Arayüz Araçları",
           "links": [
             {
               "url": "https://www.rocksdanister.com/lively/",
@@ -1626,7 +1626,7 @@
           ]
         },
         {
-          "title": "Çeviri & Dil Araçları",
+          "title": "Çeviri ve Dil Araçları",
           "links": [
             {
               "url": "https://www.deepl.com/tr/",
@@ -1649,7 +1649,7 @@
           ]
         },
         {
-          "title": "Yapay Zeka & Asistan Araçları",
+          "title": "Yapay Zeka ve Asistan Araçları",
           "links": [
             {
               "url": "https://chatgpt.com/",
@@ -1699,7 +1699,7 @@
           ]
         },
         {
-          "title": "Uzaktan Erişim & Destek Araçları",
+          "title": "Uzaktan Erişim ve Destek Araçları",
           "links": [
             {
               "url": "https://anydesk.com/tr",
@@ -1731,7 +1731,7 @@
           ]
         },
         {
-          "title": "Üretkenlik & Yardımcı Araçlar",
+          "title": "Üretkenlik ve Yardımcı Araçlar",
           "links": [
             {
               "url": "https://hluk.github.io/CopyQ/",
@@ -1765,7 +1765,7 @@
       ]
     },
     {
-      "title": "Mobil & İletişim",
+      "title": "Mobil ve İletişim",
       "subcategories": [
         {
           "title": "Android Modlu Uygulamalar",
@@ -1800,7 +1800,7 @@
           ]
         },
         {
-          "title": "İletişim & E-posta Servisleri",
+          "title": "İletişim ve E-posta Servisleri",
           "links": [
             {
               "url": "https://discord.com/",
@@ -1832,7 +1832,7 @@
           ]
         },
         {
-          "title": "E-posta & Hesap Yönetimi",
+          "title": "E-posta ve Hesap Yönetimi",
           "links": [
             {
               "url": "https://outlook.live.com/",
@@ -1873,7 +1873,7 @@
           ]
         },
         {
-          "title": "Spor & Canlı Skor Platformları",
+          "title": "Spor ve Canlı Skor Platformları",
           "links": [
             {
               "url": "https://www.365scores.com/tr",
@@ -1910,7 +1910,7 @@
       "title": "Oyun",
       "subcategories": [
         {
-          "title": "Oyun & Topluluk Platformları",
+          "title": "Oyun ve Topluluk Platformları",
           "links": [
             {
               "url": "https://store.steampowered.com/",
