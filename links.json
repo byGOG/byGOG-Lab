@@ -42,10 +42,10 @@
       ]
     },
     {
-      "title": "Windows & Office",
+      "title": "Windows ve Office",
       "subcategories": [
         {
-          "title": "Windows İndirme & Kurulum",
+          "title": "Windows İndirme ve Kurulum",
           "links": [
             {
               "url": "https://www.microsoft.com/tr-tr/software-download/windows10",
@@ -81,6 +81,15 @@
               "description": "Birden fazla işletim sistemi için çoklu önyükleme USB aracı.",
               "icon": "icon/ventoy.svg",
               "alt": "Ventoy",
+              "tags": []
+            },
+            {
+              "url": "https://os.click/en",
+              "name": "OS.Click",
+              "recommended": false,
+              "description": "Farklı işletim sistemlerini indirme platformu.",
+              "icon": "icon/os.click.svg",
+              "alt": "OS.Click",
               "tags": []
             }
           ]
@@ -122,7 +131,7 @@
             },
             {
               "url": "https://ubuntu.com/desktop",
-              "name": "Ubuntu Desktop",
+              "name": "Ubuntu",
               "recommended": false,
               "description": "En popüler, Debian tabanlı Linux dağıtımlarından biri.",
               "icon": "icon/ubuntu.svg",
@@ -198,7 +207,7 @@
       ]
     },
     {
-      "title": "Sistem Araçları & Bakım",
+      "title": "Sistem Araçları ve Bakım",
       "subcategories": [
         {
           "title": "Sistem Araçları",
@@ -278,7 +287,7 @@
           ]
         },
         {
-          "title": "Sürücü & Donanım",
+          "title": "Sürücü ve Donanım",
           "links": [
             {
               "url": "https://www.snappy-driver-installer.org/",
@@ -337,7 +346,7 @@
           ]
         },
         {
-          "title": "Optimizasyon & Temizlik",
+          "title": "Optimizasyon ve Temizlik",
           "links": [
             {
               "url": "https://www.bcuninstaller.com/",
@@ -387,7 +396,7 @@
           ]
         },
         {
-          "title": "Dosya & Disk Yönetimi",
+          "title": "Dosya ve Disk Yönetimi",
           "links": [
             {
               "url": "https://www.7-zip.org/",
@@ -464,7 +473,7 @@
           ]
         },
         {
-          "title": "Disk Analizi & Dosya Arama",
+          "title": "Disk Analizi ve Dosya Arama",
           "links": [
             {
               "url": "https://www.voidtools.com/tr-tr/",
@@ -489,10 +498,10 @@
       ]
     },
     {
-      "title": "Güvenlik & Gizlilik",
+      "title": "Güvenlik ve Gizlilik",
       "subcategories": [
         {
-          "title": "Antivirüs & Kötü Amaçlı Yazılım Temizleyiciler",
+          "title": "Antivirüs ve Kötü Amaçlı Yazılım Temizleyiciler",
           "links": [
             {
               "url": "https://www.avira.com/tr/free-antivirus-windows",
@@ -533,7 +542,7 @@
           ]
         },
         {
-          "title": "Gizlilik & Telemetri Araçları",
+          "title": "Gizlilik ve Telemetri Araçları",
           "links": [
             {
               "url": "https://www.oo-software.com/en/shutup10",
@@ -592,7 +601,7 @@
           ]
         },
         {
-          "title": "Ağ, VPN & Güvenlik Araçları",
+          "title": "Ağ, VPN ve Güvenlik Araçları",
           "links": [
             {
               "url": "https://antizapret.prostovpn.org/",
@@ -651,7 +660,7 @@
           ]
         },
         {
-          "title": "Şifre & Gizlilik Araçları",
+          "title": "Şifre ve Gizlilik Araçları",
           "links": [
             {
               "url": "https://bitwarden.com/",
@@ -714,7 +723,7 @@
             },
             {
               "url": "https://one.one.one.one/tr-TR/dns/",
-              "name": "Cloudflare",
+              "name": "Cloudflare DNS",
               "recommended": false,
               "description": "Hızlı, gizlilik odaklı ve ücretsiz DNS hizmeti.",
               "icon": "icon/cloudflare.svg",
@@ -726,10 +735,10 @@
       ]
     },
     {
-      "title": "Yazılım & Paket Yöneticileri",
+      "title": "Yazılım ve Paket Yöneticileri",
       "subcategories": [
         {
-          "title": "Yazılım Kurulum & Paket Yöneticileri",
+          "title": "Çevrimiçi Kurulum Hizmetleri",
           "links": [
             {
               "url": "https://ninite.com/",
@@ -741,48 +750,12 @@
               "tags": []
             },
             {
-              "url": "https://chocolatey.org/",
-              "name": "Chocolatey",
-              "recommended": false,
-              "description": "Komut satırı ile yazılım kurulum yöneticisi.",
-              "icon": "icon/chocolatey.svg",
-              "alt": "Chocolatey",
-              "tags": []
-            },
-            {
-              "url": "https://winutil.christitus.com/",
-              "name": "Chris Titus Tech's Windows Utility",
-              "recommended": false,
-              "description": "Windows için toplu kurulum ve optimizasyon aracı.",
-              "icon": "icon/winutil.svg",
-              "alt": "WinUtil",
-              "tags": []
-            },
-            {
-              "url": "https://os.click/en",
-              "name": "OS.Click",
-              "recommended": false,
-              "description": "Farklı işletim sistemlerini indirme platformu.",
-              "icon": "icon/os.click.svg",
-              "alt": "OS.Click",
-              "tags": []
-            },
-            {
               "url": "https://packagepicker.co/",
               "name": "PackagePicker",
               "recommended": false,
               "description": "Toplu yazılım kurulum listeleri oluşturur.",
               "icon": "icon/packagepicker.svg",
               "alt": "PackagePicker",
-              "tags": []
-            },
-            {
-              "url": "https://www.marticliment.com/unigetui/",
-              "name": "UnigetUI",
-              "recommended": false,
-              "description": "Çoklu paket yöneticisi arayüzü.",
-              "icon": "icon/unigetui.svg",
-              "alt": null,
               "tags": []
             },
             {
@@ -804,12 +777,35 @@
               "tags": []
             },
             {
-              "url": "https://www.quickinstaller.net/",
-              "name": "QuickInstaller",
+              "url": "https://winutil.christitus.com/",
+              "name": "Winutil",
               "recommended": false,
-              "description": "Hızlı ve kolay yazılım kurulum platformu.",
-              "icon": "icon/quickinstaller.svg",
-              "alt": "QuickInstaller",
+              "description": "Windows için toplu kurulum ve optimizasyon aracı.",
+              "icon": "icon/winutil.svg",
+              "alt": "WinUtil",
+              "tags": []
+            }
+          ]
+        },
+        {
+          "title": "Kurulum Gerektiren Paket Yöneticileri",
+          "links": [
+            {
+              "url": "https://chocolatey.org/",
+              "name": "Chocolatey",
+              "recommended": false,
+              "description": "Komut satırı ile yazılım kurulum yöneticisi.",
+              "icon": "icon/chocolatey.svg",
+              "alt": "Chocolatey",
+              "tags": []
+            },
+            {
+              "url": "https://www.marticliment.com/unigetui/",
+              "name": "UnigetUI",
+              "recommended": false,
+              "description": "Çoklu paket yöneticisi arayüzü.",
+              "icon": "icon/unigetui.svg",
+              "alt": null,
               "tags": []
             },
             {
@@ -819,6 +815,15 @@
               "description": "Hızlı yazılım yükleme ve güncelleme aracı.",
               "icon": "icon/ruckzuck.svg",
               "alt": "RuckZuck",
+              "tags": []
+            },
+            {
+              "url": "https://www.quickinstaller.net/",
+              "name": "QuickInstaller",
+              "recommended": false,
+              "description": "Hızlı ve kolay yazılım kurulum platformu.",
+              "icon": "icon/quickinstaller.svg",
+              "alt": "QuickInstaller",
               "tags": []
             },
             {
@@ -874,7 +879,7 @@
           ]
         },
         {
-          "title": "Yazılım Alternatifleri & Karşılaştırma",
+          "title": "Yazılım Alternatifleri ve Karşılaştırma",
           "links": [
             {
               "url": "https://alternativeto.net/",
@@ -888,7 +893,7 @@
           ]
         },
         {
-          "title": "Yazılım Portalları & İncelemeler",
+          "title": "Yazılım Portalları ve İncelemeler",
           "links": [
             {
               "url": "https://www.techspot.com/",
@@ -904,10 +909,10 @@
       ]
     },
     {
-      "title": "İnternet & Tarayıcı",
+      "title": "İnternet ve Tarayıcı",
       "subcategories": [
         {
-          "title": "Web Tarayıcıları & Eklentiler",
+          "title": "Tarayıcılar ve Eklentiler",
           "links": [
             {
               "url": "https://brave.com/tr/",
@@ -948,7 +953,7 @@
           ]
         },
         {
-          "title": "Tarayıcı Eklentileri & Güvenlik",
+          "title": "Tarayıcı Eklentileri ve Güvenlik",
           "links": [
             {
               "url": "https://darkreader.org/",
@@ -1020,7 +1025,7 @@
           "links": [
             {
               "url": "https://www.waveform.com/tools/bufferbloat",
-              "name": "Waveform Bufferbloat Test",
+              "name": "Bufferbloat and Internet Speed Test",
               "recommended": false,
               "description": "Bufferbloat sorununu ve bağlantı gecikmesini ölçen test aracı.",
               "icon": "icon/waveform.svg",
@@ -1029,7 +1034,7 @@
             },
             {
               "url": "https://dnsspeedtest.online/",
-              "name": "DNS Speed Test",
+              "name": "DNS Speed Test Benchmark",
               "recommended": false,
               "description": "DNS sağlayıcılarının hızını karşılaştıran test.",
               "icon": "icon/dnsspeedtest.svg",
@@ -1044,7 +1049,7 @@
       "title": "Medya & İndirme",
       "subcategories": [
         {
-          "title": "Yazılım İndirme & Arşivleri",
+          "title": "Yazılım İndirme ve Arşivleri",
           "links": [
             {
               "url": "https://softarchive.download/",
@@ -1098,6 +1103,15 @@
               "description": "Katılımsız programlar ve güncel yazılım arşivi.",
               "icon": "icon/solidshare.svg",
               "alt": "SolidShare",
+              "tags": []
+            },
+            {
+              "url": "https://scloud.ws/",
+              "name": "scloud.ws",
+              "recommended": false,
+              "description": "Yazılım, araç ve program arşivi.",
+              "icon": "icon/scloud.svg",
+              "alt": "scloud.ws",
               "tags": []
             }
           ]
@@ -1155,24 +1169,7 @@
               "alt": "EZTV",
               "tags": []
             },
-            {
-              "url": "https://lucida.to/",
-              "name": "Lucida",
-              "recommended": false,
-              "description": "Özel torrent ve DDL paylaşım platformu.",
-              "icon": "icon/lucida.svg",
-              "alt": "Lucida",
-              "tags": []
-            },
-            {
-              "url": "https://doubledouble.top/",
-              "name": "DoubleDouble",
-              "recommended": false,
-              "description": "Özel torrent ve DDL paylaşım platformu.",
-              "icon": "icon/doubledouble.svg",
-              "alt": "DoubleDouble",
-              "tags": []
-            },
+            
             {
               "url": "https://showrss.info/",
               "name": "showRSS",
@@ -1207,6 +1204,56 @@
               "description": "Torrent web sitesi.",
               "icon": "icon/ext.svg",
               "alt": "EXT Torrents",
+              "tags": []
+            }
+          ]
+        },
+        {
+          "title": "Müzik İndirme Siteleri",
+          "links": [
+            {
+              "url": "https://lucida.to/",
+              "name": "Lucida",
+              "recommended": false,
+              "description": "Özel torrent ve DDL paylaşım platformu.",
+              "icon": "icon/lucida.svg",
+              "alt": "Lucida",
+              "tags": []
+            },
+            {
+              "url": "https://doubledouble.top/",
+              "name": "DoubleDouble",
+              "recommended": false,
+              "description": "Özel torrent ve DDL paylaşım platformu.",
+              "icon": "icon/doubledouble.svg",
+              "alt": "DoubleDouble",
+              "tags": []
+            },
+            {
+              "url": "https://github.com/DJDoubleD/QobuzDownloaderX-MOD",
+              "name": "QobuzDownloaderX-MOD",
+              "recommended": false,
+              "description": "Qobuz müzik indirme aracı.",
+              "icon": "icon/qbdlx.svg",
+              "alt": null,
+              "tags": []
+            },
+            {
+              "url": "https://github.com/WilliamSchack/Spotify-Downloader",
+              "name": "Spotify-Downloader",
+              "recommended": false,
+              "description": "Spotify müziklerini indirme aracı.",
+              "icon": "icon/spotify-downloader.svg",
+              "alt": null,
+              "tags": []
+            },
+            {
+              "url": "https://github.com/yt-dlp/yt-dlp",
+              "name": "yt-dlp",
+              "recommended": false,
+              "description": "Zengin özelliklere sahip, komut satırı tabanlı video ve ses indirme aracı.",
+              "icon": "icon/yt-dlp.svg",
+              "alt": null,
               "tags": []
             }
           ]
@@ -1313,15 +1360,6 @@
               "icon": "icon/beatport.svg",
               "alt": "Beatport",
               "tags": []
-            },
-            {
-              "url": "https://scloud.ws/",
-              "name": "scloud.ws",
-              "recommended": false,
-              "description": "Yazılım, araç ve program arşivi.",
-              "icon": "icon/scloud.svg",
-              "alt": "scloud.ws",
-              "tags": []
             }
           ]
         },
@@ -1356,29 +1394,11 @@
               "tags": []
             },
             {
-              "url": "https://github.com/DJDoubleD/QobuzDownloaderX-MOD",
-              "name": "QobuzDownloaderX-MOD",
-              "recommended": false,
-              "description": "Qobuz müzik indirme aracı.",
-              "icon": "icon/qbdlx.svg",
-              "alt": null,
-              "tags": []
-            },
-            {
               "url": "https://github.com/SpotX-Official/SpotX",
               "name": "SpotX",
               "recommended": false,
               "description": "Spotify için reklamsız deneyim aracı.",
               "icon": "icon/spotx.svg",
-              "alt": null,
-              "tags": []
-            },
-            {
-              "url": "https://github.com/WilliamSchack/Spotify-Downloader",
-              "name": "Spotify-Downloader",
-              "recommended": false,
-              "description": "Spotify müziklerini indirme aracı.",
-              "icon": "icon/spotify-downloader.svg",
               "alt": null,
               "tags": []
             },
@@ -1390,16 +1410,8 @@
               "icon": "icon/spicetify.svg",
               "alt": "Spicetify",
               "tags": []
-            },
-            {
-              "url": "https://github.com/yt-dlp/yt-dlp",
-              "name": "yt-dlp",
-              "recommended": false,
-              "description": "Zengin özelliklere sahip, komut satırı tabanlı video ve ses indirme aracı.",
-              "icon": "icon/yt-dlp.svg",
-              "alt": null,
-              "tags": []
             }
+            
           ]
         },
         {
@@ -1506,7 +1518,7 @@
               "name": "Notepad++",
               "recommended": false,
               "description": "Gelişmiş metin ve kod editörü.",
-              "icon": "icon/notepad++.svg",
+              "icon": "icon/notepadplusplus.svg",
               "alt": "Notepad++",
               "tags": []
             },
