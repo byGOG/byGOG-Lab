@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="106" height="24" role="img" aria-label="PWA">
+  <linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient>
+  <g shape-rendering="crispEdges"><rect width="46" height="24" fill="#555"/><rect x="46" width="60" height="24" fill="#0ea5e9"/></g>
+  <rect width="106" height="24" fill="url(#b)"/>
+  <g fill="#fff" text-anchor="middle" font-family="Segoe UI, Inter, system-ui, -apple-system" font-size="12">
+    <text x="23" y="16">type</text>
+    <text x="23" y="16" opacity="0.0">type</text>
+    <text x="76" y="16" font-weight="700">PWA</text>
+  </g>
+</svg>

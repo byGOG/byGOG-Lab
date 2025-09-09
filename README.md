@@ -1,47 +1,75 @@
-byGOG Lab — Son Kullanıcı Rehberi
+<div align="center">
 
-byGOG Lab; Windows, Office, güvenlik, ağ, yazılım araçları ve daha fazlası için özenle seçilmiş bağlantıları tek bir sayfada sunar. Hızlı arama, önerilenler vurgusu, karanlık/aydınlık tema ve çevrimdışı kullanım (PWA) özellikleriyle pratik bir başvuru kaynağıdır.
+  <img src="docs/readme-banner.svg" alt="byGOG Lab Banner" width="100%" />
 
-Özellikler
-- Hızlı arama: Yazdıkça sonuçları filtreler ve eşleşmeleri vurgular.
-- Önerilenler: En üstte yıldız simgesiyle vurgulanan bağlantılar.
-- Tema geçişi: Koyu/Aydınlık mod arasında geçiş.
-- Kategoriler: Alt başlıklarla düzenli içerik.
-- Çevrimdışı kullanım: Servis çalışanı ile son içerik önbelleğe alınır.
-- PWA: Mobil ve masaüstüne uygulama olarak eklenebilir.
+  <br/>
 
-Nasıl Kullanılır?
-- Arama: Üstteki arama kutusuna yazın; sonuçlar anında filtrelenir.
-- Kategoriler: İlgili başlık altındaki bağlantılara tıklayın; tüm bağlantılar yeni sekmede açılır.
-- Tema: Sağ üstteki `Tema` düğmesiyle koyu/aydınlık moda geçin.
-- Önerilenler: Yıldız simgesi (⭐) ile işaretlenir ve listelerde önce görünür.
+  <img src="docs/badges/pwa.svg" alt="PWA" />
+  <img src="docs/badges/offline.svg" alt="Offline Ready" />
+  <img src="docs/badges/darkmode.svg" alt="Dark Mode" />
+  <img src="docs/badges/no-tracking.svg" alt="No Tracking" />
 
-Klavye Kısayolları
-- `/` (eğik çizgi): Arama kutusuna odaklanır.
-- `Esc`: Aramayı temizler ve sonuçları varsayılana döndürür.
+  <p><em>Seçilmiş bağlantılar • Tek sayfa • Hızlı PWA</em></p>
+</div>
 
-Çevrimdışı Kullanım (PWA)
-- Site ilk ziyaretinizde temel dosyaları önbelleğe alır.
-- Sonraki ziyaretlerde internet yavaşken de hızlı açılır; çevrimdışıyken sınırlı içerik gösterilebilir.
-- En güncel içerik için zaman zaman çevrimiçi olarak ziyaret edin.
+**Öne Çıkanlar**
+- **Hızlı arama:** Yazdıkça filtreler, eşleşmeleri vurgular.
+- **Önerilenler:** Üstte yıldızlı bağlantılarla hızlı erişim.
+- **Koyu/Açık tema:** Tek tıkla görünüm değişimi.
+- **Çevrimdışı kullanım:** Servis çalışanı ile içerik önbelleği.
+- **PWA:** Telefon ve masaüstüne uygulama olarak eklenir.
 
-Uygulama Olarak Ekleme
-- Mobil: Tarayıcınızın menüsünden “Ana ekrana ekle” seçeneğini kullanın.
-- Masaüstü (Chrome/Edge): Adres çubuğundaki “Yükle” simgesini tıklayın.
+**Hızlı Bakış**
+- **Ana sayfa:** `index.html`
+- **İçerik kaynağı:** `links.json`
+- **Görselleştirme:** `src/renderLinks.js`
+- **Servis çalışanı:** `sw.js`
+- **Manifest:** `manifest.json`
 
-Sık Sorulanlar
-- İçerik güvenli mi? Bağlantılar güvenilir kaynaklara yönlendirir. Yine de indirmeleri her zaman resmi sayfalardan ve doğrulanmış kaynaklardan yapın.
-- Takip veya analiz var mı? Hayır. Site sadece içeriği göstermek için çalışır. Harici simge/kapak görselleri bazı hizmetlerden gelebilir.
-- Güncellemeler nasıl gelir? Siteye her girişinizde manifest ve içerik yenilenebilir; çevrimdışı önbellek arka planda tazelenir.
+**Ekran Görselleri**
+- Aşağıdaki küçük koleksiyon, içerikte yer alan bazı araçların simgeleridir.
+  <br/>
+  <img src="icon/bygog-lab-logo.svg" alt="byGOG" height="40" />
+  <img src="icon/chrome.svg" alt="Chrome" height="40" />
+  <img src="icon/firefox.svg" alt="Firefox" height="40" />
+  <img src="icon/brave.svg" alt="Brave" height="40" />
+  <img src="icon/ublock.svg" alt="uBlock" height="40" />
+  <img src="icon/bitwarden.svg" alt="Bitwarden" height="40" />
+  <img src="icon/scoop.svg" alt="Scoop" height="40" />
+  <img src="icon/winget.run.svg" alt="winget.run" height="40" />
+  <img src="icon/visualstudiocode.svg" alt="VS Code" height="40" />
+  <img src="icon/python.svg" alt="Python" height="40" />
+  <img src="icon/sharex.svg" alt="ShareX" height="40" />
 
-Yerelde Görüntüleme (İsteğe bağlı)
-Bu bölüm geliştirici olmayan kullanıcılar için zorunlu değildir. Yine de klasörü yerelde açmak isterseniz:
-- Basit bir yerel sunucu ile çalıştırın (örneğin VS Code Live Server, `python -m http.server`, vb.).
-- Ardından tarayıcıda `http://localhost:PORT/` adresine gidin. Doğrudan dosya açma (`file:///`) yöntemi, tarayıcıların güvenlik politikaları nedeniyle çalışmayabilir.
+**Nasıl Kullanılır?**
+- **Arama:** Üstteki kutuya yazın; sonuçlar anında filtrelenir.
+- **Kategoriler:** İlgili başlık altındaki bağlantılara tıklayın; tüm bağlantılar yeni sekmede açılır.
+- **Tema:** Sağ üstteki `Tema` seçimiyle Koyu/Açık moda geçin.
+- **Önerilenler:** Yıldız simgesiyle işaretlenir, listelerde önce görünür.
 
-İlgili dosyalar
-- Ana sayfa: `index.html`
-- İçerik: `links.json`
+**Klavye Kısayolları**
+- `/`: Arama kutusuna odaklanır.
+- `Esc`: Aramayı temizler, varsayılana döndürür.
 
-Geri Bildirim
-Öneri ve düzeltmeler için lütfen GitHub üzerinden geri bildirim bırakın: `@byGOG`
+**PWA ve Çevrimdışı**
+- İlk ziyaretinizde temel dosyalar önbelleğe alınır.
+- Sonraki ziyaretlerde yavaş bağlantıda bile hızlı açılır; çevrimdışıyken son içerik gösterilir.
+- En güncel içerik için ara ara çevrimiçi ziyaret edin.
+
+**Mimari (Özet)**
+```mermaid
+flowchart LR
+  A[index.html] --> B[src/renderLinks.js]
+  B --> C[links.json]
+  A --> D[manifest.json]
+  A --> E[sw.js]
+  E -->|önbellek| A
+```
+
+**Yerelde Görüntüleme**
+- Basit bir yerel sunucu ile çalıştırın (örn. VS Code Live Server, `python -m http.server`).
+- Ardından tarayıcıda `http://localhost:PORT/` adresine gidin. Not: `file:///` ile açmak tarayıcı güvenlik kısıtları nedeniyle sorun çıkarabilir.
+
+**Katkı ve Geri Bildirim**
+- Öneri ve düzenlemeler için issue/pull request açabilirsiniz.
+- Hızlı geri bildirim için `links.json` üzerinde kategori ve başlık önerilerinde bulunun.
