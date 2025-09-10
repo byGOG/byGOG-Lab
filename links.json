@@ -42,7 +42,7 @@
       ]
     },
     {
-      "title": "Windows ve Office",
+      "title": "Windows, Linux ve Ofis Araçları",
       "subcategories": [
         {
           "title": "Windows İndirme ve Kurulum",
@@ -118,7 +118,7 @@
           ]
         },
         {
-          "title": "Linux Dağıtımları",
+          "title": "Linux Dağıtımları ve Kaynakları",
           "links": [
             {
               "url": "https://manjaro.org/",
@@ -150,7 +150,7 @@
           ]
         },
         {
-          "title": "Aktivasyon Araçları",
+          "title": "Etkinleştirme Araçları",
           "links": [
             {
               "url": "https://massgrave.dev/",
@@ -788,7 +788,7 @@
           ]
         },
         {
-          "title": "Kurulum Gerektiren Paket Yöneticileri",
+          "title": "Kurulumlu Paket Yöneticileri",
           "links": [
             {
               "url": "https://chocolatey.org/",
