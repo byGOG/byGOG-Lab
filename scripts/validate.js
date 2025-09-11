@@ -13,11 +13,11 @@ let warnings = 0;
 
 const isStr = v => typeof v === 'string' && v.length >= 0;
 // Detect likely mojibake or replacement characters in UTF-8 Turkish text
-// - Replacement char U+FFFD (�)
-// - Common UTF-8 mis-decoding sequences: Ã, Â, � (literal)
+// - Replacement char U+FFFD (\\\\uFFFD|�|Ã.|Â|Ä.|Å.)
+// - Common UTF-8 mis-decoding sequences: Ã, Â, \\\\uFFFD|�|Ã.|Â|Ä.|Å. (literal)
 const hasMojibake = s => {
   const str = String(s);
-  return /\uFFFD|Ã|Â|�/.test(str);
+  return /\uFFFD|Ã|Â|\\\\uFFFD|�|Ã.|Â|Ä.|Å./.test(str);
 };
 const isBool = v => typeof v === 'boolean';
 const isArr = Array.isArray;

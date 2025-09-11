@@ -1,0 +1,10 @@
+# Normalize line endings and enforce text files as LF in repo
+* text=auto eol=lf
+
+# Treat SVG/HTML/JS/JSON as text explicitly
+*.svg text eol=lf
+*.html text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+

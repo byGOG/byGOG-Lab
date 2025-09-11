@@ -6,8 +6,9 @@
   "scripts": {
     "build": "node scripts/build.js",
     "validate": "node scripts/validate.js",
+    "check:encoding": "node scripts/check-encoding.js",
+    "ci:validate": "npm run validate && npm run check:encoding",
     "fix:titles": "node scripts/fix-titles.js",
     "serve": "node scripts/serve.js"
   }
 }
-

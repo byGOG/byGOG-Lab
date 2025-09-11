@@ -30,6 +30,9 @@ function createLinkItem(link) {
     img.width = 28;
     img.height = 28;
     img.src = link.icon;
+    img.onerror = () => {
+      try { img.onerror = null; img.src = "icon/fallback.svg"; } catch {}
+    };
     if (link.alt) img.alt = link.alt;
     img.className = "site-icon";
     wrap.appendChild(img);
@@ -52,6 +55,9 @@ function createLinkItem(link) {
       tipImg.width = 28;
       tipImg.height = 28;
       tipImg.src = link.icon;
+      tipImg.onerror = () => {
+        try { tipImg.onerror = null; tipImg.src = "icon/fallback.svg"; } catch {}
+      };
       if (link.alt) tipImg.alt = link.alt;
       tip.appendChild(tipImg);
     }

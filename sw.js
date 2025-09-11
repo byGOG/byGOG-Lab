@@ -1,13 +1,39 @@
-const CACHE_NAME = 'bygog-lab-cache-v5';
+const CACHE_NAME = 'bygog-lab-cache-v6';
 const urlsToCache = [
   '.',
   'index.html',
   'manifest.json',
   'dist/styles.css',
+  'dist/fab.css',
   'dist/renderLinks.js',
   'links.json',
   'icon/bygog-lab-icon.svg',
   'icon/bygog-lab-logo.svg'
+];
+
+// Pre-cache a curated set of very small icons to improve first paint
+// Keep this list limited to tiny SVGs (<5KB) to avoid bloating cache
+const smallIcons = [
+  'icon/fallback.svg',
+  'icon/amd.svg',
+  'icon/android.svg',
+  'icon/buster.svg',
+  'icon/chrome.svg',
+  'icon/discord.svg',
+  'icon/github.svg',
+  'icon/gmail.svg',
+  'icon/googledrive.svg',
+  'icon/rustdesk.svg',
+  'icon/steam.svg',
+  'icon/teamviewer.svg',
+  'icon/telegram.svg',
+  'icon/tor.svg',
+  'icon/ubuntu.svg',
+  'icon/ublock.svg',
+  'icon/visualstudiocode.svg',
+  'icon/winconfigs.svg',
+  'icon/yahoo.svg',
+  'icon/zenbrowser.svg'
 ];
 
 self.addEventListener('install', event => {
@@ -15,7 +41,7 @@ self.addEventListener('install', event => {
     (async () => {
       const cache = await caches.open(CACHE_NAME);
       try {
-        await cache.addAll(urlsToCache);
+        await cache.addAll([...urlsToCache, ...smallIcons]);
       } catch (_) {}
       self.skipWaiting();
     })()
