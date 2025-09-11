@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bygog-lab-cache-v3';
+const CACHE_NAME = 'bygog-lab-cache-v4';
 const urlsToCache = [
   '.',
   'index.html',
@@ -33,7 +33,6 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-  // Only handle GET requests
   if (event.request.method !== 'GET') return;
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_NAME);
@@ -43,7 +42,6 @@ self.addEventListener('fetch', event => {
     const networkFetch = fetch(event.request)
       .then(response => {
         try {
-          // Cache successful same-origin, basic responses only
           if (sameOrigin && response && response.status === 200 && response.type === 'basic') {
             cache.put(event.request, response.clone());
           }
@@ -52,7 +50,7 @@ self.addEventListener('fetch', event => {
       })
       .catch(() => undefined);
 
-    // Stale-while-revalidate
     return cached || networkFetch || new Response('Offline', { status: 503, statusText: 'Offline' });
   })());
 });
+

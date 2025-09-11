@@ -47,7 +47,7 @@ set(['categories', 4, 'subcategories', 3, 'title'], 'Yazılım Portalları & İn
 
 // CAT 6: İnternet & Tarayıcı
 set(['categories', 5, 'title'], 'İnternet & Tarayıcı');
-set(['categories', 5, 'subcategories', 0, 'title'], 'Web Tarayıcıları & Eklentiler');
+set(['categories', 5, 'subcategories', 0, 'title'], 'Web Tarayıcılar & Eklentiler');
 set(['categories', 5, 'subcategories', 1, 'title'], 'Tarayıcı Eklentileri & Güvenlik');
 set(['categories', 5, 'subcategories', 2, 'title'], 'Ağ Testleri & Hız Ölçümleri');
 
