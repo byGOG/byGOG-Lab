@@ -590,6 +590,15 @@
               "tags": []
             },
             {
+              "url": "https://github.com/es3n1n/defendnot",
+              "name": "DefendNot",
+              "recommended": false,
+              "description": "Windows Defender'ı devre dışı bırakmayı kolaylaştıran script.",
+              "icon": "icon/github.svg",
+              "alt": "DefendNot",
+              "tags": []
+            },
+            {
               "url": "https://zenprivacy.net/",
               "name": "Zen Privacy",
               "recommended": false,
