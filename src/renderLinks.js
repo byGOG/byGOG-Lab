@@ -16,7 +16,8 @@ function createLinkItem(link) {
     star.className = "star";
     star.title = "Önerilen";
     star.setAttribute("aria-label", "Önerilen");
-    star.textContent = "⭐";
+    star.setAttribute("aria-hidden", "true");
+    star.textContent = "★";
     a.appendChild(star);
   }
 

@@ -3,6 +3,7 @@
   Usage: node scripts/validate.js
 */
 const fs = require('fs');
+const path = require('path');
 
 const file = 'links.json';
 const j = JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -11,26 +12,34 @@ let errors = 0;
 let warnings = 0;
 
 const isStr = v => typeof v === 'string' && v.length >= 0;
+const hasMojibake = s => /�/.test(String(s));
 const isBool = v => typeof v === 'boolean';
 const isArr = Array.isArray;
 
-function validateLink(l, path) {
-  if (!isStr(l.url)) { console.error(`ERROR ${path}.url must be string`); errors++; }
-  if (!isStr(l.name)) { console.error(`ERROR ${path}.name must be string`); errors++; }
+function validateLink(l, pathStr) {
+  if (!isStr(l.url)) { console.error(`ERROR ${pathStr}.url must be string`); errors++; }
+  if (!isStr(l.name)) { console.error(`ERROR ${pathStr}.name must be string`); errors++; }
   if (l.hasOwnProperty('recommended') && !isBool(l.recommended)) {
-    console.error(`ERROR ${path}.recommended must be boolean`); errors++;
+    console.error(`ERROR ${pathStr}.recommended must be boolean`); errors++;
   }
   if (l.hasOwnProperty('description') && !isStr(l.description)) {
-    console.error(`ERROR ${path}.description must be string`); errors++;
+    console.error(`ERROR ${pathStr}.description must be string`); errors++;
   }
+  if (isStr(l.name) && hasMojibake(l.name)) { console.warn(`WARN  ${pathStr}.name contains invalid characters`); warnings++; }
+  if (isStr(l.description) && hasMojibake(l.description)) { console.warn(`WARN  ${pathStr}.description contains invalid characters`); warnings++; }
   if (l.hasOwnProperty('icon') && !isStr(l.icon)) {
-    console.error(`ERROR ${path}.icon must be string`); errors++;
+    console.error(`ERROR ${pathStr}.icon must be string`); errors++;
   }
   if (l.hasOwnProperty('alt') && !isStr(l.alt)) {
-    console.error(`ERROR ${path}.alt must be string`); errors++;
+    console.error(`ERROR ${pathStr}.alt must be string`); errors++;
   }
   if (l.hasOwnProperty('tags') && !isArr(l.tags)) {
-    console.error(`ERROR ${path}.tags must be array`); errors++;
+    console.error(`ERROR ${pathStr}.tags must be array`); errors++;
+  }
+  // Warn if icon file does not exist (skip http/https)
+  if (isStr(l.icon) && !/^https?:\/\//i.test(l.icon)) {
+    const iconPath = path.resolve(l.icon);
+    if (!fs.existsSync(iconPath)) { console.warn(`WARN  ${pathStr}.icon not found: ${l.icon}`); warnings++; }
   }
 }
 
@@ -41,6 +50,7 @@ function validate() {
   }
   j.categories.forEach((cat, i) => {
     if (!isStr(cat.title)) { console.error(`ERROR categories[${i}].title must be string`); errors++; }
+    else if (hasMojibake(cat.title)) { console.warn(`WARN  categories[${i}].title contains invalid characters`); warnings++; }
     if (cat.links && !isArr(cat.links)) { console.error(`ERROR categories[${i}].links must be array`); errors++; }
     if (cat.subcategories && !isArr(cat.subcategories)) { console.error(`ERROR categories[${i}].subcategories must be array`); errors++; }
     if (isArr(cat.links)) {
@@ -49,6 +59,7 @@ function validate() {
     if (isArr(cat.subcategories)) {
       cat.subcategories.forEach((sub, jdx) => {
         if (!isStr(sub.title)) { console.error(`ERROR categories[${i}].subcategories[${jdx}].title must be string`); errors++; }
+        else if (hasMojibake(sub.title)) { console.warn(`WARN  categories[${i}].subcategories[${jdx}].title contains invalid characters`); warnings++; }
         if (!isArr(sub.links)) { console.error(`ERROR categories[${i}].subcategories[${jdx}].links must be array`); errors++; }
         else sub.links.forEach((l, k) => validateLink(l, `categories[${i}].subcategories[${jdx}].links[${k}]`));
       });
@@ -68,4 +79,3 @@ if (warnings) {
 }
 
 console.log('links.json validation OK');
-

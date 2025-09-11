@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bygog-lab-cache-v4';
+const CACHE_NAME = 'bygog-lab-cache-v5';
 const urlsToCache = [
   '.',
   'index.html',
@@ -53,4 +53,3 @@ self.addEventListener('fetch', event => {
     return cached || networkFetch || new Response('Offline', { status: 503, statusText: 'Offline' });
   })());
 });
-

@@ -1,0 +1,13 @@
+{
+  "name": "bygog-lab",
+  "private": true,
+  "version": "0.1.0",
+  "description": "byGOG kaynak arşivi",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "validate": "node scripts/validate.js",
+    "fix:titles": "node scripts/fix-titles.js",
+    "serve": "node scripts/serve.js"
+  }
+}
+
