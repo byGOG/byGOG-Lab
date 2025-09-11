@@ -1,4 +1,3 @@
-// Rewritten for readability and small UX/accessibility improvements
 export async function fetchLinks() {
   const res = await fetch("links.json");
   if (!res.ok) throw new Error("links.json yüklenemedi");
@@ -18,7 +17,7 @@ function createLinkItem(link) {
     star.title = "Önerilen";
     star.setAttribute("aria-label", "Önerilen");
     star.setAttribute("aria-hidden", "true");
-    star.textContent = "★";
+    star.textContent = "⭐";
     a.appendChild(star);
   }
 
@@ -279,7 +278,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         reg => console.log("ServiceWorker registration successful with scope:", reg.scope),
         err => console.log("ServiceWorker registration failed:", err)
       );
+      // Auto-reload when a new service worker takes control (ensures fresh content)
+      try {
+        navigator.serviceWorker.addEventListener("controllerchange", () => {
+          window.location.reload();
+        });
+      } catch {}
     });
   }
 });
-

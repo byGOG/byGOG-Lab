@@ -12,7 +12,13 @@ let errors = 0;
 let warnings = 0;
 
 const isStr = v => typeof v === 'string' && v.length >= 0;
-const hasMojibake = s => /�/.test(String(s));
+// Detect likely mojibake or replacement characters in UTF-8 Turkish text
+// - Replacement char U+FFFD (�)
+// - Common UTF-8 mis-decoding sequences: Ã, Â, � (literal)
+const hasMojibake = s => {
+  const str = String(s);
+  return /\uFFFD|Ã|Â|�/.test(str);
+};
 const isBool = v => typeof v === 'boolean';
 const isArr = Array.isArray;
 
