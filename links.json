@@ -385,6 +385,15 @@
               "tags": []
             },
             {
+              "url": "https://github.com/farag2/Sophia-Script-for-Windows",
+              "name": "Sophia Script for Windows",
+              "recommended": false,
+              "description": "Windows 10/11 için gelişmiş ayar ve optimizasyon scripti.",
+              "icon": "icon/github.svg",
+              "alt": "Sophia Script for Windows",
+              "tags": []
+            },
+            {
               "url": "https://winconfigs.netlify.app/",
               "name": "WinConfigs",
               "recommended": false,
