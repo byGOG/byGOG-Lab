@@ -739,6 +739,16 @@
               "alt": "Cloudflare 1.1.1.1",
               "tags": []
             }
+            ,
+            {
+              "url": "https://blahdns.com/",
+              "name": "BlahDNS",
+              "recommended": false,
+              "description": "Gizlilik odakli, reklam ve izleyici engelleme sunan DNS hizmeti.",
+              "icon": "icon/blahdns.svg",
+              "alt": "BlahDNS",
+              "tags": []
+            }
           ]
         }
       ]
