@@ -1294,6 +1294,15 @@
               "tags": []
             },
             {
+              "url": "https://eu.qqdl.site/",
+              "name": "Qobuz-DL (Web)",
+              "recommended": false,
+              "description": "Qobuz müzik indirme aracı (web).",
+              "icon": "icon/qbdlx.svg",
+              "alt": "Qobuz-DL",
+              "tags": []
+            },
+            {
               "url": "https://github.com/WilliamSchack/Spotify-Downloader",
               "name": "Spotify-Downloader",
               "recommended": false,
