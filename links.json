@@ -401,6 +401,24 @@
               "icon": "icon/winconfigs.svg",
               "alt": null,
               "tags": []
+            },
+            {
+              "url": "https://bogdan-patraucean.github.io/about/wintoys/",
+              "name": "Wintoys",
+              "recommended": false,
+              "description": "Windows 11 için ayar ve optimizasyon aracı.",
+              "icon": "icon/github.svg",
+              "alt": "Wintoys",
+              "tags": []
+            },
+            {
+              "url": "https://pcmanager.microsoft.com/tr-tr",
+              "name": "Microsoft PC Manager",
+              "recommended": false,
+              "description": "Windows için Microsoft'un resmi temizleme ve optimizasyon aracı.",
+              "icon": "icon/microsoft.svg",
+              "alt": "Microsoft PC Manager",
+              "tags": []
             }
           ]
         },
@@ -636,6 +654,15 @@
               "recommended": false,
               "description": "Türkiye için DPI engelini aşma aracı.",
               "icon": "icon/goodbyedpi.svg",
+              "alt": null,
+              "tags": []
+            },
+            {
+              "url": "https://github.com/cagritaskn/SplitWire-Turkey",
+              "name": "SplitWire-Turkey",
+              "recommended": false,
+              "description": "Türkiye için DPI aşma ve tünelleme otomasyonu.",
+              "icon": "icon/splitwire.svg",
               "alt": null,
               "tags": []
             },
