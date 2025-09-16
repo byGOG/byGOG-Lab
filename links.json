@@ -1376,6 +1376,15 @@
               "tags": []
             },
             {
+              "url": "https://www.deezer.com/tr/",
+              "name": "Deezer",
+              "recommended": false,
+              "description": "Milyonlarca parça sunan küresel müzik akış hizmeti.",
+              "icon": "icon/deezer.svg",
+              "alt": "Deezer",
+              "tags": []
+            },
+            {
               "url": "https://www.stremio.com/",
               "name": "Stremio",
               "recommended": false,

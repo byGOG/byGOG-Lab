@@ -1,0 +1,29 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="deezer-bar-1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD100" />
+      <stop offset="100%" stop-color="#FD5A22" />
+    </linearGradient>
+    <linearGradient id="deezer-bar-2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFCC00" />
+      <stop offset="100%" stop-color="#CE1938" />
+    </linearGradient>
+    <linearGradient id="deezer-bar-3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#CC1953" />
+      <stop offset="100%" stop-color="#241284" />
+    </linearGradient>
+    <linearGradient id="deezer-bar-4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3559A6" />
+      <stop offset="100%" stop-color="#222B90" />
+    </linearGradient>
+    <linearGradient id="deezer-bar-5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#33A65E" />
+      <stop offset="100%" stop-color="#358C7B" />
+    </linearGradient>
+  </defs>
+  <rect x="8" y="34" width="8" height="22" rx="2" fill="url(#deezer-bar-1)" />
+  <rect x="20" y="24" width="8" height="32" rx="2" fill="url(#deezer-bar-2)" />
+  <rect x="32" y="14" width="8" height="42" rx="2" fill="url(#deezer-bar-3)" />
+  <rect x="44" y="24" width="8" height="32" rx="2" fill="url(#deezer-bar-4)" />
+  <rect x="56" y="28" width="8" height="28" rx="2" fill="url(#deezer-bar-5)" />
+</svg>
