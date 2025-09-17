@@ -1,4 +1,4 @@
-{
+﻿{
   "categories": [
     {
       "title": "⭐ Önerilenler",
@@ -166,7 +166,7 @@
               "name": "IDM Activation Script",
               "recommended": false,
               "description": "IDM için aktivasyon scripti.",
-              "icon": "icon/github.svg",
+              "icon": "icon/powershell.svg",
               "alt": "IDM Activation Script",
               "tags": []
             }
@@ -368,7 +368,7 @@
             },
             {
               "url": "https://www.oo-software.com/en/ooappbuster",
-              "name": "OveO AppBuster",
+              "name": "O&O AppBuster",
               "recommended": false,
               "description": "Gereksiz Windows uygulamalarını kaldırma aracı.",
               "icon": "icon/appbuster.svg",
@@ -389,7 +389,7 @@
               "name": "Sophia Script for Windows",
               "recommended": false,
               "description": "Windows 10/11 için gelişmiş ayar ve optimizasyon scripti.",
-              "icon": "icon/github.svg",
+              "icon": "icon/powershell.svg",
               "alt": "Sophia Script for Windows",
               "tags": []
             },
@@ -407,7 +407,7 @@
               "name": "Wintoys",
               "recommended": false,
               "description": "Windows 11 için ayar ve optimizasyon aracı.",
-              "icon": "icon/github.svg",
+              "icon": "icon/wintoys.svg",
               "alt": "Wintoys",
               "tags": []
             },
@@ -416,7 +416,7 @@
               "name": "Microsoft PC Manager",
               "recommended": false,
               "description": "Windows için Microsoft'un resmi temizleme ve optimizasyon aracı.",
-              "icon": "icon/microsoft.svg",
+              "icon": "icon/microsoftpcmanager.svg",
               "alt": "Microsoft PC Manager",
               "tags": []
             }
@@ -573,11 +573,11 @@
           "links": [
             {
               "url": "https://www.oo-software.com/en/shutup10",
-              "name": "OveO ShutUp10++",
+              "name": "O&O ShutUp10++",
               "recommended": false,
               "description": "Windows 10 ve 11 için ücretsiz, taşınabilir gizlilik ve telemetri kapatma aracı.",
               "icon": "icon/oosu10.svg",
-              "alt": "OveO ShutUp10++",
+              "alt": "O&O ShutUp10++",
               "tags": []
             },
             {
@@ -621,7 +621,7 @@
               "name": "DefendNot",
               "recommended": false,
               "description": "Windows Defender'ı devre dışı bırakmayı kolaylaştıran script.",
-              "icon": "icon/github.svg",
+              "icon": "icon/powershell.svg",
               "alt": "DefendNot",
               "tags": []
             },
@@ -774,8 +774,7 @@
               "icon": "icon/cloudflare.svg",
               "alt": "Cloudflare 1.1.1.1",
               "tags": []
-            }
-            ,
+            },
             {
               "url": "https://blahdns.com/",
               "name": "BlahDNS",
@@ -1095,6 +1094,24 @@
               "icon": "icon/dnsspeedtest.svg",
               "alt": "DNS Speed Test",
               "tags": []
+            },
+            {
+              "url": "https://fast.com/tr/",
+              "name": "Fast",
+              "recommended": false,
+              "description": "Netflix hiz testi ile indirme hizini saniyeler icinde olcer.",
+              "icon": "icon/fast.svg",
+              "alt": "Fast.com",
+              "tags": []
+            },
+            {
+              "url": "https://www.speedtest.net/",
+              "name": "Speedtest",
+              "recommended": false,
+              "description": "Ookla hiz testi ile indirme, yukleme ve ping degerlerini olcer.",
+              "icon": "icon/speedtest.svg",
+              "alt": "Speedtest",
+              "tags": []
             }
           ]
         }
@@ -1224,7 +1241,6 @@
               "alt": "EZTV",
               "tags": []
             },
-            
             {
               "url": "https://showrss.info/",
               "name": "showRSS",
@@ -1294,7 +1310,7 @@
               "tags": []
             },
             {
-              "url": "https://eu.qqdl.site/",
+              "url": "https://qqdl.site/",
               "name": "Qobuz-DL (Web)",
               "recommended": false,
               "description": "Qobuz müzik indirme aracı (web).",
@@ -1484,7 +1500,6 @@
               "alt": "Spicetify",
               "tags": []
             }
-            
           ]
         },
         {

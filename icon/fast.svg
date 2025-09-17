@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Fast.com Icon</title>
+  <desc id="desc">Rounded red square with a simple speedometer gauge</desc>
+  <defs>
+    <linearGradient id="fast-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff4b4b" />
+      <stop offset="100%" stop-color="#a00023" />
+    </linearGradient>
+    <linearGradient id="fast-meter" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#fast-bg)" />
+  <path d="M144 332a112 112 0 0 1 224 0" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M256 224 336 288" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="256" cy="332" r="40" fill="url(#fast-meter)" stroke="#ffffff" stroke-width="10" />
+  <circle cx="352" cy="200" r="26" fill="#ffffff" />
+</svg>
