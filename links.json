@@ -1,4 +1,4 @@
-{
+﻿{
   "categories": [
     {
       "title": "⭐ Önerilenler",
@@ -534,10 +534,10 @@
       ]
     },
     {
-      "title": "Güvenlik ve Gizlilik",
+      "title": "Gizlilik ve Güvenlik",
       "subcategories": [
         {
-          "title": "Antivirüs ve Kötü Amaçlı Yazılım Temizleyiciler",
+          "title": "Güvenlik ve Temizlik Yazılımları",
           "links": [
             {
               "url": "https://www.avira.com/tr/free-antivirus-windows",
@@ -646,7 +646,7 @@
           ]
         },
         {
-          "title": "Ağ, VPN ve Güvenlik Araçları",
+          "title": "Ağ ve Güvenlik Araçları",
           "links": [
             {
               "url": "https://antizapret.prostovpn.org/",
@@ -714,7 +714,7 @@
           ]
         },
         {
-          "title": "Şifre ve Gizlilik Araçları",
+          "title": "Şifre ve Gizlilik Yönetimi",
           "links": [
             {
               "url": "https://bitwarden.com/",
@@ -746,7 +746,7 @@
           ]
         },
         {
-          "title": "DNS Servisleri",
+          "title": "DNS Hizmetleri",
           "links": [
             {
               "url": "https://adguard-dns.io/tr/public-dns.html",
@@ -798,7 +798,7 @@
       ]
     },
     {
-      "title": "Yazılım ve Paket Yöneticileri",
+      "title": "Yazılım Kurulum ve Güncelleme Sistemleri",
       "subcategories": [
         {
           "title": "Çevrimiçi Kurulum Hizmetleri",
@@ -901,7 +901,7 @@
           ]
         },
         {
-          "title": "Taşınabilir Uygulama Platformları",
+          "title": "Taşınabilir Yazılım Platformları",
           "links": [
             {
               "url": "https://portableappz.blogspot.com/",
@@ -1079,6 +1079,20 @@
               "description": "Web sayfalarını anında çeviren tarayıcı eklentisi.",
               "icon": "icon/immersivetranslate.svg",
               "alt": "Immersive Translate",
+              "tags": []
+            }
+          ]
+        },
+        {
+          "title": "Tarayıcı Benchmarkları",
+          "links": [
+            {
+              "url": "https://browserbench.org/",
+              "name": "BrowserBench",
+              "recommended": false,
+              "description": "Tarayıcı performansını ölçen web tabanlı benchmark testleri.",
+              "icon": "icon/browserbench.svg",
+              "alt": "BrowserBench",
               "tags": []
             }
           ]
