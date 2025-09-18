@@ -1,4 +1,4 @@
-﻿{
+{
   "categories": [
     {
       "title": "⭐ Önerilenler",
@@ -37,6 +37,15 @@
           "description": "Microsoft Office dağıtımı, kurulumu ve yönetimi için gelişmiş araç.",
           "icon": "icon/otp.svg",
           "alt": "Office Tool Plus",
+          "tags": []
+        },
+        {
+          "url": "https://winutil.christitus.com/",
+          "name": "Winutil",
+          "recommended": true,
+          "description": "Windows için toplu kurulum ve optimizasyon aracı.",
+          "icon": "icon/winutil.svg",
+          "alt": "WinUtil",
           "tags": []
         }
       ]
@@ -833,7 +842,7 @@
             {
               "url": "https://winutil.christitus.com/",
               "name": "Winutil",
-              "recommended": false,
+              "recommended": true,
               "description": "Windows için toplu kurulum ve optimizasyon aracı.",
               "icon": "icon/winutil.svg",
               "alt": "WinUtil",
