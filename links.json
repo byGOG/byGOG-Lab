@@ -139,6 +139,15 @@
               "tags": []
             },
             {
+              "url": "https://cachyos.org/",
+              "name": "CachyOS",
+              "recommended": false,
+              "description": "Arch Linux tabanlı, performans odaklı bir Linux dağıtımı.",
+              "icon": "icon/cachyos.svg",
+              "alt": "CachyOS",
+              "tags": []
+            },
+            {
               "url": "https://ubuntu.com/desktop",
               "name": "Ubuntu",
               "recommended": false,
