@@ -93,6 +93,15 @@
               "tags": []
             },
             {
+              "url": "https://etcher.balena.io/",
+              "name": "balenaEtcher",
+              "recommended": false,
+              "description": "Çapraz platform disk görüntülerini USB ve SD kartlara yazdırma aracı.",
+              "icon": "icon/balenaetcher.svg",
+              "alt": "balenaEtcher",
+              "tags": []
+            },
+            {
               "url": "https://os.click/en",
               "name": "OS.Click",
               "recommended": false,
