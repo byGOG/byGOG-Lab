@@ -1458,6 +1458,24 @@
               "icon": "icon/dojostreams.svg",
               "alt": "Dojostreams",
               "tags": []
+            },
+            {
+              "url": "https://dlhd.dad/",
+              "name": "DaddyLiveHD",
+              "recommended": false,
+              "description": "Canlı spor karşılaşmaları için ücretsiz yayın platformu.",
+              "icon": "icon/dlhd.svg",
+              "alt": "DaddyLiveHD",
+              "tags": []
+            },
+            {
+              "url": "https://topsportlivegt.com/",
+              "name": "TopSportLiveGT",
+              "recommended": false,
+              "description": "Ücretsiz canlı spor yayınları sunan platform.",
+              "icon": "icon/topsportlivegt.svg",
+              "alt": "TopSportLiveGT",
+              "tags": []
             }
           ]
         },
