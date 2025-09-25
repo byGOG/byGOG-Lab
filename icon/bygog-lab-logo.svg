@@ -1,31 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="200" viewBox="0 0 640 200" role="img" aria-labelledby="t d">
-  <title id="t">byGOG Lab - Logo</title>
-  <desc id="d">Modern, yalın logo: solda teknoloji baloncuklu monogram, sağda temiz yazı logosu.</desc>
-  <style>
-    :root { --fg:#0B0F17; --fg-muted:#6B7280; --acc:#0EA5E9; }
-    @media (prefers-color-scheme: dark) {
-      :root { --fg:#E6EDF3; --fg-muted:#9CA3AF; --acc:#22D3EE; }
-    }
-    .mark-stroke{fill:none;stroke:var(--fg);stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
-    .mark-fill{fill:var(--acc)}
-    .word{fill:var(--fg);font:700 44px/1.1 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;letter-spacing:.2px}
-    .lab{fill:var(--acc)}
-    .tag{fill:var(--fg-muted);font:600 16px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;letter-spacing:.3px}
-  </style>
-
-  <!-- Left emblem: circular G with bubbles -->
-  <g transform="translate(32,32)">
-    <circle cx="68" cy="68" r="56" class="mark-stroke"/>
-    <path class="mark-stroke" d="M114 68a46 46 0 1 1-46-46"/>
-    <path class="mark-stroke" d="M86 92h40"/>
-    <circle cx="112" cy="26" r="6" class="mark-fill"/>
-  </g>
-
-  <!-- Wordmark -->
-  <g transform="translate(240,92)">
-    <text class="word">
-      <tspan>byGOG </tspan><tspan class="lab">Lab</tspan>
-    </text>
-    <text class="tag" y="34">hızlı • temiz • modern</text>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="200" aria-labelledby="t d" style="--fg:#0B0F17;--fg-muted:#6B7280;--acc:#0EA5E9" viewBox="0 0 640 200"><title id="t">byGOG Lab - Logo</title><desc id="d">Modern, yalın logo: solda teknoloji baloncuklu monogram, sağda temiz yazı logosu.</desc><style>@media (prefers-color-scheme:dark){:root{--fg:#E6EDF3;--fg-muted:#9CA3AF;--acc:#22D3EE}}.mark-stroke{fill:none;stroke:var(--fg);stroke-width:10;stroke-linecap:round;stroke-linejoin:round}</style><g transform="translate(32 32)"><circle cx="68" cy="68" r="56" class="mark-stroke"/><path d="M114 68a46 46 0 1 1-46-46m18 70h40" class="mark-stroke"/><circle cx="112" cy="26" r="6" style="fill:var(--acc)"/></g><text style="fill:var(--fg);font:700 44px/1.1 system-ui,-apple-system,&quot;Segoe UI&quot;,Roboto,&quot;Helvetica Neue&quot;,Arial,&quot;Noto Sans&quot;,&quot;Liberation Sans&quot;,sans-serif;letter-spacing:.2px" transform="translate(240 92)">
+      <tspan>byGOG </tspan><tspan style="fill:var(--acc)">Lab</tspan>
+    </text><text y="34" style="fill:var(--fg-muted);font:600 16px/1.2 system-ui,-apple-system,&quot;Segoe UI&quot;,Roboto,&quot;Helvetica Neue&quot;,Arial,&quot;Noto Sans&quot;,&quot;Liberation Sans&quot;,sans-serif;letter-spacing:.3px" transform="translate(240 92)">hızlı • temiz • modern</text></svg>

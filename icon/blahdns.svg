@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="12" fill="#0EA5E9"/>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-        font-family="Segoe UI, system-ui, Arial, Helvetica, sans-serif"
-        font-weight="700" font-size="28" fill="#FFFFFF">B</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="title desc" style="--c1:#0EA5E9;--c2:#0F172A;--bg:transparent" viewBox="0 0 256 256"><title>BlahDNS — Logo Mark</title><desc>Shield with private DNS network nodes. Minimal, scalable.</desc><defs><style>.primary{fill:none;stroke:var(--c1);stroke-width:14;stroke-linecap:round;stroke-linejoin:round}.accent{fill:var(--c1)}</style></defs><rect width="256" height="256" rx="28" ry="28" style="fill:var(--bg)"/><path d="M128 24c26 18 52 18 80 6 0 70-18 136-80 176-62-40-80-106-80-176 28 12 54 12 80-6" class="primary"/><path d="m128 84-42 70h84Z" class="primary"/><circle cx="128" cy="84" r="10" class="accent"/><circle cx="86" cy="154" r="10" class="accent"/><circle cx="170" cy="154" r="10" class="accent"/><g transform="translate(128 118)"><circle r="14" class="primary"/><path d="M0 8v16" class="primary"/></g></svg>

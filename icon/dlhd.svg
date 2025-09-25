@@ -1,5 +1,1 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <rect width="128" height="128" rx="20" fill="#161a22"/>
-  <text x="64" y="58" fill="#ffffff" font-family="\'Montserrat\', Arial, sans-serif" font-size="44" font-weight="700" text-anchor="middle">DL</text>
-  <text x="64" y="102" fill="#00b4ff" font-family="\'Montserrat\', Arial, sans-serif" font-size="36" font-weight="700" text-anchor="middle">HD</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect width="128" height="128" fill="#161a22" rx="20"/><text x="64" y="58" fill="#fff" font-family="\'Montserrat\', Arial, sans-serif" font-size="44" font-weight="700" text-anchor="middle">DL</text><text x="64" y="102" fill="#00b4ff" font-family="\'Montserrat\', Arial, sans-serif" font-size="36" font-weight="700" text-anchor="middle">HD</text></svg>

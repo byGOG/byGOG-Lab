@@ -1,16 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 160 160" role="img" aria-labelledby="t d">
-  <title id="t">byGOG Lab - Icon</title>
-  <desc id="d">Yalın amblem: dairesel G ve iki baloncuk, yazısız.</desc>
-  <style>
-    .mark-stroke{fill:none;stroke:#FFFFFF;stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
-    .mark-fill{fill:#FFFFFF}
-  </style>
-
-  <!-- Emblem centered within 160x160 viewBox -->
-  <g transform="translate(12,12)">
-    <circle cx="68" cy="68" r="56" class="mark-stroke"/>
-    <path class="mark-stroke" d="M114 68a46 46 0 1 1-46-46"/>
-    <path class="mark-stroke" d="M86 92h40"/>
-    <circle cx="112" cy="26" r="6" class="mark-fill"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" aria-labelledby="t d" viewBox="0 0 160 160"><title id="t">byGOG Lab - Icon</title><desc id="d">Yalın amblem: dairesel G ve iki baloncuk, yazısız.</desc><style>.mark-stroke{fill:none;stroke:#fff;stroke-width:10;stroke-linecap:round;stroke-linejoin:round}</style><g transform="translate(12 12)"><circle cx="68" cy="68" r="56" class="mark-stroke"/><path d="M114 68a46 46 0 1 1-46-46m18 70h40" class="mark-stroke"/><circle cx="112" cy="26" r="6" style="fill:#fff"/></g></svg>

@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="152" height="24" role="img" aria-label="Dark Mode">
-  <linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient>
-  <g shape-rendering="crispEdges"><rect width="72" height="24" fill="#555"/><rect x="72" width="80" height="24" fill="#7c3aed"/></g>
-  <rect width="152" height="24" fill="url(#b)"/>
-  <g fill="#fff" text-anchor="middle" font-family="Segoe UI, Inter, system-ui, -apple-system" font-size="12">
-    <text x="36" y="16">theme</text>
-    <text x="36" y="16" opacity="0.0">theme</text>
-    <text x="112" y="16" font-weight="700">dark-mode</text>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="152" height="24" aria-label="Dark Mode"><linearGradient id="a" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><g shape-rendering="crispEdges"><path fill="#555" d="M0 0h72v24H0z"/><path fill="#7c3aed" d="M72 0h80v24H72z"/></g><path fill="url(#a)" d="M0 0h152v24H0z"/><g fill="#fff" font-family="Segoe UI, Inter, system-ui, -apple-system" font-size="12" text-anchor="middle"><text x="36" y="16">theme</text><text x="112" y="16" font-weight="700">dark-mode</text></g></svg>
