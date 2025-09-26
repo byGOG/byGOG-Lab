@@ -1,13 +1,15 @@
-// Minimal build: copy readable source to dist
-// No external dependencies; safe under restricted network
 const fs = require('fs');
 const path = require('path');
 
-const srcFile = path.join(__dirname, '..', 'src', 'renderLinks.js');
+const srcDir = path.join(__dirname, '..', 'src');
 const distDir = path.join(__dirname, '..', 'dist');
-const distFile = path.join(distDir, 'renderLinks.js');
 
 fs.mkdirSync(distDir, { recursive: true });
-fs.copyFileSync(srcFile, distFile);
-console.log('Copied', srcFile, '->', distFile);
 
+const files = fs.readdirSync(srcDir).filter(name => name.endsWith('.js'));
+files.forEach(file => {
+  const from = path.join(srcDir, file);
+  const to = path.join(distDir, file);
+  fs.copyFileSync(from, to);
+  console.log('Copied', from, '->', to);
+});

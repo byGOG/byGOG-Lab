@@ -30,9 +30,6 @@ function createLinkItem(link) {
     img.width = 28;
     img.height = 28;
     img.src = link.icon;
-    img.onerror = () => {
-      try { img.onerror = null; img.src = "icon/fallback.svg"; } catch {}
-    };
     if (link.alt) img.alt = link.alt;
     img.className = "site-icon";
     wrap.appendChild(img);
@@ -55,9 +52,6 @@ function createLinkItem(link) {
       tipImg.width = 28;
       tipImg.height = 28;
       tipImg.src = link.icon;
-      tipImg.onerror = () => {
-        try { tipImg.onerror = null; tipImg.src = "icon/fallback.svg"; } catch {}
-      };
       if (link.alt) tipImg.alt = link.alt;
       tip.appendChild(tipImg);
     }
@@ -144,71 +138,201 @@ function renderCategories(data, container) {
   container.appendChild(frag);
 }
 
+
+
+const SEARCH_LOCALE = "tr";
+const DIACRITIC_PATTERN = /[\u0300-\u036f]/g;
+
+function normalizeForSearch(value) {
+  return String(value || "").toLocaleLowerCase(SEARCH_LOCALE);
+}
+
+function foldForSearch(value) {
+  return normalizeForSearch(value).normalize("NFD").replace(DIACRITIC_PATTERN, "");
+}
+
+function tokenizeFoldedQuery(value) {
+  return foldForSearch(value).split(/\s+/).filter(Boolean);
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\$&");
+}
+
+function buildHighlightRegex(value) {
+  const tokens = normalizeForSearch(value).trim().split(/\s+/).filter(Boolean);
+  if (!tokens.length) return null;
+  return new RegExp(`(${tokens.map(escapeRegExp).join("|")})`, "gi");
+}
+
+function createHighlightMeta(value) {
+  const hasQuery = value.trim().length > 0;
+  return {
+    raw: value,
+    hasQuery,
+    regex: hasQuery ? buildHighlightRegex(value) : null
+  };
+}
+
+function applyHighlight(node, regex) {
+  const label = node.querySelector(".link-text");
+  if (label) {
+    const original = node.dataset.nameOriginal || label.textContent || "";
+    if (regex) {
+      label.innerHTML = original.replace(regex, match => `<mark>${match}</mark>`);
+    } else {
+      label.textContent = original;
+    }
+  }
+  const tip = node.querySelector(".custom-tooltip");
+  if (tip) {
+    const descOriginal = node.dataset.descOriginal || "";
+    if (descOriginal) {
+      const img = tip.querySelector("img");
+      const imgHTML = img ? img.outerHTML + " " : "";
+      if (regex) {
+        tip.innerHTML = imgHTML + descOriginal.replace(regex, match => `<mark>${match}</mark>`);
+      } else {
+        tip.innerHTML = imgHTML + descOriginal;
+      }
+    }
+  }
+}
+
+function updateCategoryVisibility() {
+  document.querySelectorAll(".category-card").forEach(card => {
+    const subs = card.querySelectorAll(".sub-category");
+    if (subs.length) {
+      let any = false;
+      subs.forEach(sc => {
+        const hasVisible = sc.querySelectorAll('li:not([style*="display: none"])').length > 0;
+        sc.style.display = hasVisible ? "" : "none";
+        if (hasVisible) any = true;
+      });
+      card.style.display = any ? "" : "none";
+    } else {
+      const visible = card.querySelectorAll('li:not([style*="display: none"])');
+      card.style.display = visible.length > 0 ? "" : "none";
+    }
+  });
+}
+
+function createMatchApplier(nodes, dataset, status) {
+  const visible = new Set(dataset.map(entry => entry.index));
+  return function applyMatches(meta, matches) {
+    const matchSet = new Set(matches);
+    const toHide = [];
+    visible.forEach(idx => {
+      if (!matchSet.has(idx)) toHide.push(idx);
+    });
+    toHide.forEach(idx => {
+      const node = nodes[idx];
+      node.style.display = "none";
+      applyHighlight(node, null);
+      visible.delete(idx);
+    });
+    let matchCount = 0;
+    matchSet.forEach(idx => {
+      const node = nodes[idx];
+      if (!visible.has(idx)) {
+        node.style.display = "";
+        visible.add(idx);
+      }
+      applyHighlight(node, meta.regex);
+      if (dataset[idx].isLink) matchCount++;
+    });
+    status.textContent = meta.hasQuery ? `${matchCount} sonuç bulundu` : "";
+    updateCategoryVisibility();
+  };
+}
+
+function createWorkerSearchEngine(nodes, dataset, status) {
+  if (typeof window === "undefined" || typeof window.Worker === "undefined") return null;
+  let worker;
+  try {
+    worker = new Worker(new URL("./searchWorker.js", import.meta.url), { type: "module" });
+  } catch (err) {
+    console.warn("Search worker could not start:", err);
+    return null;
+  }
+  const applyMatches = createMatchApplier(nodes, dataset, status);
+  const pending = new Map();
+  let lastQueryId = 0;
+  let latestApplied = 0;
+
+  worker.postMessage({ type: "seed", payload: dataset.map(entry => ({ index: entry.index, folded: entry.folded })) });
+
+  worker.addEventListener("message", event => {
+    const { type, payload } = event.data || {};
+    if (type !== "result" || !payload) return;
+    const { id, matches } = payload;
+    const meta = pending.get(id);
+    pending.delete(id);
+    if (!meta || id < latestApplied) return;
+    latestApplied = id;
+    applyMatches(meta, matches || []);
+  });
+
+  return {
+    run(query) {
+      const meta = createHighlightMeta(query);
+      const id = ++lastQueryId;
+      pending.set(id, meta);
+      worker.postMessage({ type: "query", payload: { id, value: query } });
+    }
+  };
+}
+
+function createSyncSearchEngine(nodes, dataset, status) {
+  const applyMatches = createMatchApplier(nodes, dataset, status);
+  return {
+    run(query) {
+      const meta = createHighlightMeta(query);
+      const tokens = tokenizeFoldedQuery(query);
+      const matches = !tokens.length
+        ? dataset.map(entry => entry.index)
+        : dataset
+            .filter(entry => tokens.every(token => entry.folded.includes(token)))
+            .map(entry => entry.index);
+      applyMatches(meta, matches);
+    }
+  };
+}
+
 function setupSearch() {
   const input = document.getElementById("search-input");
   const status = document.getElementById("search-status");
-  const items = Array.from(document.querySelectorAll(".category-card li"));
-  const haystacks = items.map(el => (el.dataset.search || el.textContent).toLocaleLowerCase("tr"));
-  let timer;
+  const nodes = Array.from(document.querySelectorAll(".category-card li"));
+  if (!input || !status || !nodes.length) return;
 
-  function apply() {
-    const q = input.value.toLocaleLowerCase("tr").trim();
-    let matchCount = 0;
-    const rx = q ? new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi") : null;
+  nodes.forEach((el, index) => {
+    el.dataset.searchIndex = String(index);
+  });
 
-    items.forEach((el, idx) => {
-      const matched = haystacks[idx].includes(q);
-      el.style.display = matched ? "" : "none";
-      if (matched) {
-        matchCount++;
-        const label = el.querySelector(".link-text");
-        const original = el.dataset.nameOriginal || (label ? label.textContent : "");
-        if (label) {
-          label.innerHTML = (rx && q) ? original.replace(rx, m => `<mark>${m}</mark>`) : original;
-        }
-        const tip = el.querySelector(".custom-tooltip");
-        if (tip) {
-          const img = tip.querySelector("img");
-          const imgHTML = img ? img.outerHTML + " " : "";
-          const descOriginal = el.dataset.descOriginal || "";
-          if (rx && q && descOriginal) tip.innerHTML = imgHTML + descOriginal.replace(rx, m => `<mark>${m}</mark>`);
-          else if (descOriginal) tip.innerHTML = imgHTML + descOriginal;
-        }
-      } else {
-        const label = el.querySelector(".link-text");
-        if (label) label.textContent = el.dataset.nameOriginal || label.textContent;
-        const tip = el.querySelector(".custom-tooltip");
-        if (tip) {
-          const img = tip.querySelector("img");
-          const imgHTML = img ? img.outerHTML + " " : "";
-          const descOriginal = el.dataset.descOriginal || "";
-          if (descOriginal) tip.innerHTML = imgHTML + descOriginal;
-        }
-      }
-    });
+  const dataset = nodes.map((el, index) => {
+    const raw = el.dataset.search || el.textContent || "";
+    return {
+      index,
+      folded: foldForSearch(raw),
+      isLink: !!el.querySelector(".link-text")
+    };
+  });
 
-    document.querySelectorAll(".category-card").forEach(card => {
-      const subs = card.querySelectorAll(".sub-category");
-      if (subs.length) {
-        let any = false;
-        subs.forEach(sc => {
-          const has = sc.querySelectorAll('li:not([style*="display: none"])').length > 0;
-          sc.style.display = has ? "" : "none";
-          if (has) any = true;
-        });
-        card.style.display = any ? "" : "none";
-      } else {
-        const visible = card.querySelectorAll('li:not([style*="display: none"])');
-        card.style.display = visible.length > 0 ? "" : "none";
-      }
-    });
+  const engine = createWorkerSearchEngine(nodes, dataset, status) || createSyncSearchEngine(nodes, dataset, status);
 
-    status.textContent = q ? `${matchCount} sonuç bulundu` : "";
+  let debounceTimer;
+  const debounceDelay = 200;
+
+  function runImmediate(value) {
+    clearTimeout(debounceTimer);
+    engine.run(value);
   }
 
   input.addEventListener("input", () => {
-    clearTimeout(timer);
-    timer = setTimeout(apply, 300);
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      engine.run(input.value);
+    }, debounceDelay);
   });
 
   document.addEventListener("keydown", ev => {
@@ -227,12 +351,16 @@ function setupSearch() {
     if (ev.key === "Escape") {
       if (input.value) {
         input.value = "";
-        apply();
+        runImmediate("");
       }
       ev.stopPropagation();
     }
   });
+
+  if (input.value) runImmediate(input.value);
 }
+
+
 
 function setupThemeToggle() {
   const btn = document.getElementById("theme-toggle");
