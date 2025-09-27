@@ -4,6 +4,18 @@ export async function fetchLinks() {
   return res.json();
 }
 
+const WINUTIL_COMMAND = 'irm "https://christitus.com/win" | iex';
+
+function resolveCopyValue(link) {
+  if (link && link.copyText) return String(link.copyText);
+  const name = String(link?.name || "").toLocaleLowerCase("tr");
+  const url = String(link?.url || "");
+  if (name === "winutil" || url.includes("christitus.com/win")) {
+    return WINUTIL_COMMAND;
+  }
+  return "";
+}
+
 function createLinkItem(link) {
   const li = document.createElement("li");
   const a = document.createElement("a");
@@ -70,7 +82,9 @@ function createLinkItem(link) {
 
   li.appendChild(a);
 
-  if (link.copyText) {
+  const copyValue = resolveCopyValue(link);
+
+  if (copyValue) {
     li.classList.add("has-copy");
     const copyButton = document.createElement("button");
     copyButton.type = "button";
@@ -108,8 +122,6 @@ function createLinkItem(link) {
     const baseAriaLabel = `${link.name || ""} komutunu kopyala`.trim() || defaultLabel;
     copyButton.setAttribute("aria-label", baseAriaLabel);
     copyButton.title = "Komutu panoya kopyala";
-
-    const copyValue = String(link.copyText);
 
     const copyToClipboard = async text => {
       if (navigator.clipboard && navigator.clipboard.writeText) {
