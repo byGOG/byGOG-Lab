@@ -423,6 +423,7 @@
               "description": "Windows 10/11 için gelişmiş ayar ve optimizasyon scripti.",
               "icon": "icon/powershell.svg",
               "alt": "Sophia Script for Windows",
+              "copyText": "iwr script.sophia.team -useb | iex",
               "tags": []
             },
             {
