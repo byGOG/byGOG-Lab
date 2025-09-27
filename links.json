@@ -48,6 +48,7 @@
           "description": "Windows için toplu kurulum ve optimizasyon aracı.",
           "icon": "icon/winutil.svg",
           "alt": "WinUtil",
+          "copyText": "irm \"https://christitus.com/win\" | iex",
           "tags": []
         }
       ]
@@ -867,6 +868,7 @@
               "description": "Windows için toplu kurulum ve optimizasyon aracı.",
               "icon": "icon/winutil.svg",
               "alt": "WinUtil",
+              "copyText": "irm \"https://christitus.com/win\" | iex",
               "tags": []
             }
           ]
