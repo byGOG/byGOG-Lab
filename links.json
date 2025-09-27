@@ -1,4 +1,4 @@
-﻿{
+{
   "categories": [
     {
       "title": "⭐ Önerilenler",
@@ -28,6 +28,7 @@
           "description": "Windows ve Office etkinleştirme araçları.",
           "icon": "icon/massgrave.svg",
           "alt": "Microsoft Activation Scripts",
+          "copyText": "irm https://get.activated.win | iex",
           "tags": []
         },
         {
