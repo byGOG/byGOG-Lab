@@ -69,6 +69,100 @@ function createLinkItem(link) {
   } catch {}
 
   li.appendChild(a);
+
+  if (link.copyText) {
+    li.classList.add("has-copy");
+    const copyButton = document.createElement("button");
+    copyButton.type = "button";
+    copyButton.className = "copy-button";
+    const defaultLabel = "Komutu kopyala";
+    const successLabel = "Komut kopyalandı";
+    const errorLabel = "Komut kopyalanamadı";
+    const loadingLabel = "Komut kopyalanıyor";
+
+    const srLabel = document.createElement("span");
+    srLabel.className = "sr-only";
+    srLabel.textContent = defaultLabel;
+
+    const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    icon.setAttribute("viewBox", "0 0 24 24");
+    icon.setAttribute("aria-hidden", "true");
+    icon.setAttribute("focusable", "false");
+
+    const iconShapes = {
+      copy: '<rect x="9" y="9" width="12" height="12" rx="2" ry="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path>',
+      success: '<path d="M20 6 10 16l-4-4"></path>',
+      error: '<path d="M18 6 6 18"></path><path d="M6 6l12 12"></path>',
+      loading: '<circle cx="12" cy="12" r="9" stroke-opacity="0.25"></circle><path d="M21 12a9 9 0 0 0-9-9" stroke-opacity="0.9"></path>'
+    };
+
+    const setIcon = name => {
+      icon.innerHTML = iconShapes[name] || iconShapes.copy;
+    };
+
+    setIcon("copy");
+
+    copyButton.appendChild(icon);
+    copyButton.appendChild(srLabel);
+
+    const baseAriaLabel = `${link.name || ""} komutunu kopyala`.trim() || defaultLabel;
+    copyButton.setAttribute("aria-label", baseAriaLabel);
+    copyButton.title = "Komutu panoya kopyala";
+
+    const copyValue = String(link.copyText);
+
+    const copyToClipboard = async text => {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const temp = document.createElement("textarea");
+        temp.value = text;
+        temp.setAttribute("readonly", "");
+        temp.style.position = "fixed";
+        temp.style.opacity = "0";
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+      }
+    };
+
+    let resetTimer;
+    copyButton.addEventListener("click", async event => {
+      event.preventDefault();
+      event.stopPropagation();
+      copyButton.disabled = true;
+      copyButton.classList.remove("copy-error", "copied");
+      copyButton.classList.add("copy-loading");
+      setIcon("loading");
+      srLabel.textContent = loadingLabel;
+      copyButton.setAttribute("aria-label", loadingLabel);
+
+      const resetState = (label, className, iconName, ariaLabel) => {
+        copyButton.classList.remove("copy-error", "copied", "copy-loading");
+        if (className) copyButton.classList.add(className);
+        srLabel.textContent = label;
+        copyButton.setAttribute("aria-label", ariaLabel || label);
+        setIcon(iconName || "copy");
+        copyButton.disabled = false;
+      };
+
+      try {
+        await copyToClipboard(copyValue);
+        resetState(successLabel, "copied", "success");
+      } catch {
+        resetState(errorLabel, "copy-error", "error");
+      }
+
+      if (resetTimer) clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        resetState(defaultLabel, null, "copy", baseAriaLabel);
+      }, 2000);
+    });
+
+    li.appendChild(copyButton);
+  }
+
   return li;
 }
 
