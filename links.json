@@ -336,7 +336,7 @@
               "recommended": false,
               "description": "AMD ekran kartı ve işlemci sürücülerini indir.",
               "icon": "icon/amd.svg",
-              "alt": null,
+              "alt": "AMD Software",
               "tags": []
             },
             {
@@ -345,7 +345,7 @@
               "recommended": false,
               "description": "Windows sürücü deposunu yönetir ve temizler.",
               "icon": "icon/driverstoreexplorer.svg",
-              "alt": null,
+              "alt": "Driver Store Explorer",
               "tags": []
             },
             {
@@ -354,7 +354,7 @@
               "recommended": false,
               "description": "NVIDIA, AMD ve Intel ekran kartı sürücülerini tamamen kaldırma aracı.",
               "icon": "icon/ddu.svg",
-              "alt": null,
+              "alt": "Display Driver Uninstaller",
               "tags": []
             },
             {
@@ -363,7 +363,7 @@
               "recommended": false,
               "description": "Intel donanımınızı otomatik algılar ve en güncel sürücüleri önerir.",
               "icon": "icon/intel.svg",
-              "alt": null,
+              "alt": "Intel Driver ve Support Assistant",
               "tags": []
             },
             {
@@ -386,7 +386,7 @@
               "recommended": false,
               "description": "Toplu program kaldırıcı ve temizleyici.",
               "icon": "icon/bcuninstaller.svg",
-              "alt": null,
+              "alt": "BCUninstaller",
               "tags": []
             },
             {
@@ -395,7 +395,7 @@
               "recommended": false,
               "description": "Sistem temizliği ve gereksiz dosya silme.",
               "icon": "icon/bleachbit.svg",
-              "alt": null,
+              "alt": "BleachBit",
               "tags": []
             },
             {
@@ -404,7 +404,7 @@
               "recommended": false,
               "description": "Gereksiz Windows uygulamalarını kaldırma aracı.",
               "icon": "icon/appbuster.svg",
-              "alt": null,
+              "alt": "O&O AppBuster",
               "tags": []
             },
             {
@@ -413,7 +413,7 @@
               "recommended": false,
               "description": "Uygulamaları izole ortamda çalıştırma.",
               "icon": "icon/sandboxie.svg",
-              "alt": null,
+              "alt": "Sandboxie Plus",
               "tags": []
             },
             {
@@ -431,7 +431,8 @@
               "recommended": false,
               "description": "Windows yapılandırma dosyaları arşivi.",
               "icon": "icon/winconfigs.svg",
-              "alt": null,
+              "alt": "WinConfigs",
+              "copyText": "iwr \"https://fr0st.xyz/winconfigs\" | iex",
               "tags": []
             },
             {
@@ -677,7 +678,7 @@
               "recommended": false,
               "description": "Engelli sitelere erişim için VPN hizmeti.",
               "icon": "icon/antizapret.svg",
-              "alt": null,
+              "alt": "Antizapret",
               "tags": []
             },
             {
@@ -686,7 +687,7 @@
               "recommended": false,
               "description": "Türkiye için DPI engelini aşma aracı.",
               "icon": "icon/goodbyedpi.svg",
-              "alt": null,
+              "alt": "GoodbyeDPI-Turkey",
               "tags": []
             },
             {
@@ -695,7 +696,7 @@
               "recommended": false,
               "description": "Türkiye için DPI aşma ve tünelleme otomasyonu.",
               "icon": "icon/splitwire.svg",
-              "alt": null,
+              "alt": "SplitWire-Turkey",
               "tags": []
             },
             {
@@ -704,7 +705,7 @@
               "recommended": false,
               "description": "DPI tabanlı engellemeleri aşmak için araç.",
               "icon": "icon/goodbyedpi.svg",
-              "alt": null,
+              "alt": "GoodbyeDPI",
               "tags": []
             },
             {
@@ -713,7 +714,7 @@
               "recommended": false,
               "description": "Açık kaynaklı VPN istemcisi.",
               "icon": "icon/openvpn.svg",
-              "alt": null,
+              "alt": "OpenVPN",
               "tags": []
             },
             {
@@ -722,7 +723,7 @@
               "recommended": false,
               "description": "Güvenli ve hızlı VPN hizmeti.",
               "icon": "icon/protonvpn.svg",
-              "alt": null,
+              "alt": "ProtonVPN",
               "tags": []
             },
             {
@@ -731,7 +732,7 @@
               "recommended": false,
               "description": "Sansürü aşmak ve gizliliği korumak için anonim tarayıcı.",
               "icon": "icon/tor.svg",
-              "alt": null,
+              "alt": "Tor Browser",
               "tags": []
             }
           ]
@@ -745,7 +746,7 @@
               "recommended": false,
               "description": "Açık kaynaklı şifre yöneticisi.",
               "icon": "icon/bitwarden.svg",
-              "alt": null,
+              "alt": "Bitwarden",
               "tags": []
             },
             {
@@ -754,7 +755,7 @@
               "recommended": false,
               "description": "Tarayıcı gizliliği ve sızıntı testleri.",
               "icon": "icon/browserleaks.svg",
-              "alt": null,
+              "alt": "BrowserLeaks",
               "tags": []
             },
             {
@@ -786,7 +787,7 @@
               "recommended": false,
               "description": "Reklam, izleyici ve zararlı yazılımları engelleyen, özelleştirilebilir DNS hizmeti.",
               "icon": "icon/nextdns.svg",
-              "alt": null,
+              "alt": "NextDNS",
               "tags": []
             },
             {
@@ -795,7 +796,7 @@
               "recommended": false,
               "description": "Almanya merkezli, gizlilik odaklı, reklamsız ve izleyicisiz DNS hizmeti.",
               "icon": "icon/dnsforge.svg",
-              "alt": null,
+              "alt": "DNSForge",
               "tags": []
             },
             {
@@ -892,7 +893,7 @@
               "recommended": false,
               "description": "Çoklu paket yöneticisi arayüzü.",
               "icon": "icon/unigetui.svg",
-              "alt": null,
+              "alt": "UnigetUI",
               "tags": []
             },
             {
@@ -1007,7 +1008,7 @@
               "recommended": false,
               "description": "Gizlilik odaklı hızlı web tarayıcı.",
               "icon": "icon/brave.svg",
-              "alt": null,
+              "alt": "Brave",
               "tags": []
             },
             {
@@ -1016,7 +1017,7 @@
               "recommended": false,
               "description": "Google'ın hızlı ve popüler web tarayıcısı.",
               "icon": "icon/chrome.svg",
-              "alt": null,
+              "alt": "Google Chrome",
               "tags": []
             },
             {
@@ -1025,7 +1026,7 @@
               "recommended": false,
               "description": "Açık kaynaklı web tarayıcı.",
               "icon": "icon/firefox.svg",
-              "alt": null,
+              "alt": "Mozilla Firefox",
               "tags": []
             },
             {
@@ -1034,7 +1035,7 @@
               "recommended": false,
               "description": "Güvenli ve hızlı web tarayıcı.",
               "icon": "icon/zenbrowser.svg",
-              "alt": null,
+              "alt": "Zen Browser",
               "tags": []
             }
           ]
@@ -1057,7 +1058,7 @@
               "recommended": false,
               "description": "ReCAPTCHA sesli doğrulama çözücü eklentisi.",
               "icon": "icon/buster.svg",
-              "alt": null,
+              "alt": "Buster (Captcha Solver)",
               "tags": []
             },
             {
@@ -1066,7 +1067,7 @@
               "recommended": false,
               "description": "YouTube sponsor ve gereksiz bölümleri otomatik atlayan eklenti.",
               "icon": "icon/sponsorblock.svg",
-              "alt": null,
+              "alt": "SponsorBlock",
               "tags": []
             },
             {
@@ -1075,7 +1076,7 @@
               "recommended": false,
               "description": "Gelişmiş, açık kaynaklı reklam ve içerik engelleyici.",
               "icon": "icon/ublock.svg",
-              "alt": null,
+              "alt": "uBlock Origin",
               "tags": []
             },
             {
@@ -1084,7 +1085,7 @@
               "recommended": false,
               "description": "Otomatik izleyici engelleme ve gizlilik koruması sağlayan tarayıcı eklentisi.",
               "icon": "icon/privacybadger.svg",
-              "alt": null,
+              "alt": "Privacy Badger",
               "tags": []
             },
             {
@@ -1353,7 +1354,7 @@
               "recommended": false,
               "description": "Qobuz müzik indirme aracı.",
               "icon": "icon/qbdlx.svg",
-              "alt": null,
+              "alt": "QobuzDownloaderX-MOD",
               "tags": []
             },
             {
@@ -1371,7 +1372,7 @@
               "recommended": false,
               "description": "Spotify müziklerini indirme aracı.",
               "icon": "icon/spotify-downloader.svg",
-              "alt": null,
+              "alt": "Spotify-Downloader",
               "tags": []
             },
             {
@@ -1380,7 +1381,7 @@
               "recommended": false,
               "description": "Zengin özelliklere sahip, komut satırı tabanlı video ve ses indirme aracı.",
               "icon": "icon/yt-dlp.svg",
-              "alt": null,
+              "alt": "yt-dlp",
               "tags": []
             }
           ]
@@ -1394,7 +1395,7 @@
               "recommended": false,
               "description": "Gelişmiş müzik çalar.",
               "icon": "icon/aimp.svg",
-              "alt": null,
+              "alt": "AIMP",
               "tags": []
             },
             {
@@ -1403,7 +1404,7 @@
               "recommended": false,
               "description": "K-Lite Codec Pack ile medya codec'leri.",
               "icon": "icon/codecguide.svg",
-              "alt": null,
+              "alt": "Codec Guide",
               "tags": []
             },
             {
@@ -1412,7 +1413,7 @@
               "recommended": false,
               "description": "Çok formatlı medya oynatıcı.",
               "icon": "icon/vlc.svg",
-              "alt": null,
+              "alt": "VLC Media Player",
               "tags": []
             }
           ]
@@ -1435,7 +1436,7 @@
               "recommended": false,
               "description": "Popüler müzik dinleme platformu.",
               "icon": "icon/spotify.svg",
-              "alt": null,
+              "alt": "Spotify",
               "tags": []
             },
             {
@@ -1444,7 +1445,7 @@
               "recommended": false,
               "description": "Film ve dizi akış platformu.",
               "icon": "icon/stremio.svg",
-              "alt": null,
+              "alt": "Stremio",
               "tags": []
             },
             {
@@ -1453,7 +1454,7 @@
               "recommended": false,
               "description": "Çevrim içi TV ve yayın platformu.",
               "icon": "icon/tv.garden.svg",
-              "alt": null,
+              "alt": "tv.garden",
               "tags": []
             },
             {
@@ -1535,7 +1536,7 @@
               "recommended": false,
               "description": "Açık kaynaklı video dönüştürücü.",
               "icon": "icon/handbrake.svg",
-              "alt": null,
+              "alt": "HandBrake",
               "tags": []
             },
             {
@@ -1544,7 +1545,7 @@
               "recommended": false,
               "description": "Spotify için reklamsız deneyim aracı.",
               "icon": "icon/spotx.svg",
-              "alt": null,
+              "alt": "SpotX",
               "tags": []
             },
             {
@@ -1599,7 +1600,7 @@
               "recommended": false,
               "description": "Dosya yedekleme ve bulut depolama hizmeti.",
               "icon": "icon/dropbox.svg",
-              "alt": null,
+              "alt": "Dropbox",
               "tags": []
             },
             {
@@ -1608,7 +1609,7 @@
               "recommended": false,
               "description": "Google'ın bulut depolama ve dosya paylaşım servisi.",
               "icon": "icon/googledrive.svg",
-              "alt": null,
+              "alt": "Google Drive",
               "tags": []
             },
             {
@@ -1695,7 +1696,7 @@
               "recommended": false,
               "description": "Java programlama dili ve çalışma zamanı.",
               "icon": "icon/java.svg",
-              "alt": null,
+              "alt": "Java",
               "tags": []
             },
             {
@@ -1713,7 +1714,7 @@
               "recommended": false,
               "description": "Resmi PowerShell dökümantasyonu, örnekler ve kurulum rehberleri.",
               "icon": "icon/powershell.svg",
-              "alt": null,
+              "alt": "PowerShell",
               "tags": []
             },
             {
@@ -1801,7 +1802,7 @@
               "recommended": false,
               "description": "OpenAI ChatGPT ile yapay zekâ sohbeti.",
               "icon": "icon/chatgpt.svg",
-              "alt": null,
+              "alt": "ChatGPT",
               "tags": []
             },
             {
@@ -1810,7 +1811,7 @@
               "recommended": false,
               "description": "Claude AI ile yapay zekâ sohbeti.",
               "icon": "icon/claude.svg",
-              "alt": null,
+              "alt": "Claude AI",
               "tags": []
             },
             {
@@ -1819,7 +1820,7 @@
               "recommended": false,
               "description": "Microsoft Copilot ile yapay zekâ asistanı.",
               "icon": "icon/copilot.svg",
-              "alt": null,
+              "alt": "Copilot",
               "tags": []
             },
             {
@@ -1828,7 +1829,7 @@
               "recommended": false,
               "description": "Google Gemini ile yapay zekâ sohbeti.",
               "icon": "icon/gemini.svg",
-              "alt": null,
+              "alt": "Gemini",
               "tags": []
             },
             {
@@ -1837,7 +1838,7 @@
               "recommended": false,
               "description": "Perplexity AI ile yapay zekâ arama ve sohbet.",
               "icon": "icon/perplexity.svg",
-              "alt": null,
+              "alt": "Perplexity AI",
               "tags": []
             }
           ]
@@ -1851,7 +1852,7 @@
               "recommended": false,
               "description": "Uzaktan masaüstü erişim ve destek.",
               "icon": "icon/anydesk.svg",
-              "alt": null,
+              "alt": "AnyDesk",
               "tags": []
             },
             {
@@ -1860,7 +1861,7 @@
               "recommended": false,
               "description": "Açık kaynaklı uzaktan masaüstü erişimi.",
               "icon": "icon/rustdesk.svg",
-              "alt": null,
+              "alt": "RustDesk",
               "tags": []
             },
             {
@@ -1869,7 +1870,7 @@
               "recommended": false,
               "description": "Popüler uzaktan destek ve erişim aracı.",
               "icon": "icon/teamviewer.svg",
-              "alt": null,
+              "alt": "TeamViewer",
               "tags": []
             }
           ]
@@ -1883,7 +1884,7 @@
               "recommended": false,
               "description": "Gelişmiş pano (clipboard) yöneticisi.",
               "icon": "icon/copyq.svg",
-              "alt": null,
+              "alt": "CopyQ",
               "tags": []
             },
             {
@@ -1892,7 +1893,7 @@
               "recommended": false,
               "description": "Ekran görüntüsü alma ve paylaşma aracı.",
               "icon": "icon/sharex.svg",
-              "alt": null,
+              "alt": "ShareX",
               "tags": []
             },
             {
@@ -1901,7 +1902,7 @@
               "recommended": false,
               "description": "Hafif ve modern resim görüntüleyici.",
               "icon": "icon/imageglass.svg",
-              "alt": null,
+              "alt": "ImageGlass",
               "tags": []
             }
           ]
@@ -1952,7 +1953,7 @@
               "recommended": false,
               "description": "Topluluk ve oyun odaklı sohbet platformu.",
               "icon": "icon/discord.svg",
-              "alt": null,
+              "alt": "Discord",
               "tags": []
             },
             {
@@ -1961,7 +1962,7 @@
               "recommended": false,
               "description": "Güvenli ve hızlı mesajlaşma uygulaması.",
               "icon": "icon/telegram.svg",
-              "alt": null,
+              "alt": "Telegram",
               "tags": []
             },
             {
@@ -2062,7 +2063,7 @@
               "recommended": false,
               "description": "Dijital oyun mağazası ve platformu.",
               "icon": "icon/steam.svg",
-              "alt": null,
+              "alt": "Steam",
               "tags": []
             },
             {
