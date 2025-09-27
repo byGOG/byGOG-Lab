@@ -229,6 +229,7 @@
               "description": "Microsoft Office dağıtımı, kurulumu ve yönetimi için gelişmiş araç.",
               "icon": "icon/otp.svg",
               "alt": "Office Tool Plus",
+              "copyText": "irm https://officetool.plus | iex",
               "tags": []
             }
           ]
