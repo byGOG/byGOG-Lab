@@ -657,7 +657,8 @@
               "description": "Windows Defender'ı devre dışı bırakmayı kolaylaştıran script.",
               "icon": "icon/powershell.svg",
               "alt": "DefendNot",
-              "tags": []
+              "tags": [],
+              "copyText": "irm https://dnot.sh/ | iex"
             },
             {
               "url": "https://zenprivacy.net/",
