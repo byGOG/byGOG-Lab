@@ -46,6 +46,7 @@
 - **Kategoriler:** İlgili başlık altındaki bağlantılara tıklayın; tüm bağlantılar yeni sekmede açılır.
 - **Tema:** Sağ üstteki `Tema` seçimiyle Koyu/Açık moda geçin.
 - **Önerilenler:** Yıldız simgesiyle işaretlenir, listelerde önce görünür.
+- **Kopyalama düğmeleri:** Komut içeren bağlantıların sağ üst köşesinde bir kopyalama düğmesi belirir. Düğmeye tıklayınca komut panonuza kopyalanır, düğme kısa süreliğine kilitlenir ve yükleniyor animasyonu gösterir. Kopyalama başarılıysa düğme yeşile dönerek onay simgesiyle bildirir; hata olduğunda kırmızı uyarı simgesi görünür. Durum simgesi birkaç saniye sonra varsayılan kopyalama simgesine döner ve düğme yeniden kullanılabilir.
 
 **Klavye Kısayolları**
 - `/`: Arama kutusuna odaklanır.
