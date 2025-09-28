@@ -8,14 +8,14 @@ const path = require('path');
 const exts = new Set(['.json', '.js', '.html', '.css', '.md']);
 const ignoreDirs = new Set(['.git', 'node_modules', 'dist-assets']);
 
-const patterns = [
-  /\uFFFD/g,       // replacement char
-  /�/g,            // visible replacement in some fonts
-  /Ã./g,           // common UTF-8->1252 leftovers (e.g., Ã¶, Ãœ)
-  /Â/g,            // stray Â from non-breaking space
-  /Ä./g,           // e.g., Ä±, ÄŸ
-  /Å./g            // e.g., ÅŸ, Åž
+const patternSources = [
+  '\\uFFFD',      // replacement char
+  '\\u00C3.',    // common UTF-8->1252 leftovers (e.g., \u00C3\u00B6)
+  '\\u00C2',     // stray \u00C2 from non-breaking space
+  '\\u00C4.',    // e.g., \u00C4\u00B1, \u00C4\u009F
+  '\\u00C5.'     // e.g., \u00C5\u009F, \u00C5\u009E
 ];
+const patterns = patternSources.map(src => new RegExp(src, 'g'));
 
 function walk(dir, out = []) {
   for (const name of fs.readdirSync(dir)) {
