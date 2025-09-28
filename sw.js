@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bygog-lab-cache-v7';
+const CACHE_NAME = 'bygog-lab-cache-v8';
 const urlsToCache = [
   '.',
   'index.html',
