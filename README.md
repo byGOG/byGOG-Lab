@@ -46,7 +46,7 @@
 - **Kategoriler:** İlgili başlık altındaki bağlantılara tıklayın; tüm bağlantılar yeni sekmede açılır.
 - **Tema:** Sağ üstteki `Tema` seçimiyle Koyu/Açık moda geçin.
 - **Önerilenler:** Yıldız simgesiyle işaretlenir, listelerde önce görünür.
-- **Kopyalama düğmeleri:** Komut içeren bağlantıların sağ üst köşesinde bir kopyalama düğmesi belirir. Düğmeye tıklayınca komut panonuza kopyalanır, düğme kısa süreliğine kilitlenir ve yükleniyor animasyonu gösterir. Kopyalama başarılıysa düğme yeşile dönerek onay simgesiyle bildirir; hata olduğunda kırmızı uyarı simgesi görünür. Durum simgesi birkaç saniye sonra varsayılan kopyalama simgesine döner ve düğme yeniden kullanılabilir.
+- **Kopyalama düğmeleri:** Komut içeren bağlantıların sağ üst köşesinde bir kopyalama düğmesi belirir. Düğmeye tıklayınca komut panonuza kopyalanır, düğme kısa süreliğine kilitlenir ve yükleniyor animasyonu gösterir. Kopyalama başarılıysa düğme yeşile dönerek onay simgesiyle bildirir; hata olduğunda kırmızı uyarı simgesi görünür. Durum simgesi birkaç saniye sonra varsayılan kopyalama simgesine döner ve düğme yeniden kullanılabilir. Kopyalanan Winget komutlarını Windows Terminal / PowerShell penceresine yapıştırıp çalıştırabilir, sistem çapında kurulumlar için PowerShell'i yönetici olarak açabilirsiniz. `irm` veya `iwr` ile başlayan PowerShell betikleri de aynı şekilde yapıştırıldığında çalışır; Winget kurulumunu doğrulamak için `winget --version` komutunu koşabilirsiniz.
 
 **Klavye Kısayolları**
 - `/`: Arama kutusuna odaklanır.
