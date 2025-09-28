@@ -76,7 +76,8 @@
               "description": "Orijinal Windows 11 ISO dosyası indir.",
               "icon": "icon/microsoft.svg",
               "alt": "Microsoft",
-              "tags": []
+              "tags": [],
+              "copyText": "winget install Microsoft.MediaCreationTool"
             },
             {
               "url": "https://rufus.ie/tr/",
@@ -85,7 +86,8 @@
               "description": "USB'den kurulum medyası oluşturma.",
               "icon": "icon/rufus.svg",
               "alt": "Rufus",
-              "tags": []
+              "tags": [],
+              "copyText": "winget install Rufus.Rufus"
             },
             {
               "url": "https://www.ventoy.net/",
@@ -94,7 +96,8 @@
               "description": "Birden fazla işletim sistemi için çoklu önyükleme USB aracı.",
               "icon": "icon/ventoy.svg",
               "alt": "Ventoy",
-              "tags": []
+              "tags": [],
+              "copyText": "winget install Ventoy.Ventoy"
             },
             {
               "url": "https://etcher.balena.io/",
@@ -103,7 +106,8 @@
               "description": "Çapraz platform disk görüntülerini USB ve SD kartlara yazdırma aracı.",
               "icon": "icon/balenaetcher.svg",
               "alt": "balenaEtcher",
-              "tags": []
+              "tags": [],
+              "copyText": "winget install Balena.Etcher"
             },
             {
               "url": "https://os.click/en",
@@ -330,7 +334,7 @@
               "icon": "icon/snappy.svg",
               "alt": "Snappy Driver Installer",
               "tags": [],
-          "copyText": "winget install GlennDelahoy.SnappyDriverInstallerOrigin"
+              "copyText": "winget install GlennDelahoy.SnappyDriverInstallerOrigin"
             },
             {
               "url": "https://www.amd.com/en/support/download/drivers.html",
