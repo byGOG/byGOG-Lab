@@ -12,12 +12,20 @@ let errors = 0;
 let warnings = 0;
 
 const isStr = v => typeof v === 'string' && v.length >= 0;
-// Detect likely mojibake or replacement characters in UTF-8 Turkish text
-// - Replacement char U+FFFD (\\\\uFFFD|�|Ã.|Â|Ä.|Å.)
-// - Common UTF-8 mis-decoding sequences: Ã, Â, \\\\uFFFD|�|Ã.|Â|Ä.|Å. (literal)
+// Detect likely mojibake or replacement characters in UTF-8 Turkish text.
+// Patterns mirror scripts/check-encoding.js but are duplicated here to avoid a
+// dependency between the small utility scripts.
+const mojibakePatternSources = [
+  '\\uFFFD',
+  '\\u00C3.',
+  '\\u00C2',
+  '\\u00C4.',
+  '\\u00C5.'
+];
+const mojibakePatterns = mojibakePatternSources.map(src => new RegExp(src));
 const hasMojibake = s => {
   const str = String(s);
-  return /\uFFFD|Ã|Â|\\\\uFFFD|�|Ã.|Â|Ä.|Å./.test(str);
+  return mojibakePatterns.some(rx => rx.test(str));
 };
 const isBool = v => typeof v === 'boolean';
 const isArr = Array.isArray;
