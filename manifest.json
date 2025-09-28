@@ -1,11 +1,19 @@
 {
+  "id": "/byGOG-Lab/",
   "name": "byGOG Lab",
   "short_name": "byGOG Lab",
+  "description": "Windows ve yazılım araçları için güvenilir bağlantılar ve hızlı kurulum rehberleri.",
+  "lang": "tr",
+  "dir": "ltr",
   "scope": "/byGOG-Lab/",
-  "start_url": "./",
+  "start_url": "/byGOG-Lab/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
   "background_color": "#f5f7fa",
   "theme_color": "#23272f",
+  "categories": ["productivity", "utilities"],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "icon/bygog-lab-icon.svg",
