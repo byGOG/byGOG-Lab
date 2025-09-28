@@ -204,7 +204,8 @@
               "description": "IDM için aktivasyon scripti.",
               "icon": "icon/powershell.svg",
               "alt": "IDM Activation Script",
-              "tags": []
+              "tags": [],
+              "copyText": "iex(irm is.gd/idm_reset)"
             }
           ]
         },
