@@ -10,7 +10,8 @@
           "description": "Otomatik sürücü bulma ve güncelleme.",
           "icon": "icon/snappy.svg",
           "alt": "Snappy Driver Installer",
-          "tags": []
+          "tags": [],
+          "copyText": "winget install GlennDelahoy.SnappyDriverInstallerOrigin"
         },
         {
           "url": "https://ninite.com/",
@@ -328,7 +329,8 @@
               "description": "Otomatik sürücü bulma ve güncelleme.",
               "icon": "icon/snappy.svg",
               "alt": "Snappy Driver Installer",
-              "tags": []
+              "tags": [],
+          "copyText": "winget install GlennDelahoy.SnappyDriverInstallerOrigin"
             },
             {
               "url": "https://www.amd.com/en/support/download/drivers.html",
