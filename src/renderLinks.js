@@ -172,7 +172,7 @@ function createLinkItem(link) {
       }, 2000);
     });
 
-    li.appendChild(copyButton);
+    a.appendChild(copyButton);
   }
 
   return li;
