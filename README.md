@@ -70,6 +70,36 @@ flowchart LR
 - Basit bir yerel sunucu ile çalıştırın (örn. VS Code Live Server, `python -m http.server`).
 - Ardından tarayıcıda `http://localhost:PORT/` adresine gidin. Not: `file:///` ile açmak tarayıcı güvenlik kısıtları nedeniyle sorun çıkarabilir.
 
+**Kurulum**
+- Node.js 18+ sürümünün kurulu olduğundan emin olun.
+- Gerekli bağımlılıkları yüklemek için depo kökünde `npm install` komutunu çalıştırın.
+
+**Geliştirme Akışı**
+- `npm run serve`: `links.json` ve `src/` dizinindeki değişiklikleri izleyerek yerel bir geliştirme sunucusu açar.
+- `npm run build`: `dist/` klasörüne üretim paketini oluşturur. Komut, statik dosyaları optimize eder ve servis çalışanı için önbellek manifestini günceller.
+- `npm run validate`: `links.json` içindeki bağlantı ve kategorileri şemaya göre kontrol eder.
+- `npm run check:encoding`: Depodaki dosyaların UTF-8 olduğundan emin olur.
+- `npm run ci:validate`: Sürekli entegrasyonda kullanılan birleşik doğrulama komutudur.
+- `npm run fix:titles`: Bağlantı başlıklarını tutarlı hale getirmeye yardımcı olan yardımcı araçtır.
+- `npm run optimize:svg`: `icon/` ve `docs/` dizinlerindeki SVG dosyalarını SVGO ile sıkıştırır.
+
+**Testler ve Kontroller**
+- Kod veya içerik değişikliklerinden sonra `npm run ci:validate` komutunu çalıştırarak şema ve kodlama doğrulamalarının geçtiğinden emin olun.
+
+**Dosya Yapısı (Özet)**
+```
+byGOG-Lab/
+├── dist/            # Üretim çıktıları (build sonrası oluşur)
+├── docs/            # README görselleri ve rozetler
+├── icon/            # Uygulamada kullanılan SVG simgeler
+├── scripts/         # Node.js tabanlı yardımcı betikler
+├── src/             # Render mantığı ve UI parçaları
+├── index.html       # Ana uygulama kabuğu
+├── links.json       # Kategori ve bağlantı verisi
+├── manifest.json    # PWA yapılandırması
+└── sw.js            # Servis çalışanı
+```
+
 **Katkı ve Geri Bildirim**
 - Öneri ve düzenlemeler için issue/pull request açabilirsiniz.
 - Hızlı geri bildirim için `links.json` üzerinde kategori ve başlık önerilerinde bulunun.
