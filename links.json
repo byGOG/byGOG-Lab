@@ -259,6 +259,7 @@
               "description": "Sistem bilgisi ve donanım tanımlama aracı.",
               "icon": "icon/cpu-z.svg",
               "alt": "CPU-Z",
+              "copyText": "winget install CPUID.CPU-Z",
               "tags": []
             },
             {
@@ -268,6 +269,7 @@
               "description": "Donanım izleme ve detaylı sistem bilgisi.",
               "icon": "icon/hwinfo.svg",
               "alt": "HWiNFO",
+              "copyText": "winget install REALiX.HWiNFO",
               "tags": []
             },
             {
@@ -277,6 +279,7 @@
               "description": "Sistem kararlılığı, stres testi ve donanım izleme aracı.",
               "icon": "icon/occt.svg",
               "alt": "OCCT",
+              "copyText": "winget install OCBase.OCCT.Personal",
               "tags": []
             },
             {
@@ -286,6 +289,7 @@
               "description": "Ekran kartı bilgisi ve izleme aracı.",
               "icon": "icon/gpu-z.svg",
               "alt": "GPU-Z",
+              "copyText": "winget install TechPowerUp.GPU-Z",
               "tags": []
             },
             {
@@ -295,6 +299,7 @@
               "description": "Ücretsiz, popüler GPU stres testi ve benchmark aracı. Ekran kartı kararlılığını ve soğutma performansını ölçmek için kullanılır.",
               "icon": "icon/furmark.svg",
               "alt": "FurMark",
+              "copyText": "winget install Geeks3D.FurMark.2",
               "tags": []
             },
             {
@@ -322,6 +327,7 @@
               "description": "Windows sistemlerini yönetmek, sorun gidermek ve tanılamak için 70'ten fazla gelişmiş yardımcı programdan oluşan bir koleksiyon.",
               "icon": "icon/sysinternals.svg",
               "alt": "Sysinternals",
+              "copyText": "winget install Microsoft.Sysinternals.Suite",
               "tags": []
             }
           ]
@@ -355,6 +361,7 @@
               "description": "Windows sürücü deposunu yönetir ve temizler.",
               "icon": "icon/driverstoreexplorer.svg",
               "alt": "Driver Store Explorer",
+              "copyText": "winget install lostindark.DriverStoreExplorer",
               "tags": []
             },
             {
@@ -364,6 +371,7 @@
               "description": "NVIDIA, AMD ve Intel ekran kartı sürücülerini tamamen kaldırma aracı.",
               "icon": "icon/ddu.svg",
               "alt": "Display Driver Uninstaller",
+              "copyText": "winget install Wagnardsoft.DisplayDriverUninstaller",
               "tags": []
             },
             {
@@ -373,6 +381,7 @@
               "description": "Intel donanımınızı otomatik algılar ve en güncel sürücüleri önerir.",
               "icon": "icon/intel.svg",
               "alt": "Intel Driver ve Support Assistant",
+              "copyText": "winget install Intel.IntelDriverAndSupportAssistant",
               "tags": []
             },
             {
@@ -396,6 +405,7 @@
               "description": "Toplu program kaldırıcı ve temizleyici.",
               "icon": "icon/bcuninstaller.svg",
               "alt": "BCUninstaller",
+              "copyText": "winget install Klocman.BulkCrapUninstaller",
               "tags": []
             },
             {
@@ -405,6 +415,7 @@
               "description": "Sistem temizliği ve gereksiz dosya silme.",
               "icon": "icon/bleachbit.svg",
               "alt": "BleachBit",
+              "copyText": "winget install BleachBit.BleachBit",
               "tags": []
             },
             {
@@ -414,6 +425,7 @@
               "description": "Gereksiz Windows uygulamalarını kaldırma aracı.",
               "icon": "icon/appbuster.svg",
               "alt": "O&O AppBuster",
+              "copyText": "winget install OO-Software.AppBuster",
               "tags": []
             },
             {
@@ -423,6 +435,7 @@
               "description": "Uygulamaları izole ortamda çalıştırma.",
               "icon": "icon/sandboxie.svg",
               "alt": "Sandboxie Plus",
+              "copyText": "winget install Sandboxie.Plus",
               "tags": []
             },
             {
@@ -452,6 +465,7 @@
               "description": "Windows 11 için ayar ve optimizasyon aracı.",
               "icon": "icon/wintoys.svg",
               "alt": "Wintoys",
+              "copyText": "winget install 9P8LTPGCBZXD",
               "tags": []
             },
             {
@@ -461,6 +475,7 @@
               "description": "Windows için Microsoft'un resmi temizleme ve optimizasyon aracı.",
               "icon": "icon/microsoftpcmanager.svg",
               "alt": "Microsoft PC Manager",
+              "copyText": "winget install Microsoft.PCManager",
               "tags": []
             }
           ]
@@ -475,6 +490,7 @@
               "description": "Açık kaynaklı dosya sıkıştırma ve arşivleme.",
               "icon": "icon/7-zip.svg",
               "alt": "7-Zip",
+              "copyText": "winget install 7zip.7zip",
               "tags": []
             },
             {
@@ -484,6 +500,7 @@
               "description": "Modern Windows için 7-Zip tabanlı, açık kaynaklı dosya sıkıştırma ve arşivleme programı. MSIX paket, yeni arayüz ve gelişmiş entegrasyon.",
               "icon": "icon/nanazip.svg",
               "alt": "NanaZip",
+              "copyText": "winget install M2Team.NanaZip",
               "tags": []
             },
             {
@@ -493,6 +510,7 @@
               "description": "Hızlı ve güvenli dosya kopyalama aracı.",
               "icon": "icon/teracopy.svg",
               "alt": "TeraCopy",
+              "copyText": "winget install CodeSector.TeraCopy",
               "tags": []
             },
             {
@@ -502,15 +520,17 @@
               "description": "Popüler dosya sıkıştırma ve arşivleme programı.",
               "icon": "icon/winrar.svg",
               "alt": "WinRAR",
+              "copyText": "winget install RARLab.WinRAR",
               "tags": []
             },
             {
-              "url": "https://code.kliu.org/hashcheck/",
+              "url": "https://github.com/idrassi/HashCheck",
               "name": "HashCheck Shell Extension",
               "recommended": false,
               "description": "Windows Gezgini'ne entegre, hızlı ve açık kaynaklı dosya bütünlüğü (hash) kontrol aracı.",
               "icon": "icon/hashcheck.svg",
               "alt": "HashCheck",
+              "copyText": "winget install idrassi.HashCheckShellExtension",
               "tags": []
             },
             {
@@ -520,6 +540,7 @@
               "description": "Açık kaynaklı, dosya ve klasör karşılaştırma/birleştirme aracı. Farkları görsel olarak gösterir ve senkronizasyon sağlar.",
               "icon": "icon/winmerge.svg",
               "alt": "WinMerge",
+              "copyText": "winget install WinMerge.WinMerge",
               "tags": []
             },
             {
@@ -538,6 +559,7 @@
               "description": "Windows Gezgini için güçlü bir eklenti.",
               "icon": "icon/nilesoftshell.svg",
               "alt": "Nilesoft Shell",
+              "copyText": "winget install Nilesoft.Shell",
               "tags": []
             }
           ]
@@ -552,6 +574,7 @@
               "description": "Windows için anında dosya ve klasör arama.",
               "icon": "icon/everything.svg",
               "alt": "Everything",
+              "copyText": "winget install voidtools.Everything",
               "tags": []
             },
             {
@@ -561,6 +584,7 @@
               "description": "Diskte büyük dosyaları ve alan kullanımını analiz eder.",
               "icon": "icon/wiztree.svg",
               "alt": "WizTree",
+              "copyText": "winget install AntibodySoftware.WizTree",
               "tags": []
             }
           ]
