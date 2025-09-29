@@ -757,6 +757,7 @@
               "description": "Açık kaynaklı VPN istemcisi.",
               "icon": "icon/openvpn.svg",
               "alt": "OpenVPN",
+              "copyText": "winget install OpenVPNTechnologies.OpenVPNConnect",
               "tags": []
             },
             {
@@ -861,6 +862,16 @@
               "description": "Gizlilik odakli, reklam ve izleyici engelleme sunan DNS hizmeti.",
               "icon": "icon/blahdns.svg",
               "alt": "BlahDNS",
+              "tags": []
+            },
+            {
+              "url": "https://www.sordum.org/7952/dns-jumper-v2-3/",
+              "name": "DNS Jumper",
+              "recommended": false,
+              "description": "Windows'ta DNS ayarlarını hızlıca değiştirmeye yarayan taşınabilir araç.",
+              "icon": "icon/dnsjumper.svg",
+              "alt": "DNS Jumper",
+              "copyText": "winget install sordum.DnsJumper",
               "tags": []
             }
           ]
