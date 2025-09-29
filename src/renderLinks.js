@@ -42,6 +42,11 @@ function createLinkItem(link) {
     img.width = 28;
     img.height = 28;
     img.src = link.icon;
+    img.onerror = () => {
+      if (img.src && !img.src.endsWith("/icon/fallback.svg") && !img.src.endsWith("icon/fallback.svg")) {
+        img.src = "icon/fallback.svg";
+      }
+    };
     if (link.alt) img.alt = link.alt;
     img.className = "site-icon";
     wrap.appendChild(img);
@@ -64,6 +69,11 @@ function createLinkItem(link) {
       tipImg.width = 28;
       tipImg.height = 28;
       tipImg.src = link.icon;
+      tipImg.onerror = () => {
+        if (tipImg.src && !tipImg.src.endsWith("/icon/fallback.svg") && !tipImg.src.endsWith("icon/fallback.svg")) {
+          tipImg.src = "icon/fallback.svg";
+        }
+      };
       if (link.alt) tipImg.alt = link.alt;
       tip.appendChild(tipImg);
     }
