@@ -706,6 +706,7 @@
               "description": "Gizlilik ve güvenlik araçları platformu.",
               "icon": "icon/zenprivacy.svg",
               "alt": "ZenPrivacy",
+              "copyText": "winget install ZenPrivacy.ZenDesktop",
               "tags": []
             }
           ]
@@ -765,6 +766,7 @@
               "description": "Güvenli ve hızlı VPN hizmeti.",
               "icon": "icon/protonvpn.svg",
               "alt": "ProtonVPN",
+              "copyText": "winget install Proton.ProtonVPN",
               "tags": []
             },
             {
@@ -774,6 +776,7 @@
               "description": "Sansürü aşmak ve gizliliği korumak için anonim tarayıcı.",
               "icon": "icon/tor.svg",
               "alt": "Tor Browser",
+              "copyText": "winget install TorProject.TorBrowser",
               "tags": []
             }
           ]
@@ -788,6 +791,7 @@
               "description": "Açık kaynaklı şifre yöneticisi.",
               "icon": "icon/bitwarden.svg",
               "alt": "Bitwarden",
+              "copyText": "winget install Bitwarden.Bitwarden",
               "tags": []
             },
             {
@@ -829,6 +833,7 @@
               "description": "Reklam, izleyici ve zararlı yazılımları engelleyen, özelleştirilebilir DNS hizmeti.",
               "icon": "icon/nextdns.svg",
               "alt": "NextDNS",
+              "copyText": "winget install NextDNS.NextDNS",
               "tags": []
             },
             {
@@ -926,6 +931,7 @@
               "description": "Komut satırı ile yazılım kurulum yöneticisi.",
               "icon": "icon/chocolatey.svg",
               "alt": "Chocolatey",
+              "copyText": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
               "tags": []
             },
             {
@@ -935,6 +941,7 @@
               "description": "Çoklu paket yöneticisi arayüzü.",
               "icon": "icon/unigetui.svg",
               "alt": "UnigetUI",
+              "copyText": "winget install MartiCliment.UniGetUI",
               "tags": []
             },
             {
@@ -944,6 +951,7 @@
               "description": "Hızlı yazılım yükleme ve güncelleme aracı.",
               "icon": "icon/ruckzuck.svg",
               "alt": "RuckZuck",
+              "copyText": "winget install RogerZander.RZGet",
               "tags": []
             },
             {
@@ -962,6 +970,7 @@
               "description": "Komut satırı tabanlı yazılım paket yöneticisi.",
               "icon": "icon/scoop.svg",
               "alt": "Scoop",
+              "copyText": "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser; Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression",
               "tags": []
             }
           ]
