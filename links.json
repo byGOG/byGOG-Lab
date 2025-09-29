@@ -219,6 +219,7 @@
               "description": "Ücretsiz ve açık kaynaklı ofis paketi.",
               "icon": "icon/libreoffice.svg",
               "alt": "LibreOffice",
+              "copyText": "winget install TheDocumentFoundation.LibreOffice",
               "tags": []
             },
             {
@@ -228,6 +229,7 @@
               "description": "SoftMaker tarafından ücretsiz ofis paketi.",
               "icon": "icon/freeoffice.svg",
               "alt": "FreeOffice",
+              "copyText": "winget install SoftMaker.FreeOffice.2024",
               "tags": []
             },
             {
