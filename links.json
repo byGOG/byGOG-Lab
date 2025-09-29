@@ -604,6 +604,7 @@
               "description": "Ücretsiz, ödüllü antivirüs ve gerçek zamanlı koruma.",
               "icon": "icon/avira.svg",
               "alt": "Avira Free Antivirus",
+              "copyText": "winget install XPFD23M0L795KD",
               "tags": []
             },
             {
@@ -622,6 +623,7 @@
               "description": "Gelişmiş kötü amaçlı yazılım temizleme ve gerçek zamanlı koruma aracı.",
               "icon": "icon/malwarebytes.svg",
               "alt": "Malwarebytes",
+              "copyText": "winget install Malwarebytes.Malwarebytes",
               "tags": []
             },
             {
@@ -645,6 +647,7 @@
               "description": "Windows 10 ve 11 için ücretsiz, taşınabilir gizlilik ve telemetri kapatma aracı.",
               "icon": "icon/oosu10.svg",
               "alt": "O&O ShutUp10++",
+              "copyText": "winget install OO-Software.ShutUp10",
               "tags": []
             },
             {
@@ -654,6 +657,7 @@
               "description": "Windows için taşınabilir, reklamsız ve gelişmiş gizlilik kontrol paneli.",
               "icon": "icon/wpd.svg",
               "alt": "WPD",
+              "copyText": "winget install WPD.WPD",
               "tags": []
             },
             {
@@ -663,6 +667,7 @@
               "description": "Gizlilik ve güvenlik ayarlarını otomatikleştirir.",
               "icon": "icon/privacy.sexy.svg",
               "alt": "Privacy.sexy",
+              "copyText": "winget install undergroundwires.privacy.sexy",
               "tags": []
             },
             {
@@ -672,6 +677,7 @@
               "description": "Windows Defender'ı sistemden kaldırır.",
               "icon": "icon/defenderremover.svg",
               "alt": "Windows Defender Remover",
+              "copyText": "git clone https://github.com/ionuttbara/windows-defender-remover.git; cd windows-defender-remover; .\\Script_Run.bat",
               "tags": []
             },
             {
