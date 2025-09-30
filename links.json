@@ -1224,7 +1224,8 @@
               "description": "Ookla hiz testi ile indirme, yukleme ve ping degerlerini olcer.",
               "icon": "icon/speedtest.svg",
               "alt": "Speedtest",
-              "tags": []
+              "tags": [],
+              "copyText": "winget install Ookla.Speedtest.CLI"
             }
           ]
         }
