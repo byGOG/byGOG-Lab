@@ -1226,6 +1226,15 @@
               "alt": "Speedtest",
               "tags": [],
               "copyText": "winget install Ookla.Speedtest.CLI"
+            },
+            {
+              "url": "https://speed.cloudflare.com/",
+              "name": "Cloudflare Speed Test",
+              "recommended": false,
+              "description": "Cloudflare hiz testi ile indirme, yukleme ve gecikme degerlerini olcer.",
+              "icon": "icon/cloudflare.svg",
+              "alt": "Cloudflare Speed Test",
+              "tags": []
             }
           ]
         }
@@ -1448,6 +1457,7 @@
               "description": "Zengin özelliklere sahip, komut satırı tabanlı video ve ses indirme aracı.",
               "icon": "icon/yt-dlp.svg",
               "alt": "yt-dlp",
+              "copyText": "winget install yt-dlp.yt-dlp",
               "tags": []
             }
           ]
@@ -1503,6 +1513,7 @@
               "description": "Popüler müzik dinleme platformu.",
               "icon": "icon/spotify.svg",
               "alt": "Spotify",
+              "copyText": "winget install Spotify.Spotify",
               "tags": []
             },
             {
@@ -1512,6 +1523,7 @@
               "description": "Film ve dizi akış platformu.",
               "icon": "icon/stremio.svg",
               "alt": "Stremio",
+              "copyText": "winget install Stremio.Stremio",
               "tags": []
             },
             {
@@ -1549,12 +1561,7 @@
               "icon": "icon/topsportlivegt.svg",
               "alt": "TopSportLiveGT",
               "tags": []
-            }
-          ]
-        },
-        {
-          "title": "Müzik Platformları",
-          "links": [
+            },
             {
               "url": "https://www.beatstats.com/",
               "name": "BeatStats",
@@ -1585,6 +1592,7 @@
               "description": "Popüler indirme yöneticisi ve hızlandırıcısı.",
               "icon": "icon/idm.svg",
               "alt": "Internet Download Manager",
+              "copyText": "winget install Tonec.InternetDownloadManager",
               "tags": []
             },
             {
@@ -1594,6 +1602,7 @@
               "description": "Ücretsiz, açık kaynaklı indirme yöneticisi.",
               "icon": "icon/jdownloader.svg",
               "alt": "JDownloader",
+              "copyText": "winget install AppWork.JDownloader",
               "tags": []
             },
             {
@@ -1603,6 +1612,7 @@
               "description": "Açık kaynaklı video dönüştürücü.",
               "icon": "icon/handbrake.svg",
               "alt": "HandBrake",
+              "copyText": "winget install HandBrake.HandBrake",
               "tags": []
             },
             {
@@ -1612,6 +1622,7 @@
               "description": "Spotify için reklamsız deneyim aracı.",
               "icon": "icon/spotx.svg",
               "alt": "SpotX",
+              "copyText": "iex \"& { $(iwr -useb 'https://raw.githubusercontent.com/SpotX-Official/SpotX/refs/heads/main/run.ps1') } -confirm_uninstall_ms_spoti -confirm_spoti_recomended_over -podcasts_off -block_update_on -start_spoti -new_theme -adsections_off -lyrics_stat spotify\"",
               "tags": []
             },
             {
@@ -1621,6 +1632,7 @@
               "description": "Spotify istemcisini özelleştirmek için komut satırı aracı.",
               "icon": "icon/spicetify.svg",
               "alt": "Spicetify",
+              "copyText": "winget install Spicetify.Spicetify",
               "tags": []
             }
           ]
@@ -1629,7 +1641,7 @@
           "title": "Dizi ve Film İzleme Siteleri",
           "links": [
             {
-              "url": "https://dizipal1300.com/",
+              "url": "https://dizipal1312.com/",
               "name": "Dizipal",
               "recommended": false,
               "description": "Güncel dizi ve filmleri ücretsiz izleyebileceğiniz popüler platform.",
@@ -1647,7 +1659,7 @@
               "tags": []
             },
             {
-              "url": "https://hdfilmcehennemi18.org/",
+              "url": "https://hdfilmcehennemi19.org/",
               "name": "HDFilmCehennemi",
               "recommended": false,
               "description": "Full HD 1080p kalitede dizi, film ve animeleri ücretsiz izleme platformu.",
@@ -1667,6 +1679,7 @@
               "description": "Dosya yedekleme ve bulut depolama hizmeti.",
               "icon": "icon/dropbox.svg",
               "alt": "Dropbox",
+              "copyText": "winget install Dropbox.Dropbox",
               "tags": []
             },
             {
@@ -1676,6 +1689,7 @@
               "description": "Google'ın bulut depolama ve dosya paylaşım servisi.",
               "icon": "icon/googledrive.svg",
               "alt": "Google Drive",
+              "copyText": "winget install Google.GoogleDrive",
               "tags": []
             },
             {
@@ -1685,6 +1699,7 @@
               "description": "Yerel ağ üzerinden cihazlar arası dosya paylaşım aracı.",
               "icon": "icon/localsend.svg",
               "alt": "LocalSend",
+              "copyText": "winget install LocalSend.LocalSend",
               "tags": []
             }
           ]
@@ -1713,6 +1728,7 @@
               "description": "Güçlü, açık kaynaklı sanallaştırma yazılımı. Windows, Linux, macOS ve diğer platformlarda sanal makine çalıştırmak için kullanılır.",
               "icon": "icon/virtualbox.svg",
               "alt": "VirtualBox",
+              "copyText": "winget install Oracle.VirtualBox",
               "tags": []
             },
             {
@@ -1722,6 +1738,7 @@
               "description": "Popüler kod editörü ve IDE.",
               "icon": "icon/visualstudiocode.svg",
               "alt": "Visual Studio Code",
+              "copyText": "winget install Microsoft.VisualStudioCode",
               "tags": []
             },
             {
@@ -1731,6 +1748,7 @@
               "description": "Gelişmiş metin ve kod editörü.",
               "icon": "icon/notepadplusplus.svg",
               "alt": "Notepad++",
+              "copyText": "winget install Notepad++.Notepad++",
               "tags": []
             },
             {
@@ -1740,6 +1758,7 @@
               "description": "Yapay zekâ destekli modern kod editörü. Kod tamamlama, doğal dil ile düzenleme ve gelişmiş üretkenlik özellikleri sunar.",
               "icon": "icon/cursor.svg",
               "alt": "Cursor",
+              "copyText": "winget install Anysphere.Cursor",
               "tags": []
             },
             {
@@ -1749,6 +1768,7 @@
               "description": "Windows uygulamaları için ücretsiz kaynak derleyici ve düzenleyici. İkon, imleç, menü ve diyalog kutularını değiştirir.",
               "icon": "icon/resourcehacker.svg",
               "alt": "Resource Hacker",
+              "copyText": "winget install AngusJohnson.ResourceHacker",
               "tags": []
             }
           ]
@@ -1763,6 +1783,7 @@
               "description": "Java programlama dili ve çalışma zamanı.",
               "icon": "icon/java.svg",
               "alt": "Java",
+              "copyText": "winget install Oracle.JavaRuntimeEnvironment",
               "tags": []
             },
             {
@@ -1772,6 +1793,7 @@
               "description": "Genel amaçlı, dinamik ve çok platformlu programlama dili.",
               "icon": "icon/python.svg",
               "alt": "Python",
+              "copyText": "winget install Python",
               "tags": []
             },
             {
@@ -1781,6 +1803,7 @@
               "description": "Resmi PowerShell dökümantasyonu, örnekler ve kurulum rehberleri.",
               "icon": "icon/powershell.svg",
               "alt": "PowerShell",
+              "copyText": "winget install Microsoft.PowerShell",
               "tags": []
             },
             {
@@ -1790,6 +1813,7 @@
               "description": "Android cihazlarla bağlantı, uygulama yükleme, hata ayıklama ve komut satırı yönetimi için resmi araç.",
               "icon": "icon/android.svg",
               "alt": "ADB",
+              "copyText": "winget install Google.PlatformTools",
               "tags": []
             }
           ]
@@ -1804,6 +1828,7 @@
               "description": "Ücretsiz ve açık kaynaklı, profesyonel vektör grafik düzenleyici. SVG formatını destekler.",
               "icon": "icon/inkscape.svg",
               "alt": "Inkscape",
+              "copyText": "winget install Inkscape.Inkscape",
               "tags": []
             },
             {
@@ -1832,6 +1857,7 @@
               "description": "Hareketli ve interaktif masaüstü duvar kağıtları.",
               "icon": "icon/livelywallpaper.svg",
               "alt": "Lively Wallpaper",
+              "copyText": "winget install rocksdanister.LivelyWallpaper",
               "tags": []
             }
           ]
@@ -1846,6 +1872,7 @@
               "description": "Yapay zekâ destekli, yüksek kaliteli metin çeviri servisi. Çoklu dil desteği ve gelişmiş çeviri doğruluğu.",
               "icon": "icon/deepl.svg",
               "alt": "DeepL",
+              "copyText": "winget install DeepL.DeepL",
               "tags": []
             },
             {
@@ -1869,6 +1896,7 @@
               "description": "OpenAI ChatGPT ile yapay zekâ sohbeti.",
               "icon": "icon/chatgpt.svg",
               "alt": "ChatGPT",
+              "copyText": "winget install 9NT1R1C2HH7J",
               "tags": []
             },
             {
@@ -1878,6 +1906,7 @@
               "description": "Claude AI ile yapay zekâ sohbeti.",
               "icon": "icon/claude.svg",
               "alt": "Claude AI",
+              "copyText": "winget install Anthropic.Claude",
               "tags": []
             },
             {
@@ -1887,6 +1916,7 @@
               "description": "Microsoft Copilot ile yapay zekâ asistanı.",
               "icon": "icon/copilot.svg",
               "alt": "Copilot",
+              "copyText": "winget install 9NHT9RB2F4HD",
               "tags": []
             },
             {
@@ -1905,6 +1935,7 @@
               "description": "Perplexity AI ile yapay zekâ arama ve sohbet.",
               "icon": "icon/perplexity.svg",
               "alt": "Perplexity AI",
+              "copyText": "winget install XP8JNQFBQH6PVF",
               "tags": []
             }
           ]
@@ -1919,6 +1950,7 @@
               "description": "Uzaktan masaüstü erişim ve destek.",
               "icon": "icon/anydesk.svg",
               "alt": "AnyDesk",
+              "copyText": "winget install AnyDesk.AnyDesk",
               "tags": []
             },
             {
@@ -1928,6 +1960,7 @@
               "description": "Açık kaynaklı uzaktan masaüstü erişimi.",
               "icon": "icon/rustdesk.svg",
               "alt": "RustDesk",
+              "copyText": "winget install RustDesk.RustDesk",
               "tags": []
             },
             {
@@ -1937,6 +1970,7 @@
               "description": "Popüler uzaktan destek ve erişim aracı.",
               "icon": "icon/teamviewer.svg",
               "alt": "TeamViewer",
+              "copyText": "winget install TeamViewer.TeamViewer",
               "tags": []
             }
           ]
@@ -1951,6 +1985,7 @@
               "description": "Gelişmiş pano (clipboard) yöneticisi.",
               "icon": "icon/copyq.svg",
               "alt": "CopyQ",
+              "copyText": "winget install hluk.CopyQ",
               "tags": []
             },
             {
@@ -1960,6 +1995,7 @@
               "description": "Ekran görüntüsü alma ve paylaşma aracı.",
               "icon": "icon/sharex.svg",
               "alt": "ShareX",
+              "copyText": "winget install ShareX.ShareX",
               "tags": []
             },
             {
@@ -1969,6 +2005,7 @@
               "description": "Hafif ve modern resim görüntüleyici.",
               "icon": "icon/imageglass.svg",
               "alt": "ImageGlass",
+              "copyText": "winget install DuongDieuPhap.ImageGlass",
               "tags": []
             }
           ]
@@ -2007,6 +2044,15 @@
               "icon": "icon/instapro.svg",
               "alt": "InstaPro",
               "tags": []
+            },
+            {
+              "url": "https://inattv156.cfd/",
+              "name": "İnat TV",
+              "recommended": false,
+              "description": "Canlı TV ve yayınlar için modlu Android uygulaması.",
+              "icon": "icon/android.svg",
+              "alt": "İnat TV",
+              "tags": []
             }
           ]
         },
@@ -2020,6 +2066,7 @@
               "description": "Topluluk ve oyun odaklı sohbet platformu.",
               "icon": "icon/discord.svg",
               "alt": "Discord",
+              "copyText": "winget install Discord.Discord",
               "tags": []
             },
             {
@@ -2029,6 +2076,7 @@
               "description": "Güvenli ve hızlı mesajlaşma uygulaması.",
               "icon": "icon/telegram.svg",
               "alt": "Telegram",
+              "copyText": "winget install Telegram.TelegramDesktop",
               "tags": []
             },
             {
@@ -2038,6 +2086,7 @@
               "description": "Popüler, uçtan uca şifreli mesajlaşma ve arama uygulaması.",
               "icon": "icon/whatsapp.svg",
               "alt": "WhatsApp",
+              "copyText": "winget install 9NKSQGP7F2NH",
               "tags": []
             }
           ]
