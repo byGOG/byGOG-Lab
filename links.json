@@ -1070,6 +1070,7 @@
               "description": "Gizlilik odaklı hızlı web tarayıcı.",
               "icon": "icon/brave.svg",
               "alt": "Brave",
+              "copyText": "winget install Brave.Brave",
               "tags": []
             },
             {
@@ -1079,6 +1080,7 @@
               "description": "Google'ın hızlı ve popüler web tarayıcısı.",
               "icon": "icon/chrome.svg",
               "alt": "Google Chrome",
+              "copyText": "winget install Google.Chrome",
               "tags": []
             },
             {
@@ -1088,6 +1090,7 @@
               "description": "Açık kaynaklı web tarayıcı.",
               "icon": "icon/firefox.svg",
               "alt": "Mozilla Firefox",
+              "copyText": "winget install Mozilla.Firefox.tr",
               "tags": []
             },
             {
@@ -1097,6 +1100,7 @@
               "description": "Güvenli ve hızlı web tarayıcı.",
               "icon": "icon/zenbrowser.svg",
               "alt": "Zen Browser",
+              "copyText": "winget install Zen-Team.Zen-Browser",
               "tags": []
             }
           ]
