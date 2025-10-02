@@ -41,7 +41,8 @@ function createLinkItem(link) {
     img.decoding = "async";
     img.width = 28;
     img.height = 28;
-    img.src = link.icon;
+    img.setAttribute('data-src', link.icon);
+    img.src = "icon/fallback.svg";
     img.onerror = () => {
       if (img.src && !img.src.endsWith("/icon/fallback.svg") && !img.src.endsWith("icon/fallback.svg")) {
         img.src = "icon/fallback.svg";
@@ -320,54 +321,76 @@ function applyHighlight(node, _regex) {
   }
 }
 
-function updateCategoryVisibility() {
-  document.querySelectorAll(".category-card").forEach(card => {
-    const subs = card.querySelectorAll(".sub-category");
-    if (subs.length) {
-      let any = false;
-      subs.forEach(sc => {
-        const hasVisible = sc.querySelectorAll('li:not([style*="display: none"])').length > 0;
-        sc.style.display = hasVisible ? "" : "none";
-        if (hasVisible) any = true;
-      });
-      card.style.display = any ? "" : "none";
-    } else {
-      const visible = card.querySelectorAll('li:not([style*="display: none"])');
-      card.style.display = visible.length > 0 ? "" : "none";
-    }
-  });
-}
+// Category visibility is managed via counters for performance
+// Toggling happens in createMatchApplier using 'is-hidden' class
+function updateCategoryVisibility() {}
 
 function createMatchApplier(nodes, dataset, status) {
   const visible = new Set(dataset.map(entry => entry.index));
+  const catCounts = new Map();
+  const subCounts = new Map();
+  dataset.forEach(entry => {
+    if (!entry.isLink) return;
+    const cat = entry.catEl;
+    const sub = entry.subEl;
+    catCounts.set(cat, (catCounts.get(cat) || 0) + 1);
+    if (sub) subCounts.set(sub, (subCounts.get(sub) || 0) + 1);
+  });
+
+  function toggleContainer(el, countMap) {
+    if (!el) return;
+    const count = countMap.get(el) || 0;
+    el.classList.toggle('is-hidden', count <= 0);
+  }
+
+  function hideIndex(idx) {
+    const node = nodes[idx];
+    if (!node) return;
+    if (!node.classList.contains('is-hidden')) {
+      node.classList.add('is-hidden');
+      applyHighlight(node, null);
+      const entry = dataset[idx];
+      if (entry.isLink) {
+        const cat = entry.catEl; const sub = entry.subEl;
+        if (cat) { catCounts.set(cat, (catCounts.get(cat) || 0) - 1); toggleContainer(cat, catCounts); }
+        if (sub) { subCounts.set(sub, (subCounts.get(sub) || 0) - 1); toggleContainer(sub, subCounts); }
+      }
+    }
+    visible.delete(idx);
+  }
+
+  function showIndex(idx, regex) {
+    const node = nodes[idx];
+    if (!node) return false;
+    let wasHidden = node.classList.contains('is-hidden');
+    if (wasHidden) {
+      node.classList.remove('is-hidden');
+      const entry = dataset[idx];
+      if (entry.isLink) {
+        const cat = entry.catEl; const sub = entry.subEl;
+        if (cat) { catCounts.set(cat, (catCounts.get(cat) || 0) + 1); toggleContainer(cat, catCounts); }
+        if (sub) { subCounts.set(sub, (subCounts.get(sub) || 0) + 1); toggleContainer(sub, subCounts); }
+      }
+      visible.add(idx);
+    }
+    applyHighlight(node, regex);
+    return dataset[idx].isLink;
+  }
+
   return function applyMatches(meta, matches) {
     const matchSet = new Set(matches);
     const toHide = [];
-    visible.forEach(idx => {
-      if (!matchSet.has(idx)) toHide.push(idx);
-    });
-    toHide.forEach(idx => {
-      const node = nodes[idx];
-      node.style.display = "none";
-      applyHighlight(node, null);
-      visible.delete(idx);
-    });
+    visible.forEach(idx => { if (!matchSet.has(idx)) toHide.push(idx); });
+    toHide.forEach(hideIndex);
+
     let matchCount = 0;
-    matchSet.forEach(idx => {
-      const node = nodes[idx];
-      if (!visible.has(idx)) {
-        node.style.display = "";
-        visible.add(idx);
-      }
-      applyHighlight(node, meta.regex);
-      if (dataset[idx].isLink) matchCount++;
-    });
+    matchSet.forEach(idx => { if (showIndex(idx, meta.regex)) matchCount++; });
+
     if (meta.hasQuery) {
       status.textContent = matchCount > 0 ? `${matchCount} sonuç bulundu` : "Sonuç bulunamadı";
     } else {
       status.textContent = "";
     }
-    updateCategoryVisibility();
   };
 }
 
@@ -401,6 +424,12 @@ function createWorkerSearchEngine(nodes, dataset, status) {
   return {
     run(query) {
       const meta = createHighlightMeta(query);
+      const tokens = tokenizeFoldedQuery(query);
+      if (!tokens.length) {
+        const matches = dataset.map(entry => entry.index);
+        applyMatches(meta, matches);
+        return;
+      }
       const id = ++lastQueryId;
       pending.set(id, meta);
       worker.postMessage({ type: "query", payload: { id, value: query } });
@@ -436,17 +465,26 @@ function setupSearch() {
 
   const dataset = nodes.map((el, index) => {
     const raw = el.dataset.search || el.textContent || "";
+    const catEl = el.closest('.category-card');
+    const subEl = el.closest('.sub-category');
     return {
       index,
       folded: foldForSearch(raw),
-      isLink: !!el.querySelector(".link-text")
+      isLink: !!el.querySelector(".link-text"),
+      catEl,
+      subEl
     };
   });
 
   const engine = createWorkerSearchEngine(nodes, dataset, status) || createSyncSearchEngine(nodes, dataset, status);
 
   let debounceTimer;
-  const debounceDelay = 200;
+  function computeDelay(val){
+    const n = (String(val||"").trim()).length;
+    if (n >= 8) return 80;
+    if (n >= 4) return 120;
+    return 250;
+  }
 
   function runImmediate(value) {
     clearTimeout(debounceTimer);
@@ -455,6 +493,7 @@ function setupSearch() {
 
   input.addEventListener("input", () => {
     clearTimeout(debounceTimer);
+    const delay = computeDelay(input.value);
     debounceTimer = setTimeout(() => {
       engine.run(input.value);
       try {
@@ -463,7 +502,7 @@ function setupSearch() {
         if (v) url.searchParams.set("q", v); else url.searchParams.delete("q");
         history.replaceState(null, "", url.toString());
       } catch {}
-    }, debounceDelay);
+    }, delay);
   });
 
   document.addEventListener("keydown", ev => {
@@ -528,6 +567,26 @@ function setupSearch() {
   } catch {
     if (input.value) runImmediate(input.value);
   }
+
+  // Lazy-load icons with IntersectionObserver
+  try {
+    const io = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.getAttribute('data-src');
+          if (src) {
+            img.src = src;
+            img.removeAttribute('data-src');
+          }
+          io.unobserve(img);
+        }
+      });
+    }, { rootMargin: '200px 0px' }) : null;
+    if (io) {
+      document.querySelectorAll('img.site-icon[data-src]').forEach(img => io.observe(img));
+    }
+  } catch {}
 }
 
 

@@ -173,3 +173,6 @@
 @media (max-width:900px){.search-container{flex:1 1 360px}}
 @media (max-width:720px){.site-header{justify-content:center}.search-container{width:100%;margin-left:0}.logo{max-height:64px}}
 
+
+/* Perf: visibility toggle */
+.is-hidden{display:none !important}
