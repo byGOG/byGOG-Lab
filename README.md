@@ -20,6 +20,9 @@ Hızlı Başlangıç (3 Adım)
 2. Üstteki arama kutusuna yazın; sonuçlar anında filtrelenir.
 3. İlgili bağlantıya tıklayın veya komut varsa kopyalama düğmesiyle panoya alın.
 
+Ekran Görüntüsü
+<img src="docs/screenshot.svg" alt="byGOG Lab ekran görüntüsü (temsili)" width="100%" />
+
 byGOG Lab, Windows ve yazılım araçları için güvenilir bağlantıları tek sayfada bir araya getirir. Aradığınızı hızla bulun, komutları tek tıkla kopyalayın, çevrimdışı bile kullanın.
 
 Öne Çıkanlar
@@ -75,4 +78,3 @@ Sorumluluk Reddi
 
 Geri Bildirim
 - Öneri ve düzeltmeler için proje sayfasında konu açabilir veya değişiklik isteği gönderebilirsiniz.
-
