@@ -173,6 +173,33 @@
 @media (max-width:900px){.search-container{flex:1 1 360px}}
 @media (max-width:720px){.site-header{justify-content:center}.search-container{width:100%;margin-left:0}.logo{max-height:64px}}
 
+/* Install PWA Modern Card */
+.install-card{position:fixed;right:24px;bottom:96px;z-index:9998;display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:16px;background:var(--card-bg);border:1.5px solid var(--card-border);box-shadow:0 10px 30px rgba(0,0,0,.25),0 6px 16px rgba(0,0,0,.18);backdrop-filter:blur(10px) saturate(120%);-webkit-backdrop-filter:blur(10px) saturate(120%);max-width:420px}
+.install-icon{width:40px;height:40px;border-radius:12px;background:var(--img-bg);border:1px solid var(--card-border);box-shadow:0 1px 3px var(--card-shadow2);flex-shrink:0}
+.install-text{display:flex;flex-direction:column;gap:2px;min-width:0}
+.install-title{font-weight:700;font-size:15px;color:var(--h2);line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.install-sub{font-size:12px;opacity:.9;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.install-actions{margin-left:auto;display:flex;gap:8px}
+.btn{padding:8px 12px;border-radius:12px;border:1.5px solid var(--card-border);background:var(--card-bg);color:var(--text);cursor:pointer;box-shadow:0 1px 3px var(--card-shadow2)}
+.btn:hover{box-shadow:0 3px 8px var(--card-shadow-hover)}
+.btn:focus{outline:2px solid var(--text-hover);outline-offset:2px}
+.btn.install-btn{background:var(--text-hover);color:var(--card-bg);border-color:transparent}
+.btn.ghost{background:transparent}
+@media (max-width:600px){.install-card{left:16px;right:16px;bottom:16px}}
+.install-hint{font-size:12px;opacity:.9;color:var(--text)}
+.install-close{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;border:1px solid var(--card-border);background:var(--card-bg);color:var(--text);cursor:pointer;box-shadow:0 1px 3px var(--card-shadow2)}
+.install-close:hover{box-shadow:0 3px 8px var(--card-shadow-hover)}
+.install-logo-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:18px;border:1.5px solid var(--card-border);background:linear-gradient(135deg, rgba(163,191,250,.15), rgba(255,214,102,.12));box-shadow:0 6px 18px 0 var(--card-shadow-hover),0 2px 8px 0 var(--card-shadow2-hover);cursor:pointer;transition:transform .15s ease, box-shadow .2s ease, filter .2s ease}
+.install-logo-btn::before{content:"";position:absolute;inset:-2px;border-radius:20px;background:conic-gradient(from 0deg, #a3bffa, #ffd666, #a3bffa);filter:blur(10px) saturate(140%);opacity:.55;z-index:-1;animation:halo-rotate 6s linear infinite}
+.install-logo-btn.ready::before{opacity:.8;filter:blur(12px) saturate(160%)}
+.install-logo-btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px 0 var(--card-shadow-hover),0 3px 10px 0 var(--card-shadow2-hover);filter:brightness(1.05)}
+.install-logo-btn:hover{transform:translateY(-1px);box-shadow:0 8px 22px 0 var(--card-shadow-hover),0 3px 10px 0 var(--card-shadow2-hover)}
+.install-logo-btn:focus{outline:2px solid var(--text-hover);outline-offset:2px}
+.install-logo-btn.ready{animation: install-pulse 1.2s ease-in-out infinite}
+.install-logo-img{width:56px;height:56px;border-radius:14px;background:var(--img-bg);border:1px solid var(--card-border);box-shadow:0 1px 3px var(--card-shadow2)}
+@keyframes install-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@keyframes halo-rotate{to{transform:rotate(360deg)}}
+
 
 /* Perf: visibility toggle */
 .is-hidden{display:none !important}

@@ -676,6 +676,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   setupCopyDelegation();
   setupSearch();
+  setupPWAInstallUI();
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
       navigator.serviceWorker.register("sw.js").then(
@@ -691,3 +692,128 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 });
+
+// PWA install prompt handling and UI
+function setupPWAInstallUI() {
+  const state = { deferred: null, installed: false };
+  const cfg = { delayMs: 4500, minScroll: 200, snoozeDays: 7 };
+  const isStandalone = () => (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || (window.navigator && window.navigator.standalone);
+  const isAllowedPath = () => {
+    try {
+      const p = new URL(window.location.href).pathname;
+      return /(?:^|\/)index\.html$/.test(p) || /\/$/.test(p);
+    } catch { return true; }
+  };
+  const isSnoozed = () => {
+    try { const until = Number(localStorage.getItem('pwaDismissUntil')||'0'); return Date.now() < until; } catch { return false; }
+  };
+  const snooze = () => { try { localStorage.setItem('pwaDismissUntil', String(Date.now() + cfg.snoozeDays*86400000)); } catch {} };
+
+  const createCard = () => {
+    const card = document.createElement('div');
+    card.className = 'install-card';
+    card.setAttribute('role', 'dialog');
+    card.setAttribute('aria-live', 'polite');
+    card.setAttribute('aria-label', 'Uygulamayı yükle');
+
+    const icon = document.createElement('img');
+    icon.className = 'install-icon';
+    icon.src = 'icon/bygog-lab-icon.svg';
+    icon.alt = '';
+    icon.width = 40; icon.height = 40;
+
+    const textWrap = document.createElement('div');
+    textWrap.className = 'install-text';
+    const title = document.createElement('div');
+    title.className = 'install-title';
+    title.textContent = 'byGOG\'u yükle';
+    const sub = document.createElement('div');
+    sub.className = 'install-sub';
+    sub.textContent = 'Hızlı erişim için ana ekrana ekle';
+    textWrap.appendChild(title);
+    textWrap.appendChild(sub);
+
+    const hint = document.createElement('div');
+    hint.className = 'install-hint';
+    hint.textContent = '';
+
+    const logoBtn = document.createElement('button');
+    logoBtn.type = 'button';
+    logoBtn.className = 'install-logo-btn';
+    logoBtn.setAttribute('aria-label', 'Ana ekrana ekle');
+    const logoImg = document.createElement('img');
+    logoImg.src = 'icon/bygog-lab-icon.svg';
+    logoImg.alt = '';
+    logoImg.width = 56; logoImg.height = 56;
+    logoImg.className = 'install-logo-img';
+    logoBtn.appendChild(logoImg);
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'install-close';
+    closeBtn.setAttribute('aria-label', 'Kapat');
+    closeBtn.innerHTML = '×';
+
+    card.appendChild(icon);
+    card.appendChild(textWrap);
+    card.appendChild(hint);
+    card.appendChild(logoBtn);
+    card.appendChild(closeBtn);
+    document.body.appendChild(card);
+
+    // Handlers
+    logoBtn.addEventListener('click', async () => {
+      if (state.deferred) {
+        try {
+          await state.deferred.prompt();
+          const choice = await state.deferred.userChoice;
+          state.deferred = null;
+          if (choice && choice.outcome === 'accepted') hide();
+        } catch {}
+      } else {
+        alert('Uygulamayı ana ekrana eklemek için tarayıcınızın menüsünden "Ana Ekrana Ekle" seçeneğini kullanın.');
+      }
+    });
+    closeBtn.addEventListener('click', () => { snooze(); hide(); });
+
+    // State updater (platform-aware)
+    const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent);
+    const isAndroid = () => /android/i.test(navigator.userAgent);
+    const updateState = () => {
+      const hasPrompt = !!state.deferred;
+      if (hasPrompt) logoBtn.classList.add('ready'); else logoBtn.classList.remove('ready');
+      // Hint when iOS (or no prompt available)
+      if (isIOS()) {
+        hint.style.display = '';
+        hint.textContent = 'Safari: Paylaş menüsü → Ana Ekrana Ekle';
+      } else if (!hasPrompt) {
+        hint.style.display = '';
+        hint.textContent = isAndroid() ? 'Chrome menüsü → Ana ekrana ekle' : 'Tarayıcı menüsü → Ana ekrana ekle';
+      } else {
+        hint.style.display = 'none';
+      }
+    };
+    card._updateInstallState = updateState;
+    updateState();
+    return card;
+  };
+
+  let cardEl = null;
+  const show = () => { if (!cardEl) cardEl = createCard(); cardEl.style.display = ''; };
+  const hide = () => { if (cardEl) cardEl.style.display = 'none'; };
+
+  if (isStandalone() || !isAllowedPath() || isSnoozed()) { hide(); return; }
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    state.deferred = e;
+    show();
+    try { if (cardEl && cardEl._updateInstallState) cardEl._updateInstallState(); } catch {}
+  });
+  window.addEventListener('appinstalled', () => { state.installed = true; hide(); });
+  // Time + scroll gated fallback
+  let timeOk = false, scrollOk = false;
+  const maybeShow = () => { if (!state.deferred && !isStandalone() && !isSnoozed() && isAllowedPath() && timeOk && scrollOk) show(); };
+  setTimeout(() => { timeOk = true; maybeShow(); }, cfg.delayMs);
+  const onScroll = () => { if (window.scrollY >= cfg.minScroll) { scrollOk = true; maybeShow(); window.removeEventListener('scroll', onScroll); } };
+  window.addEventListener('scroll', onScroll, { passive: true });
+}

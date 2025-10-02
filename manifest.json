@@ -1,0 +1,23 @@
+{
+  "name": "byGOG Lab",
+  "short_name": "byGOG",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#181c22",
+  "theme_color": "#23272f",
+  "icons": [
+    {
+      "src": "icon/bygog-lab-icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "icon/bygog-lab-icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "maskable"
+    }
+  ]
+}
