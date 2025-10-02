@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="docs/readme-banner.svg" alt="byGOG Lab Banner" width="100%" />
+  <img src="docs/readme-banner.svg" alt="byGOG Lab Başlık Görseli" width="100%" />
 
   <br/>
 
@@ -41,7 +41,7 @@ Sık Sorulanlar (SSS)
 - Önerilenler neye göre? Güvenilirlik, yaygın kullanım ve pratiklik önceliğimizdir. Yıldızlı öğeler yalnızca bir “başlangıç noktası” önerisidir.
 - Bağlantılar güvenli mi? Resmî sayfalar ve bilinen projeler tercih edilir. Yine de indirdiğiniz dosyaları antivirüs ile taramanızı ve imzaları/sağlama değerlerini doğrulamanızı öneririz.
 - Kopyaladığım komutlar ne yapar? Winget veya PowerShell komutları ilgili yazılımı kurar/çalıştırır. Yalnızca kaynağından emin olduğunuz komutları kullanın.
-- Mobilde uygulama olarak ekleyebilir miyim? Evet. Tarayıcınızın “Ana ekrana ekle”/“Install App” seçeneğini kullanın.
+- Mobilde uygulama olarak ekleyebilir miyim? Evet. Tarayıcınızın “Ana ekrana ekle” veya “Uygulamayı yükle” seçeneğini kullanın.
 
 Ekran Görselleri
 - Aşağıdaki küçük koleksiyon, içerikte yer alan bazı araçların simgeleridir.
@@ -65,7 +65,7 @@ Sorumluluk Reddi
 - Komutları çalıştırmadan önce içeriğini ve kaynağını mutlaka doğrulayın.
 
 Geri Bildirim
-- Öneri ve düzeltmeler için issue/pull request açabilirsiniz.
+- Öneri ve düzeltmeler için konu açabilir veya değişiklik isteği gönderebilirsiniz.
 - Kullanıcı deneyimiyle ilgili görüşlerinizi paylaşmanız geliştirmeye yardımcı olur.
 
  

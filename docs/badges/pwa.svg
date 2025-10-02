@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="106" height="24" aria-label="PWA"><linearGradient id="a" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><g shape-rendering="crispEdges"><path fill="#555" d="M0 0h46v24H0z"/><path fill="#0ea5e9" d="M46 0h60v24H46z"/></g><path fill="url(#a)" d="M0 0h106v24H0z"/><g fill="#fff" font-family="Segoe UI, Inter, system-ui, -apple-system" font-size="12" text-anchor="middle"><text x="23" y="16">type</text><text x="76" y="16" font-weight="700">PWA</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="116" height="28" viewBox="0 0 116 28" role="img" aria-label="PWA">
+  <defs>
+    <linearGradient id="pillPwa" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22c1f1"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="115" height="27" rx="14" fill="url(#pillPwa)" stroke="rgba(255,255,255,0.25)"/>
+  <g transform="translate(12 6)" fill="#fff">
+    <path d="M10.8 0.6c0.5 0.3 0.7 1 .4 1.5l-2 3.5h3.3c0.9 0 1.4 1 0.9 1.7L8.7 14a1 1 0 0 1-1.8-0.9l1.7-4H5.6c-0.9 0-1.4-1-0.9-1.7l3.8-6.7c0.3-0.5 1-0.7 1.5-0.4z"/>
+  </g>
+  <text x="44" y="19" font-family="Inter, Segoe UI, system-ui, -apple-system" font-size="13" font-weight="700" fill="#fff">PWA</text>
+</svg>

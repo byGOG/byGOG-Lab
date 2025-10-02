@@ -1,1 +1,81 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" aria-labelledby="title desc" viewBox="0 0 1200 360"><title>byGOG Lab</title><desc>Seçilmiş bağlantılar için hafif ve hızlı PWA</desc><defs><linearGradient id="a" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="60%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#ef4444"/></linearGradient><filter id="b" width="140%" height="140%" x="-20%" y="-20%"><feDropShadow dx="0" dy="8" flood-color="#000" flood-opacity=".25" stdDeviation="12"/></filter></defs><rect width="1200" height="360" fill="url(#a)" rx="24"/><g filter="url(#b)"><rect width="1136" height="296" x="32" y="32" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" rx="20"/></g><g transform="translate(72 86)"><circle cx="64" cy="64" r="64" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.35)"/><text x="64" y="74" fill="#fff" font-family="Segoe UI, Inter, system-ui, -apple-system" font-size="52" font-weight="700" text-anchor="middle">g</text></g><g font-family="Segoe UI, Inter, system-ui, -apple-system"><text fill="#fff" font-size="44" font-weight="800" transform="translate(220 116)">byGOG Lab</text><text y="44" fill="#f0f9ff" font-size="20" font-weight="500" transform="translate(220 116)">Seçilmiş bağlantılar • Tek sayfa • Hızlı PWA</text></g><g fill="#fff" font-family="Segoe UI, Inter, system-ui, -apple-system"><g transform="translate(220 204)"><circle cx="6" cy="6" r="6" fill="#22c55e"/><text x="20" y="11" font-size="18">Arama ile anında filtreleme</text></g><g transform="translate(220 232)"><circle cx="6" cy="6" r="6" fill="#22c55e"/><text x="20" y="11" font-size="18">Koyu/Açık tema</text></g><g transform="translate(220 260)"><circle cx="6" cy="6" r="6" fill="#22c55e"/><text x="20" y="11" font-size="18">Çevrimdışı kullanım (PWA)</text></g></g><g transform="translate(880 60)"><rect width="280" height="240" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.35)" rx="16"/><g transform="translate(12 14)"><rect width="256" height="30" fill="#111827" rx="8"/><circle cx="14" cy="15" r="5" fill="#ef4444"/><circle cx="32" cy="15" r="5" fill="#f59e0b"/><circle cx="50" cy="15" r="5" fill="#22c55e"/></g><g transform="translate(20 60)"><rect width="240" height="28" fill="#1f2937" rx="6"/><rect width="240" height="28" y="44" fill="#1f2937" rx="6"/><rect width="240" height="28" y="88" fill="#1f2937" rx="6"/><rect width="160" height="28" y="132" fill="#1f2937" rx="6"/><rect width="68" height="28" x="172" y="132" fill="#f59e0b" rx="6"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">byGOG Lab</title>
+  <desc id="desc">Se&#231;ilmi&#351; ba&#287;lant&#305;lar i&#231;in hafif ve h&#305;zl&#305; PWA</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1220"/>
+      <stop offset="100%" stop-color="#101827"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="rgba(34, 211, 238, 0.35)"/>
+      <stop offset="100%" stop-color="rgba(34, 211, 238, 0)"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+
+    <!-- Branding styles from logo -->
+    <style>
+      :root { --fg:#f1f5f9; --fg-muted:#94a3b8; --acc:#22d3ee; --ring:#475569; }
+      .word-a { fill:var(--fg); font:800 52px/1.1 "Outfit","Inter","Segoe UI",system-ui,-apple-system,sans-serif; letter-spacing:.3px }
+      .word-b { fill:var(--acc); font:800 52px/1.1 "Outfit","Inter","Segoe UI",system-ui,-apple-system,sans-serif; letter-spacing:.3px }
+      .tag    { fill:var(--fg-muted); font:600 18px/1.3 "Outfit","Inter","Segoe UI",system-ui,-apple-system,sans-serif; letter-spacing:.26px }
+      .ring   { fill:none; stroke:var(--ring); stroke-width:8; stroke-linecap:round; stroke-linejoin:round }
+      .mark   { fill:none; stroke:var(--fg);  stroke-width:12; stroke-linecap:round; stroke-linejoin:round }
+      .ico    { fill:none; stroke:var(--fg-muted); stroke-width:2; stroke-linecap:round; stroke-linejoin:round }
+      .hint   { fill:#c7d2fe; font:500 18px/1.3 "Outfit","Inter","Segoe UI",system-ui,-apple-system,sans-serif; }
+    </style>
+
+    <!-- Badge and icons, re-used from logo design -->
+    <symbol id="badge" viewBox="0 0 136 136">
+      <circle cx="68" cy="68" r="56" class="ring"/>
+      <path d="M114 68a46 46 0 1 1-46-46m18 70h40" class="mark"/>
+      <circle cx="112" cy="26" r="8" fill="var(--acc)"/>
+    </symbol>
+
+    <symbol id="ico-fast" viewBox="0 0 24 24">
+      <path class="ico" d="M3 6h8M3 12h14M3 18h10"/>
+    </symbol>
+    <symbol id="ico-shield" viewBox="0 0 24 24">
+      <path class="ico" d="M12 3l7 3v6c0 6-5 9-7 9s-7-3-7-9V6l7-3Z"/>
+    </symbol>
+    <symbol id="ico-bulb" viewBox="0 0 24 24">
+      <circle class="ico" cx="12" cy="10" r="4"/>
+      <path class="ico" d="M10 14h4M10.5 16h3M11 18h2"/>
+    </symbol>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="360" rx="24" fill="url(#bg)"/>
+  <circle cx="980" cy="60" r="220" fill="url(#glow)"/>
+
+  <!-- Content frame -->
+  <g filter="url(#shadow)">
+    <rect x="28" y="28" width="1144" height="304" rx="20" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.16)"/>
+  </g>
+
+  <!-- Badge -->
+  <use href="#badge" width="200" height="200" transform="translate(64 80)"/>
+
+  <!-- Wordmark and tagline -->
+  <g transform="translate(300 120)">
+    <text class="word-a" y="0">byGOG</text>
+    <text class="word-b" y="52">Lab</text>
+    <rect x="2" y="64" width="188" height="5" rx="2.5" fill="var(--acc)" opacity=".66"/>
+
+    <g transform="translate(0 104)">
+      <use href="#ico-fast" width="18" height="18" x="0"   y="-14"/>
+      <text class="tag" x="26"  y="0">H&#305;zl&#305;</text>
+
+      <use href="#ico-shield" width="18" height="18" x="120" y="-14"/>
+      <text class="tag" x="146" y="0">G&#252;venli</text>
+
+      <use href="#ico-bulb" width="18" height="18" x="252" y="-14"/>
+      <text class="tag" x="278" y="0">Yenilik&#231;i</text>
+    </g>
+
+    <text class="hint" x="0" y="154">Se&#231;ilmi&#351; ba&#287;lant&#305;lar &middot; Tek sayfa &middot; H&#305;zl&#305; PWA</text>
+  </g>
+
+</svg>

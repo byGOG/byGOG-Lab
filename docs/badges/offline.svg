@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="150" height="24" aria-label="Offline"><linearGradient id="a" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><g shape-rendering="crispEdges"><path fill="#555" d="M0 0h70v24H0z"/><path fill="#22c55e" d="M70 0h80v24H70z"/></g><path fill="url(#a)" d="M0 0h150v24H0z"/><g fill="#fff" font-family="Segoe UI, Inter, system-ui, -apple-system" font-size="12" text-anchor="middle"><text x="35" y="16">network</text><text x="110" y="16" font-weight="700">offline-ready</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="28" viewBox="0 0 160 28" role="img" aria-label="Çevrimdışı Hazır">
+  <defs>
+    <linearGradient id="pillOffline" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+  <rect x="0.5" y="0.5" width="159" height="27" rx="14" fill="url(#pillOffline)" stroke="rgba(255,255,255,0.25)"/>
+  <g transform="translate(12 6)" fill="#fff">
+    <path d="M6 8a6 6 0 1 1 12 0v1h-2V8a4 4 0 1 0-8 0v1H6V8z"/>
+    <rect x="5" y="12" width="14" height="2" rx="1"/>
+  </g>
+  <text x="36" y="19" font-family="Inter, Segoe UI, system-ui, -apple-system" font-size="13" font-weight="700" fill="#fff">Çevrimdışı Hazır</text>
+</svg>
