@@ -55,10 +55,10 @@
       ]
     },
     {
-      "title": "Windows, Linux ve Ofis Araçları",
+      "title": "Sistem/Ofis",
       "subcategories": [
         {
-          "title": "Windows İndirme ve Kurulum",
+          "title": "Windows Kurulum",
           "links": [
             {
               "url": "https://www.microsoft.com/tr-tr/software-download/windows10",
@@ -121,7 +121,7 @@
           ]
         },
         {
-          "title": "Özel Windows Dağıtımları",
+          "title": "Özel Windows",
           "links": [
             {
               "url": "https://atlasos.net/",
@@ -144,7 +144,7 @@
           ]
         },
         {
-          "title": "Linux Dağıtımları ve Kaynakları",
+          "title": "Linux Kaynakları",
           "links": [
             {
               "url": "https://manjaro.org/",
@@ -185,7 +185,7 @@
           ]
         },
         {
-          "title": "Etkinleştirme Araçları",
+          "title": "Etkinleştirme",
           "links": [
             {
               "url": "https://massgrave.dev/",
@@ -210,7 +210,7 @@
           ]
         },
         {
-          "title": "Ofis Uygulamaları",
+          "title": "Ofis",
           "links": [
             {
               "url": "https://tr.libreoffice.org/",
@@ -247,7 +247,7 @@
       ]
     },
     {
-      "title": "Sistem Araçları ve Bakım",
+      "title": "Sistem/Bakım",
       "subcategories": [
         {
           "title": "Sistem Araçları",
@@ -333,7 +333,7 @@
           ]
         },
         {
-          "title": "Sürücü ve Donanım",
+          "title": "Sürücü/Donanım",
           "links": [
             {
               "url": "https://www.snappy-driver-installer.org/",
@@ -396,7 +396,7 @@
           ]
         },
         {
-          "title": "Optimizasyon ve Temizlik",
+          "title": "Optimizasyon/Temizlik",
           "links": [
             {
               "url": "https://www.bcuninstaller.com/",
@@ -481,7 +481,7 @@
           ]
         },
         {
-          "title": "Dosya ve Disk Yönetimi",
+          "title": "Dosya/Disk",
           "links": [
             {
               "url": "https://www.7-zip.org/",
@@ -565,7 +565,7 @@
           ]
         },
         {
-          "title": "Disk Analizi ve Dosya Arama",
+          "title": "Disk Analizi/Arama",
           "links": [
             {
               "url": "https://www.voidtools.com/tr-tr/",
@@ -592,10 +592,10 @@
       ]
     },
     {
-      "title": "Gizlilik ve Güvenlik",
+      "title": "Gizlilik/Güvenlik",
       "subcategories": [
         {
-          "title": "Güvenlik ve Temizlik Yazılımları",
+          "title": "Güvenlik/Temizlik",
           "links": [
             {
               "url": "https://www.avira.com/tr/free-antivirus-windows",
@@ -638,7 +638,7 @@
           ]
         },
         {
-          "title": "Gizlilik ve Telemetri Araçları",
+          "title": "Gizlilik/Telemetri",
           "links": [
             {
               "url": "https://www.oo-software.com/en/shutup10",
@@ -712,7 +712,7 @@
           ]
         },
         {
-          "title": "Ağ ve Güvenlik Araçları",
+          "title": "Ağ/Güvenlik",
           "links": [
             {
               "url": "https://antizapret.prostovpn.org/",
@@ -783,7 +783,7 @@
           ]
         },
         {
-          "title": "Şifre ve Gizlilik Yönetimi",
+          "title": "Şifre/Gizlilik",
           "links": [
             {
               "url": "https://bitwarden.com/",
@@ -816,7 +816,7 @@
           ]
         },
         {
-          "title": "DNS Hizmetleri",
+          "title": "DNS",
           "links": [
             {
               "url": "https://adguard-dns.io/tr/public-dns.html",
@@ -879,10 +879,10 @@
       ]
     },
     {
-      "title": "Yazılım Kurulum ve Güncelleme Sistemleri",
+      "title": "Kurulum/Güncelleme",
       "subcategories": [
         {
-          "title": "Çevrimiçi Kurulum Hizmetleri",
+          "title": "Online Kurulum",
           "links": [
             {
               "url": "https://ninite.com/",
@@ -933,7 +933,7 @@
           ]
         },
         {
-          "title": "Kurulumlu Paket Yöneticileri",
+          "title": "Paket Yöneticileri",
           "links": [
             {
               "url": "https://chocolatey.org/",
@@ -987,7 +987,7 @@
           ]
         },
         {
-          "title": "Taşınabilir Yazılım Platformları",
+          "title": "Taşınabilir Platformlar",
           "links": [
             {
               "url": "https://portableappz.blogspot.com/",
@@ -1028,7 +1028,7 @@
           ]
         },
         {
-          "title": "Yazılım Alternatifleri ve Karşılaştırma",
+          "title": "Alternatif/Karşılaştırma",
           "links": [
             {
               "url": "https://alternativeto.net/",
@@ -1042,7 +1042,7 @@
           ]
         },
         {
-          "title": "Yazılım Portalları ve İncelemeler",
+          "title": "Portallar/İncelemeler",
           "links": [
             {
               "url": "https://www.techspot.com/",
@@ -1058,10 +1058,10 @@
       ]
     },
     {
-      "title": "İnternet ve Tarayıcı",
+      "title": "İnternet/Tarayıcı",
       "subcategories": [
         {
-          "title": "Tarayıcılar ve Eklentiler",
+          "title": "Tarayıcı/Eklenti",
           "links": [
             {
               "url": "https://brave.com/tr/",
@@ -1106,7 +1106,7 @@
           ]
         },
         {
-          "title": "Tarayıcı Eklentileri ve Güvenlik",
+          "title": "Eklenti/Güvenlik",
           "links": [
             {
               "url": "https://darkreader.org/",
@@ -1174,7 +1174,7 @@
           ]
         },
         {
-          "title": "Tarayıcı Benchmarkları",
+          "title": "Tarayıcı Benchmark",
           "links": [
             {
               "url": "https://browserbench.org/",
@@ -1188,7 +1188,7 @@
           ]
         },
         {
-          "title": "Ağ Testleri ve Hız Ölçümleri",
+          "title": "Ağ Testleri/Hız",
           "links": [
             {
               "url": "https://www.waveform.com/tools/bufferbloat",
@@ -1241,10 +1241,10 @@
       ]
     },
     {
-      "title": "Medya ve İndirme",
+      "title": "Medya/İndirme",
       "subcategories": [
         {
-          "title": "Yazılım İndirme ve Arşivleri",
+          "title": "İndirme/Arşiv",
           "links": [
             {
               "url": "https://softarchive.download/",
@@ -1312,7 +1312,7 @@
           ]
         },
         {
-          "title": "Crack ve Keygen Siteleri",
+          "title": "Crack/Keygen",
           "links": [
             {
               "url": "https://cracksurl.com/",
@@ -1326,7 +1326,7 @@
           ]
         },
         {
-          "title": "Torrent ve Doğrudan İndirme Platformları",
+          "title": "Torrent/İndirme",
           "links": [
             {
               "url": "https://www.zamunda.net/",
@@ -1403,7 +1403,7 @@
           ]
         },
         {
-          "title": "Müzik İndirme Siteleri",
+          "title": "Müzik İndirme",
           "links": [
             {
               "url": "https://lucida.to/",
@@ -1463,7 +1463,7 @@
           ]
         },
         {
-          "title": "Medya ve Eğlence Platformları",
+          "title": "Medya/Eğlence",
           "links": [
             {
               "url": "https://www.aimp.ru/",
@@ -1508,7 +1508,7 @@
           ]
         },
         {
-          "title": "Müzik ve Video Akış Platformları",
+          "title": "Müzik/Video Akış",
           "links": [
             {
               "url": "https://music.youtube.com/",
@@ -1596,7 +1596,7 @@
           ]
         },
         {
-          "title": "Medya Dönüştürücüler ve İndiriciler",
+          "title": "Dönüştürücü/İndirici",
           "links": [
             {
               "url": "https://www.internetdownloadmanager.com/",
@@ -1651,7 +1651,7 @@
           ]
         },
         {
-          "title": "Dizi ve Film İzleme Siteleri",
+          "title": "Dizi/Film",
           "links": [
             {
               "url": "https://dizipal1312.com/",
@@ -1683,7 +1683,7 @@
           ]
         },
         {
-          "title": "Bulut Depolama ve Yedekleme",
+          "title": "Bulut/Yedekleme",
           "links": [
             {
               "url": "https://www.dropbox.com/",
@@ -1720,10 +1720,10 @@
       ]
     },
     {
-      "title": "Geliştirici ve Tasarım",
+      "title": "Geliştirici/Tasarım",
       "subcategories": [
         {
-          "title": "Yazılım Geliştirme Araçları",
+          "title": "Geliştirme Araçları",
           "links": [
             {
               "url": "https://cmder.app/",
@@ -1787,7 +1787,7 @@
           ]
         },
         {
-          "title": "Programlama Dilleri ve Araçlar",
+          "title": "Programlama/Araçlar",
           "links": [
             {
               "url": "https://www.java.com/tr/",
@@ -1832,7 +1832,7 @@
           ]
         },
         {
-          "title": "Grafik ve Tasarım Araçları",
+          "title": "Grafik/Tasarım",
           "links": [
             {
               "url": "https://inkscape.org/",
@@ -1858,10 +1858,10 @@
       ]
     },
     {
-      "title": "Uygulamalar ve Araçlar",
+      "title": "Uygulamalar",
       "subcategories": [
         {
-          "title": "Masaüstü Özelleştirme ve Arayüz Araçları",
+          "title": "Masaüstü/Arayüz",
           "links": [
             {
               "url": "https://www.rocksdanister.com/lively/",
@@ -1876,7 +1876,7 @@
           ]
         },
         {
-          "title": "Çeviri ve Dil Araçları",
+          "title": "Çeviri/Dil",
           "links": [
             {
               "url": "https://www.deepl.com/tr/",
@@ -1900,7 +1900,7 @@
           ]
         },
         {
-          "title": "Yapay Zeka ve Asistan Araçları",
+          "title": "Yapay Zeka/Asistan",
           "links": [
             {
               "url": "https://chatgpt.com/",
@@ -1954,7 +1954,7 @@
           ]
         },
         {
-          "title": "Uzaktan Erişim ve Destek Araçları",
+          "title": "Uzaktan/Destek",
           "links": [
             {
               "url": "https://anydesk.com/tr",
@@ -1989,7 +1989,7 @@
           ]
         },
         {
-          "title": "Üretkenlik ve Yardımcı Araçlar",
+          "title": "Üretkenlik/Yardımcı",
           "links": [
             {
               "url": "https://hluk.github.io/CopyQ/",
@@ -2026,10 +2026,10 @@
       ]
     },
     {
-      "title": "Mobil ve İletişim",
+      "title": "Mobil/İletişim",
       "subcategories": [
         {
-          "title": "Android Modlu Uygulamalar",
+          "title": "Android Modlar",
           "links": [
             {
               "url": "https://vanced.to/",
@@ -2070,7 +2070,7 @@
           ]
         },
         {
-          "title": "İletişim ve E-posta Servisleri",
+          "title": "İletişim/E-posta",
           "links": [
             {
               "url": "https://discord.com/",
@@ -2105,7 +2105,7 @@
           ]
         },
         {
-          "title": "E-posta ve Hesap Yönetimi",
+          "title": "E-posta/Hesap",
           "links": [
             {
               "url": "https://outlook.live.com/",
@@ -2148,7 +2148,7 @@
           ]
         },
         {
-          "title": "Spor ve Canlı Skor Platformları",
+          "title": "Spor/Skor",
           "links": [
             {
               "url": "https://www.365scores.com/tr",
@@ -2185,7 +2185,7 @@
       "title": "Oyun",
       "subcategories": [
         {
-          "title": "Oyun ve Topluluk Platformları",
+          "title": "Oyun/Topluluk",
           "links": [
             {
               "url": "https://store.steampowered.com/",
