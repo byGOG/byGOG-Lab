@@ -1407,11 +1407,11 @@
             },
             {
               "url": "https://ext.to/",
-              "name": "EXT Torrents",
+              "name": "EXT",
               "recommended": false,
               "description": "Torrent web sitesi.",
               "icon": "icon/ext.svg",
-              "alt": "EXT Torrents",
+              "alt": "EXT",
               "tags": []
             }
           ]
