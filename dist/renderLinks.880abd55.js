@@ -798,21 +798,65 @@ function setupPWAInstallUI() {
   };
 
   let cardEl = null;
+  let miniEl = null;
+  const createMini = () => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'install-badge';
+    btn.setAttribute('aria-label', 'Ana ekrana ekle');
+    // Minimal plus icon (SVG)
+    const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 24 24');
+    svg.setAttribute('aria-hidden','true');
+    const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+    const v = document.createElementNS('http://www.w3.org/2000/svg','path');
+    v.setAttribute('d','M12 5v14');
+    v.setAttribute('stroke','currentColor');
+    v.setAttribute('stroke-width','2.2');
+    v.setAttribute('stroke-linecap','round');
+    v.setAttribute('fill','none');
+    const h = document.createElementNS('http://www.w3.org/2000/svg','path');
+    h.setAttribute('d','M5 12h14');
+    h.setAttribute('stroke','currentColor');
+    h.setAttribute('stroke-width','2.2');
+    h.setAttribute('stroke-linecap','round');
+    h.setAttribute('fill','none');
+    g.appendChild(v); g.appendChild(h); svg.appendChild(g);
+    btn.appendChild(svg);
+    btn.addEventListener('click', async () => {
+      if (state.deferred) {
+        try {
+          await state.deferred.prompt();
+          const choice = await state.deferred.userChoice;
+          state.deferred = null;
+          if (choice && choice.outcome === 'accepted') hide();
+        } catch {}
+      } else {
+        alert('Uygulamayı ana ekrana eklemek için tarayıcınızın menüsünden "Ana Ekrana Ekle" seçeneğini kullanın.');
+      }
+    });
+    const host = document.querySelector('.author-fab');
+    if (host) host.appendChild(btn); else document.body.appendChild(btn);
+    return btn;
+  };
   const show = () => { if (!cardEl) cardEl = createCard(); cardEl.style.display = ''; };
-  const hide = () => { if (cardEl) cardEl.style.display = 'none'; };
+  const showMini = () => { if (!miniEl) miniEl = createMini(); miniEl.style.display = ''; };
+  const hide = () => { if (cardEl) cardEl.style.display = 'none'; if (miniEl) miniEl.style.display = 'none'; };
 
   if (isStandalone() || !isAllowedPath() || isSnoozed()) { hide(); return; }
 
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     state.deferred = e;
-    show();
+    // Prefer mini icon near GitHub FAB
+    showMini();
+    try { if (miniEl) miniEl.classList.add('ready'); } catch {}
     try { if (cardEl && cardEl._updateInstallState) cardEl._updateInstallState(); } catch {}
   });
   window.addEventListener('appinstalled', () => { state.installed = true; hide(); });
   // Time + scroll gated fallback
   let timeOk = false, scrollOk = false;
-  const maybeShow = () => { if (!state.deferred && !isStandalone() && !isSnoozed() && isAllowedPath() && timeOk && scrollOk) show(); };
+  const maybeShow = () => { if (!state.deferred && !isStandalone() && !isSnoozed() && isAllowedPath() && timeOk && scrollOk) showMini(); };
   setTimeout(() => { timeOk = true; maybeShow(); }, cfg.delayMs);
   const onScroll = () => { if (window.scrollY >= cfg.minScroll) { scrollOk = true; maybeShow(); window.removeEventListener('scroll', onScroll); } };
   window.addEventListener('scroll', onScroll, { passive: true });

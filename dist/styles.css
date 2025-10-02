@@ -205,6 +205,12 @@
 .install-logo-img{width:56px;height:56px;border-radius:14px;background:var(--img-bg);border:1px solid var(--card-border);box-shadow:0 1px 3px var(--card-shadow2)}
 @keyframes install-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
 
+/* Compact icon over GitHub FAB */
+.install-mini{position:fixed;right:24px;bottom:calc(84px + env(safe-area-inset-bottom));z-index:10000;width:44px;height:44px;border-radius:12px;border:1.5px solid var(--card-border);background:var(--card-bg);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px 0 var(--card-shadow-hover),0 2px 8px 0 var(--card-shadow2-hover);cursor:pointer}
+.install-mini:hover{box-shadow:0 8px 22px 0 var(--card-shadow-hover),0 3px 10px 0 var(--card-shadow2-hover)}
+.install-mini.ready{animation: install-pulse 1.2s ease-in-out infinite}
+.install-mini img{width:32px;height:32px;border-radius:8px;background:var(--img-bg);border:1px solid var(--card-border);box-shadow:0 1px 3px var(--card-shadow2)}
+
 
 /* Perf: visibility toggle */
 .is-hidden{display:none !important}

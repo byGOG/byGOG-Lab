@@ -1,11 +1,11 @@
-const CACHE_NAME = 'bygog-lab-cache-be40c010';
+const CACHE_NAME = 'bygog-lab-cache-c1a0a921';
 const urlsToCache = [
   '.',
   'index.html',
   'manifest.json',
-  'dist/styles.faf23e63.css',
-  'dist/fab.2ce096b9.css',
-  'dist/renderLinks.ba6f9e1d.js',
+  'dist/styles.5c0344af.css',
+  'dist/fab.3fafe5e9.css',
+  'dist/renderLinks.880abd55.js',
   'links.json',
   'icon/bygog-lab-icon.svg',
   'icon/bygog-lab-logo.svg'
