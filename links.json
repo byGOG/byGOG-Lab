@@ -1472,7 +1472,8 @@
               "description": "Gelişmiş müzik çalar.",
               "icon": "icon/aimp.svg",
               "alt": "AIMP",
-              "tags": []
+              "tags": [],
+              "copyText": "winget install AIMP.AIMP"
             },
             {
               "url": "https://codecguide.com/",
@@ -1481,7 +1482,8 @@
               "description": "K-Lite Codec Pack ile medya codec'leri.",
               "icon": "icon/codecguide.svg",
               "alt": "Codec Guide",
-              "tags": []
+              "tags": [],
+              "copyText": "winget install CodecGuide.K-LiteCodecPack.Standard"
             },
             {
               "url": "https://www.videolan.org/vlc/",
@@ -1490,7 +1492,8 @@
               "description": "Çok formatlı medya oynatıcı.",
               "icon": "icon/vlc.svg",
               "alt": "VLC Media Player",
-              "tags": []
+              "tags": [],
+              "copyText": "winget install VideoLAN.VLC"
             }
           ]
         },
@@ -2101,7 +2104,8 @@
               "description": "Microsoft Outlook ile e-posta servisi.",
               "icon": "icon/outlook.svg",
               "alt": "Outlook",
-              "tags": []
+              "tags": [],
+              "copyText": "winget install 9NRX63209R7B"
             },
             {
               "url": "https://mail.yahoo.com/",
@@ -2128,7 +2132,8 @@
               "description": "Açık kaynaklı, güçlü ve güvenli e-posta istemcisi.",
               "icon": "icon/thunderbird.svg",
               "alt": "Thunderbird",
-              "tags": []
+              "tags": [],
+              "copyText": "winget install Mozilla.Thunderbird.tr"
             }
           ]
         },
@@ -2179,7 +2184,8 @@
               "description": "Dijital oyun mağazası ve platformu.",
               "icon": "icon/steam.svg",
               "alt": "Steam",
-              "tags": []
+              "tags": [],
+              "copyText": "winget install Valve.Steam"
             },
             {
               "url": "https://store.epicgames.com/tr/",
@@ -2188,7 +2194,8 @@
               "description": "Epic Games'in dijital oyun mağazası ve platformu.",
               "icon": "icon/epicgames.svg",
               "alt": "Epic Games Store",
-              "tags": []
+              "tags": [],
+              "copyText": "winget install EpicGames.EpicGamesLauncher"
             },
             {
               "url": "https://www.battle.net/",
@@ -2197,7 +2204,8 @@
               "description": "Blizzard oyunları için resmi platform ve mağaza.",
               "icon": "icon/battle.net.svg",
               "alt": "Battle.net",
-              "tags": []
+              "tags": [],
+              "copyText": "winget install Blizzard.BattleNet"
             }
           ]
         },
