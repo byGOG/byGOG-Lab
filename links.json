@@ -51,6 +51,26 @@
           "alt": "WinUtil",
           "copyText": "irm \"https://christitus.com/win\" | iex",
           "tags": []
+        },
+        {
+          "url": "https://git-scm.com/",
+          "name": "Git",
+          "recommended": true,
+          "description": "Dagitik surum kontrol sistemi.",
+          "icon": "icon/git.svg",
+          "alt": "Git",
+          "copyText": "winget install Git.Git",
+          "tags": []
+        },
+        {
+          "url": "https://learn.microsoft.com/tr-tr/powershell/",
+          "name": "PowerShell",
+          "recommended": true,
+          "description": "Komut satiri ve otomasyon araci.",
+          "icon": "icon/powershell.svg",
+          "alt": "PowerShell",
+          "copyText": "winget install Microsoft.PowerShell",
+          "tags": []
         }
       ]
     },
@@ -1796,11 +1816,21 @@
             {
               "url": "https://learn.microsoft.com/tr-tr/powershell/",
               "name": "PowerShell",
-              "recommended": false,
+              "recommended": true,
               "description": "Resmi PowerShell dökümantasyonu, örnekler ve kurulum rehberleri.",
               "icon": "icon/powershell.svg",
               "alt": "PowerShell",
               "copyText": "winget install Microsoft.PowerShell",
+              "tags": []
+            },
+            {
+              "url": "https://git-scm.com/",
+              "name": "Git",
+              "recommended": true,
+              "description": "Kodları yönetmek ve değişiklikleri takip etmek için sistem.",
+              "icon": "icon/git.svg",
+              "alt": "Git",
+              "copyText": "winget install Git.Git",
               "tags": []
             },
             {
