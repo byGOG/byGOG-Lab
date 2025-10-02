@@ -84,7 +84,6 @@ function createLinkItem(link) {
   try {
     const parts = [];
     if (link.name) parts.push(link.name);
-    if (link.description) parts.push(link.description);
     if (Array.isArray(link.tags) && link.tags.length) parts.push(link.tags.join(" "));
     li.dataset.search = parts.join(" ").toLocaleLowerCase("tr");
     if (link.description) li.dataset.descOriginal = link.description;
