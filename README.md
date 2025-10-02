@@ -12,15 +12,15 @@
   <p><em>Seçilmiş bağlantılar · Tek sayfa · Hızlı PWA</em></p>
 </div>
 
-byGOG Lab, Windows ve yazılım araçları için güvenilir bağlantıları tek sayfada bir araya getirir. Aradığınızı hızla bulun, isterseniz komutları tek tıkla kopyalayın, çevrimdışı bile kullanın.
+byGOG Lab, Windows ve yazılım araçları için güvenilir bağlantıları tek sayfada bir araya getirir. Aradığınızı hızla bulun, komutları tek tıkla kopyalayın, çevrimdışı bile kullanın.
 
 Öne Çıkanlar
-- Hızlı arama: Yazdıkça filtreler, eşleşmeleri vurgular.
-- Önerilenler: Üstte yıldızlı bağlantılarla hızlı erişim.
-- Kopyalama düğmeleri: Winget/PowerShell komutlarını tek tıkla kopyalayın.
-- Koyu/Açık tema: Tek tıkla görünüm değişimi.
-- Çevrimdışı kullanım: Servis çalışanı ile içerik önbelleği.
-- Takip yok: Analitik veya reklam çerezleri kullanılmaz.
+- 🔎 Hızlı arama: Yazdıkça filtreler, eşleşmeleri vurgular.
+- ⭐ Önerilenler: Üstte yıldızlı bağlantılarla hızlı erişim.
+- 📋 Kopyalama düğmeleri: Winget/PowerShell komutlarını tek tıkla kopyalayın.
+- 🌓 Tema: Koyu/Açık mod arasında hızlı geçiş.
+- ⚡ Çevrimdışı kullanım: Servis çalışanı ile içerik önbelleği.
+- 🛡️ Takip yok: Analitik veya reklam çerezleri kullanılmaz.
 
 Nasıl Kullanılır?
 - Arayın: Üstteki kutuya yazın; sonuçlar anında filtrelenir.
@@ -59,10 +59,7 @@ Ekran Görselleri
   <img src="icon/python.svg" alt="Python" height="40" />
   <img src="icon/sharex.svg" alt="ShareX" height="40" />
 
-Yerelde Açma (İsteğe Bağlı)
-- Depoyu indirin veya ZIP olarak dışa aktarın.
-- Basit bir yerel sunucu ile açın (ör. VS Code Live Server, `python -m http.server`).
-- Ardından tarayıcıda `http://localhost:PORT/` adresine gidin. Not: `file:///` ile açmak, tarayıcı güvenlik kısıtları nedeniyle sorun çıkarabilir.
+ 
 
 Sorumluluk Reddi
 - Buradaki bağlantılar bilgilendirme amaçlıdır. Yazılım lisansları ve yerel yasalara uymak kullanıcının sorumluluğundadır.
@@ -70,13 +67,6 @@ Sorumluluk Reddi
 
 Geri Bildirim
 - Öneri ve düzeltmeler için issue/pull request açabilirsiniz.
-- Hızlı geri bildirim için `links.json` üzerinde kategori ve başlık önerilerinde bulunun.
+- Kullanıcı deneyimiyle ilgili görüşlerinizi paylaşmanız geliştirmeye yardımcı olur.
 
-Geliştiriciler İçin (Kısa Notlar)
-- Gereksinim: Node.js 18+
-- Kurulum: Depo kökünde `npm install`
-- Geliştirme: `npm run serve` – `links.json` ve `src/` izlenir, yerel sunucu açılır.
-- Üretim: `npm run build` – `dist/` klasörüne paket çıkar.
-- Doğrulama: `npm run validate`, `npm run ci:validate`, `npm run check:encoding`
-- Yardımcılar: `npm run fix:titles`, `npm run optimize:svg`
-
+ 
