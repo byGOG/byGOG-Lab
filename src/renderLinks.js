@@ -159,11 +159,10 @@ function renderCategories(data, container) {
 
     const renderList = (links, parent) => {
       const ul = document.createElement("ul");
-      // Keep recommended items in original order; sort others alphabetically (tr)
-      const rec = links.filter(item => !!item.recommended);
-      const others = links
-        .filter(item => !item.recommended)
-        .sort((a, b) => String(a.name || "").localeCompare(String(b.name || ""), "tr"));
+      // Sort inside groups alphabetically (tr): recommended A–Z, others A–Z
+      const cmp = (a, b) => String(a.name || "").localeCompare(String(b.name || ""), "tr");
+      const rec = links.filter(item => !!item.recommended).sort(cmp);
+      const others = links.filter(item => !item.recommended).sort(cmp);
       const sorted = [...rec, ...others];
       let addedRecLabel = false;
       let addedOtherLabel = false;
