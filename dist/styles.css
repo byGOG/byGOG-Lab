@@ -164,3 +164,12 @@
     transform: rotate(360deg);
   }
 }
+/* Search size tweak: smaller input */
+#search-input{padding:12px 18px;font-size:16px;border-radius:12px}
+/* Header balance: logo x search */
+.site-header{gap:16px;flex-wrap:wrap}
+.logo{max-height:clamp(64px,8vw,96px)}
+.search-container{flex:1 1 420px;margin-left:16px}
+@media (max-width:900px){.search-container{flex:1 1 360px}}
+@media (max-width:720px){.site-header{justify-content:center}.search-container{width:100%;margin-left:0}.logo{max-height:64px}}
+

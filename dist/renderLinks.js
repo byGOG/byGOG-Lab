@@ -357,7 +357,11 @@ function createMatchApplier(nodes, dataset, status) {
       applyHighlight(node, meta.regex);
       if (dataset[idx].isLink) matchCount++;
     });
-    status.textContent = meta.hasQuery ? `${matchCount} sonuç bulundu` : "";
+    if (meta.hasQuery) {
+      status.textContent = matchCount > 0 ? `${matchCount} sonuç bulundu` : "Sonuç bulunamadı";
+    } else {
+      status.textContent = "";
+    }
     updateCategoryVisibility();
   };
 }
@@ -448,15 +452,36 @@ function setupSearch() {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
       engine.run(input.value);
+      try {
+        const url = new URL(window.location.href);
+        const v = (input.value || "").trim();
+        if (v) url.searchParams.set("q", v); else url.searchParams.delete("q");
+        history.replaceState(null, "", url.toString());
+      } catch {}
     }, debounceDelay);
   });
 
   document.addEventListener("keydown", ev => {
+    const t = ev.target;
+    const tag = t && t.tagName ? t.tagName.toUpperCase() : "";
+    const inEditable = !!(t && (t.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(tag)));
+
+    if ((ev.ctrlKey || ev.metaKey) && !ev.altKey && !ev.shiftKey && (ev.key === "k" || ev.key === "K")) {
+      ev.preventDefault();
+      input.focus();
+      input.select();
+      return;
+    }
+
+    if (ev.ctrlKey && !ev.altKey && !ev.shiftKey && (ev.key === "e" || ev.key === "E")) {
+      ev.preventDefault();
+      input.focus();
+      input.select();
+      return;
+    }
+
     if (ev.key === "/" && !(ev.ctrlKey || ev.metaKey || ev.altKey || ev.shiftKey)) {
-      const t = ev.target;
-      const tag = t && t.tagName ? t.tagName.toUpperCase() : "";
-      if (t && t.isContentEditable) return;
-      if (["INPUT", "TEXTAREA", "SELECT"].includes(tag)) return;
+      if (inEditable) return;
       ev.preventDefault();
       input.focus();
       input.select();
@@ -468,12 +493,36 @@ function setupSearch() {
       if (input.value) {
         input.value = "";
         runImmediate("");
+        try {
+          const url = new URL(window.location.href);
+          url.searchParams.delete("q");
+          history.replaceState(null, "", url.toString());
+        } catch {}
       }
       ev.stopPropagation();
+    } else if (ev.key === "Enter") {
+      const q = (input.value || "").trim();
+      if (!q) return;
+      const firstLink = document.querySelector('.category-card li:not([style*="display: none"]) a[href]');
+      if (firstLink) {
+        firstLink.click();
+        ev.preventDefault();
+        ev.stopPropagation();
+      }
     }
   });
 
-  if (input.value) runImmediate(input.value);
+  try {
+    const urlQ = new URL(window.location.href).searchParams.get("q");
+    if (urlQ) {
+      input.value = urlQ;
+      runImmediate(urlQ);
+    } else if (input.value) {
+      runImmediate(input.value);
+    }
+  } catch {
+    if (input.value) runImmediate(input.value);
+  }
 }
 
 

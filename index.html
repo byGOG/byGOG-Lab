@@ -47,7 +47,15 @@
       </div>
       <div class="search-container">
         <label for="search-input" class="visually-hidden">Arama</label>
-        <input type="text" id="search-input" placeholder="İsim veya içerik ara...">
+        <input
+          type="search"
+          id="search-input"
+          placeholder="İsim veya içerik ara..."
+          inputmode="search"
+          enterkeyhint="search"
+          autocomplete="off"
+          spellcheck="false"
+          aria-keyshortcuts="/, Control+K, Meta+K, Control+E">
         <div id="search-status" aria-live="polite"></div>
       </div>
     </header>
