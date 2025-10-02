@@ -18,7 +18,6 @@ byGOG Lab, Windows ve yazılım araçları için güvenilir bağlantıları tek 
 - 🔎 Hızlı arama: Yazdıkça filtreler, eşleşmeleri vurgular.
 - ⭐ Önerilenler: Üstte yıldızlı bağlantılarla hızlı erişim.
 - 📋 Kopyalama düğmeleri: Winget/PowerShell komutlarını tek tıkla kopyalayın.
-- 🌓 Tema: Koyu/Açık mod arasında hızlı geçiş.
 - ⚡ Çevrimdışı kullanım: Servis çalışanı ile içerik önbelleği.
 - 🛡️ Takip yok: Analitik veya reklam çerezleri kullanılmaz.
 
