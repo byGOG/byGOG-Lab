@@ -133,54 +133,13 @@ function createLinkItem(link) {
     copyButton.setAttribute("aria-label", baseAriaLabel);
     copyButton.title = "Komutu panoya kopyala";
 
-    const copyToClipboard = async text => {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(text);
-      } else {
-        const temp = document.createElement("textarea");
-        temp.value = text;
-        temp.setAttribute("readonly", "");
-        temp.style.position = "fixed";
-        temp.style.opacity = "0";
-        document.body.appendChild(temp);
-        temp.select();
-        document.execCommand("copy");
-        document.body.removeChild(temp);
-      }
-    };
-
-    let resetTimer;
-    copyButton.addEventListener("click", async event => {
-      event.preventDefault();
-      event.stopPropagation();
-      copyButton.disabled = true;
-      copyButton.classList.remove("copy-error", "copied");
-      copyButton.classList.add("copy-loading");
-      setIcon("loading");
-      srLabel.textContent = loadingLabel;
-      copyButton.setAttribute("aria-label", loadingLabel);
-
-      const resetState = (label, className, iconName, ariaLabel) => {
-        copyButton.classList.remove("copy-error", "copied", "copy-loading");
-        if (className) copyButton.classList.add(className);
-        srLabel.textContent = label;
-        copyButton.setAttribute("aria-label", ariaLabel || label);
-        setIcon(iconName || "copy");
-        copyButton.disabled = false;
-      };
-
-      try {
-        await copyToClipboard(copyValue);
-        resetState(successLabel, "copied", "success");
-      } catch {
-        resetState(errorLabel, "copy-error", "error");
-      }
-
-      if (resetTimer) clearTimeout(resetTimer);
-      resetTimer = setTimeout(() => {
-        resetState(defaultLabel, null, "copy", baseAriaLabel);
-      }, 2000);
-    });
+    // Store labels and value for delegated handler
+    copyButton.dataset.copy = copyValue;
+    copyButton.dataset.labelDefault = defaultLabel;
+    copyButton.dataset.labelSuccess = successLabel;
+    copyButton.dataset.labelError = errorLabel;
+    copyButton.dataset.labelLoading = loadingLabel;
+    copyButton.dataset.ariaBase = baseAriaLabel;
 
     a.appendChild(copyButton);
   }
@@ -255,6 +214,84 @@ function renderCategories(data, container) {
 }
 
 
+
+const COPY_ICON_SHAPES = {
+  copy: '<rect x="9" y="9" width="12" height="12" rx="2" ry="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path>',
+  success: '<path d="M20 6 10 16l-4-4"></path>',
+  error: '<path d="M18 6 6 18"></path><path d="M6 6l12 12"></path>',
+  loading: '<circle cx="12" cy="12" r="9" stroke-opacity="0.25"></circle><path d="M21 12a9 9 0 0 0-9-9" stroke-opacity="0.9"></path>'
+};
+
+function setCopyIconOnButton(btn, name) {
+  const svg = btn.querySelector('svg');
+  if (svg) svg.innerHTML = COPY_ICON_SHAPES[name] || COPY_ICON_SHAPES.copy;
+}
+
+async function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    await navigator.clipboard.writeText(text);
+  } else {
+    const temp = document.createElement('textarea');
+    temp.value = text;
+    temp.setAttribute('readonly', '');
+    temp.style.position = 'fixed';
+    temp.style.opacity = '0';
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand('copy');
+    document.body.removeChild(temp);
+  }
+}
+
+function setupCopyDelegation() {
+  const container = document.getElementById('links-container');
+  if (!container || container.dataset.copyDelegation === 'on') return;
+  container.dataset.copyDelegation = 'on';
+  container.addEventListener('click', async ev => {
+    const target = ev.target;
+    if (!target || !target.closest) return;
+    const btn = target.closest('button.copy-button');
+    if (!btn || !container.contains(btn)) return;
+    ev.preventDefault();
+    ev.stopPropagation();
+    if (btn.disabled) return;
+
+    const defaultLabel = btn.dataset.labelDefault || 'Kopyala';
+    const successLabel = btn.dataset.labelSuccess || 'Kopyalandı';
+    const errorLabel = btn.dataset.labelError || 'Kopyalanamadı';
+    const loadingLabel = btn.dataset.labelLoading || 'Kopyalanıyor';
+    const baseAriaLabel = btn.dataset.ariaBase || defaultLabel;
+    const sr = btn.querySelector('.sr-only');
+
+    const resetState = (label, className, iconName, ariaLabel) => {
+      btn.classList.remove('copy-error', 'copied', 'copy-loading');
+      if (className) btn.classList.add(className);
+      if (sr) sr.textContent = label;
+      btn.setAttribute('aria-label', ariaLabel || label);
+      setCopyIconOnButton(btn, iconName || 'copy');
+      btn.disabled = false;
+    };
+
+    btn.disabled = true;
+    btn.classList.remove('copy-error', 'copied');
+    btn.classList.add('copy-loading');
+    setCopyIconOnButton(btn, 'loading');
+    if (sr) sr.textContent = loadingLabel;
+    btn.setAttribute('aria-label', loadingLabel);
+
+    try {
+      await copyToClipboard(btn.dataset.copy || '');
+      resetState(successLabel, 'copied', 'success');
+    } catch {
+      resetState(errorLabel, 'copy-error', 'error');
+    }
+
+    if (btn._resetTimer) clearTimeout(btn._resetTimer);
+    btn._resetTimer = setTimeout(() => {
+      resetState(defaultLabel, null, 'copy', baseAriaLabel);
+    }, 2000);
+  });
+}
 
 const SEARCH_LOCALE = "tr";
 const DIACRITIC_PATTERN = /[\u0300-\u036f]/g;
@@ -637,6 +674,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     container.textContent = "Bağlantılar yüklenemedi.";
     console.error(err);
   }
+  setupCopyDelegation();
   setupSearch();
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
