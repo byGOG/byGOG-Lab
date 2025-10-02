@@ -263,7 +263,10 @@ function normalizeForSearch(value) {
 }
 
 function foldForSearch(value) {
-  return normalizeForSearch(value).normalize("NFD").replace(DIACRITIC_PATTERN, "");
+  return normalizeForSearch(value)
+    .normalize("NFD")
+    .replace(DIACRITIC_PATTERN, "")
+    .replace(/ı/g, "i");
 }
 
 function tokenizeFoldedQuery(value) {
@@ -289,26 +292,26 @@ function createHighlightMeta(value) {
   };
 }
 
-function applyHighlight(node, regex) {
+function applyHighlight(node, _regex) {
   const label = node.querySelector(".link-text");
   if (label) {
     const original = node.dataset.nameOriginal || label.textContent || "";
-    if (regex) {
-      label.innerHTML = original.replace(regex, match => `<mark>${match}</mark>`);
-    } else {
-      label.textContent = original;
-    }
+    label.textContent = original;
   }
   const tip = node.querySelector(".custom-tooltip");
   if (tip) {
     const descOriginal = node.dataset.descOriginal || "";
     if (descOriginal) {
       const img = tip.querySelector("img");
-      const imgHTML = img ? img.outerHTML + " " : "";
-      if (regex) {
-        tip.innerHTML = imgHTML + descOriginal.replace(regex, match => `<mark>${match}</mark>`);
-      } else {
-        tip.innerHTML = imgHTML + descOriginal;
+      try {
+        tip.innerHTML = "";
+        if (img) {
+          tip.appendChild(img);
+          tip.appendChild(document.createTextNode(" "));
+        }
+        tip.appendChild(document.createTextNode(descOriginal));
+      } catch {
+        tip.textContent = descOriginal;
       }
     }
   }
@@ -527,6 +530,9 @@ function setupSearch() {
 
 
 function setupThemeToggle() {
+  try { const c = document.querySelector('.theme-toggle-container'); if (c) c.remove(); } catch {}
+  try { document.body.classList.add('koyu'); } catch {}
+  return;
   const btn = document.getElementById("theme-toggle");
   const body = document.body;
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");

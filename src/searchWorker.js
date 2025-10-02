@@ -8,7 +8,10 @@ function normalizeForSearch(value) {
 }
 
 function foldForSearch(value) {
-  return normalizeForSearch(value).normalize("NFD").replace(DIACRITIC_PATTERN, "");
+  return normalizeForSearch(value)
+    .normalize("NFD")
+    .replace(DIACRITIC_PATTERN, "")
+    .replace(/ı/g, "i");
 }
 
 self.addEventListener("message", event => {
