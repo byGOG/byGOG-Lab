@@ -1494,6 +1494,16 @@
               "alt": "VLC Media Player",
               "tags": [],
               "copyText": "winget install VideoLAN.VLC"
+            },
+            {
+              "url": "https://www.foobar2000.org/",
+              "name": "foobar2000",
+              "recommended": false,
+              "description": "Hafif ve modüler müzik çalar.",
+              "icon": "icon/foobar2000.svg",
+              "alt": "foobar2000",
+              "tags": [],
+              "copyText": "winget install PeterPawlowski.foobar2000 PeterPawlowski.foobar2000.EncoderPack"
             }
           ]
         },
