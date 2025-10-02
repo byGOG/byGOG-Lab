@@ -185,7 +185,15 @@
 .btn:focus{outline:2px solid var(--text-hover);outline-offset:2px}
 .btn.install-btn{background:var(--text-hover);color:var(--card-bg);border-color:transparent}
 .btn.ghost{background:transparent}
-@media (max-width:600px){.install-card{left:16px;right:auto;bottom:calc(24px + env(safe-area-inset-bottom));max-width:calc(100% - 120px)}}
+@media (max-width:600px){
+  .install-card{left:auto;right:16px;top:calc(16px + env(safe-area-inset-top));bottom:auto;max-width:min(88vw,360px);padding:10px 12px;gap:8px}
+  .install-icon{width:28px;height:28px;border-radius:10px}
+  .install-title{font-size:14px}
+  .install-sub,.install-hint{font-size:11px}
+  .install-logo-btn{width:52px;height:52px;border-radius:16px}
+  .install-logo-img{width:44px;height:44px;border-radius:12px}
+  .install-close{width:24px;height:24px}
+}
 .install-hint{font-size:12px;opacity:.9;color:var(--text)}
 .install-close{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;border:1px solid var(--card-border);background:var(--card-bg);color:var(--text);cursor:pointer;box-shadow:0 1px 3px var(--card-shadow2)}
 .install-close:hover{box-shadow:0 3px 8px var(--card-shadow-hover)}
