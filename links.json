@@ -1804,6 +1804,16 @@
               "tags": []
             },
             {
+              "url": "https://git-scm.com/",
+              "name": "Git",
+              "recommended": false,
+              "description": "Merkezi olmayan (dağıtık) sürüm kontrol sistemi. Resmî site ve dokümantasyon."
+              "icon": "icon/github.svg",
+              "alt": "Git",
+              "copyText": "winget install Git.Git",
+              "tags": []
+            },
+            {
               "url": "https://developer.android.com/tools/adb",
               "name": "Android Hata Ayıklama Köprüsü (ADB)",
               "recommended": false,
