@@ -12,18 +12,27 @@
   <p><em>Seçilmiş bağlantılar · Tek sayfa · Hızlı PWA</em></p>
 </div>
 
+Canlı Önizleme
+- https://bygog.github.io/byGOG-Lab/
+
+Hızlı Başlangıç (3 Adım)
+1. Siteyi açın: https://bygog.github.io/byGOG-Lab/
+2. Üstteki arama kutusuna yazın; sonuçlar anında filtrelenir.
+3. İlgili bağlantıya tıklayın veya komut varsa kopyalama düğmesiyle panoya alın.
+
 byGOG Lab, Windows ve yazılım araçları için güvenilir bağlantıları tek sayfada bir araya getirir. Aradığınızı hızla bulun, komutları tek tıkla kopyalayın, çevrimdışı bile kullanın.
 
 Öne Çıkanlar
 - 🔎 Hızlı arama: Yazdıkça filtreler, eşleşmeleri vurgular.
 - ⭐ Önerilenler: Üstte yıldızlı bağlantılarla hızlı erişim.
-- 📋 Kopyalama düğmeleri: Winget/PowerShell komutlarını tek tıkla kopyalayın.
+- 📋 Komut kopyalama: Winget/PowerShell komutlarını tek tıkla kopyalayın.
+- 🌓 Tema: Koyu/Açık mod arasında hızlı geçiş.
 - ⚡ Çevrimdışı kullanım: Servis çalışanı ile içerik önbelleği.
 - 🛡️ Takip yok: Analitik veya reklam çerezleri kullanılmaz.
 
 Nasıl Kullanılır?
-- Arayın: Üstteki kutuya yazın; sonuçlar anında filtrelenir.
-- Kategorilere göz atın: Başlıklar altındaki bağlantılara tıklayın; her bağlantı yeni sekmede açılır.
+- Arayın: Üstteki arama kutusuna yazın; sonuçlar anında filtrelenir.
+- Kategorilere göz atın: Başlıklar altındaki bağlantılara tıklayın; bağlantılar yeni sekmede açılır.
 - Önerilenler: Yıldız simgesiyle işaretlenir ve listelerde önce görünür.
 - Komutu kopyalayın: Komut içeren bağlantıların sağ üst köşesindeki kopyalama düğmesine tıklayın. Kopyalandığında onay simgesi görünür; hata olursa uyarı simgesi belirir.
 - Tema değiştirin: Sağ üstteki Tema seçimiyle Koyu/Açık moda geçin.
@@ -35,13 +44,12 @@ Klavye Kısayolları
 PWA ve Çevrimdışı
 - İlk ziyaretinizde temel dosyalar önbelleğe alınır.
 - Sonraki ziyaretlerde yavaş bağlantıda bile hızlı açılır; çevrimdışıyken son içerik gösterilir.
-- En güncel içerik için ara ara çevrimiçi ziyaret edin.
+- Mobilde uygulama gibi kullanmak için tarayıcınızın “Ana ekrana ekle” veya “Uygulamayı yükle” seçeneğini kullanın.
 
 Sık Sorulanlar (SSS)
 - Önerilenler neye göre? Güvenilirlik, yaygın kullanım ve pratiklik önceliğimizdir. Yıldızlı öğeler yalnızca bir “başlangıç noktası” önerisidir.
 - Bağlantılar güvenli mi? Resmî sayfalar ve bilinen projeler tercih edilir. Yine de indirdiğiniz dosyaları antivirüs ile taramanızı ve imzaları/sağlama değerlerini doğrulamanızı öneririz.
 - Kopyaladığım komutlar ne yapar? Winget veya PowerShell komutları ilgili yazılımı kurar/çalıştırır. Yalnızca kaynağından emin olduğunuz komutları kullanın.
-- Mobilde uygulama olarak ekleyebilir miyim? Evet. Tarayıcınızın “Ana ekrana ekle” veya “Uygulamayı yükle” seçeneğini kullanın.
 
 Ekran Görselleri
 - Aşağıdaki küçük koleksiyon, içerikte yer alan bazı araçların simgeleridir.
@@ -58,14 +66,13 @@ Ekran Görselleri
   <img src="icon/python.svg" alt="Python" height="40" />
   <img src="icon/sharex.svg" alt="ShareX" height="40" />
 
- 
+Sorun Giderme
+- Banner boş görünüyorsa: Sayfayı “Hard Refresh” ile yenileyin (Ctrl/Cmd+Shift+R). Tarayıcı önbelleği eski SVG’yi tutuyor olabilir.
 
 Sorumluluk Reddi
 - Buradaki bağlantılar bilgilendirme amaçlıdır. Yazılım lisansları ve yerel yasalara uymak kullanıcının sorumluluğundadır.
 - Komutları çalıştırmadan önce içeriğini ve kaynağını mutlaka doğrulayın.
 
 Geri Bildirim
-- Öneri ve düzeltmeler için konu açabilir veya değişiklik isteği gönderebilirsiniz.
-- Kullanıcı deneyimiyle ilgili görüşlerinizi paylaşmanız geliştirmeye yardımcı olur.
+- Öneri ve düzeltmeler için proje sayfasında konu açabilir veya değişiklik isteği gönderebilirsiniz.
 
- 
