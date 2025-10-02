@@ -44,8 +44,8 @@
 }
 
 .author-fab-icon {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--img-bg);
   border: 2px solid rgba(0,0,0,0.08); /* crisper ring on light */
@@ -55,7 +55,10 @@
   object-fit: cover;         /* crop to avoid squish */
   object-position: center;
   image-rendering: -webkit-optimize-contrast; /* better downscale on WebKit */
+  image-rendering: crisp-edges;               /* reduce smoothing on small sizes */
   backface-visibility: hidden; /* prevent subpixel blurring */
+  transform: translateZ(0);     /* promote to its own layer */
+  will-change: transform;       /* hint to browser */
 }
 
 .koyu .author-fab-icon {

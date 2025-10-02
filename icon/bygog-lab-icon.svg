@@ -1,1 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" aria-labelledby="t d" viewBox="0 0 160 160"><title id="t">byGOG Lab - Icon</title><desc id="d">Yalın amblem: dairesel G ve iki baloncuk, yazısız.</desc><defs><style>.mark-stroke{fill:none;stroke:#f1f5f9;stroke-width:10;stroke-linecap:round;stroke-linejoin:round}</style></defs><rect width="160" height="160" rx="32" ry="32" fill="#0b1220"/><g transform="translate(12 12)"><circle cx="68" cy="68" r="56" class="mark-stroke"/><path d="M114 68a46 46 0 1 1-46-46m18 70h40" class="mark-stroke"/><circle cx="112" cy="26" r="6" fill="#22d3ee"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" aria-labelledby="t d" viewBox="0 0 160 160">
+  <title id="t">byGOG Lab - Icon</title>
+  <desc id="d">Dark-only crest matching the logo badge: ring + monogram + accent.</desc>
+  <style>
+    :root { --bg:#0b1220; --fg:#f1f5f9; --acc:#22d3ee; --ring:#475569; }
+    .ring { fill:none; stroke:var(--ring); stroke-width:6; stroke-linecap:round; stroke-linejoin:round }
+    .mark { fill:none; stroke:var(--fg);  stroke-width:10; stroke-linecap:round; stroke-linejoin:round }
+  </style>
+  <rect width="160" height="160" rx="32" ry="32" fill="none"/>
+  <g transform="translate(12 12)">
+    <circle cx="68" cy="68" r="56" class="ring"/>
+    <path d="M114 68a46 46 0 1 1-46-46m18 70h40" class="mark"/>
+    <circle cx="112" cy="26" r="6" fill="var(--acc)"/>
+  </g>
+</svg>
+
