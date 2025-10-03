@@ -497,6 +497,15 @@
               "alt": "Win11Debloat",
               "copyText": "& ([scriptblock]::Create((irm \"https://debloat.raphi.re/\")))",
               "tags": []
+            },
+            {
+              "url": "https://winhance.net/",
+              "name": "Winhance",
+              "recommended": false,
+              "description": "Windows 10/11 için debloat, optimizasyon ve özelleştirme aracı.",
+              "icon": "icon/winhance.svg",
+              "alt": "Winhance",
+              "tags": []
             }
           ]
         },
