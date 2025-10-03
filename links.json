@@ -487,6 +487,16 @@
               "alt": "Microsoft PC Manager",
               "copyText": "winget install Microsoft.PCManager",
               "tags": []
+            },
+            {
+              "url": "https://github.com/Raphire/Win11Debloat",
+              "name": "Win11Debloat",
+              "recommended": false,
+              "description": "Windows 11 için bloatware kaldırma ve optimizasyon scripti.",
+              "icon": "icon/powershell.svg",
+              "alt": "Win11Debloat",
+              "copyText": "& ([scriptblock]::Create((irm \"https://debloat.raphi.re/\")))",
+              "tags": []
             }
           ]
         },
@@ -2097,7 +2107,7 @@
               "name": "İnat TV",
               "recommended": false,
               "description": "Canlı TV ve yayınlar için modlu Android uygulaması.",
-              "icon": "icon/android.svg",
+              "icon": "icon/inattv.svg",
               "alt": "İnat TV",
               "tags": []
             }
