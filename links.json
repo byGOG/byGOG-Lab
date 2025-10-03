@@ -1081,6 +1081,15 @@
               "icon": "icon/techspot.svg",
               "alt": "TechSpot",
               "tags": []
+            },
+            {
+              "url": "https://www.softpedia.com/",
+              "name": "Softpedia",
+              "recommended": false,
+              "description": "Teknoloji haberleri, incelemeler ve yazılım indirmeleri.",
+              "icon": "icon/softpedia.svg",
+              "alt": "Softpedia",
+              "tags": []
             }
           ]
         }
