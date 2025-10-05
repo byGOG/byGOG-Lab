@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bygog-lab-cache-41f8fbc8';
+const CACHE_NAME = 'bygog-lab-cache-20251005a';
 const urlsToCache = [
   '.',
   'index.html',
@@ -133,6 +133,7 @@ self.addEventListener('fetch', event => {
     }
   })());
 });
+
 
 
 

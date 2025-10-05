@@ -214,3 +214,12 @@
 
 /* Perf: visibility toggle */
 .is-hidden{display:none !important}
+
+/* Ensure the search bar scrolls with the page */
+.site-header,
+.search-container,
+#search-input {
+  position: static !important;
+  top: auto !important;
+}
+
