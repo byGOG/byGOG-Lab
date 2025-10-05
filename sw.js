@@ -1,9 +1,9 @@
-const CACHE_NAME = 'bygog-lab-cache-3a1bec06';
+const CACHE_NAME = 'bygog-lab-cache-41f8fbc8';
 const urlsToCache = [
   '.',
   'index.html',
   'manifest.json',
-  'dist/styles.5c0344af.css',
+  'dist/styles.99228be0.css',
   'dist/fab.3fafe5e9.css',
   'dist/renderLinks.b8b540e8.js',
   'links.json',

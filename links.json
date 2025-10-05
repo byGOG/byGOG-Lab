@@ -1654,7 +1654,7 @@
               "icon": "icon/topsportlivegt.svg",
               "alt": "TopSportLiveGT",
               "tags": []
-    }
+            }
           ]
         },
         {
@@ -2118,10 +2118,19 @@
               "description": "Instagram için reklamsız ve gelişmiş özellikler sunan modlu uygulama.",
               "icon": "icon/instapro.svg",
               "alt": "InstaPro",
-              "tags": []
-            },
-            {
-              "url": "https://inattv156.cfd/",
+            "tags": []
+          },
+          {
+            "url": "https://netvgold.github.io/",
+            "name": "Ne TV Gold",
+            "recommended": false,
+            "description": "Canlı TV ve yayınlar için modlu Android uygulaması.",
+            "icon": "icon/netvgold.svg",
+            "alt": "Ne TV Gold",
+            "tags": []
+          },
+          {
+            "url": "https://inattv156.cfd/",
               "name": "İnat TV",
               "recommended": false,
               "description": "Canlı TV ve yayınlar için modlu Android uygulaması.",
