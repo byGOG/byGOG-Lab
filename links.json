@@ -2095,11 +2095,11 @@
           "links": [
             {
               "url": "https://premiertvapps.blogspot.com/",
-              "name": "Premier TV Apps",
+              "name": "Premier TV",
               "recommended": false,
               "description": "Canlı TV ve yayınlar için modlu Android uygulaması.",
               "icon": "icon/premiertv.svg",
-              "alt": "Premier TV Apps",
+              "alt": "Premier TV",
               "tags": []
             },
             {
