@@ -18,6 +18,12 @@
   <title>byGOG Lab</title>
   <link rel="icon" type="image/svg+xml" href="icon/bygog-lab-icon.svg">
   <link rel="preload" as="image" href="icon/bygog-lab-icon.svg">
+  <link rel="preload" as="image" href="icon/bygog-lab-logo.svg">
+  <link rel="modulepreload" href="dist/renderLinks.b8b540e8.js">
+  <link rel="preload" href="links.json" as="fetch" type="application/json">
+  <link rel="prefetch" href="dist/searchWorker.js" as="script">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAB6klEQVR4nO3SsQkAIADAMH9xcPT/7/zBDiIEckCHjrk2XBvPC/iagUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAYiMRCJgUgMRGIgEgORGIjEQCQGIjEQiYFIDERiIBIDkRiIxEAkBiIxEImBSAxEYiASA5EYiMRAJAcMYBP9zAdV2AAAAABJRU5ErkJggg==">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,11 +45,10 @@
       <span class="author-fab-label">byGOG</span>
     </a>
   </div>
-  </div>
   <div class="container">
     <header class="site-header">
       <div class="logo-container">
-        <img src="icon/bygog-lab-logo.svg" alt="byGOG Lab Logo" class="logo">
+        <img src="icon/bygog-lab-logo.svg" alt="byGOG Lab Logo" class="logo" width="640" height="200" decoding="async" fetchpriority="high" loading="eager">
       </div>
       <div class="search-container">
         <label for="search-input" class="visually-hidden">Arama</label>
