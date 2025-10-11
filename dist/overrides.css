@@ -1,0 +1,10 @@
+/* Header shape + centered search overrides */
+.site-header{border-radius:28px;overflow:hidden}
+.logo-container{position:relative;z-index:1}
+.search-container{position:absolute;left:50%;transform:translateX(-50%);margin-left:0;flex:none;width:min(720px,60vw);max-width:720px}
+@media (max-width:900px){
+  .search-container{width:min(640px,70vw)}
+}
+@media (max-width:720px){
+  .search-container{position:static;transform:none;width:100%;max-width:100%}
+}
