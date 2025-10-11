@@ -40,9 +40,9 @@ html,body{max-width:100%;overflow-x:hidden}
   .custom-tooltip{display:none}
 }
 
-/* Phablet fallback: allow tighter columns before stacking */
-@media (max-width:600px){
-  ul{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+/* Mobile: stack items one-per-row up to tablet widths */
+@media (max-width:768px){
+  ul{grid-template-columns:1fr}
   li{min-width:0}
 }
 
