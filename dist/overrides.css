@@ -40,11 +40,18 @@ html,body{max-width:100%;overflow-x:hidden}
   .custom-tooltip{display:none}
 }
 
-/* Mobile: stack items one-per-row up to tablet widths */
-@media (max-width:768px){
+/* Resolution-based layout */
+/* 1 column on small phones */
+@media (max-width:480px){
   ul{grid-template-columns:1fr}
   li{min-width:0}
 }
+/* 2 columns on phones/phablets */
+@media (min-width:481px) and (max-width:768px){
+  ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  li{min-width:0}
+}
+/* Let the base grid handle ≥769px (auto-fit with min 240px) */
 
 /* Better text wrapping for long site names */
 .link-text{overflow-wrap:anywhere}
