@@ -1,13 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="146" height="28" viewBox="0 0 146 28" role="img" aria-label="Koyu Mod">
-  <defs>
-    <linearGradient id="pillDark" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#9b5cf0"/>
-      <stop offset="100%" stop-color="#7c3aed"/>
-    </linearGradient>
-  </defs>
-  <rect x="0.5" y="0.5" width="145" height="27" rx="14" fill="url(#pillDark)" stroke="rgba(255,255,255,0.25)"/>
-  <g transform="translate(12 6)" fill="#fff">
-    <path d="M14.5 2.5a7 7 0 1 0 6.5 10.2A6 6 0 1 1 14.5 2.5z"/>
-  </g>
-  <text x="36" y="19" font-family="Inter, Segoe UI, system-ui, -apple-system" font-size="13" font-weight="700" fill="#fff">Koyu Mod</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="146" height="28" aria-label="Koyu Mod" viewBox="0 0 146 28"><defs><linearGradient id="a" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#9b5cf0"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs><rect width="145" height="27" x=".5" y=".5" fill="url(#a)" stroke="rgba(255,255,255,0.25)" rx="14"/><path fill="#fff" d="M26.5 8.5A7 7 0 1 0 33 18.7a6.048 6.048 0 1 1-6.5-10.2"/><text x="36" y="19" fill="#fff" font-family="Inter, Segoe UI, system-ui, -apple-system" font-size="13" font-weight="700">Koyu Mod</text></svg>
