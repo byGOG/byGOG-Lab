@@ -16,7 +16,7 @@ const set = (path, val) => {
 };
 
 // CAT 1
-set(['categories', 0, 'title'], '★ Önerilenler');
+set(['categories', 0, 'title'], '⭐ Önerilenler');
 
 // CAT 2: Windows & Office
 set(['categories', 1, 'subcategories', 0, 'title'], 'Windows İndirme & Kurulum');

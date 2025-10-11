@@ -78,7 +78,7 @@
       "title": "Sistem/Ofis",
       "subcategories": [
         {
-          "title": "Windows Kurulum",
+          "title": "Windows İndirme & Kurulum",
           "links": [
             {
               "url": "https://www.microsoft.com/tr-tr/software-download/windows10",
@@ -141,7 +141,7 @@
           ]
         },
         {
-          "title": "Özel Windows",
+          "title": "Özel Windows Dağıtımları",
           "links": [
             {
               "url": "https://atlasos.net/",
@@ -164,7 +164,7 @@
           ]
         },
         {
-          "title": "Linux Kaynakları",
+          "title": "Linux Dağıtımları",
           "links": [
             {
               "url": "https://manjaro.org/",
@@ -205,7 +205,7 @@
           ]
         },
         {
-          "title": "Etkinleştirme",
+          "title": "Office & Aktivasyon Araçları",
           "links": [
             {
               "url": "https://massgrave.dev/",
@@ -230,7 +230,7 @@
           ]
         },
         {
-          "title": "Ofis",
+          "title": "Ofis Uygulamaları",
           "links": [
             {
               "url": "https://tr.libreoffice.org/",
@@ -267,7 +267,7 @@
       ]
     },
     {
-      "title": "Sistem/Bakım",
+      "title": "Sistem Araçları & Bakım",
       "subcategories": [
         {
           "title": "Sistem Araçları",
@@ -353,7 +353,7 @@
           ]
         },
         {
-          "title": "Sürücü/Donanım",
+          "title": "Sürücü & Donanım",
           "links": [
             {
               "url": "https://www.snappy-driver-installer.org/",
@@ -447,7 +447,7 @@
               "alt": "O&O AppBuster",
               "copyText": "winget install OO-Software.AppBuster",
               "tags": []
-    },
+            },
             {
               "url": "https://github.com/farag2/Sophia-Script-for-Windows",
               "name": "Sophia Script for Windows",
@@ -510,78 +510,78 @@
           ]
         },
         {
-  "title": "Dosya/Disk",
-  "links": [
-    {
-      "url": "https://www.7-zip.org/",
-      "name": "7-Zip",
-      "recommended": false,
-      "description": "Açık kaynaklı dosya sıkıştırma ve arşivleme.",
-      "icon": "icon/7-zip.svg",
-      "alt": "7-Zip",
-      "copyText": "winget install 7zip.7zip",
-      "tags": []
-    },
-    {
-      "url": "https://github.com/M2Team/NanaZip",
-      "name": "NanaZip",
-      "recommended": false,
-      "description": "Modern Windows için 7-Zip tabanlı, açık kaynaklı dosya sıkıştırma ve arşivleme programı. MSIX paket, yeni arayüz ve gelişmiş entegrasyon.",
-      "icon": "icon/nanazip.svg",
-      "alt": "NanaZip",
-      "copyText": "winget install M2Team.NanaZip",
-      "tags": []
-    },
-    {
-      "url": "https://www.codesector.com/teracopy",
-      "name": "TeraCopy",
-      "recommended": false,
-      "description": "Hızlı ve güvenli dosya kopyalama aracı.",
-      "icon": "icon/teracopy.svg",
-      "alt": "TeraCopy",
-      "copyText": "winget install CodeSector.TeraCopy",
-      "tags": []
-    },
-    {
-      "url": "https://www.rarlab.com/",
-      "name": "WinRAR",
-      "recommended": false,
-      "description": "Popüler dosya sıkıştırma ve arşivleme programı.",
-      "icon": "icon/winrar.svg",
-      "alt": "WinRAR",
-      "copyText": "winget install RARLab.WinRAR",
-      "tags": []
-    },
-    {
-      "url": "https://github.com/idrassi/HashCheck",
-      "name": "HashCheck Shell Extension",
-      "recommended": false,
-      "description": "Windows Gezgini'ne entegre, hızlı ve açık kaynaklı dosya bütünlüğü (hash) kontrol aracı.",
-      "icon": "icon/hashcheck.svg",
-      "alt": "HashCheck",
-      "copyText": "winget install idrassi.HashCheckShellExtension",
-      "tags": []
-    },
-    {
-      "url": "https://winmerge.org/",
-      "name": "WinMerge",
-      "recommended": false,
-      "description": "Açık kaynaklı, dosya ve klasör karşılaştırma/birleştirme aracı. Farkları görsel olarak gösterir ve senkronizasyon sağlar.",
-      "icon": "icon/winmerge.svg",
-      "alt": "WinMerge",
-      "copyText": "winget install WinMerge.WinMerge",
-      "tags": []
-    },
-    {
-      "url": "https://macrorit.com/partition-magic-manager/free-edition.html",
-      "name": "Macrorit Partition Expert",
-      "recommended": false,
-      "description": "Ücretsiz, gelişmiş disk bölümlendirme ve yönetim aracı. Veri kaybı olmadan disk bölme, birleştirme, biçimlendirme ve kurtarma özellikleri.",
-      "icon": "icon/macrorit.svg",
-      "alt": "Macrorit Partition Expert",
-      "tags": []
-    }
-  ]
+          "title": "Dosya & Disk Yönetimi",
+          "links": [
+            {
+              "url": "https://www.7-zip.org/",
+              "name": "7-Zip",
+              "recommended": false,
+              "description": "Açık kaynaklı dosya sıkıştırma ve arşivleme.",
+              "icon": "icon/7-zip.svg",
+              "alt": "7-Zip",
+              "copyText": "winget install 7zip.7zip",
+              "tags": []
+            },
+            {
+              "url": "https://github.com/M2Team/NanaZip",
+              "name": "NanaZip",
+              "recommended": false,
+              "description": "Modern Windows için 7-Zip tabanlı, açık kaynaklı dosya sıkıştırma ve arşivleme programı. MSIX paket, yeni arayüz ve gelişmiş entegrasyon.",
+              "icon": "icon/nanazip.svg",
+              "alt": "NanaZip",
+              "copyText": "winget install M2Team.NanaZip",
+              "tags": []
+            },
+            {
+              "url": "https://www.codesector.com/teracopy",
+              "name": "TeraCopy",
+              "recommended": false,
+              "description": "Hızlı ve güvenli dosya kopyalama aracı.",
+              "icon": "icon/teracopy.svg",
+              "alt": "TeraCopy",
+              "copyText": "winget install CodeSector.TeraCopy",
+              "tags": []
+            },
+            {
+              "url": "https://www.rarlab.com/",
+              "name": "WinRAR",
+              "recommended": false,
+              "description": "Popüler dosya sıkıştırma ve arşivleme programı.",
+              "icon": "icon/winrar.svg",
+              "alt": "WinRAR",
+              "copyText": "winget install RARLab.WinRAR",
+              "tags": []
+            },
+            {
+              "url": "https://github.com/idrassi/HashCheck",
+              "name": "HashCheck Shell Extension",
+              "recommended": false,
+              "description": "Windows Gezgini'ne entegre, hızlı ve açık kaynaklı dosya bütünlüğü (hash) kontrol aracı.",
+              "icon": "icon/hashcheck.svg",
+              "alt": "HashCheck",
+              "copyText": "winget install idrassi.HashCheckShellExtension",
+              "tags": []
+            },
+            {
+              "url": "https://winmerge.org/",
+              "name": "WinMerge",
+              "recommended": false,
+              "description": "Açık kaynaklı, dosya ve klasör karşılaştırma/birleştirme aracı. Farkları görsel olarak gösterir ve senkronizasyon sağlar.",
+              "icon": "icon/winmerge.svg",
+              "alt": "WinMerge",
+              "copyText": "winget install WinMerge.WinMerge",
+              "tags": []
+            },
+            {
+              "url": "https://macrorit.com/partition-magic-manager/free-edition.html",
+              "name": "Macrorit Partition Expert",
+              "recommended": false,
+              "description": "Ücretsiz, gelişmiş disk bölümlendirme ve yönetim aracı. Veri kaybı olmadan disk bölme, birleştirme, biçimlendirme ve kurtarma özellikleri.",
+              "icon": "icon/macrorit.svg",
+              "alt": "Macrorit Partition Expert",
+              "tags": []
+            }
+          ]
         },
         {
           "title": "Disk Analizi/Arama",
@@ -611,10 +611,10 @@
       ]
     },
     {
-      "title": "Gizlilik/Güvenlik",
+      "title": "Güvenlik & Gizlilik",
       "subcategories": [
         {
-          "title": "Güvenlik/Temizlik",
+          "title": "Antivirüs & Kötü Amaçlı Yazılım Temizleyiciler",
           "links": [
             {
               "url": "https://www.avira.com/tr/free-antivirus-windows",
@@ -651,23 +651,23 @@
               "recommended": false,
               "description": "Güçlü kötü amaçlı yazılım koruması ve temizleme aracı.",
               "icon": "icon/emsisoft.svg",
-      "alt": "Emsisoft",
-      "tags": []
-    },
-    {
-      "url": "https://sandboxie-plus.com/",
-      "name": "Sandboxie Plus",
-      "recommended": false,
-      "description": "Uygulamaları izole ortamda çalıştırma.",
-      "icon": "icon/sandboxie.svg",
-      "alt": "Sandboxie Plus",
-      "copyText": "winget install Sandboxie.Plus",
-      "tags": []
-    }
+              "alt": "Emsisoft",
+              "tags": []
+            },
+            {
+              "url": "https://sandboxie-plus.com/",
+              "name": "Sandboxie Plus",
+              "recommended": false,
+              "description": "Uygulamaları izole ortamda çalıştırma.",
+              "icon": "icon/sandboxie.svg",
+              "alt": "Sandboxie Plus",
+              "copyText": "winget install Sandboxie.Plus",
+              "tags": []
+            }
           ]
         },
         {
-          "title": "Gizlilik/Telemetri",
+          "title": "Gizlilik & Telemetri Araçları",
           "links": [
             {
               "url": "https://www.oo-software.com/en/shutup10",
@@ -741,7 +741,7 @@
           ]
         },
         {
-          "title": "Ağ/Güvenlik",
+          "title": "Ağ, VPN & Güvenlik Araçları",
           "links": [
             {
               "url": "https://antizapret.prostovpn.org/",
@@ -812,7 +812,7 @@
           ]
         },
         {
-          "title": "Şifre/Gizlilik",
+          "title": "Şifre & Gizlilik Araçları",
           "links": [
             {
               "url": "https://bitwarden.com/",
@@ -908,10 +908,10 @@
       ]
     },
     {
-      "title": "Kurulum/Güncelleme",
+      "title": "Yazılım & Paket Yöneticileri",
       "subcategories": [
         {
-          "title": "Online Kurulum",
+          "title": "Yazılım Kurulum & Paket Yöneticileri",
           "links": [
             {
               "url": "https://ninite.com/",
@@ -962,7 +962,7 @@
           ]
         },
         {
-          "title": "Paket Yöneticileri",
+          "title": "Taşınabilir Uygulama Platformları",
           "links": [
             {
               "url": "https://chocolatey.org/",
@@ -1016,7 +1016,7 @@
           ]
         },
         {
-          "title": "Taşınabilir Platformlar",
+          "title": "Yazılım Alternatifleri & Karşılaştırma",
           "links": [
             {
               "url": "https://portableappz.blogspot.com/",
@@ -1057,7 +1057,7 @@
           ]
         },
         {
-          "title": "Alternatif/Karşılaştırma",
+          "title": "Yazılım Portalları & İncelemeler",
           "links": [
             {
               "url": "https://alternativeto.net/",
@@ -1096,10 +1096,10 @@
       ]
     },
     {
-      "title": "İnternet/Tarayıcı",
+      "title": "İnternet & Tarayıcı",
       "subcategories": [
         {
-          "title": "Tarayıcı/Eklenti",
+          "title": "Web Tarayıcılar & Eklentiler",
           "links": [
             {
               "url": "https://brave.com/tr/",
@@ -1144,11 +1144,8 @@
           ]
         },
         {
-          "title": "Eklenti/Güvenlik",
+          "title": "Tarayıcı Eklentileri & Güvenlik",
           "links": [
-    
-    
-    
             {
               "url": "https://ublockorigin.com/tr",
               "name": "uBlock Origin",
@@ -1212,11 +1209,10 @@
               "alt": "SponsorBlock",
               "tags": []
             }
-
           ]
         },
         {
-          "title": "Tarayıcı Benchmark",
+          "title": "Ağ Testleri & Hız Ölçümleri",
           "links": [
             {
               "url": "https://browserbench.org/",
@@ -1283,10 +1279,10 @@
       ]
     },
     {
-      "title": "Medya/İndirme",
+      "title": "Medya & İndirme",
       "subcategories": [
         {
-          "title": "İndirme/Arşiv",
+          "title": "Yazılım İndirme & Arşivleri",
           "links": [
             {
               "url": "https://softarchive.download/",
@@ -1368,7 +1364,7 @@
           ]
         },
         {
-          "title": "Torrent/İndirme",
+          "title": "Torrent & DDL Platformları",
           "links": [
             {
               "url": "https://www.zamunda.net/",
@@ -1445,7 +1441,7 @@
           ]
         },
         {
-          "title": "Müzik İndirme",
+          "title": "Medya & Eğlence Platformları",
           "links": [
             {
               "url": "https://lucida.to/",
@@ -1505,7 +1501,7 @@
           ]
         },
         {
-          "title": "Medya/Eğlence",
+          "title": "Müzik & Video Akış Platformları",
           "links": [
             {
               "url": "https://www.aimp.ru/",
@@ -1545,50 +1541,50 @@
               "icon": "icon/foobar2000.svg",
               "alt": "foobar2000",
               "tags": [],
-      "copyText": "winget install PeterPawlowski.foobar2000 PeterPawlowski.foobar2000.EncoderPack"
-    },
-    {
-      "url": "https://github.com/SpotX-Official/SpotX",
-      "name": "SpotX",
-      "recommended": false,
-      "description": "Spotify için reklamsız deneyim aracı.",
-      "icon": "icon/spotx.svg",
-      "alt": "SpotX",
-      "copyText": "iex \"& { $(iwr -useb 'https://raw.githubusercontent.com/SpotX-Official/SpotX/refs/heads/main/run.ps1') } -confirm_uninstall_ms_spoti -confirm_spoti_recomended_over -podcasts_off -block_update_on -start_spoti -new_theme -adsections_off -lyrics_stat spotify\"",
-      "tags": []
-    },
-    {
-      "url": "https://spicetify.app/",
-      "name": "Spicetify",
-      "recommended": false,
-      "description": "Spotify istemcisini özelleştirmek için komut satırı aracı.",
-      "icon": "icon/spicetify.svg",
-      "alt": "Spicetify",
-      "copyText": "winget install Spicetify.Spicetify",
-      "tags": []
-    },
-    {
-      "url": "https://www.beatstats.com/",
-      "name": "BeatStats",
-      "recommended": false,
-      "description": "Beatport istatistikleri ve en iyi parçalar.",
-      "icon": "icon/beatstats.svg",
-      "alt": "BeatStats",
-      "tags": []
-    },
-    {
-      "url": "https://www.beatport.com/",
-      "name": "Beatport",
-      "recommended": false,
-      "description": "Elektronik müzik ve DJ kültürü için dijital mağaza.",
-      "icon": "icon/beatport.svg",
-      "alt": "Beatport",
-      "tags": []
-    }
+              "copyText": "winget install PeterPawlowski.foobar2000 PeterPawlowski.foobar2000.EncoderPack"
+            },
+            {
+              "url": "https://github.com/SpotX-Official/SpotX",
+              "name": "SpotX",
+              "recommended": false,
+              "description": "Spotify için reklamsız deneyim aracı.",
+              "icon": "icon/spotx.svg",
+              "alt": "SpotX",
+              "copyText": "iex \"& { $(iwr -useb 'https://raw.githubusercontent.com/SpotX-Official/SpotX/refs/heads/main/run.ps1') } -confirm_uninstall_ms_spoti -confirm_spoti_recomended_over -podcasts_off -block_update_on -start_spoti -new_theme -adsections_off -lyrics_stat spotify\"",
+              "tags": []
+            },
+            {
+              "url": "https://spicetify.app/",
+              "name": "Spicetify",
+              "recommended": false,
+              "description": "Spotify istemcisini özelleştirmek için komut satırı aracı.",
+              "icon": "icon/spicetify.svg",
+              "alt": "Spicetify",
+              "copyText": "winget install Spicetify.Spicetify",
+              "tags": []
+            },
+            {
+              "url": "https://www.beatstats.com/",
+              "name": "BeatStats",
+              "recommended": false,
+              "description": "Beatport istatistikleri ve en iyi parçalar.",
+              "icon": "icon/beatstats.svg",
+              "alt": "BeatStats",
+              "tags": []
+            },
+            {
+              "url": "https://www.beatport.com/",
+              "name": "Beatport",
+              "recommended": false,
+              "description": "Elektronik müzik ve DJ kültürü için dijital mağaza.",
+              "icon": "icon/beatport.svg",
+              "alt": "Beatport",
+              "tags": []
+            }
           ]
         },
         {
-          "title": "Müzik/Video Akış",
+          "title": "Müzik Platformları",
           "links": [
             {
               "url": "https://music.youtube.com/",
@@ -1658,7 +1654,7 @@
           ]
         },
         {
-          "title": "Dönüştürücü/İndirici",
+          "title": "Medya Dönüştürücüler & İndiriciler",
           "links": [
             {
               "url": "https://www.internetdownloadmanager.com/",
@@ -1689,11 +1685,11 @@
               "alt": "HandBrake",
               "copyText": "winget install HandBrake.HandBrake",
               "tags": []
-    }
+            }
           ]
         },
         {
-          "title": "Dizi/Film",
+          "title": "Dizi & Film İzleme Siteleri",
           "links": [
             {
               "url": "https://dizipal1312.com/",
@@ -1725,37 +1721,37 @@
           ]
         },
         {
-  "title": "Bulut/Yedekleme",
-  "links": [
-    {
-      "url": "https://www.dropbox.com/",
-      "name": "Dropbox",
-      "recommended": false,
-      "description": "Dosya yedekleme ve bulut depolama hizmeti.",
-      "icon": "icon/dropbox.svg",
-      "alt": "Dropbox",
-      "copyText": "winget install Dropbox.Dropbox",
-      "tags": []
-    },
-    {
-      "url": "https://drive.google.com/",
-      "name": "Google Drive",
-      "recommended": false,
-      "description": "Google'ın bulut depolama ve dosya paylaşım servisi.",
-      "icon": "icon/googledrive.svg",
-      "alt": "Google Drive",
-      "copyText": "winget install Google.GoogleDrive",
-      "tags": []
-    }
-  ]
+          "title": "Bulut/Yedekleme",
+          "links": [
+            {
+              "url": "https://www.dropbox.com/",
+              "name": "Dropbox",
+              "recommended": false,
+              "description": "Dosya yedekleme ve bulut depolama hizmeti.",
+              "icon": "icon/dropbox.svg",
+              "alt": "Dropbox",
+              "copyText": "winget install Dropbox.Dropbox",
+              "tags": []
+            },
+            {
+              "url": "https://drive.google.com/",
+              "name": "Google Drive",
+              "recommended": false,
+              "description": "Google'ın bulut depolama ve dosya paylaşım servisi.",
+              "icon": "icon/googledrive.svg",
+              "alt": "Google Drive",
+              "copyText": "winget install Google.GoogleDrive",
+              "tags": []
+            }
+          ]
         }
       ]
     },
     {
-      "title": "Geliştirici/Tasarım",
+      "title": "Geliştirici & Tasarım",
       "subcategories": [
         {
-          "title": "Geliştirme Araçları",
+          "title": "Yazılım Geliştirme Araçları",
           "links": [
             {
               "url": "https://cmder.app/",
@@ -1819,7 +1815,7 @@
           ]
         },
         {
-          "title": "Programlama/Araçlar",
+          "title": "Programlama Dilleri & Araçlar",
           "links": [
             {
               "url": "https://www.java.com/tr/",
@@ -1874,7 +1870,7 @@
           ]
         },
         {
-          "title": "Grafik/Tasarım",
+          "title": "Grafik & Tasarım Araçları",
           "links": [
             {
               "url": "https://inkscape.org/",
@@ -1900,10 +1896,10 @@
       ]
     },
     {
-      "title": "Uygulamalar",
+      "title": "Uygulamalar & Araçlar",
       "subcategories": [
         {
-          "title": "Masaüstü/Arayüz",
+          "title": "Masaüstü Özelleştirme & Arayüz Araçları",
           "links": [
             {
               "url": "https://www.rocksdanister.com/lively/",
@@ -1912,23 +1908,23 @@
               "description": "Hareketli ve interaktif masaüstü duvar kağıtları.",
               "icon": "icon/livelywallpaper.svg",
               "alt": "Lively Wallpaper",
-      "copyText": "winget install rocksdanister.LivelyWallpaper",
-      "tags": []
-    },
-    {
-      "url": "https://nilesoft.org/",
-      "name": "Nilesoft Shell",
-      "recommended": false,
-      "description": "Windows Gezgini için güçlü bir eklenti.",
-      "icon": "icon/nilesoftshell.svg",
-      "alt": "Nilesoft Shell",
-      "copyText": "winget install Nilesoft.Shell",
-      "tags": []
-    }
+              "copyText": "winget install rocksdanister.LivelyWallpaper",
+              "tags": []
+            },
+            {
+              "url": "https://nilesoft.org/",
+              "name": "Nilesoft Shell",
+              "recommended": false,
+              "description": "Windows Gezgini için güçlü bir eklenti.",
+              "icon": "icon/nilesoftshell.svg",
+              "alt": "Nilesoft Shell",
+              "copyText": "winget install Nilesoft.Shell",
+              "tags": []
+            }
           ]
         },
         {
-          "title": "Çeviri/Dil",
+          "title": "Çeviri & Dil Araçları",
           "links": [
             {
               "url": "https://www.deepl.com/tr/",
@@ -1952,7 +1948,7 @@
           ]
         },
         {
-          "title": "Yapay Zeka/Asistan",
+          "title": "Yapay Zeka & Asistan Araçları",
           "links": [
             {
               "url": "https://chatgpt.com/",
@@ -2006,7 +2002,7 @@
           ]
         },
         {
-          "title": "Uzaktan/Destek",
+          "title": "Uzaktan Erişim & Destek Araçları",
           "links": [
             {
               "url": "https://anydesk.com/tr",
@@ -2041,7 +2037,7 @@
           ]
         },
         {
-          "title": "Üretkenlik/Yardımcı",
+          "title": "Üretkenlik & Yardımcı Araçlar",
           "links": [
             {
               "url": "https://hluk.github.io/CopyQ/",
@@ -2070,25 +2066,25 @@
               "description": "Hafif ve modern resim görüntüleyici.",
               "icon": "icon/imageglass.svg",
               "alt": "ImageGlass",
-      "copyText": "winget install DuongDieuPhap.ImageGlass",
-      "tags": []
-    },
-    {
-      "url": "https://localsend.org/tr",
-      "name": "LocalSend",
-      "recommended": false,
-      "description": "Yerel ağ üzerinden cihazlar arası dosya paylaşım aracı.",
-      "icon": "icon/localsend.svg",
-      "alt": "LocalSend",
-      "copyText": "winget install LocalSend.LocalSend",
-      "tags": []
-    }
-  ]
-}
+              "copyText": "winget install DuongDieuPhap.ImageGlass",
+              "tags": []
+            },
+            {
+              "url": "https://localsend.org/tr",
+              "name": "LocalSend",
+              "recommended": false,
+              "description": "Yerel ağ üzerinden cihazlar arası dosya paylaşım aracı.",
+              "icon": "icon/localsend.svg",
+              "alt": "LocalSend",
+              "copyText": "winget install LocalSend.LocalSend",
+              "tags": []
+            }
+          ]
+        }
       ]
     },
     {
-      "title": "Mobil/İletişim",
+      "title": "Mobil & İletişim",
       "subcategories": [
         {
           "title": "Android Modlar",
@@ -2127,19 +2123,19 @@
               "description": "Instagram için reklamsız ve gelişmiş özellikler sunan modlu uygulama.",
               "icon": "icon/instapro.svg",
               "alt": "InstaPro",
-            "tags": []
-          },
-          {
-            "url": "https://netvgold.github.io/",
-            "name": "Ne TV Gold",
-            "recommended": false,
-            "description": "Canlı TV ve yayınlar için modlu Android uygulaması.",
-            "icon": "icon/netvgold.svg",
-            "alt": "Ne TV Gold",
-            "tags": []
-          },
-          {
-            "url": "https://inattv156.cfd/",
+              "tags": []
+            },
+            {
+              "url": "https://netvgold.github.io/",
+              "name": "Ne TV Gold",
+              "recommended": false,
+              "description": "Canlı TV ve yayınlar için modlu Android uygulaması.",
+              "icon": "icon/netvgold.svg",
+              "alt": "Ne TV Gold",
+              "tags": []
+            },
+            {
+              "url": "https://inattv156.cfd/",
               "name": "İnat TV",
               "recommended": false,
               "description": "Canlı TV ve yayınlar için modlu Android uygulaması.",
@@ -2150,7 +2146,7 @@
           ]
         },
         {
-          "title": "İletişim/E-posta",
+          "title": "İletişim & E-posta Servisleri",
           "links": [
             {
               "url": "https://discord.com/",
@@ -2185,7 +2181,7 @@
           ]
         },
         {
-          "title": "E-posta/Hesap",
+          "title": "E-posta & Hesap Yönetimi",
           "links": [
             {
               "url": "https://outlook.live.com/",
@@ -2228,7 +2224,7 @@
           ]
         },
         {
-          "title": "Spor/Skor",
+          "title": "Spor & Canlı Skor Platformları",
           "links": [
             {
               "url": "https://www.365scores.com/tr",
@@ -2265,7 +2261,7 @@
       "title": "Oyun",
       "subcategories": [
         {
-          "title": "Oyun/Topluluk",
+          "title": "Oyun & Topluluk Platformları",
           "links": [
             {
               "url": "https://store.steampowered.com/",

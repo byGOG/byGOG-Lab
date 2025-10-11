@@ -213,3 +213,4 @@ try {
 // 6) Write asset manifest for debugging/reference
 fs.writeFileSync(path.join(distDir, 'asset-manifest.json'), JSON.stringify(manifest, null, 2));
 console.log('Wrote dist/asset-manifest.json');
+
