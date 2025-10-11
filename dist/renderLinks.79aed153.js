@@ -1,5 +1,5 @@
 export async function fetchLinks() {
-  const res = await fetch("links.json");
+  const res = await fetch("dist/links.json");
   if (!res.ok) throw new Error("links.json yüklenemedi");
   return res.json();
 }
@@ -69,7 +69,7 @@ function createLinkItem(link) {
       tipImg.decoding = "async";
       tipImg.width = 28;
       tipImg.height = 28;
-      tipImg.src = link.icon;
+      tipImg.setAttribute('data-src', link.icon);
       tipImg.onerror = () => {
         if (tipImg.src && !tipImg.src.endsWith("/icon/fallback.svg") && !tipImg.src.endsWith("icon/fallback.svg")) {
           tipImg.src = "icon/fallback.svg";
@@ -79,7 +79,17 @@ function createLinkItem(link) {
       tip.appendChild(tipImg);
     }
     tip.appendChild(document.createTextNode(link.description));
+
     a.appendChild(tip);
+    // Lazy-load tooltip image on demand (hover/focus)
+    const loadTipImg = () => {
+      try {
+        const ti = tip.querySelector('img[data-src]');
+        if (ti) { ti.src = ti.getAttribute('data-src'); ti.removeAttribute('data-src'); }
+      } catch {}
+    };
+    a.addEventListener('mouseenter', loadTipImg, { once: true });
+    a.addEventListener('focusin', loadTipImg, { once: true });
   }
 
   try {
@@ -87,6 +97,7 @@ function createLinkItem(link) {
     if (link.name) parts.push(link.name);
     if (Array.isArray(link.tags) && link.tags.length) parts.push(link.tags.join(" "));
     li.dataset.search = parts.join(" ").toLocaleLowerCase("tr");
+    try { if (link.folded) li.dataset.folded = String(link.folded); } catch {}
     if (link.description) li.dataset.descOriginal = link.description;
   } catch {}
 
@@ -505,14 +516,19 @@ function setupSearch() {
     const subEl = el.closest('.sub-category');
     return {
       index,
-      folded: foldForSearch(raw),
+      folded: el.dataset.folded ? String(el.dataset.folded) : foldForSearch(raw),
       isLink: !!el.querySelector(".link-text"),
       catEl,
       subEl
     };
   });
 
-  const engine = createWorkerSearchEngine(nodes, dataset, status) || createSyncSearchEngine(nodes, dataset, status);
+  let engine = null;
+  const getEngine = () => {
+    if (engine) return engine;
+    engine = createWorkerSearchEngine(nodes, dataset, status) || createSyncSearchEngine(nodes, dataset, status);
+    return engine;
+  };
 
   let debounceTimer;
   function computeDelay(val){
@@ -524,14 +540,14 @@ function setupSearch() {
 
   function runImmediate(value) {
     clearTimeout(debounceTimer);
-    engine.run(value);
+    getEngine().run(value);
   }
 
   input.addEventListener("input", () => {
     clearTimeout(debounceTimer);
     const delay = computeDelay(input.value);
     debounceTimer = setTimeout(() => {
-      engine.run(input.value);
+      getEngine().run(input.value);
       try {
         const url = new URL(window.location.href);
         const v = (input.value || "").trim();
@@ -860,3 +876,4 @@ function setupPWAInstallUI() {
   const onScroll = () => { if (window.scrollY >= cfg.minScroll) { scrollOk = true; maybeShow(); window.removeEventListener('scroll', onScroll); } };
   window.addEventListener('scroll', onScroll, { passive: true });
 }
+

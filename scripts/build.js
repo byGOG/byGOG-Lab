@@ -1,12 +1,17 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+let esbuild, csso;
+try { esbuild = require('esbuild'); } catch {}
+try { csso = require('csso'); } catch {}
 
 const rootDir = path.join(__dirname, '..');
 const srcDir = path.join(rootDir, 'src');
 const distDir = path.join(rootDir, 'dist');
 const indexPath = path.join(rootDir, 'index.html');
 const swPath = path.join(rootDir, 'sw.js');
+const linksSrcPath = path.join(rootDir, 'links.json');
+const linksOutPath = path.join(distDir, 'links.json');
 
 fs.mkdirSync(distDir, { recursive: true });
 
@@ -19,7 +24,100 @@ files.forEach(file => {
   console.log('Copied', from, '->', to);
 });
 
-// 2) Hash selected assets and write hashed copies
+// Build enhanced dist/links.json (minified + precomputed folded)
+buildLinksJSON();
+
+// Minify assets where possible before hashing
+minifyCSS();
+// Await JS minification within an IIFE to keep file sync
+let __minifyDone = false;
+(async () => { try { await minifyJS(); } finally { __minifyDone = true; } })();
+// Busy-wait very briefly if minification hasn't finished (ensures hashing sees minified output)
+const startWait = Date.now();
+while (!__minifyDone && Date.now() - startWait < 2000) {}
+
+// 1.1) Minify JS (if esbuild is available)
+async function minifyJS() {
+  if (!esbuild) return;
+  const inputs = [
+    path.join(distDir, 'renderLinks.js'),
+    path.join(distDir, 'searchWorker.js')
+  ].filter(p => fs.existsSync(p));
+  for (const input of inputs) {
+    try {
+      const code = fs.readFileSync(input, 'utf8');
+      const result = await esbuild.transform(code, { minify: true, format: 'esm', target: 'es2019' });
+      fs.writeFileSync(input, result.code);
+      console.log('Minified', input);
+    } catch (e) {
+      console.warn('esbuild failed for', input, e && e.message);
+    }
+  }
+}
+
+// 1.2) Minify CSS (if csso is available)
+function minifyCSS() {
+  if (!csso) return;
+  const cssTargets = [
+    path.join(distDir, 'styles.css'),
+    path.join(distDir, 'fab.css')
+  ];
+  cssTargets.forEach(fp => {
+    if (!fs.existsSync(fp)) return;
+    try {
+      const src = fs.readFileSync(fp, 'utf8');
+      const { css } = csso.minify(src);
+      fs.writeFileSync(fp, css);
+      console.log('Minified', fp);
+    } catch (e) {
+      console.warn('CSS minify failed for', fp, e && e.message);
+    }
+  });
+}
+
+// 2) Build-time search helpers and links.json minify -> dist/links.json
+const DIACRITIC_RE = /[\u0300-\u036f]/g;
+function normalizeTr(v) { return String(v || '').toLocaleLowerCase('tr'); }
+function foldTr(v) {
+  try {
+    return normalizeTr(v).normalize('NFD').replace(DIACRITIC_RE, '').replace(/ı/g, 'i');
+  } catch {
+    return normalizeTr(v).replace(/ı/g, 'i');
+  }
+}
+
+function enhanceLinksForSearch(obj) {
+  function enhanceLink(link) {
+    const parts = [];
+    if (link && link.name) parts.push(String(link.name));
+    if (Array.isArray(link && link.tags) && link.tags.length) parts.push(link.tags.join(' '));
+    const folded = foldTr(parts.join(' '));
+    return { ...link, folded };
+  }
+  function enhanceCategory(cat) {
+    const next = { ...cat };
+    if (Array.isArray(cat.links)) next.links = cat.links.map(enhanceLink);
+    if (Array.isArray(cat.subcategories)) next.subcategories = cat.subcategories.map(enhanceCategory);
+    return next;
+  }
+  const out = { ...obj };
+  if (Array.isArray(obj.categories)) out.categories = obj.categories.map(enhanceCategory);
+  return out;
+}
+
+function buildLinksJSON() {
+  if (!fs.existsSync(linksSrcPath)) return;
+  try {
+    const raw = fs.readFileSync(linksSrcPath, 'utf8');
+    const data = JSON.parse(raw);
+    const enhanced = enhanceLinksForSearch(data);
+    const min = JSON.stringify(enhanced);
+    fs.writeFileSync(linksOutPath, min);
+    console.log('Wrote', linksOutPath);
+  } catch (e) {
+    console.warn('Failed to build dist/links.json:', e && e.message);
+  }
+}
 function hashFile(filePath) {
   const buf = fs.readFileSync(filePath);
   return crypto.createHash('sha256').update(buf).digest('hex').slice(0, 8);
@@ -64,6 +162,8 @@ if (fs.existsSync(indexPath)) {
     const re = new RegExp(`${base}(?:\\.[0-9a-f]{8})?\\.${ext}`, 'g');
     html = html.replace(re, hashed);
   });
+  // Ensure links.json preload points to dist/links.json
+  html = html.replace(/href="links\.json"/g, 'href="dist/links.json"');
   fs.writeFileSync(indexPath, html);
   console.log('Updated index.html with hashed assets');
 }
@@ -80,7 +180,7 @@ if (fs.existsSync(swPath)) {
     manifest['dist/styles.css'] || 'dist/styles.css',
     manifest['dist/fab.css'] || 'dist/fab.css',
     manifest['dist/renderLinks.js'] || 'dist/renderLinks.js',
-    'links.json',
+    'dist/links.json',
     'icon/bygog-lab-icon.svg',
     'icon/bygog-lab-logo.svg'
   ];

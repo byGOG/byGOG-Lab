@@ -36,6 +36,17 @@ const server = http.createServer((req, res) => {
     const ext = path.extname(filePath).toLowerCase();
     const type = types[ext] || 'application/octet-stream';
     res.setHeader('Content-Type', type);
+    // Basic Cache-Control policy: hashed assets immutable, HTML no-cache, JSON short TTL
+    const isHashed = /\.[0-9a-f]{8}\.(?:css|js)$/.test(filePath);
+    if (ext === '.html') {
+      res.setHeader('Cache-Control', 'no-cache');
+    } else if (isHashed) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    } else if (ext === '.json') {
+      res.setHeader('Cache-Control', 'public, max-age=300');
+    } else if (ext === '.css' || ext === '.js' || ext === '.svg') {
+      res.setHeader('Cache-Control', 'public, max-age=86400');
+    }
     fs.createReadStream(filePath).pipe(res);
   });
 });
@@ -43,4 +54,3 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => {
   console.log(`Serving on http://localhost:${port}`);
 });
-

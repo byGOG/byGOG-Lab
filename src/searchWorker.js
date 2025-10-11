@@ -52,3 +52,4 @@ self.addEventListener("message", event => {
     self.postMessage({ type: "result", payload: { id, matches } });
   }
 });
+

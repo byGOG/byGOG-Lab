@@ -13,6 +13,8 @@
     "optimize:svg": "node scripts/optimize-svg.mjs"
   },
   "devDependencies": {
-    "svgo": "^4.0.0"
+    "svgo": "^4.0.0",
+    "esbuild": "^0.23.0",
+    "csso": "^5.0.5"
   }
 }

@@ -1,12 +1,12 @@
-const CACHE_NAME = 'bygog-lab-cache-09174369';
+const CACHE_NAME = 'bygog-lab-cache-e827908f';
 const urlsToCache = [
   '.',
   'index.html',
   'manifest.json',
-  'dist/styles.8eb84a7e.css',
-  'dist/fab.3fafe5e9.css',
-  'dist/renderLinks.b8b540e8.js',
-  'links.json',
+  'dist/styles.c4d3ef53.css',
+  'dist/fab.b33252b0.css',
+  'dist/renderLinks.79aed153.js',
+  'dist/links.json',
   'icon/bygog-lab-icon.svg',
   'icon/bygog-lab-logo.svg'
 ];
@@ -53,6 +53,7 @@ self.addEventListener('activate', event => {
     (async () => {
       const keys = await caches.keys();
       await Promise.all(keys.map(k => (k !== CACHE_NAME ? caches.delete(k) : undefined)));
+      try { if (self.registration && self.registration.navigationPreload) { await self.registration.navigationPreload.enable(); } } catch {}
       await self.clients.claim();
     })()
   );
@@ -73,13 +74,15 @@ self.addEventListener('fetch', event => {
     // Network-first for HTML navigations
     if (isHTML) {
       try {
-        const net = await fetch(req);
+        // Use navigation preload if available
+        const pre = await (event.preloadResponse || Promise.resolve(undefined));
+        const net = pre || await fetch(req);
         if (net && net.status === 200) {
           try { await cache.put(req, net.clone()); } catch {}
         }
         return net;
       } catch {
-        const cached = await cache.match(req);
+        const cached = await cache.match(req) || await cache.match('index.html');
         return cached || new Response('Offline', { status: 503, statusText: 'Offline' });
       }
     }
@@ -133,7 +136,6 @@ self.addEventListener('fetch', event => {
     }
   })());
 });
-
 
 
 
