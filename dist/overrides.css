@@ -61,9 +61,8 @@ html,body{max-width:100%;overflow-x:hidden}
   a{font-size:14px;padding:9px 10px}
 }
 
-/* Final overrides: enforce single column up to 768px and slightly smaller logo */
+/* Final overrides: mobile ergonomics (≤768px) */
 @media (max-width:768px){
-  ul{grid-template-columns:1fr}
   li{min-width:0}
   /* Avoid overlay and center-compression on mobile */
   .site-header{position:static;top:auto}
@@ -78,4 +77,16 @@ html,body{max-width:100%;overflow-x:hidden}
 }
 @media (max-width:720px){
   .logo{max-height:60px}
+}
+
+/* Columns by resolution across platforms */
+/* 1 column on small phones */
+@media (max-width:480px){
+  ul{grid-template-columns:1fr}
+  li{min-width:0}
+}
+/* 2 columns on phones/phablets/tablets */
+@media (min-width:481px) and (max-width:900px){
+  ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  li{min-width:0}
 }
