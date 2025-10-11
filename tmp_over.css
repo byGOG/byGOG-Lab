@@ -61,21 +61,3 @@ html,body{max-width:100%;overflow-x:hidden}
   a{font-size:14px;padding:9px 10px}
 }
 
-/* Final overrides: enforce single column up to 768px and slightly smaller logo */
-@media (max-width:768px){
-  ul{grid-template-columns:1fr}
-  li{min-width:0}
-  /* Avoid overlay and center-compression on mobile */
-  .site-header{position:static;top:auto}
-  .container{align-items:stretch}
-  li{justify-content:flex-start}
-  /* Tighter typographic scale on mobile */
-  h2{font-size:20px;margin-top:24px;padding-bottom:6px}
-  h3{font-size:17px;margin-top:16px;padding-bottom:4px}
-  ul{gap:8px}
-  a{padding:9px 12px}
-  .site-header{margin-bottom:12px!important}
-}
-@media (max-width:720px){
-  .logo{max-height:60px}
-}
