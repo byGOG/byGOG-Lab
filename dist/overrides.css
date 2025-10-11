@@ -2,9 +2,54 @@
 .site-header{border-radius:28px;overflow:hidden}
 .logo-container{position:relative;z-index:1}
 .search-container{position:absolute;left:50%;transform:translateX(-50%);margin-left:0;flex:none;width:min(720px,60vw);max-width:720px}
+/* Global layout safety nets */
+html{box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+html,body{max-width:100%;overflow-x:hidden}
 @media (max-width:900px){
   .search-container{width:min(640px,70vw)}
 }
 @media (max-width:720px){
   .search-container{position:static;transform:none;width:100%;max-width:100%}
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width:720px){
+  .container{padding:16px 16px 56px}
+  .site-header{gap:16px;padding:12px 0 10px;border-radius:20px}
+  .logo{max-height:72px}
+  .author-fab{right:16px;bottom:16px}
+}
+
+@media (max-width:420px){
+  .container{padding:12px 12px 56px}
+  .logo{max-height:64px}
+  /* Slightly compact link items on very small screens */
+  ul{gap:10px}
+  a{padding:10px 12px}
+}
+
+/* Ensure cards always fit on narrow viewports */
+@media (max-width:480px){
+  ul{grid-template-columns:1fr}
+  li{min-width:0}
+  .icon-wrapper{margin-right:12px}
+  .site-icon{width:24px;height:24px}
+  a{font-size:15px}
+  /* Avoid off-screen overlays on tiny viewports */
+  .custom-tooltip{display:none}
+}
+
+/* Phablet fallback: allow tighter columns before stacking */
+@media (max-width:600px){
+  ul{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+  li{min-width:0}
+}
+
+/* Better text wrapping for long site names */
+.link-text{overflow-wrap:anywhere}
+
+@media (max-width:360px){
+  .site-icon{width:22px;height:22px}
+  a{font-size:14px;padding:9px 10px}
 }
