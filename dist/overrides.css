@@ -2,6 +2,11 @@
 .site-header{border-radius:28px;overflow:hidden}
 .logo-container{position:relative;z-index:1}
 .search-container{position:absolute;left:50%;transform:translateX(-50%);margin-left:0;flex:none;width:min(720px,60vw);max-width:720px}
+/* Parallax-ready: add vertical scroll translation via CSS var */
+.search-container[data-parallax="true"]{will-change:transform;transform:translateX(-50%) translateY(var(--search-parallax,0))}
+@media (prefers-reduced-motion: reduce){
+  .search-container[data-parallax="true"]{transform:translateX(-50%) translateY(0)}
+}
 /* Global layout safety nets */
 html{box-sizing:border-box}
 *,*::before,*::after{box-sizing:inherit}

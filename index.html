@@ -52,7 +52,7 @@
       <div class="logo-container">
         <img src="icon/bygog-lab-logo.svg" alt="byGOG Lab Logo" class="logo" width="640" height="200" decoding="async" fetchpriority="high" loading="eager">
       </div>
-      <div class="search-container">
+      <div class="search-container" data-parallax="true" data-parallax-amp="26">
         <label for="search-input" class="visually-hidden">Arama</label>
         <input
           type="search"
@@ -62,12 +62,16 @@
           enterkeyhint="search"
           autocomplete="off"
           spellcheck="false"
-          aria-keyshortcuts="/, Control+K, Meta+K, Control+E">
+          aria-keyshortcuts="/, Control+K, Meta+K, Control+E" data-ph-phrases='["İsim veya içerik ara...","Örn: Steam, Rufus, Git","Kısayol: / veya Ctrl+K"]' data-ph-speed="65" data-ph-delete-speed="38" data-ph-pause-ticks="12" data-ph-delay="900" data-ph-once="false" data-ph-scroll="true" data-ph-scroll-cycles="2">
         <div id="search-status" aria-live="polite"></div>
       </div>
     </header>
     <div id="links-container"></div>
   </div>
   <script type="module" src="dist/renderLinks.05c734a1.js"></script>
+  <script type="module" src="dist/placeholder-anim.js"></script>
+  <script type="module" src="dist/scroll-anim.js"></script>
 </body>
 </html>
+
+
