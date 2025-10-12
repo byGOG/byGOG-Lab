@@ -106,6 +106,33 @@
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', onScroll);
       applyScrollProgress(getProgress());
+
+      // Optional: bind mouse wheel on the search input to cycle phrases
+      try {
+        let wheelIndex = 0;
+        let wheelInit = false;
+        const n = Math.max(1, cfg.phrases.length);
+        const onWheel = (e) => {
+          if (document.activeElement === input || input.value) return; // don't interfere while typing
+          e.preventDefault();
+          e.stopPropagation();
+          const dir = (e.deltaY || 0) > 0 ? 1 : -1;
+          if (!wheelInit) {
+            // Initialize from current scroll-based progress for continuity
+            try {
+              const cyc = Math.max(1, cfg.scrollCycles || 1);
+              const u = ((getProgress() * cyc) % 1);
+              const base = Math.min(n - 1, Math.floor(u * n));
+              wheelIndex = base;
+            } catch {}
+            wheelInit = true;
+          }
+          wheelIndex = (wheelIndex + dir + n) % n;
+          const phrase = cfg.phrases[wheelIndex] || cfg.defaultText;
+          setPlaceholder(phrase);
+        };
+        input.addEventListener('wheel', onWheel, { passive: false });
+      } catch {}
     }
 
     // Events to keep UX predictable
