@@ -49,6 +49,19 @@ function enhanceInfoTooltips() {
       }
     } catch {}
 
+    // Add site name (from label)
+    try {
+      const label = a.querySelector('.link-text');
+      const nameText = (label && label.textContent ? label.textContent : '').trim();
+      if (nameText) {
+        const nm = document.createElement('span');
+        nm.className = 'info-name';
+        nm.textContent = nameText;
+        infoTip.appendChild(nm);
+        infoTip.appendChild(document.createTextNode(' '));
+      }
+    } catch {}
+
     // Copy plain text description
     const text = (tip.textContent || '').trim();
     if (text) infoTip.appendChild(document.createTextNode(text));
@@ -99,6 +112,22 @@ function setupInfoDelegation() {
       btn.setAttribute('aria-expanded','true');
     }
   });
+
+  // Preload info tooltip image when hovering the name text
+  try {
+    container.addEventListener('mouseover', (ev) => {
+      const t = ev.target;
+      if (!t || !t.closest) return;
+      const label = t.closest('.link-text');
+      if (!label || !container.contains(label)) return;
+      const a = label.closest('a');
+      if (!a) return;
+      const tip = a.querySelector('.info-tooltip');
+      if (!tip || !tip.querySelector) return;
+      const img = tip.querySelector('img[data-src]');
+      if (img) { img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); }
+    }, { passive: true });
+  } catch {}
 }
 
 function waitAndEnhance() {
@@ -118,4 +147,3 @@ if (document.readyState === 'loading') {
 } else {
   waitAndEnhance();
 }
-

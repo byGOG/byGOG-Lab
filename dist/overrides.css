@@ -74,8 +74,32 @@ li{min-width:0}
 }
 /* Let the base grid handle ≥769px (auto-fit with min 240px) */
 
-/* Better text wrapping for long site names */
-.link-text{overflow-wrap:anywhere}
+/* Single-line truncation with ellipsis for long site names */
+.link-text{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Marquee: activate single-line during hover/focus animation */
+.link-text.marquee-active{
+  white-space: nowrap;
+}
+
+/* Continuous auto marquee (no markup shifts) */
+.link-text.marquee-auto{
+  white-space: nowrap;
+  overflow: hidden; /* already set in base, keep safe */
+  position: relative;
+}
+.link-text .marquee-inner{
+  display: inline-block;
+  will-change: transform;
+}
+.link-text .marquee-copy{ display: inline-block; }
+.link-text .marquee-gap{ display: inline-block; }
 
 @media (max-width:360px){
   .site-icon{width:22px;height:22px}
@@ -161,7 +185,7 @@ a .custom-tooltip{
   pointer-events: none;
   transition: opacity .18s ease, transform .18s ease, visibility .18s;
 }
-a:hover .custom-tooltip,
+/* Show anchor-level tooltip only via focus (hover disabled elsewhere) */
 a:focus-within .custom-tooltip{
   opacity: 1;
   visibility: visible;
@@ -228,10 +252,20 @@ button.info-button svg{ width:16px; height:16px; }
   transition: opacity .18s ease, transform .18s ease, visibility .18s;
 }
 .info-tooltip img{ width: 24px; height: 24px; border-radius: 6px; margin-right: 8px; vertical-align: middle; }
+.info-tooltip .info-name{
+  font-weight: 600;
+  color: var(--h3);
+  margin-right: 6px;
+}
 
 /* Show only when toggled open (click) */
 li.info-open .info-button + .info-tooltip{
   opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(-50%) translateX(0) scale(1);
+}
+
+/* Also show info tooltip when hovering the name text */
+a .link-text:hover ~ .info-tooltip{
+  opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0) scale(1);
 }
 
 /* Ensure card allows overlay and stacks above neighbors */

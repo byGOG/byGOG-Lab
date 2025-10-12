@@ -57,6 +57,7 @@ function createLinkItem(link) {
   const text = document.createElement("span");
   text.className = "link-text";
   text.textContent = link.name;
+  try { if (link && link.name) text.title = String(link.name); } catch {}
   li.dataset.nameOriginal = link.name || "";
   a.appendChild(text);
 
@@ -88,8 +89,9 @@ function createLinkItem(link) {
         if (ti) { ti.src = ti.getAttribute('data-src'); ti.removeAttribute('data-src'); }
       } catch {}
     };
-    a.addEventListener('mouseenter', loadTipImg, { once: true });
-    a.addEventListener('focusin', loadTipImg, { once: true });
+    // Load when hovering/focusing the name for better intent matching
+    try { text.addEventListener('mouseenter', loadTipImg, { once: true }); } catch {}
+    try { text.addEventListener('focusin', loadTipImg, { once: true }); } catch {}
   }
 
   try {
@@ -876,4 +878,3 @@ function setupPWAInstallUI() {
   const onScroll = () => { if (window.scrollY >= cfg.minScroll) { scrollOk = true; maybeShow(); window.removeEventListener('scroll', onScroll); } };
   window.addEventListener('scroll', onScroll, { passive: true });
 }
-
