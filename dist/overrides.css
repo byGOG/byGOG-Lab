@@ -3,7 +3,7 @@
 .logo-container{position:relative;z-index:1}
 .search-container{position:absolute;left:50%;transform:translateX(-50%);margin-left:0;flex:none;width:min(720px,60vw);max-width:720px}
 /* Parallax-ready: add vertical scroll translation via CSS var */
-.search-container[data-parallax="true"]{will-change:transform;transform:translateX(-50%) translateY(var(--search-parallax,0))}
+.search-container[data-parallax="true"]{will-change:transform;transform:translateX(-50%) translateY(calc(var(--search-parallax,0) + var(--search-bob,0)))}
 @media (prefers-reduced-motion: reduce){
   .search-container[data-parallax="true"]{transform:translateX(-50%) translateY(0)}
 }
@@ -15,7 +15,12 @@ html,body{max-width:100%;overflow-x:hidden}
   .search-container{width:min(640px,70vw)}
 }
 @media (max-width:720px){
-  .search-container{position:static;transform:none;width:100%;max-width:100%}
+  .search-container{position:static;width:100%;max-width:100%}
+}
+
+/* Restore vertical motion on mobile/full-width layout */
+@media (max-width:720px){
+  .search-container[data-parallax="true"]{transform:translateY(calc(var(--search-parallax,0) + var(--search-bob,0)))}
 }
 
 /* Mobile responsiveness improvements */
