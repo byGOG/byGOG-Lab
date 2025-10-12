@@ -4,13 +4,19 @@
 .search-container{position:absolute;left:50%;transform:translateX(-50%);margin-left:0;flex:none;width:min(720px,60vw);max-width:720px}
 /* Parallax-ready: add vertical scroll translation via CSS var */
 .search-container[data-parallax="true"]{will-change:transform;transform:translateX(-50%) translateY(calc(var(--search-parallax,0) + var(--search-bob,0)))}
+/* Header parallax support */
+.site-header[data-parallax="true"]{will-change:transform;transform:translateY(var(--header-parallax,0))}
 @media (prefers-reduced-motion: reduce){
   .search-container[data-parallax="true"]{transform:translateX(-50%) translateY(0)}
+  .site-header[data-parallax="true"]{transform:translateY(0)}
 }
 /* Global layout safety nets */
 html{box-sizing:border-box}
 *,*::before,*::after{box-sizing:inherit}
 html,body{max-width:100%;overflow-x:hidden}
+/* Ensure grid packs densely and reflows smoothly on resize */
+ul{grid-auto-flow:row dense}
+li{min-width:0}
 @media (max-width:900px){
   .search-container{width:min(640px,70vw)}
 }
@@ -59,6 +65,11 @@ html,body{max-width:100%;overflow-x:hidden}
 /* 2 columns on phones/phablets */
 @media (min-width:481px) and (max-width:768px){
   ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  li{min-width:0}
+}
+/* 3 columns on tablets/smaller laptops */
+@media (min-width:769px) and (max-width:1200px){
+  ul{grid-template-columns:repeat(3,minmax(0,1fr))}
   li{min-width:0}
 }
 /* Let the base grid handle ≥769px (auto-fit with min 240px) */
