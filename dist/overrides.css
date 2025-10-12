@@ -135,3 +135,115 @@ button.copy-button svg{
   button.copy-button{ width:30px; height:30px; }
   button.copy-button svg{ width:15px; height:15px; }
 }
+
+/* Modern hover/focus tooltips */
+/* Make anchor allow overlays */
+.category-card a{ overflow: visible; }
+
+/* Hidden by default (no layout shift) */
+a .custom-tooltip{
+  position:absolute;
+  right:48px; /* keep clear of copy button */
+  top:50%;
+  transform: translateY(-50%) translateX(6px) scale(.98);
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.55), 0 2px 8px rgba(27,33,44,0.35);
+  max-width: 380px;
+  white-space: normal;
+  line-height: 1.35;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+}
+a:hover .custom-tooltip,
+a:focus-within .custom-tooltip{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0) scale(1);
+}
+a .custom-tooltip img{
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+/* Raise hovered/focused item to ensure tooltip is above neighbors */
+.category-card a:hover,
+.category-card a:focus-within{ position: relative; z-index: 1200; }
+
+
+/* Info button styles (compact, next to copy) */
+button.info-button{
+  width:32px;
+  height:32px;
+  border-radius:10px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  margin-left:8px;
+  background: var(--copy-btn-bg, transparent);
+  color: var(--copy-btn-color, currentColor);
+  border: 1.5px solid var(--card-border);
+  box-shadow: 0 1.5px 4px 0 var(--copy-btn-shadow, rgba(0,0,0,0.2));
+  cursor: pointer;
+}
+button.info-button:hover{
+  box-shadow: 0 8px 28px 0 var(--copy-btn-hover-shadow, rgba(0,0,0,0.6));
+}
+button.info-button:focus{
+  outline: 2px solid var(--copy-btn-focus-outline, #ffd600);
+  outline-offset: 2px;
+}
+button.info-button svg{ width:16px; height:16px; }
+@media (max-width:600px){
+  button.info-button{ width:30px; height:30px; }
+  button.info-button svg{ width:15px; height:15px; }
+}
+
+/* New info tooltip (for info button) */
+.info-tooltip{
+  position:absolute;
+  right:56px;
+  top:50%;
+  transform: translateY(-50%) translateX(6px) scale(.98);
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.55), 0 2px 8px rgba(27,33,44,0.35);
+  max-width: 380px;
+  white-space: normal;
+  line-height: 1.35;
+  z-index: 1400;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+}
+.info-tooltip img{ width: 24px; height: 24px; border-radius: 6px; margin-right: 8px; vertical-align: middle; }
+
+/* Show only when toggled open (click) */
+li.info-open .info-button + .info-tooltip{
+  opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(-50%) translateX(0) scale(1);
+}
+
+/* Ensure card allows overlay and stacks above neighbors */
+.category-card a{ overflow: visible; }
+.category-card a:hover, .category-card a:focus-within{ z-index: 1600; }
+
+/* Monochrome mask for SVG icons so they are visible on dark bg */
+.site-icon-mask{
+  background-color: var(--text);
+  -webkit-mask: var(--icon-url) center/contain no-repeat;
+  mask: var(--icon-url) center/contain no-repeat;
+}
+
+/* Hide anchor's built-in hover tooltip; use info-button tooltip instead */
+a .custom-tooltip{ display:none !important; }

@@ -36,21 +36,30 @@ function createLinkItem(link) {
   if (link.icon) {
     const wrap = document.createElement("span");
     wrap.className = "icon-wrapper";
-    const img = document.createElement("img");
-    img.loading = "lazy";
-    img.decoding = "async";
-    img.width = 28;
-    img.height = 28;
-    img.setAttribute('data-src', link.icon);
-    img.src = "icon/fallback.svg";
-    img.onerror = () => {
-      if (img.src && !img.src.endsWith("/icon/fallback.svg") && !img.src.endsWith("icon/fallback.svg")) {
-        img.src = "icon/fallback.svg";
-      }
-    };
-    if (link.alt) img.alt = link.alt;
-    img.className = "site-icon";
-    wrap.appendChild(img);
+    const iconUrl = String(link.icon || "");
+    if (/\.svg(?:\?|#|$)/i.test(iconUrl)) {
+      const m = document.createElement('span');
+      m.className = 'site-icon site-icon-mask';
+      m.setAttribute('data-src', iconUrl);
+      if (link.alt) m.setAttribute('aria-label', link.alt);
+      wrap.appendChild(m);
+    } else {
+      const img = document.createElement("img");
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.width = 28;
+      img.height = 28;
+      img.setAttribute('data-src', iconUrl);
+      img.src = "icon/fallback.svg";
+      img.onerror = () => {
+        if (img.src && !img.src.endsWith("/icon/fallback.svg") && !img.src.endsWith("icon/fallback.svg")) {
+          img.src = "icon/fallback.svg";
+        }
+      };
+      if (link.alt) img.alt = link.alt;
+      img.className = "site-icon";
+      wrap.appendChild(img);
+    }
     a.appendChild(wrap);
   }
 
@@ -63,6 +72,7 @@ function createLinkItem(link) {
   if (link.description) {
     const tip = document.createElement("span");
     tip.className = "custom-tooltip";
+    try { tip.id = 'tip-' + Math.random().toString(36).slice(2); } catch {}
     if (link.icon) {
       const tipImg = document.createElement("img");
       tipImg.loading = "lazy";
@@ -90,6 +100,45 @@ function createLinkItem(link) {
     };
     a.addEventListener('mouseenter', loadTipImg, { once: true });
     a.addEventListener('focusin', loadTipImg, { once: true });
+
+    // Create a NEW tooltip for the info button (separate from anchor tooltip)
+    try {
+      const infoBtn = document.createElement('button');
+      infoBtn.type = 'button';
+      infoBtn.className = 'info-button';
+      const sr = document.createElement('span');
+      sr.className = 'sr-only';
+      sr.textContent = 'Bilgiyi göster';
+      const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+      svg.setAttribute('viewBox','0 0 24 24');
+      svg.setAttribute('aria-hidden','true');
+      svg.setAttribute('focusable','false');
+      svg.innerHTML = '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"></circle><circle cx="12" cy="8" r="1.4" fill="currentColor"></circle><path d="M12 11v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>';
+      infoBtn.appendChild(svg);
+      infoBtn.appendChild(sr);
+      infoBtn.setAttribute('aria-expanded','false');
+
+      const infoTip = document.createElement('span');
+      infoTip.className = 'info-tooltip';
+      infoTip.setAttribute('role','tooltip');
+      try { infoTip.id = 'infot-' + Math.random().toString(36).slice(2); } catch {}
+      infoBtn.setAttribute('aria-controls', infoTip.id || '');
+      if (link.icon) {
+        const ii = document.createElement('img');
+        ii.width = 24; ii.height = 24;
+        ii.decoding = 'async'; ii.loading = 'lazy';
+        ii.setAttribute('data-src', link.icon);
+        ii.onerror = () => { if (ii.src && !ii.src.endsWith('/icon/fallback.svg') && !ii.src.endsWith('icon/fallback.svg')) ii.src = 'icon/fallback.svg'; };
+        if (link.alt) ii.alt = link.alt;
+        infoTip.appendChild(ii);
+      }
+      infoTip.appendChild(document.createTextNode(link.description));
+
+      // Image will be loaded on first click toggle (see delegation)
+
+      a.appendChild(infoBtn);
+      a.appendChild(infoTip);
+    } catch {}
   }
 
   try {
@@ -303,345 +352,112 @@ function setupCopyDelegation() {
   });
 }
 
-const SEARCH_LOCALE = "tr";
-const DIACRITIC_PATTERN = /[\u0300-\u036f]/g;
+// Info button: hover shows via CSS; click toggles persistent open on that item
+function setupInfoButtonDelegation() {
+  const container = document.getElementById('links-container');
+  if (!container || container.dataset.infoBtnDelegation === 'on') return;
+  container.dataset.infoBtnDelegation = 'on';
 
-function normalizeForSearch(value) {
-  return String(value || "").toLocaleLowerCase(SEARCH_LOCALE);
-}
-
-function foldForSearch(value) {
-  // Turkish-friendly folding: remove diacritics and unify dotless i -> i
-  return normalizeForSearch(value)
-    .normalize("NFD")
-    .replace(DIACRITIC_PATTERN, "")
-    .replace(/ı/g, "i");
-}
-
-function tokenizeFoldedQuery(value) {
-  return foldForSearch(value).split(/\s+/).filter(Boolean);
-}
-
-function escapeRegExp(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, "\$&");
-}
-
-function buildHighlightRegex(value) {
-  const tokens = normalizeForSearch(value).trim().split(/\s+/).filter(Boolean);
-  if (!tokens.length) return null;
-  return new RegExp(`(${tokens.map(escapeRegExp).join("|")})`, "gi");
-}
-
-function createHighlightMeta(value) {
-  const hasQuery = value.trim().length > 0;
-  return {
-    raw: value,
-    hasQuery,
-    regex: hasQuery ? buildHighlightRegex(value) : null
+  const closeAll = () => {
+    try {
+      container.querySelectorAll('li.info-open').forEach(li => {
+        li.classList.remove('info-open');
+        const btn = li.querySelector('button.info-button[aria-expanded="true"]');
+        if (btn) btn.setAttribute('aria-expanded','false');
+      });
+    } catch {}
   };
-}
 
-function applyHighlight(node, _regex) {
-  const label = node.querySelector(".link-text");
-  if (label) {
-    const original = node.dataset.nameOriginal || label.textContent || "";
-    label.textContent = original;
-  }
-  const tip = node.querySelector(".custom-tooltip");
-  if (tip) {
-    const descOriginal = node.dataset.descOriginal || "";
-    if (descOriginal) {
-      const img = tip.querySelector("img");
-      // Rebuild tooltip content without any highlighting
-      try {
-        tip.innerHTML = "";
-        if (img) {
-          tip.appendChild(img);
-          tip.appendChild(document.createTextNode(" "));
-        }
-        tip.appendChild(document.createTextNode(descOriginal));
-      } catch {
-        // Fallback: set plain text
-        tip.textContent = descOriginal;
-      }
-    }
-  }
-}
-
-// Category visibility is managed via counters for performance
-// Toggling happens in createMatchApplier using 'is-hidden' class
-function updateCategoryVisibility() {}
-
-function createMatchApplier(nodes, dataset, status) {
-  const visible = new Set(dataset.map(entry => entry.index));
-  const catCounts = new Map();
-  const subCounts = new Map();
-  dataset.forEach(entry => {
-    if (!entry.isLink) return;
-    const cat = entry.catEl;
-    const sub = entry.subEl;
-    catCounts.set(cat, (catCounts.get(cat) || 0) + 1);
-    if (sub) subCounts.set(sub, (subCounts.get(sub) || 0) + 1);
+  document.addEventListener('click', (e) => {
+    try { if (!container.contains(e.target)) closeAll(); } catch {}
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAll();
   });
 
-  function toggleContainer(el, countMap) {
-    if (!el) return;
-    const count = countMap.get(el) || 0;
-    el.classList.toggle('is-hidden', count <= 0);
-  }
-
-  function hideIndex(idx) {
-    const node = nodes[idx];
-    if (!node) return;
-    if (!node.classList.contains('is-hidden')) {
-      node.classList.add('is-hidden');
-      applyHighlight(node, null);
-      const entry = dataset[idx];
-      if (entry.isLink) {
-        const cat = entry.catEl; const sub = entry.subEl;
-        if (cat) { catCounts.set(cat, (catCounts.get(cat) || 0) - 1); toggleContainer(cat, catCounts); }
-        if (sub) { subCounts.set(sub, (subCounts.get(sub) || 0) - 1); toggleContainer(sub, subCounts); }
-      }
+  container.addEventListener('click', (ev) => {
+    const target = ev.target;
+    if (!target || !target.closest) return;
+    const btn = target.closest('button.info-button');
+    if (!btn || !container.contains(btn)) return;
+    ev.preventDefault();
+    ev.stopPropagation();
+    const li = btn.closest('li');
+    if (!li) return;
+    const wasOpen = li.classList.contains('info-open');
+    closeAll();
+    if (!wasOpen) {
+      // Ensure image is loaded when opening
+      try { const tip = btn.nextElementSibling; const img = tip && tip.querySelector && tip.querySelector('img[data-src]'); if (img) { img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); } } catch {}
+      li.classList.add('info-open');
+      btn.setAttribute('aria-expanded','true');
     }
-    visible.delete(idx);
-  }
-
-  function showIndex(idx, regex) {
-    const node = nodes[idx];
-    if (!node) return false;
-    let wasHidden = node.classList.contains('is-hidden');
-    if (wasHidden) {
-      node.classList.remove('is-hidden');
-      const entry = dataset[idx];
-      if (entry.isLink) {
-        const cat = entry.catEl; const sub = entry.subEl;
-        if (cat) { catCounts.set(cat, (catCounts.get(cat) || 0) + 1); toggleContainer(cat, catCounts); }
-        if (sub) { subCounts.set(sub, (subCounts.get(sub) || 0) + 1); toggleContainer(sub, subCounts); }
-      }
-      visible.add(idx);
-    }
-    applyHighlight(node, regex);
-    return dataset[idx].isLink;
-  }
-
-  return function applyMatches(meta, matches) {
-    const matchSet = new Set(matches);
-    const toHide = [];
-    visible.forEach(idx => { if (!matchSet.has(idx)) toHide.push(idx); });
-    toHide.forEach(hideIndex);
-
-    let matchCount = 0;
-    matchSet.forEach(idx => { if (showIndex(idx, meta.regex)) matchCount++; });
-
-    if (meta.hasQuery) {
-      status.textContent = matchCount > 0 ? `${matchCount} sonuç bulundu` : "Sonuç bulunamadı";
-    } else {
-      status.textContent = "";
-    }
-  };
-}
-
-function createWorkerSearchEngine(nodes, dataset, status) {
-  if (typeof window === "undefined" || typeof window.Worker === "undefined") return null;
-  let worker;
-  try {
-    worker = new Worker(new URL("./searchWorker.js", import.meta.url), { type: "module" });
-  } catch (err) {
-    console.warn("Search worker could not start:", err);
-    return null;
-  }
-  const applyMatches = createMatchApplier(nodes, dataset, status);
-  const pending = new Map();
-  let lastQueryId = 0;
-  let latestApplied = 0;
-
-  worker.postMessage({ type: "seed", payload: dataset.map(entry => ({ index: entry.index, folded: entry.folded })) });
-
-  worker.addEventListener("message", event => {
-    const { type, payload } = event.data || {};
-    if (type !== "result" || !payload) return;
-    const { id, matches } = payload;
-    const meta = pending.get(id);
-    pending.delete(id);
-    if (!meta || id < latestApplied) return;
-    latestApplied = id;
-    applyMatches(meta, matches || []);
   });
-
-  return {
-    run(query) {
-      const meta = createHighlightMeta(query);
-      const tokens = tokenizeFoldedQuery(query);
-      if (!tokens.length) {
-        const matches = dataset.map(entry => entry.index);
-        applyMatches(meta, matches);
-        return;
-      }
-      const id = ++lastQueryId;
-      pending.set(id, meta);
-      worker.postMessage({ type: "query", payload: { id, value: query } });
-    }
-  };
 }
 
-function createSyncSearchEngine(nodes, dataset, status) {
-  const applyMatches = createMatchApplier(nodes, dataset, status);
-  return {
-    run(query) {
-      const meta = createHighlightMeta(query);
-      const tokens = tokenizeFoldedQuery(query);
-      const matches = !tokens.length
-        ? dataset.map(entry => entry.index)
-        : dataset
-            .filter(entry => tokens.every(token => entry.folded.includes(token)))
-            .map(entry => entry.index);
-      applyMatches(meta, matches);
-    }
-  };
-}
-
+// Minimal search + lazy icon loader (IO), to ensure icons appear and basic filter works
 function setupSearch() {
-  const input = document.getElementById("search-input");
-  const status = document.getElementById("search-status");
-  const nodes = Array.from(document.querySelectorAll(".category-card li"));
+  const input = document.getElementById('search-input');
+  const status = document.getElementById('search-status');
+  const nodes = Array.from(document.querySelectorAll('.category-card li'));
   if (!input || !status || !nodes.length) return;
 
-  nodes.forEach((el, index) => {
-    el.dataset.searchIndex = String(index);
-  });
+  nodes.forEach((el, i) => { el.dataset.searchIndex = String(i); });
+  const dataset = nodes.map((el, i) => ({
+    index: i,
+    text: String(el.dataset.search || el.textContent || '').toLocaleLowerCase('tr'),
+    isLink: !!el.querySelector('.link-text')
+  }));
 
-  const dataset = nodes.map((el, index) => {
-    const raw = el.dataset.search || el.textContent || "";
-    const catEl = el.closest('.category-card');
-    const subEl = el.closest('.sub-category');
-    return {
-      index,
-      folded: el.dataset.folded ? String(el.dataset.folded) : foldForSearch(raw),
-      isLink: !!el.querySelector(".link-text"),
-      catEl,
-      subEl
-    };
-  });
-
-  let engine = null;
-  const getEngine = () => {
-    if (engine) return engine;
-    engine = createWorkerSearchEngine(nodes, dataset, status) || createSyncSearchEngine(nodes, dataset, status);
-    return engine;
-  };
-
-  let debounceTimer;
-  function computeDelay(val){
-    const n = (String(val||"").trim()).length;
-    if (n >= 8) return 80;
-    if (n >= 4) return 120;
-    return 250;
+  function applyFilter(q) {
+    const term = String(q || '').toLocaleLowerCase('tr').trim();
+    let count = 0;
+    dataset.forEach((entry, idx) => {
+      const node = nodes[idx];
+      if (!entry.isLink) return;
+      const ok = !term || entry.text.includes(term);
+      node.classList.toggle('is-hidden', !ok);
+      if (ok) count++;
+    });
+    status.textContent = term ? (count > 0 ? `${count} sonuç bulundu` : 'Sonuç bulunamadı') : '';
   }
 
-  function runImmediate(value) {
-    clearTimeout(debounceTimer);
-    getEngine().run(value);
-  }
-
-  input.addEventListener("input", () => {
-    clearTimeout(debounceTimer);
-    const delay = computeDelay(input.value);
-    debounceTimer = setTimeout(() => {
-      getEngine().run(input.value);
-      try {
-        const url = new URL(window.location.href);
-        const v = (input.value || "").trim();
-        if (v) url.searchParams.set("q", v); else url.searchParams.delete("q");
-        history.replaceState(null, "", url.toString());
-      } catch {}
-    }, delay);
-  });
-
-  document.addEventListener("keydown", ev => {
-    const t = ev.target;
-    const tag = t && t.tagName ? t.tagName.toUpperCase() : "";
-    const inEditable = !!(t && (t.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(tag)));
-
-    if ((ev.ctrlKey || ev.metaKey) && !ev.altKey && !ev.shiftKey && (ev.key === "k" || ev.key === "K")) {
-      ev.preventDefault();
-      input.focus();
-      input.select();
-      return;
-    }
-
-    if (ev.ctrlKey && !ev.altKey && !ev.shiftKey && (ev.key === "e" || ev.key === "E")) {
-      ev.preventDefault();
-      input.focus();
-      input.select();
-      return;
-    }
-
-    if (ev.key === "/" && !(ev.ctrlKey || ev.metaKey || ev.altKey || ev.shiftKey)) {
-      if (inEditable) return;
-      ev.preventDefault();
-      input.focus();
-      input.select();
+  input.addEventListener('input', () => applyFilter(input.value));
+  document.addEventListener('keydown', ev => {
+    const t = ev.target; const tag = t && t.tagName ? t.tagName.toUpperCase() : '';
+    const inEditable = !!(t && (t.isContentEditable || ['INPUT','TEXTAREA','SELECT'].includes(tag)));
+    if (ev.key === '/' && !(ev.ctrlKey || ev.metaKey || ev.altKey || ev.shiftKey)) {
+      if (inEditable) return; ev.preventDefault(); input.focus(); input.select();
     }
   });
-
-  input.addEventListener("keydown", ev => {
-    if (ev.key === "Escape") {
-      if (input.value) {
-        input.value = "";
-        runImmediate("");
-        try {
-          const url = new URL(window.location.href);
-          url.searchParams.delete("q");
-          history.replaceState(null, "", url.toString());
-        } catch {}
-      }
-      ev.stopPropagation();
-    } else if (ev.key === "Enter") {
-      const q = (input.value || "").trim();
-      if (!q) return;
-      const firstLink = document.querySelector('.category-card li:not([style*="display: none"]) a[href]');
-      if (firstLink) {
-        firstLink.click();
-        ev.preventDefault();
-        ev.stopPropagation();
-      }
-    }
-  });
-
   try {
-    const urlQ = new URL(window.location.href).searchParams.get("q");
-    if (urlQ) {
-      input.value = urlQ;
-      runImmediate(urlQ);
-    } else if (input.value) {
-      runImmediate(input.value);
-    }
-  } catch {
-    if (input.value) runImmediate(input.value);
-  }
+    const urlQ = new URL(window.location.href).searchParams.get('q');
+    if (urlQ) { input.value = urlQ; applyFilter(urlQ); }
+  } catch {}
 
-  // Lazy-load icons with IntersectionObserver
+  // Lazy-load both <img> and masked <span>
   try {
     const io = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          const src = img.getAttribute('data-src');
-          if (src) {
-            img.src = src;
-            img.removeAttribute('data-src');
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const src = el.getAttribute('data-src');
+        if (src) {
+          if (el.tagName === 'IMG') {
+            el.src = src; el.removeAttribute('data-src');
+          } else {
+            el.style.setProperty('--icon-url', `url('${src}')`);
+            el.removeAttribute('data-src');
           }
-          io.unobserve(img);
         }
+        io.unobserve(el);
       });
     }, { rootMargin: '200px 0px' }) : null;
     if (io) {
-      document.querySelectorAll('img.site-icon[data-src]').forEach(img => io.observe(img));
+      document.querySelectorAll('img.site-icon[data-src], span.site-icon-mask[data-src]').forEach(el => io.observe(el));
     }
   } catch {}
 }
-
-
 
 function setupThemeToggle() {
   try { const c = document.querySelector('.theme-toggle-container'); if (c) c.remove(); } catch {}
@@ -690,6 +506,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error(err);
   }
   setupCopyDelegation();
+  setupInfoButtonDelegation();
   setupSearch();
   setupPWAInstallUI();
   if ("serviceWorker" in navigator) {
@@ -876,4 +693,3 @@ function setupPWAInstallUI() {
   const onScroll = () => { if (window.scrollY >= cfg.minScroll) { scrollOk = true; maybeShow(); window.removeEventListener('scroll', onScroll); } };
   window.addEventListener('scroll', onScroll, { passive: true });
 }
-
