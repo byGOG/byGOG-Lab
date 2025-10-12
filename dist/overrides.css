@@ -14,8 +14,8 @@
 html{box-sizing:border-box}
 *,*::before,*::after{box-sizing:inherit}
 html,body{max-width:100%;overflow-x:hidden}
-/* Ensure grid packs densely and reflows smoothly on resize */
-ul{grid-auto-flow:row dense}
+/* Preserve natural order; no dense reflow */
+ul{grid-auto-flow:row}
 li{min-width:0}
 @media (max-width:900px){
   .search-container{width:min(640px,70vw)}
@@ -104,6 +104,11 @@ li{min-width:0}
 /* 1 column on small phones */
 @media (max-width:480px){
   ul{grid-template-columns:1fr}
+  li{min-width:0}
+}
+/* Force single column a bit wider to keep items strictly stacked */
+@media (max-width:600px){
+  ul{grid-template-columns:1fr !important}
   li{min-width:0}
 }
 /* 2 columns on phones/phablets/tablets */
