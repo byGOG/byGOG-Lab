@@ -281,3 +281,8 @@ a .link-text:hover ~ .info-tooltip{
 
 /* Hide anchor's built-in hover tooltip; use info-button tooltip instead */
 a .custom-tooltip{ display:none !important; }
+
+/* Recommended section: force 4 columns on wide screens */
+@media (min-width:1200px){
+  .category-card:first-of-type > ul{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
