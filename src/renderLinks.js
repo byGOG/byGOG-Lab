@@ -57,7 +57,6 @@ function createLinkItem(link) {
   const text = document.createElement("span");
   text.className = "link-text";
   text.textContent = link.name;
-  try { if (link && link.name) text.title = String(link.name); } catch {}
   li.dataset.nameOriginal = link.name || "";
   a.appendChild(text);
 

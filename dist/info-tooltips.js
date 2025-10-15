@@ -1,6 +1,15 @@
 // Adds an info button and click-to-open tooltip to each link item
 // Works alongside existing anchor-level custom-tooltip (which remains hidden via CSS)
 
+function stripNativeTitles(root) {
+  try {
+    const scope = root || document;
+    scope.querySelectorAll('.star[title], .copy-button[title], .link-text[title]').forEach(el => {
+      el.removeAttribute('title');
+    });
+  } catch {}
+}
+
 function enhanceInfoTooltips() {
   const container = document.getElementById('links-container');
   if (!container) return;
@@ -70,6 +79,8 @@ function enhanceInfoTooltips() {
     a.appendChild(infoBtn);
     a.appendChild(infoTip);
   });
+  // Ensure no native hover tooltips remain on created nodes
+  stripNativeTitles(container);
 }
 
 function setupInfoDelegation() {
@@ -135,8 +146,12 @@ function waitAndEnhance() {
   if (!container) { document.addEventListener('DOMContentLoaded', waitAndEnhance, { once: true }); return; }
   // Enhance now and also on subsequent DOM changes
   enhanceInfoTooltips();
+  stripNativeTitles(container);
   try {
-    const mo = new MutationObserver(() => { enhanceInfoTooltips(); });
+    const mo = new MutationObserver(() => {
+      enhanceInfoTooltips();
+      stripNativeTitles(container);
+    });
     mo.observe(container, { childList: true, subtree: true });
   } catch {}
   setupInfoDelegation();

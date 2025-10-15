@@ -263,10 +263,7 @@ li.info-open .info-button + .info-tooltip{
   opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(-50%) translateX(0) scale(1);
 }
 
-/* Also show info tooltip when hovering the name text */
-a .link-text:hover ~ .info-tooltip{
-  opacity: 1; visibility: visible; transform: translateY(-50%) translateX(0) scale(1);
-}
+/* Hovering the site name should NOT show tooltip (click info button instead) */
 
 /* Ensure card allows overlay and stacks above neighbors */
 .category-card a{ overflow: visible; }
