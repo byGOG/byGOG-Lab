@@ -118,6 +118,9 @@ function enhanceInfoTooltips() {
     // Insert elements: keep near the right edge (after copy button if present)
     a.appendChild(infoBtn);
     a.appendChild(infoTip);
+
+    // Mark the list item so CSS can reserve space and adjust positioning
+    try { const li = a.closest('li'); if (li) li.classList.add('has-info'); } catch{}
   });
   // Ensure no native hover tooltips remain on created nodes
   stripNativeTitles(container);

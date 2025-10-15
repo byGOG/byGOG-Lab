@@ -205,6 +205,9 @@ a .custom-tooltip img{
 
 /* Info button styles (compact, next to copy) */
 button.info-button{
+  position: absolute;
+  top: 8px;
+  right: 12px; /* keep info at the far right */
   width:32px;
   height:32px;
   border-radius:10px;
@@ -212,7 +215,7 @@ button.info-button{
   align-items:center;
   justify-content:center;
   padding:0;
-  margin-left:8px;
+  margin-left:0;
   background: var(--copy-btn-bg, transparent);
   color: var(--copy-btn-color, currentColor);
   border: 1.5px solid var(--card-border);
@@ -230,6 +233,28 @@ button.info-button svg{ width:16px; height:16px; }
 @media (max-width:600px){
   button.info-button{ width:30px; height:30px; }
   button.info-button svg{ width:15px; height:15px; }
+}
+
+/* Ensure list items provide a positioning context for absolutely-positioned buttons */
+.category-card li{ position: relative; }
+
+/* Move copy button to the left of the info button (only when info exists) */
+.has-info .copy-button{ right: 52px; }
+@media (max-width:600px){
+  .has-info .copy-button{ right: 50px; }
+}
+
+/* Reserve space so link text doesn’t flow under absolute buttons */
+/* Only info present */
+.has-info a{ padding-right: 56px; }
+/* Only copy present */
+.has-copy a{ padding-right: 56px; }
+/* Both info and copy present */
+.has-copy.has-info a{ padding-right: 96px; }
+@media (max-width:600px){
+  .has-info a{ padding-right: 54px; }
+  .has-copy a{ padding-right: 56px; }
+  .has-copy.has-info a{ padding-right: 94px; }
 }
 
 /* New info tooltip (for info button) */
