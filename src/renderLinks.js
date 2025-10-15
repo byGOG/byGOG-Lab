@@ -166,8 +166,16 @@ function renderCategories(data, container) {
     card.className = "category-card";
     // Force 3-column layout specifically for "Sistem/Ofis"
     try {
-      if (String(cat.title).trim() === "Sistem/Ofis") {
-        card.classList.add("cols-3");
+      const ct = String(cat.title).trim();
+      const ctf = (typeof foldForSearch === 'function') ? foldForSearch(ct) : ct.toLocaleLowerCase('tr');
+      // Apply 3 columns for selected categories (normalized in TR locale)
+      const threeColTitles = new Set([
+        'sistem/ofis',
+        'sistem araclari & bakim',
+        'guvenlik & gizlilik'
+      ]);
+      if (threeColTitles.has(ctf)) {
+        card.classList.add('cols-3');
       }
     } catch {}
 
