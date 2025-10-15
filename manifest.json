@@ -11,13 +11,7 @@
       "src": "icon/bygog-lab-icon.svg",
       "type": "image/svg+xml",
       "sizes": "any",
-      "purpose": "any"
-    },
-    {
-      "src": "icon/bygog-lab-icon.svg",
-      "type": "image/svg+xml",
-      "sizes": "any",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ]
 }

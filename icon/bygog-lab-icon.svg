@@ -1,1 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" aria-labelledby="t d" style="--bg:#0b1220;--fg:#f1f5f9;--acc:#22d3ee;--ring:#475569" viewBox="0 0 160 160"><title>byGOG Lab - Icon</title><desc>Dark-only crest matching the logo badge: ring + monogram + accent.</desc><rect width="160" height="160" fill="none" rx="32" ry="32"/><g transform="translate(12 12)"><circle cx="68" cy="68" r="56" style="fill:none;stroke:var(--ring);stroke-width:6;stroke-linecap:round;stroke-linejoin:round"/><path d="M114 68a46 46 0 1 1-46-46m18 70h40" style="fill:none;stroke:var(--fg);stroke-width:10;stroke-linecap:round;stroke-linejoin:round"/><circle cx="112" cy="26" r="6" fill="var(--acc)"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" aria-labelledby="t d" style="--bg:#0b1220;--fg:#f1f5f9;--acc:#22d3ee;--ring:#475569" viewBox="12 12 136 136">
+  <title>byGOG Lab - Icon</title>
+  <desc>Maskable-friendly crest: ring + monogram + accent, full-bleed without outer padding.</desc>
+  <g>
+    <circle cx="80" cy="80" r="56" style="fill:none;stroke:var(--ring);stroke-width:6;stroke-linecap:round;stroke-linejoin:round"/>
+    <path d="M126 80a46 46 0 1 1-46-46m18 70h40" style="fill:none;stroke:var(--fg);stroke-width:10;stroke-linecap:round;stroke-linejoin:round"/>
+    <circle cx="124" cy="38" r="6" fill="var(--acc)"/>
+  </g>
+</svg>
