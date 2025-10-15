@@ -10,6 +10,46 @@ function stripNativeTitles(root) {
   } catch {}
 }
 
+// Global flyout to display info tooltip in a fixed place
+function ensureInfoFlyout() {
+  let fly = document.getElementById('global-info-flyout');
+  if (!fly) {
+    fly = document.createElement('div');
+    fly.id = 'global-info-flyout';
+    fly.className = 'info-flyout';
+    fly.setAttribute('role', 'tooltip');
+    fly.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(fly);
+  }
+  return fly;
+}
+
+function setInfoFlyoutContentFromTip(tip) {
+  const fly = ensureInfoFlyout();
+  try {
+    fly.innerHTML = '';
+    if (!tip) return fly;
+    const frag = document.createDocumentFragment();
+    tip.childNodes.forEach(node => { frag.appendChild(node.cloneNode(true)); });
+    fly.appendChild(frag);
+    // Ensure any lazy image loads
+    try { const img = fly.querySelector('img[data-src]'); if (img) { img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); } } catch {}
+  } catch {}
+  return fly;
+}
+
+function showInfoFlyout(tip) {
+  const fly = setInfoFlyoutContentFromTip(tip);
+  fly.classList.add('show');
+  fly.setAttribute('aria-hidden', 'false');
+  return fly;
+}
+
+function hideInfoFlyout() {
+  const fly = document.getElementById('global-info-flyout');
+  if (fly) { fly.classList.remove('show'); fly.setAttribute('aria-hidden', 'true'); }
+}
+
 function enhanceInfoTooltips() {
   const container = document.getElementById('links-container');
   if (!container) return;
@@ -87,6 +127,7 @@ function setupInfoDelegation() {
   const container = document.getElementById('links-container');
   if (!container || container.dataset.infoBtnDelegation === 'on') return;
   container.dataset.infoBtnDelegation = 'on';
+  ensureInfoFlyout();
 
   const closeAll = () => {
     try {
@@ -96,10 +137,16 @@ function setupInfoDelegation() {
         if (btn) btn.setAttribute('aria-expanded','false');
       });
     } catch {}
+    hideInfoFlyout();
   };
 
   document.addEventListener('click', (e) => {
-    try { if (!container.contains(e.target)) closeAll(); } catch {}
+    try {
+      const fly = document.getElementById('global-info-flyout');
+      const inContainer = container.contains(e.target);
+      const inFlyout = !!(fly && fly.contains(e.target));
+      if (!inContainer && !inFlyout) closeAll();
+    } catch {}
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeAll();
@@ -118,9 +165,15 @@ function setupInfoDelegation() {
     closeAll();
     if (!wasOpen) {
       // Ensure tooltip image is loaded when opening
-      try { const tip = btn.nextElementSibling; const img = tip && tip.querySelector && tip.querySelector('img[data-src]'); if (img) { img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); } } catch {}
+      let tip;
+      try {
+        tip = btn.nextElementSibling;
+        const img = tip && tip.querySelector && tip.querySelector('img[data-src]');
+        if (img) { img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); }
+      } catch {}
       li.classList.add('info-open');
       btn.setAttribute('aria-expanded','true');
+      try { showInfoFlyout(tip); } catch {}
     }
   });
 

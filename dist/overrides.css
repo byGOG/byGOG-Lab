@@ -279,6 +279,37 @@ li.info-open .info-button + .info-tooltip{
 /* Hide anchor's built-in hover tooltip; use info-button tooltip instead */
 a .custom-tooltip{ display:none !important; }
 
+/* Do not show per-link info tooltip; we render a global flyout instead */
+.category-card .info-tooltip{ display:none !important; }
+
+/* Global info flyout (bottom-right) */
+.info-flyout{
+  position: fixed;
+  left: 24px;
+  right: auto;
+  bottom: 24px;
+  transform: translateY(6px) scale(.98);
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.55), 0 4px 12px rgba(27,33,44,0.35);
+  max-width: min(520px, calc(100vw - 32px));
+  max-height: min(50vh, 420px);
+  overflow: auto;
+  line-height: 1.35;
+  z-index: 3000;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+}
+.info-flyout.show{
+  opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0) scale(1);
+}
+.info-flyout img{ width: 24px; height: 24px; border-radius: 6px; margin-right: 8px; vertical-align: middle; }
+.info-flyout .info-name{ font-weight: 600; color: var(--h3); margin-right: 6px; }
+@media (max-width:600px){ .info-flyout{ left: 12px; right: auto; max-width: calc(100vw - 24px); } }
+
 /* Recommended section: force 4 columns on wide screens */
 @media (min-width:1200px){
   .category-card:first-of-type > ul{ grid-template-columns:repeat(3,minmax(0,1fr)); }

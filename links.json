@@ -56,7 +56,7 @@
           "url": "https://git-scm.com/",
           "name": "Git",
           "recommended": true,
-          "description": "Dagitik surum kontrol sistemi.",
+          "description": "Bir sürüm kontrol sistemi, küçükten büyük projelere kadar her şeyi hız ve verimlilikle yönetmek için tasarlanmıştır.",
           "icon": "icon/git.svg",
           "alt": "Git",
           "copyText": "winget install Git.Git",
