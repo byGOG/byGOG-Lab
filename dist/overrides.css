@@ -14,7 +14,7 @@
 html{box-sizing:border-box}
 *,*::before,*::after{box-sizing:inherit}
 html,body{max-width:100%;overflow-x:hidden}
-.category-card a{font-size:13px}
+.category-card a{font-size:15px}
 /* Preserve natural order; no dense reflow */
 ul{grid-auto-flow:row}
 li{min-width:0}
@@ -52,7 +52,7 @@ li{min-width:0}
   li{min-width:0}
   .icon-wrapper{margin-right:12px}
   .site-icon{width:24px;height:24px}
-  .category-card a{font-size:12px}
+  .category-card a{font-size:14px}
   /* Avoid off-screen overlays on tiny viewports */
   .custom-tooltip{display:none}
 }
@@ -104,7 +104,7 @@ li{min-width:0}
 
 @media (max-width:360px){
   .site-icon{width:22px;height:22px}
-  .category-card a{font-size:11px}
+  .category-card a{font-size:13px}
   a{padding:9px 10px}
 }
 
