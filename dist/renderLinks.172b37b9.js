@@ -168,13 +168,15 @@ function renderCategories(data, container) {
     try {
       const ct = String(cat.title).trim();
       const ctf = (typeof foldForSearch === 'function') ? foldForSearch(ct) : ct.toLocaleLowerCase('tr');
+      const ctfn = ctf.replace(/\u0131/g, 'i');
       // Apply 3 columns for selected categories (normalized in TR locale)
       const threeColTitles = new Set([
         'sistem/ofis',
         'sistem araclari & bakim',
-        'guvenlik & gizlilik'
+        'guvenlik & gizlilik',
+        'yazilim & paket yoneticileri'
       ]);
-      if (threeColTitles.has(ctf)) {
+      if (threeColTitles.has(ctfn)) {
         card.classList.add('cols-3');
       }
     } catch {}
