@@ -164,6 +164,12 @@ function renderCategories(data, container) {
   data.categories.forEach(cat => {
     const card = document.createElement("div");
     card.className = "category-card";
+    // Force 3-column layout specifically for "Sistem/Ofis"
+    try {
+      if (String(cat.title).trim() === "Sistem/Ofis") {
+        card.classList.add("cols-3");
+      }
+    } catch {}
 
     const h2 = document.createElement("h2");
     h2.textContent = cat.title;

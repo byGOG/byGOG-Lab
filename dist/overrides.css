@@ -143,6 +143,13 @@ li{min-width:0}
   li{min-width:0}
 }
 
+/* Sistem/Ofis: enforce 3 columns on sufficiently wide screens */
+@media (min-width:900px){
+  .category-card.cols-3 ul{
+    grid-template-columns:repeat(3,minmax(240px,1fr));
+  }
+}
+
 /* Copy button sizing: slightly smaller */
 button.copy-button{
   width:32px;
