@@ -56,7 +56,7 @@
           "url": "https://git-scm.com/",
           "name": "Git",
           "recommended": true,
-          "description": "Bir sürüm kontrol sistemi, küçükten büyük projelere kadar her şeyi hız ve verimlilikle yönetmek için tasarlanmıştır.",
+          "description": "Git, yazılım geliştirme süreçlerinde kullanılan sürüm kontrol sistemidir.",
           "icon": "icon/git.svg",
           "alt": "Git",
           "copyText": "winget install Git.Git",
@@ -141,7 +141,7 @@
           ]
         },
         {
-          "title": "Özel Windows Dağıtımları",
+          "title": "Özel Windows Dağıtımlar",
           "links": [
             {
               "url": "https://atlasos.net/",
@@ -164,7 +164,7 @@
           ]
         },
         {
-          "title": "Linux Dağıtımları",
+          "title": "Linux Dağıtımlar",
           "links": [
             {
               "url": "https://manjaro.org/",
@@ -205,7 +205,7 @@
           ]
         },
         {
-          "title": "Office & Aktivasyon Araçları",
+          "title": "Office & Aktivasyon Araçlar",
           "links": [
             {
               "url": "https://massgrave.dev/",
@@ -230,7 +230,7 @@
           ]
         },
         {
-          "title": "Ofis Uygulamaları",
+          "title": "Ofis Uygulamalar",
           "links": [
             {
               "url": "https://tr.libreoffice.org/",
@@ -270,7 +270,7 @@
       "title": "Sistem Araçları & Bakım",
       "subcategories": [
         {
-          "title": "Sistem Araçları",
+          "title": "Sistem Araçlar",
           "links": [
             {
               "url": "https://www.cpuid.com/softwares/cpu-z.html",
@@ -510,7 +510,7 @@
           ]
         },
         {
-          "title": "Dosya & Disk Yönetimi",
+          "title": "Dosya & Disk Yönetim",
           "links": [
             {
               "url": "https://www.7-zip.org/",
@@ -667,7 +667,7 @@
           ]
         },
         {
-          "title": "Gizlilik & Telemetri Araçları",
+          "title": "Gizlilik & Telemetri Araçlar",
           "links": [
             {
               "url": "https://www.oo-software.com/en/shutup10",
@@ -741,7 +741,7 @@
           ]
         },
         {
-          "title": "Ağ, VPN & Güvenlik Araçları",
+          "title": "Ağ, VPN & Güvenlik Araçlar",
           "links": [
             {
               "url": "https://antizapret.prostovpn.org/",
@@ -812,7 +812,7 @@
           ]
         },
         {
-          "title": "Şifre & Gizlilik Araçları",
+          "title": "Şifre & Gizlilik Araçlar",
           "links": [
             {
               "url": "https://bitwarden.com/",
@@ -962,7 +962,7 @@
           ]
         },
         {
-          "title": "Taşınabilir Uygulama Platformları",
+          "title": "Taşınabilir Uygulama Platformlar",
           "links": [
             {
               "url": "https://chocolatey.org/",
@@ -1016,7 +1016,7 @@
           ]
         },
         {
-          "title": "Yazılım Alternatifleri & Karşılaştırma",
+          "title": "Alternatifler & Karşılaştırma",
           "links": [
             {
               "url": "https://portableappz.blogspot.com/",
@@ -1057,7 +1057,7 @@
           ]
         },
         {
-          "title": "Yazılım Portalları & İncelemeler",
+          "title": "Portallar & İncelemeler",
           "links": [
             {
               "url": "https://alternativeto.net/",
@@ -1212,7 +1212,7 @@
           ]
         },
         {
-          "title": "Ağ Testleri & Hız Ölçümleri",
+          "title": "Ağ Testleri & Hız",
           "links": [
             {
               "url": "https://browserbench.org/",
@@ -1282,7 +1282,7 @@
       "title": "Medya & İndirme",
       "subcategories": [
         {
-          "title": "Yazılım İndirme & Arşivleri",
+          "title": "İndirme & Arşivler",
           "links": [
             {
               "url": "https://softarchive.download/",
@@ -1364,7 +1364,7 @@
           ]
         },
         {
-          "title": "Torrent & DDL Platformları",
+          "title": "Torrent & DDL Platformlar",
           "links": [
             {
               "url": "https://www.zamunda.net/",
@@ -1441,7 +1441,7 @@
           ]
         },
         {
-          "title": "Medya & Eğlence Platformları",
+          "title": "Medya & Eğlence",
           "links": [
             {
               "url": "https://lucida.to/",
@@ -1501,7 +1501,7 @@
           ]
         },
         {
-          "title": "Müzik & Video Akış Platformları",
+          "title": "Müzik & Video Akış",
           "links": [
             {
               "url": "https://www.aimp.ru/",
@@ -1584,7 +1584,7 @@
           ]
         },
         {
-          "title": "Müzik Platformları",
+          "title": "Müzik Platformlar",
           "links": [
             {
               "url": "https://music.youtube.com/",
@@ -1689,7 +1689,7 @@
           ]
         },
         {
-          "title": "Dizi & Film İzleme Siteleri",
+          "title": "Dizi & Film Siteleri",
           "links": [
             {
               "url": "https://dizipal1312.com/",
@@ -1751,7 +1751,7 @@
       "title": "Geliştirici & Tasarım",
       "subcategories": [
         {
-          "title": "Yazılım Geliştirme Araçları",
+          "title": "Yazılım Geliştirme Araçlar",
           "links": [
             {
               "url": "https://cmder.app/",
@@ -1851,7 +1851,7 @@
               "url": "https://git-scm.com/",
               "name": "Git",
               "recommended": true,
-              "description": "Bir sürüm kontrol sistemi, küçükten büyük projelere kadar her şeyi hız ve verimlilikle yönetmek için tasarlanmıştır.",
+              "description": "Git, yazılım geliştirme süreçlerinde kullanılan sürüm kontrol sistemidir.",
               "icon": "icon/git.svg",
               "alt": "Git",
               "copyText": "winget install Git.Git",
@@ -1870,7 +1870,7 @@
           ]
         },
         {
-          "title": "Grafik & Tasarım Araçları",
+          "title": "Grafik & Tasarım Araçlar",
           "links": [
             {
               "url": "https://inkscape.org/",
@@ -1899,7 +1899,7 @@
       "title": "Uygulamalar & Araçlar",
       "subcategories": [
         {
-          "title": "Masaüstü Özelleştirme & Arayüz Araçları",
+          "title": "Masaüstü Özelleştirme & Arayüz Araçlar",
           "links": [
             {
               "url": "https://www.rocksdanister.com/lively/",
@@ -1924,7 +1924,7 @@
           ]
         },
         {
-          "title": "Çeviri & Dil Araçları",
+          "title": "Çeviri & Dil Araçlar",
           "links": [
             {
               "url": "https://www.deepl.com/tr/",
@@ -1948,7 +1948,7 @@
           ]
         },
         {
-          "title": "Yapay Zeka & Asistan Araçları",
+          "title": "Yapay Zeka & Asistan Araçlar",
           "links": [
             {
               "url": "https://chatgpt.com/",
@@ -2002,7 +2002,7 @@
           ]
         },
         {
-          "title": "Uzaktan Erişim & Destek Araçları",
+          "title": "Uzaktan Erişim & Destek Araçlar",
           "links": [
             {
               "url": "https://anydesk.com/tr",
@@ -2146,7 +2146,7 @@
           ]
         },
         {
-          "title": "İletişim & E-posta Servisleri",
+          "title": "İletişim & E-posta",
           "links": [
             {
               "url": "https://discord.com/",
@@ -2181,7 +2181,7 @@
           ]
         },
         {
-          "title": "E-posta & Hesap Yönetimi",
+          "title": "E-posta & Hesap Yönetim",
           "links": [
             {
               "url": "https://outlook.live.com/",
@@ -2224,7 +2224,7 @@
           ]
         },
         {
-          "title": "Spor & Canlı Skor Platformları",
+          "title": "Spor & Canlı Skor Platformlar",
           "links": [
             {
               "url": "https://www.365scores.com/tr",
@@ -2261,7 +2261,7 @@
       "title": "Oyun",
       "subcategories": [
         {
-          "title": "Oyun & Topluluk Platformları",
+          "title": "Oyun & Topluluk Platformlar",
           "links": [
             {
               "url": "https://store.steampowered.com/",
