@@ -1,11 +1,11 @@
-const CACHE_NAME = 'bygog-lab-cache-f1148fa8';
+const CACHE_NAME = 'bygog-lab-cache-c159eb58';
 const urlsToCache = [
   '.',
   'index.html',
   'manifest.json',
   'dist/styles.c4d3ef53.css',
   'dist/fab.b33252b0.css',
-  'dist/renderLinks.6bbf45b0.js',
+  'dist/renderLinks.bda1a6e0.js',
   'dist/links.json',
   'icon/bygog-lab-icon.svg',
   'icon/bygog-lab-logo.svg'
@@ -57,6 +57,17 @@ self.addEventListener('activate', event => {
       await self.clients.claim();
     })()
   );
+});
+
+self.addEventListener('message', event => {
+  try {
+    const data = event.data || {};
+    if (data && data.type === 'SKIP_WAITING') {
+      // Allow the new SW to activate immediately when requested by the page
+      // (useful if install didn't already skip waiting)
+      self.skipWaiting();
+    }
+  } catch {}
 });
 
 self.addEventListener('fetch', event => {
@@ -136,7 +147,6 @@ self.addEventListener('fetch', event => {
     }
   })());
 });
-
 
 
 

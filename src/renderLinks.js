@@ -713,14 +713,80 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupPWAInstallUI();
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
+      let hadController = !!navigator.serviceWorker.controller;
+      let bannerShown = false;
+      let lastReg = null;
+
+      const showUpdateBanner = () => {
+        if (bannerShown) return;
+        bannerShown = true;
+        try {
+          let bar = document.getElementById('sw-update-banner');
+          if (!bar) {
+            bar = document.createElement('div');
+            bar.id = 'sw-update-banner';
+            bar.className = 'update-banner';
+            bar.setAttribute('role', 'status');
+            bar.setAttribute('aria-live', 'polite');
+
+            const msg = document.createElement('span');
+            msg.className = 'update-banner-text';
+            msg.textContent = 'Yeni sürüm hazır';
+
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'update-banner-action';
+            btn.textContent = 'Yenile';
+            btn.setAttribute('aria-label', 'Sayfayı yenile');
+            btn.addEventListener('click', () => {
+              try { if (lastReg && lastReg.waiting) lastReg.waiting.postMessage({ type: 'SKIP_WAITING' }); } catch {}
+              window.location.reload();
+            });
+
+            const close = document.createElement('button');
+            close.type = 'button';
+            close.className = 'update-banner-close';
+            close.setAttribute('aria-label', 'Kapat');
+            close.innerHTML = '×';
+            close.addEventListener('click', () => { try { bar.remove(); } catch {} });
+
+            bar.appendChild(msg);
+            bar.appendChild(btn);
+            bar.appendChild(close);
+            document.body.appendChild(bar);
+          } else {
+            bar.style.display = '';
+          }
+        } catch {}
+      };
+
       navigator.serviceWorker.register("sw.js").then(
-        reg => console.log("ServiceWorker registration successful with scope:", reg.scope),
+        reg => {
+          lastReg = reg;
+          console.log("ServiceWorker registration successful with scope:", reg.scope);
+          try {
+            // If a new worker is found and installed while a controller exists, show banner
+            reg.addEventListener('updatefound', () => {
+              const inst = reg.installing;
+              if (!inst) return;
+              inst.addEventListener('statechange', () => {
+                if (inst.state === 'installed' && navigator.serviceWorker.controller && hadController) {
+                  showUpdateBanner();
+                }
+              });
+            });
+            // Also, if there is already a waiting worker (rare with skipWaiting), show banner
+            if (reg.waiting && navigator.serviceWorker.controller && hadController) showUpdateBanner();
+          } catch {}
+        },
         err => console.log("ServiceWorker registration failed:", err)
       );
-      // Auto-reload when a new service worker takes control (ensures fresh content)
+
+      // When a new SW takes control, offer refresh instead of auto-reload
       try {
         navigator.serviceWorker.addEventListener("controllerchange", () => {
-          window.location.reload();
+          if (!hadController) { hadController = true; return; }
+          showUpdateBanner();
         });
       } catch {}
     });

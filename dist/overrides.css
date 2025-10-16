@@ -502,3 +502,51 @@ body.modal-open{ overflow: hidden; }
   outline-offset: 2px;
   box-shadow: 0 0 0 3px rgba(163,191,250,0.32), 0 2px 6px var(--copy-btn-shadow);
 }
+
+/* Service worker update banner (snackbar) */
+.update-banner{
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 10000;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1.5px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18), 0 4px 14px rgba(0,0,0,.12);
+}
+.update-banner-text{ font-weight: 600; }
+.update-banner-action{
+  border: 0;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-weight: 700;
+  cursor: pointer;
+  background: #a3bffa;
+  color: #0b0f17;
+}
+.update-banner-action:hover{ filter: brightness(1.05) saturate(1.03); }
+.update-banner-action:focus-visible{ outline: 2px solid #fff; outline-offset: 2px; }
+.update-banner-close{
+  border: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+.update-banner-close:hover{ background: rgba(163,191,250,0.12); }
+.update-banner-close:focus-visible{ outline: 2px solid #a3bffa; outline-offset: 2px; }
+
+@media (max-width: 480px){
+  .update-banner{ left: 12px; right: 12px; transform: none; justify-content: space-between; }
+}
