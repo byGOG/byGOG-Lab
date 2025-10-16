@@ -365,7 +365,29 @@ a .custom-tooltip{ display:none !important; }
 /* Do not show per-link info tooltip; we render a global flyout instead */
 .category-card .info-tooltip{ display:none !important; }
 
-/* Global info flyout (top-center) */
+/* Page overlay (backdrop) for info modal */
+.info-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 2900;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .18s ease, visibility .18s;
+  display: grid;
+  place-items: center;
+}
+.info-overlay.show{
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Prevent background scroll when modal is open */
+body.modal-open{ overflow: hidden; }
+
+/* Global info flyout (centered inside overlay) */
 .info-flyout{
   position: fixed;
   top: 24px;
@@ -378,7 +400,7 @@ a .custom-tooltip{ display:none !important; }
   padding: 12px 14px;
   box-shadow: 0 16px 36px rgba(0,0,0,0.55), 0 4px 12px rgba(27,33,44,0.35);
   max-width: min(520px, calc(100vw - 32px));
-  max-height: min(50vh, 420px);
+  max-height: min(70vh, 520px);
   overflow: auto;
   line-height: 1.35;
   z-index: 3000;
@@ -391,6 +413,17 @@ a .custom-tooltip{ display:none !important; }
 .info-flyout img{ width: 24px; height: 24px; border-radius: 6px; margin-right: 8px; vertical-align: middle; }
 .info-flyout .info-name{ font-weight: 600; color: var(--h3); margin-right: 6px; }
 @media (max-width:600px){ .info-flyout{ top: 12px; left: 50%; transform: translateX(-50%) translateY(-6px) scale(.98); max-width: calc(100vw - 24px); } }
+
+/* When inside overlay, center without translate offsets */
+.info-overlay .info-flyout{
+  position: relative;
+  top: auto; left: auto;
+  transform: scale(.98);
+  max-width: min(640px, calc(100vw - 48px));
+}
+.info-overlay .info-flyout.show{
+  transform: scale(1);
+}
 
 /* Recommended section: force 4 columns on wide screens */
 @media (min-width:1200px){

@@ -10,8 +10,21 @@ function stripNativeTitles(root) {
   } catch {}
 }
 
-// Global flyout to display info tooltip in a fixed place
+// Overlay + global flyout (modal-style, centered on the page)
+function ensureInfoOverlay() {
+  let overlay = document.getElementById('info-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'info-overlay';
+    overlay.className = 'info-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(overlay);
+  }
+  return overlay;
+}
+
 function ensureInfoFlyout() {
+  const overlay = ensureInfoOverlay();
   let fly = document.getElementById('global-info-flyout');
   if (!fly) {
     fly = document.createElement('div');
@@ -19,7 +32,9 @@ function ensureInfoFlyout() {
     fly.className = 'info-flyout';
     fly.setAttribute('role', 'tooltip');
     fly.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(fly);
+    overlay.appendChild(fly);
+  } else if (fly.parentElement !== overlay) {
+    overlay.appendChild(fly);
   }
   return fly;
 }
@@ -40,14 +55,21 @@ function setInfoFlyoutContentFromTip(tip) {
 
 function showInfoFlyout(tip) {
   const fly = setInfoFlyoutContentFromTip(tip);
+  const overlay = ensureInfoOverlay();
+  overlay.classList.add('show');
+  overlay.setAttribute('aria-hidden', 'false');
   fly.classList.add('show');
   fly.setAttribute('aria-hidden', 'false');
+  try { document.body.classList.add('modal-open'); } catch {}
   return fly;
 }
 
 function hideInfoFlyout() {
   const fly = document.getElementById('global-info-flyout');
+  const overlay = document.getElementById('info-overlay');
   if (fly) { fly.classList.remove('show'); fly.setAttribute('aria-hidden', 'true'); }
+  if (overlay) { overlay.classList.remove('show'); overlay.setAttribute('aria-hidden', 'true'); }
+  try { document.body.classList.remove('modal-open'); } catch {}
 }
 
 function enhanceInfoTooltips() {
@@ -146,8 +168,12 @@ function setupInfoDelegation() {
   document.addEventListener('click', (e) => {
     try {
       const fly = document.getElementById('global-info-flyout');
+      const overlay = document.getElementById('info-overlay');
       const inContainer = container.contains(e.target);
       const inFlyout = !!(fly && fly.contains(e.target));
+      const inOverlay = !!(overlay && overlay.contains(e.target));
+      // If click is on overlay background (but not inside flyout), close.
+      if (!inContainer && inOverlay && !inFlyout) { closeAll(); return; }
       if (!inContainer && !inFlyout) closeAll();
     } catch {}
   });
