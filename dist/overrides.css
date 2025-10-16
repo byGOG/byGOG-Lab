@@ -158,15 +158,17 @@ li{min-width:0}
   width: calc(100% - 128px); /* align to container's 64px side padding */
   z-index: 1200;
   padding: 10px 0 8px; /* compact vertical padding */
+  /* Respect mobile safe area (notch) when present */
+  padding-top: calc(10px + env(safe-area-inset-top));
 }
 @media (max-width:900px){
   .site-header{ width: calc(100% - 128px); }
 }
 @media (max-width:720px){
-  .site-header{ width: calc(100% - 32px); padding: 8px 0 8px; }
+  .site-header{ width: calc(100% - 32px); padding: 8px 0 8px; padding-top: calc(8px + env(safe-area-inset-top)); }
 }
 @media (max-width:420px){
-  .site-header{ width: calc(100% - 24px); padding: 8px 0 8px; }
+  .site-header{ width: calc(100% - 24px); padding: 8px 0 8px; padding-top: calc(8px + env(safe-area-inset-top)); }
 }
 
 /* Slightly smaller logo on desktop for a compact header */
@@ -174,14 +176,28 @@ li{min-width:0}
 
 /* Offset content to avoid overlap under fixed header */
 .container{ padding-top: 120px; }
-@media (max-width:900px){ .container{ padding-top: 108px; } }
-@media (max-width:720px){ .container{ padding-top: 96px; } }
+/* Add safe area offset where applicable */
+.container{ padding-top: calc(120px + env(safe-area-inset-top)); }
+@media (max-width:900px){ .container{ padding-top: 108px; padding-top: calc(108px + env(safe-area-inset-top)); } }
+@media (max-width:720px){ .container{ padding-top: 112px; padding-top: calc(112px + env(safe-area-inset-top)); } }
+
+/* Mobile-friendly header layout: stack logo above search */
+@media (max-width: 720px){
+  .site-header{ display: flex; flex-direction: column; align-items: stretch; gap: 8px; }
+  .logo{ max-height: 60px; align-self: center; }
+  .search-container{ margin-left: 0; width: 100%; max-width: 100%; position: static; transform: none; }
+}
 
 /* Fixed on-screen search (follows during scroll) */
 /* search-fixed removed; using sticky header for scroll pinning */
 
 /* When fixed search is active, push content down and unstick header */
 /* with-fixed-search removed */
+
+/* Final override: offset content using measured header height */
+.container{
+  padding-top: calc(var(--header-offset, 132px) + env(safe-area-inset-top)) !important;
+}
 
 /* Copy button sizing: slightly smaller */
 button.copy-button{
