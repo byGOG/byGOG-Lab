@@ -49,6 +49,18 @@
       try { input.setAttribute('placeholder', text); } catch {}
     }
 
+    // Respect reduced motion preference: disable animations, keep placeholder stable
+    try {
+      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion) {
+        setPlaceholder(cfg.defaultText);
+        input.addEventListener('focus', () => setPlaceholder(cfg.defaultText));
+        input.addEventListener('input', () => { if (input.value) setPlaceholder(''); });
+        input.addEventListener('blur', () => { if (!input.value) setPlaceholder(cfg.defaultText); });
+        return;
+      }
+    } catch {}
+
     function tick(){
       if (!input.isConnected) return; // stop if removed
       if (isBusy()) { setPlaceholder(cfg.defaultText); return setTimeout(tick, 600); }
