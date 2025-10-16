@@ -56,7 +56,7 @@
           "url": "https://git-scm.com/",
           "name": "Git",
           "recommended": true,
-          "description": "Git, yazılım geliştirme süreçlerinde kullanılan sürüm kontrol sistemidir.",
+          "description": "Yazılım geliştirme süreçlerinde kullanılan dağıtık bir sürüm kontrol sistemidir.",
           "icon": "icon/git.svg",
           "alt": "Git",
           "copyText": "winget install Git.Git",
@@ -1821,7 +1821,7 @@
               "url": "https://www.java.com/tr/",
               "name": "Java",
               "recommended": false,
-              "description": "Java programlama dili ve çalışma zamanı.",
+              "description": "Programlama dili ve çalışma zamanı.",
               "icon": "icon/java.svg",
               "alt": "Java",
               "copyText": "winget install Oracle.JavaRuntimeEnvironment",
@@ -1851,7 +1851,7 @@
               "url": "https://git-scm.com/",
               "name": "Git",
               "recommended": true,
-              "description": "Git, yazılım geliştirme süreçlerinde kullanılan sürüm kontrol sistemidir.",
+              "description": "Yazılım geliştirme süreçlerinde kullanılan dağıtık bir sürüm kontrol sistemidir.",
               "icon": "icon/git.svg",
               "alt": "Git",
               "copyText": "winget install Git.Git",
@@ -1964,7 +1964,7 @@
               "url": "https://claude.ai/",
               "name": "Claude AI",
               "recommended": false,
-              "description": "Claude AI ile yapay zekâ sohbeti.",
+              "description": "İle yapay zekâ sohbeti.",
               "icon": "icon/claude.svg",
               "alt": "Claude AI",
               "copyText": "winget install Anthropic.Claude",
@@ -1993,7 +1993,7 @@
               "url": "https://www.perplexity.ai/",
               "name": "Perplexity AI",
               "recommended": false,
-              "description": "Perplexity AI ile yapay zekâ arama ve sohbet.",
+              "description": "İle yapay zekâ arama ve sohbet.",
               "icon": "icon/perplexity.svg",
               "alt": "Perplexity AI",
               "copyText": "winget install XP8JNQFBQH6PVF",
@@ -2197,7 +2197,7 @@
               "url": "https://mail.yahoo.com/",
               "name": "Yahoo Mail",
               "recommended": false,
-              "description": "Yahoo Mail ile e-posta servisi ve oturum açma.",
+              "description": "İle e-posta servisi ve oturum açma.",
               "icon": "icon/yahoo.svg",
               "alt": "Yahoo Mail",
               "tags": []
@@ -2358,4 +2358,3 @@
     }
   ]
 }
-
