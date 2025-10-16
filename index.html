@@ -2,7 +2,7 @@
 <html lang="tr">
   <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' https://fonts.googleapis.com 'sha256-DKkiNRbPXmXgv9+SL5Yt30nnkcVGuwdsiPBVoZqMvpc='; font-src https://fonts.gstatic.com; script-src 'self'; connect-src 'self' https:; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' https://fonts.googleapis.com 'sha256-DKkiNRbPXmXgv9+SL5Yt30nnkcVGuwdsiPBVoZqMvpc='; font-src https://fonts.gstatic.com; script-src 'self'; connect-src 'self' https:; frame-src https://w.soundcloud.com; object-src 'none'; base-uri 'self'; form-action 'self'">
   <meta property="og:title" content="byGOG">
   <meta property="og:description" content="Windows ve yazılım araçları için byGOG kaynak arşivi.">
   <meta property="og:image" content="https://bygog.github.io/profil.jpg">
@@ -66,6 +66,16 @@
         <div id="search-status" aria-live="polite"></div>
       </div>
     </header>
+    <!-- Inline SoundCloud mini embed under header -->
+    <section class="sc-embed" aria-label="SoundCloud">
+      <iframe
+        title="SoundCloud Player"
+        allow="autoplay"
+        scrolling="no"
+        frameborder="no"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/keinemusik&visual=false&show_comments=true">
+      </iframe>
+    </section>
     <div id="links-container"></div>
   </div>
   <script type="module" src="dist/renderLinks.172b37b9.js"></script>

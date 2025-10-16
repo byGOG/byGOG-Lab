@@ -379,3 +379,26 @@ a .custom-tooltip{ display:none !important; }
   visibility: visible;
   transform: translateY(0) scale(1);
 }
+
+/* SoundCloud embed wrapper */
+.sc-embed{
+  width: 100%;
+  max-width: 100%;
+  margin: 16px 0 24px;
+  height: 120px; /* mini height */
+  border: 1.5px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px 0 var(--card-shadow), 0 1.5px 4px 0 var(--card-shadow2);
+  background: var(--card-bg);
+}
+.sc-embed iframe{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 900px){ .sc-embed{ height: 120px; } }
+@media (max-width: 600px){ .sc-embed{ height: 120px; } }
+
+/* Fixed mini SoundCloud player (bottom-left) */
+/* .sc-mini removed (switched to inline embed) */
