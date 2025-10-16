@@ -30,6 +30,8 @@ function createLinkItem(link) {
     star.setAttribute("aria-label", "Önerilen");
     star.setAttribute("aria-hidden", "true");
     star.textContent = "⭐";
+    try { star.removeAttribute("title"); } catch {}
+    try { star.removeAttribute("aria-label"); } catch {}
     a.appendChild(star);
   }
 
