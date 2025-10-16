@@ -492,3 +492,13 @@ body.modal-open{ overflow: hidden; }
 
 /* Fixed mini SoundCloud player (bottom-left) */
 /* .sc-mini removed (switched to inline embed) */
+
+/* Accessible focus ring for copy button */
+:root{ --copy-btn-focus-outline: #a3bffa; }
+.koyu{ --copy-btn-focus-outline: #a3bffa; }
+.copy-button:focus-visible,
+.copy-button:focus{
+  outline: 2.5px solid var(--copy-btn-focus-outline);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(163,191,250,0.32), 0 2px 6px var(--copy-btn-shadow);
+}
