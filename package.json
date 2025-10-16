@@ -10,7 +10,8 @@
     "ci:validate": "npm run validate && npm run check:encoding",
     "fix:titles": "node scripts/fix-titles.js",
     "serve": "node scripts/serve.js",
-    "optimize:svg": "node scripts/optimize-svg.mjs"
+    "optimize:svg": "node scripts/optimize-svg.mjs",
+    "enrich:tags": "node scripts/enrich-tags.js"
   },
   "devDependencies": {
     "csso": "^5.0.5",
