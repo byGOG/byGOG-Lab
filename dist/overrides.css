@@ -382,6 +382,7 @@ a .custom-tooltip{ display:none !important; }
 
 /* SoundCloud embed wrapper */
 .sc-embed{
+  position: relative;
   width: 100%;
   max-width: 100%;
   margin: 16px 0 24px;
@@ -391,6 +392,13 @@ a .custom-tooltip{ display:none !important; }
   overflow: hidden;
   box-shadow: 0 2px 12px 0 var(--card-shadow), 0 1.5px 4px 0 var(--card-shadow2);
   background: var(--card-bg);
+}
+.sc-embed::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(24,28,34,0.18), rgba(24,28,34,0.18));
 }
 .sc-embed iframe{
   display: block;
