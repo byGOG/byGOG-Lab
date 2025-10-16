@@ -111,8 +111,8 @@ li{min-width:0}
 /* Final overrides: mobile ergonomics (≤768px) */
 @media (max-width:768px){
   li{min-width:0}
-  /* Avoid overlay and center-compression on mobile */
-  .site-header{position:static;top:auto}
+  /* Keep header sticky on mobile to keep search fixed */
+  .site-header{position:sticky;top:0}
   .container{align-items:stretch}
   li{justify-content:flex-start}
   /* Tighter typographic scale on mobile */
@@ -149,6 +149,39 @@ li{min-width:0}
     grid-template-columns:repeat(3,minmax(240px,1fr));
   }
 }
+
+/* Keep header always visible (fixed at top) */
+.site-header{
+  position: fixed !important;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 128px); /* align to container's 64px side padding */
+  z-index: 1200;
+  padding: 10px 0 8px; /* compact vertical padding */
+}
+@media (max-width:900px){
+  .site-header{ width: calc(100% - 128px); }
+}
+@media (max-width:720px){
+  .site-header{ width: calc(100% - 32px); padding: 8px 0 8px; }
+}
+@media (max-width:420px){
+  .site-header{ width: calc(100% - 24px); padding: 8px 0 8px; }
+}
+
+/* Slightly smaller logo on desktop for a compact header */
+.logo{ max-height: 80px; }
+
+/* Offset content to avoid overlap under fixed header */
+.container{ padding-top: 120px; }
+@media (max-width:900px){ .container{ padding-top: 108px; } }
+@media (max-width:720px){ .container{ padding-top: 96px; } }
+
+/* Fixed on-screen search (follows during scroll) */
+/* search-fixed removed; using sticky header for scroll pinning */
+
+/* When fixed search is active, push content down and unstick header */
+/* with-fixed-search removed */
 
 /* Copy button sizing: slightly smaller */
 button.copy-button{
