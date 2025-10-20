@@ -2309,6 +2309,18 @@
                 "altyazı",
                 "github"
               ]
+            },
+            {
+              "url": "https://www.opensubtitles.com/",
+              "name": "OpenSubtitles",
+              "recommended": false,
+              "description": "Geniş altyazı arşiviyle film ve dizi altyazılarını ücretsiz sunan platform.",
+              "icon": "icon/opensubtitles.svg",
+              "alt": "OpenSubtitles",
+              "tags": [
+                "opensubtitles",
+                "altyazı"
+              ]
             }
           ]
         },
