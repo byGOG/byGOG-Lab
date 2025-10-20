@@ -2268,6 +2268,20 @@
                 "oynatıcı",
                 "video"
               ]
+            },
+            {
+              "url": "https://www.nikse.dk/",
+              "name": "Subtitle Edit",
+              "recommended": false,
+              "description": "Açık kaynaklı altyazı düzenleme aracı.",
+              "icon": "icon/subtitleedit.svg",
+              "alt": "Subtitle Edit",
+              "tags": [
+                "subtitle",
+                "altyazı",
+                "edit",
+                "nikse"
+              ]
             }
           ]
         },
