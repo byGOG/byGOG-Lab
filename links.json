@@ -199,6 +199,19 @@
               "tags": [
                 "click"
               ]
+            },
+            {
+              "url": "https://uupdump.net/",
+              "name": "UUP Dump",
+              "recommended": false,
+              "description": "Windows güncellemelerini indirip özelleştirilmiş ISO paketleri oluşturmanıza yardım eden web aracı.",
+              "icon": "icon/uupdump.svg",
+              "alt": "UUP Dump",
+              "tags": [
+                "uupdump",
+                "windows",
+                "iso"
+              ]
             }
           ]
         },
