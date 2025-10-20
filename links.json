@@ -2276,11 +2276,25 @@
               "description": "Açık kaynaklı altyazı düzenleme aracı.",
               "icon": "icon/subtitleedit.svg",
               "alt": "Subtitle Edit",
+              "copyText": "winget install Nikse.SubtitleEdit",
               "tags": [
                 "subtitle",
                 "altyazı",
                 "edit",
                 "nikse"
+              ]
+            },
+            {
+              "url": "https://github.com/Valyreon/Subloader",
+              "name": "Subloader",
+              "recommended": false,
+              "description": "Film ve dizileriniz için altyazıları hızlıca bulup indirmenizi sağlayan basit ve minimalist bir uygulamadır.",
+              "icon": "icon/subloader.svg",
+              "alt": "Subloader",
+              "tags": [
+                "subloader",
+                "altyazı",
+                "github"
               ]
             }
           ]
