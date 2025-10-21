@@ -1,12 +1,21 @@
-const CACHE_NAME = 'bygog-lab-cache-c159eb58';
+const CACHE_NAME = 'bygog-lab-cache-dev';
 const urlsToCache = [
   '.',
   'index.html',
   'manifest.json',
-  'dist/styles.c4d3ef53.css',
-  'dist/fab.b33252b0.css',
-  'dist/renderLinks.bda1a6e0.js',
-  'dist/links.json',
+  'assets/styles.css',
+  'assets/fab.css',
+  'assets/overrides.css',
+  'src/renderLinks.js',
+  'src/searchWorker.js',
+  'src/icon-loader.js',
+  'src/info-tooltips.js',
+  'src/placeholder-anim.js',
+  'src/scroll-anim.js',
+  'src/float-anim.js',
+  'src/header-offset.js',
+  'src/sc-clickload.js',
+  'links.json',
   'icon/bygog-lab-icon.svg',
   'icon/bygog-lab-logo.svg'
 ];
@@ -147,7 +156,6 @@ self.addEventListener('fetch', event => {
     }
   })());
 });
-
 
 
 

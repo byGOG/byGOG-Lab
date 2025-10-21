@@ -1,5 +1,5 @@
 export async function fetchLinks() {
-  const res = await fetch("dist/links.json");
+  const res = await fetch("links.json");
   if (!res.ok) throw new Error("links.json yüklenemedi");
   return res.json();
 }
