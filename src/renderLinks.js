@@ -191,8 +191,8 @@ function renderCategories(data, container) {
       const ul = document.createElement("ul");
       // Sort inside groups alphabetically (tr): recommended A–Z, others A–Z
       const cmp = (a, b) => String(a.name || "").localeCompare(String(b.name || ""), "tr");
-      const rec = links.filter(item => !!item.recommended).sort(cmp);
-      const others = links.filter(item => !item.recommended).sort(cmp);
+      const rec = links.filter(item => !item?.hidden && !!item.recommended).sort(cmp);
+      const others = links.filter(item => !item?.hidden && !item.recommended).sort(cmp);
       const sorted = [...rec, ...others];
       let addedRecLabel = false;
       let addedOtherLabel = false;

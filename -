@@ -908,17 +908,14 @@
               ]
             },
             {
-              "url": "https://www.emsisoft.com/en/emergency-kit/",
-              "name": "Emsisoft Emergency Kit",
+              "url": "https://www.emsisoft.com/",
+              "name": "Emsisoft Anti-Malware",
               "recommended": false,
-              "description": "Taşınabilir kötü amaçlı yazılım ve virüs tarama & temizleyicisi.",
+              "description": "Güçlü kötü amaçlı yazılım koruması ve temizleme aracı.",
               "icon": "icon/emsisoft.svg",
-              "alt": "Emsisoft Emergency Kit",
+              "alt": "Emsisoft",
               "tags": [
                 "emsisoft",
-                "emergency-kit",
-                "portable",
-                "scanner",
                 "anti-malware"
               ]
             },
