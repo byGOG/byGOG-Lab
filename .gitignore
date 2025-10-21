@@ -1,3 +1,7 @@
 node_modules/
 _tmp.txt
 _lines_with_fffd.txt
+tmp*
+*.tmp
+Thumbs.db
+.DS_Store
