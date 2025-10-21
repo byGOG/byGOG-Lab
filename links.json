@@ -2914,6 +2914,20 @@
                 "inattv156",
                 "cfd"
               ]
+            },
+            {
+              "url": "https://t.me/instaprimeofficial",
+              "name": "InstaPrime",
+              "recommended": false,
+              "description": "Biz sadece başka bir mod değiliz — özgürlüğünüz, gizliliğiniz ve deneyiminiz üzerine kurulu bir hareketiz.",
+              "icon": "icon/instaprime.svg",
+              "alt": "InstaPrime",
+              "tags": [
+                "instaprime",
+                "instaprimeofficial",
+                "instagram",
+                "telegram"
+              ]
             }
           ]
         },
