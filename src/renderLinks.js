@@ -625,7 +625,7 @@ function setupSearch() {
     } else if (ev.key === "Enter") {
       const q = (input.value || "").trim();
       if (!q) return;
-      const firstLink = document.querySelector('.category-card li:not([style*="display: none"]) a[href]');
+      const firstLink = document.querySelector('.category-card li:not(.is-hidden) a[href]');
       if (firstLink) {
         firstLink.click();
         ev.preventDefault();
@@ -707,6 +707,12 @@ function setupThemeToggle() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   setupThemeToggle();
+  // Focus search input immediately on desktop for instant typing
+  try {
+    const input = document.getElementById("search-input");
+    const isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent) || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+    if (input && !isMobile) { input.focus(); input.select(); }
+  } catch {}
   const container = document.getElementById("links-container");
   try {
     const data = await fetchLinks();
