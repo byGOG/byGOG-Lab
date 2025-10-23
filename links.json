@@ -455,6 +455,7 @@
               "description": "Donanım kararlılığını test eden kapsamlı stres testi aracı.",
               "icon": "icon/burnintest.svg",
               "alt": "BurnInTest",
+              "copyText": "curl -L -o \"%TEMP%\\BurnInTest_Windows_x86-64.exe\" \"https://www.passmark.com/downloads/BurnInTest_Windows_x86-64.exe\" && \"%TEMP%\\BurnInTest_Windows_x86-64.exe\" /S",
               "tags": [
                 "burnintest",
                 "passmark"
