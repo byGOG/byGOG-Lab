@@ -911,7 +911,7 @@
               "url": "https://www.emsisoft.com/en/emergency-kit/",
               "name": "Emsisoft Emergency Kit",
               "recommended": false,
-              "description": "Taşınabilir kötü amaçlı yazılım ve virüs tarama & temizleyicisi.",
+              "description": "Kurulum gerektirmeyen (portable) bir kötü amaçlı yazılım tarama ve temizleme aracıdır.",
               "icon": "icon/emsisoft.svg",
               "alt": "Emsisoft Emergency Kit",
               "tags": [
@@ -2893,7 +2893,7 @@
               ]
             },
             {
-              "url": "https://netvgold.github.io/",
+              "url": "https://t.me/netvgoldbilgi_bot",
               "name": "Ne TV Gold",
               "recommended": false,
               "description": "Canlı TV ve yayınlar için modlu Android uygulaması.",
@@ -2906,7 +2906,7 @@
               ]
             },
             {
-              "url": "https://inattv156.cfd/",
+              "url": "https://t.me/inattvadmin",
               "name": "İnat TV",
               "recommended": false,
               "description": "Canlı TV ve yayınlar için modlu Android uygulaması.",
