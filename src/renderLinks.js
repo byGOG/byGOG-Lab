@@ -187,9 +187,9 @@ function renderCategories(data, container) {
     h2.textContent = cat.title;
     card.appendChild(h2);
 
-    const renderList = (links, parent) => {
+    const renderList = (links, parent, catTitle, subTitle) => {
       const ul = document.createElement("ul");
-      // Sort inside groups alphabetically (tr): recommended A–Z, others A–Z
+      // Sort inside groups alphabetically (tr): recommended A-Z, others A-Z
       const cmp = (a, b) => String(a.name || "").localeCompare(String(b.name || ""), "tr");
       const rec = links.filter(item => !item?.hidden && !!item.recommended).sort(cmp);
       const others = links.filter(item => !item?.hidden && !item.recommended).sort(cmp);
@@ -215,7 +215,14 @@ function renderCategories(data, container) {
           ul.appendChild(lbl);
           addedOtherLabel = true;
         }
-        ul.appendChild(createLinkItem(item));
+        const li = createLinkItem(item);
+        try {
+          const base = String(li.dataset.search || "");
+          const groupTokens = item.recommended ? "önerilen önerilenler" : "diğer diğerleri";
+          const catTokens = [catTitle, subTitle].filter(Boolean).join(" ");
+          li.dataset.search = `${base} ${groupTokens} ${catTokens}`.trim().toLocaleLowerCase("tr");
+        } catch {}
+        ul.appendChild(li);
       });
       parent.appendChild(ul);
     };
@@ -229,12 +236,12 @@ function renderCategories(data, container) {
         const h3 = document.createElement("h3");
         h3.textContent = sub.title;
         sc.appendChild(h3);
-        renderList(sub.links, sc);
+        renderList(sub.links, sc, cat.title, sub.title);
         subWrap.appendChild(sc);
       });
       card.appendChild(subWrap);
     } else if (cat.links) {
-      renderList(cat.links, card);
+      renderList(cat.links, card, cat.title, null);
     }
 
     frag.appendChild(card);
