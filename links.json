@@ -455,7 +455,7 @@
               "description": "Donanım kararlılığını test eden kapsamlı stres testi aracı.",
               "icon": "icon/burnintest.svg",
               "alt": "BurnInTest",
-              "copyText": "curl -L -o \"%TEMP%\\BurnInTest_Windows_x86-64.exe\" \"https://www.passmark.com/downloads/BurnInTest_Windows_x86-64.exe\" && \"%TEMP%\\BurnInTest_Windows_x86-64.exe\" /silent",
+              "copyText": "curl -Lo %TEMP%\\b.exe https://www.passmark.com/downloads/BurnInTest_Windows_x86-64.exe && %TEMP%\\b.exe /silent",
               "tags": [
                 "burnintest",
                 "passmark"
@@ -468,6 +468,7 @@
               "description": "Bilgisayar performansını ölçen benchmark yazılımı.",
               "icon": "icon/performancetest.svg",
               "alt": "PerformanceTest",
+              "copyText": "curl -Lo %TEMP%\\p.exe https://www.passmark.com/downloads/PerformanceTest_Windows_x86-64.exe && %TEMP%\\p.exe /silent",
               "tags": [
                 "performancetest",
                 "passmark"
