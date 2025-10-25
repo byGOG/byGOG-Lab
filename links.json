@@ -1235,6 +1235,7 @@
               "description": "Hızlı, gizlilik odaklı ve ücretsiz DNS hizmeti.",
               "icon": "icon/cloudflare.svg",
               "alt": "Cloudflare 1.1.1.1",
+              "copyText": "winget install Cloudflare.Warp",
               "tags": [
                 "cloudflare",
                 "dns",
