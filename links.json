@@ -917,6 +917,7 @@
               "description": "Kurulum gerektirmeyen (portable) bir kötü amaçlı yazılım tarama ve temizleme aracıdır.",
               "icon": "icon/emsisoft.svg",
               "alt": "Emsisoft Emergency Kit",
+              "copyText": "curl -Lo \"%TMP%\\ee.exe\" \"https://dl.emsisoft.com/EmsisoftEmergencyKit.exe\" && \"%TMP%\\ee.exe\" /s",
               "tags": [
                 "emsisoft",
                 "emergency-kit",
