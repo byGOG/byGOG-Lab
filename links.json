@@ -889,6 +889,7 @@
               "description": "Hafif, ücretsiz ve güçlü antivirüs koruması.",
               "icon": "icon/bitdefender.svg",
               "alt": "Bitdefender Free Antivirus",
+              "copyText": "curl -Lo \"%TEMP%\\bd.exe\" \"https://download.bitdefender.com/windows/installer/tr-tr/bitdefender_avfree.exe\" && \"%TEMP%\\bd.exe\" /silent",
               "tags": [
                 "bitdefender",
                 "free",
