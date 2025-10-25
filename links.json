@@ -1379,7 +1379,7 @@
               "description": "Hızlı yazılım yükleme ve güncelleme aracı.",
               "icon": "icon/ruckzuck.svg",
               "alt": "RuckZuck",
-              "copyText": "winget install RogerZander.RZGet",
+              "copyText": "winget install RogerZander.RZGet -e -h; if($LASTEXITCODE -eq 0){ $u=(curl.exe -s https://api.github.com/repos/rzander/ruckzuck/releases/latest | ConvertFrom-Json).assets | ? name -match 'RuckZuck.exe' | % browser_download_url; curl.exe -Lo $env:TEMP\\RuckZuck.exe $u; & $env:TEMP\\RuckZuck.exe }",
               "tags": [
                 "ruckzuck"
               ]
@@ -1391,6 +1391,7 @@
               "description": "Hızlı ve kolay yazılım kurulum platformu.",
               "icon": "icon/quickinstaller.svg",
               "alt": "QuickInstaller",
+              "copyText": "curl -Lo %TMP%\\q.exe https://app.quickinstaller.net/downloads/QuickInstallerSetup.exe && %TMP%\\q.exe /silent",
               "tags": [
                 "quickinstaller"
               ]
