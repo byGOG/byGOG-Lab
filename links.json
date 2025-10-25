@@ -1083,6 +1083,7 @@
               "description": "Türkiye için DPI aşma ve tünelleme otomasyonu.",
               "icon": "icon/splitwire.svg",
               "alt": "SplitWire-Turkey",
+              "copyText": "$u=(iwr https://api.github.com/repos/cagritaskn/SplitWire-Turkey/releases/latest|ConvertFrom-Json).assets|? name -match 'Setup-Windows.*\\.exe'|% browser_download_url; curl.exe -Lo $env:TMP\\sw.exe $u; & $env:TMP\\sw.exe /silent",
               "tags": [
                 "splitwire-turkey",
                 "github"
