@@ -2415,18 +2415,6 @@
           "title": "Yazılım Geliştirme Araçlar",
           "links": [
             {
-              "url": "https://cmder.app/",
-              "name": "Cmder",
-              "recommended": false,
-              "description": "Gelişmiş Windows terminali.",
-              "icon": "icon/cmder.svg",
-              "alt": "Cmder",
-              "tags": [
-                "cmder",
-                "windows"
-              ]
-            },
-            {
               "url": "https://www.virtualbox.org/",
               "name": "VirtualBox",
               "recommended": false,
