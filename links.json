@@ -2371,6 +2371,54 @@
                 "hdfilmcehennemi",
                 "hdfilmcehennemi20"
               ]
+            },
+            {
+              "url": "https://www.dizibox.live/",
+              "name": "DiziBox",
+              "recommended": false,
+              "description": "Çevrim içi dizi ve film izleme platformu.",
+              "icon": "icon/dizibox.svg",
+              "alt": "DiziBox",
+              "tags": [
+                "dizibox",
+                "diziboxlive",
+                "dizibox.live"
+              ]
+            },
+            {
+              "url": "https://dizipal1069.com/",
+              "name": "Dizipal 1069",
+              "recommended": false,
+              "description": "Çevrim içi dizi ve film izleme platformu.",
+              "icon": "icon/dizipal.svg",
+              "alt": "Dizipal",
+              "tags": [
+                "dizipal",
+                "dizipal1069"
+              ]
+            },
+            {
+              "url": "https://sezonlukdizi8.com/",
+              "name": "SezonlukDizi",
+              "recommended": false,
+              "description": "Çevrim içi dizi ve film izleme platformu.",
+              "icon": "icon/sezonlukdizi.svg",
+              "alt": "SezonlukDizi",
+              "tags": [
+                "sezonlukdizi",
+                "sezonlukdizi8"
+              ]
+            },
+            {
+              "url": "https://dizi21.life/",
+              "name": "Dizi21",
+              "recommended": false,
+              "description": "Çevrim içi dizi ve film izleme platformu.",
+              "icon": "icon/dizi21.svg",
+              "alt": "Dizi21",
+              "tags": [
+                "dizi21"
+              ]
             }
           ]
         },
