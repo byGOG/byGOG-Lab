@@ -1959,6 +1959,17 @@
               "tags": [
                 "ext"
               ]
+            },
+            {
+              "url": "https://uindex.org/",
+              "name": "UIndex",
+              "recommended": false,
+              "description": "Torrent arama ve indeks platformu.",
+              "icon": "icon/uindex.svg",
+              "alt": "UIndex",
+              "tags": [
+                "uindex"
+              ]
             }
           ]
         },
