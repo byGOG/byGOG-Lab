@@ -2633,21 +2633,6 @@
               "tags": [
                 "inkscape"
               ]
-            },
-            {
-              "url": "https://greenfishsoftware.org/",
-              "name": "Greenfish Icon Editor",
-              "recommended": false,
-              "description": "Ücretsiz, açık kaynaklı ve taşınabilir ikon, imleç ve animasyon editörü.",
-              "icon": "icon/greenfish.svg",
-              "alt": "Greenfish Icon Editor",
-              "tags": [
-                "greenfish",
-                "icon",
-                "editor",
-                "editör",
-                "greenfishsoftware"
-              ]
             }
           ]
         }
