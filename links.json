@@ -2325,6 +2325,7 @@
               "description": "Film ve dizileriniz için altyazıları hızlıca bulup indirmenizi sağlayan basit ve minimalist bir uygulamadır.",
               "icon": "icon/subloader.svg",
               "alt": "Subloader",
+              "copyText": "$v=(iwr https://api.github.com/repos/Valyreon/Subloader/releases/latest|ConvertFrom-Json).tag_name;$fn=\"SubloaderV$($v.TrimStart('v').Replace('.',''))Installer.exe\";$u=\"https://github.com/Valyreon/Subloader/releases/download/$v/$fn\";$d=\"$env:TMP\\subloader.exe\";curl.exe -fLS -o $d $u;& $d /silent",
               "tags": [
                 "subloader",
                 "altyazı",
