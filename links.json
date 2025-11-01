@@ -2346,11 +2346,11 @@
             }
           ]
         },
+    {
+      "title": "Dizi & Film Siteleri",
+      "links": [
         {
-          "title": "Dizi & Film Siteleri",
-          "links": [
-            {
-              "url": "https://dizipal1507.com/",
+          "url": "https://dizipal1507.com/",
               "name": "Dizipal",
               "recommended": false,
               "description": "Güncel dizi ve filmleri ücretsiz izleyebileceğiniz popüler platform.",
@@ -2431,12 +2431,45 @@
               "tags": [
                 "dizi21"
               ]
-            }
+        }
+      ]
+    },
+    {
+      "title": "Film Bilgi & Puanlama",
+      "links": [
+        {
+          "url": "https://www.imdb.com/",
+          "name": "IMDb",
+          "recommended": false,
+          "description": "Film, dizi ve oyuncu veritabanı; puanlar, eleştiriler ve bilgilerin merkezi.",
+          "icon": "icon/imdb.svg",
+          "alt": "IMDb",
+          "tags": [
+            "imdb",
+            "film",
+            "puan",
+            "veritabanı"
           ]
         },
         {
-          "title": "Bulut/Yedekleme",
-          "links": [
+          "url": "https://www.rottentomatoes.com/",
+          "name": "Rotten Tomatoes",
+          "recommended": false,
+          "description": "Eleştirmen ve izleyici puanlarıyla film ve dizilere dair kritikler, fragmanlar ve haberler.",
+          "icon": "icon/rottentomatoes.svg",
+          "alt": "Rotten Tomatoes",
+          "tags": [
+            "rottentomatoes",
+            "film",
+            "puan",
+            "eleştiri"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Bulut/Yedekleme",
+      "links": [
             {
               "url": "https://www.dropbox.com/",
               "name": "Dropbox",
