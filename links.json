@@ -2431,6 +2431,28 @@
               "tags": [
                 "dizi21"
               ]
+            },
+            {
+              "url": "https://openani.me/",
+              "name": "OpenAni",
+              "recommended": false,
+              "description": "Çevrim içi anime izleme platformu.",
+              "icon": "icon/openani.svg",
+              "alt": "OpenAni",
+              "tags": [
+                "openani"
+              ]
+            },
+            {
+              "url": "https://anizle.com/",
+              "name": "Anizle",
+              "recommended": false,
+              "description": "Çevrim içi anime izleme platformu.",
+              "icon": "icon/anizle.svg",
+              "alt": "Anizle",
+              "tags": [
+                "anizle"
+              ]
             }
           ]
         },
