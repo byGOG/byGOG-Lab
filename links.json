@@ -2346,11 +2346,11 @@
             }
           ]
         },
+    {
+      "title": "Dizi & Film Siteleri",
+      "links": [
         {
-          "title": "Dizi & Film Siteleri",
-          "links": [
-            {
-              "url": "https://dizipal1507.com/",
+          "url": "https://dizipal1507.com/",
               "name": "Dizipal",
               "recommended": false,
               "description": "Güncel dizi ve filmleri ücretsiz izleyebileceğiniz popüler platform.",
@@ -2430,28 +2430,6 @@
               "alt": "Dizi21",
               "tags": [
                 "dizi21"
-              ]
-            },
-            {
-              "url": "https://openani.me/",
-              "name": "OpenAni",
-              "recommended": false,
-              "description": "Çevrim içi anime izleme platformu.",
-              "icon": "icon/openani.svg",
-              "alt": "OpenAni",
-              "tags": [
-                "openani"
-              ]
-            },
-            {
-              "url": "https://anizle.com/",
-              "name": "Anizle",
-              "recommended": false,
-              "description": "Çevrim içi anime izleme platformu.",
-              "icon": "icon/anizle.svg",
-              "alt": "Anizle",
-              "tags": [
-                "anizle"
               ]
             }
           ]
