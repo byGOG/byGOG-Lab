@@ -1,0 +1,51 @@
+{
+  "name": "bygog-lab",
+  "private": true,
+  "version": "0.2.0",
+  "description": "byGOG kaynak arşivi",
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "split:links": "node scripts/split-links.cjs",
+    "validate": "node scripts/validate.cjs",
+    "check:encoding": "node scripts/check-encoding.cjs",
+    "check:links": "node scripts/check-links.cjs",
+    "ci:validate": "npm run validate && npm run check:encoding",
+    "fix:titles": "node scripts/fix-titles.cjs",
+    "serve": "node scripts/serve.cjs",
+    "optimize:svg": "node scripts/optimize-svg.mjs",
+    "enrich:tags": "node scripts/enrich-tags.cjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src/ scripts/ tests/ --ext .js,.cjs,.mjs",
+    "lint:fix": "eslint src/ scripts/ tests/ --ext .js,.cjs,.mjs --fix",
+    "format": "prettier --write \"src/**/*.js\" \"scripts/**/*.cjs\" \"tests/**/*.js\" \"*.json\"",
+    "format:check": "prettier --check \"src/**/*.js\" \"scripts/**/*.cjs\" \"tests/**/*.js\" \"*.json\"",
+    "analyze": "node scripts/analyze-bundle.cjs",
+    "prepare": "husky || true"
+  },
+  "devDependencies": {
+    "csso": "^5.0.5",
+    "esbuild": "^0.23.0",
+    "playwright": "^1.56.0",
+    "sharp": "^0.34.5",
+    "svgo": "^4.0.0",
+    "vitest": "^2.1.0",
+    "@vitest/coverage-v8": "^2.1.0",
+    "jsdom": "^25.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vitest": "^0.5.0",
+    "prettier": "^3.3.0",
+    "husky": "^9.1.0",
+    "lint-staged": "^15.2.0"
+  },
+  "lint-staged": {
+    "*.{js,cjs,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css}": [
+      "prettier --write"
+    ]
+  }
+}
