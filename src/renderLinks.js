@@ -1,30 +1,25 @@
 import { initBackToTop } from "./back-to-top.js";
 import { initCategoryNav } from "./category-nav.js";
 
-const LINKS_INDEX_PATH = "data/links-index.json";
-const LINKS_FALLBACK_PATH = "links.json";
+// Import from modular libraries
+import { fetchLinks, isLinksIndex } from "./lib/data-fetcher.js";
+import { closeActiveTooltip, setActiveTooltip, showBackdrop } from "./lib/tooltip.js";
+import { getDomainLabel, getDomainBase, normalizeTag, isSvgIcon, isOfficialLink } from "./lib/domain-utils.js";
+import { getCategoryIcon, applyCategoryColumns, THREE_COL_TITLES } from "./lib/category-icons.js";
+import { resolveCopyValue, setCopyIconOnButton, copyToClipboard, setupCopyDelegation, COPY_ICON_SHAPES } from "./lib/copy-utils.js";
+import { 
+  foldForSearch, 
+  tokenizeFoldedQuery, 
+  createHighlightMeta, 
+  applyHighlight,
+  createMatchApplier,
+  createWorkerSearchEngine,
+  createSyncSearchEngine
+} from "./lib/search-engine.js";
+import { setupPWAInstallUI } from "./lib/pwa-install.js";
 
-function isLinksIndex(data) {
-  return !!(data && Array.isArray(data.categories) && data.categories.every(cat => typeof cat?.file === "string"));
-}
-
-export async function fetchLinks() {
-  try {
-    const res = await fetch(LINKS_INDEX_PATH, { cache: "force-cache" });
-    if (res.ok) {
-      const data = await res.json();
-      if (isLinksIndex(data)) return { mode: "index", data };
-      return { mode: "full", data };
-    }
-  } catch { }
-  return { mode: "full", data: await fetchLinksLegacy() };
-}
-
-async function fetchLinksLegacy() {
-  const res = await fetch(LINKS_FALLBACK_PATH);
-  if (!res.ok) throw new Error("links.json yüklenemedi");
-  return res.json();
-}
+// Re-export fetchLinks for external use
+export { fetchLinks };
 // --- Favorites System ---
 const FAV_KEY = "bygog_favs";
 const DEFAULT_FAVORITES = [
@@ -153,37 +148,7 @@ function renderSidebar() {
   }
 }
 
-// --- Global Backdrop & Tooltip Focus Mode ---
-let activeTooltip = null;
-let activeItem = null;
-
-const backdrop = document.createElement('div');
-backdrop.id = 'tooltip-backdrop';
-document.body.appendChild(backdrop);
-
-backdrop.onclick = () => {
-  closeActiveTooltip();
-};
-
-// Close stray tooltips when clicking anywhere outside
-document.addEventListener('click', e => {
-  if (!activeTooltip) return;
-  const t = e.target;
-  try {
-    // Keep open if the click is inside the tooltip or on an info button
-    if (activeTooltip.contains(t) || (t.closest && t.closest('button.info-button'))) return;
-  } catch {}
-  closeActiveTooltip();
-});
-
-function closeActiveTooltip() {
-  if (activeTooltip) {
-    activeTooltip.classList.remove('visible');
-    activeTooltip = null;
-  }
-  backdrop.classList.remove('visible');
-}
-
+// Tooltip functionality imported from ./lib/tooltip.js
 
 function toggleFavorite(name, clickedBtn) {
   const isFav = favorites.has(name);
@@ -205,103 +170,7 @@ function toggleFavorite(name, clickedBtn) {
   renderSidebar();
 }
 
-const WINUTIL_COMMAND = 'irm "https://christitus.com/win" | iex';
-
-function resolveCopyValue(link) {
-  if (link && link.copyText) return String(link.copyText);
-  const name = String(link?.name || "").toLocaleLowerCase("tr");
-  const url = String(link?.url || "");
-  if (name === "winutil" || url.includes("christitus.com/win")) {
-    return WINUTIL_COMMAND;
-  }
-  return "";
-}
-
-const MULTI_PART_TLDS = new Set([
-  "com.tr",
-  "org.tr",
-  "net.tr",
-  "gov.tr",
-  "edu.tr",
-  "bel.tr",
-  "k12.tr",
-  "co.uk",
-  "org.uk",
-  "gov.uk",
-  "ac.uk",
-  "com.au",
-  "net.au",
-  "org.au",
-  "com.br",
-  "com.mx",
-  "com.ar",
-  "com.co",
-  "com.cl",
-  "com.pe",
-  "co.jp",
-  "co.kr",
-  "co.nz",
-  "co.in",
-  "com.sa",
-  "com.sg"
-]);
-
-function getDomainLabel(url) {
-  if (!url) return "";
-  try {
-    const parsed = new URL(String(url));
-    let host = String(parsed.hostname || "").toLowerCase();
-    if (!host) return "";
-    if (host.startsWith("www.")) host = host.slice(4);
-    if (/^\d{1,3}(\.\d{1,3}){3}$/.test(host)) return host;
-    const parts = host.split(".");
-    if (parts.length <= 2) return host;
-    const tail2 = parts.slice(-2).join(".");
-    if (MULTI_PART_TLDS.has(tail2)) return parts.slice(-3).join(".");
-    return tail2;
-  } catch {
-    return "";
-  }
-}
-
-const SORTED_MULTI_TLDS = Array.from(MULTI_PART_TLDS).sort((a, b) => b.length - a.length);
-
-function getDomainBase(label) {
-  if (!label) return "";
-  if (/^\d{1,3}(\.\d{1,3}){3}$/.test(label)) return label;
-  for (const tld of SORTED_MULTI_TLDS) {
-    const suffix = `.${tld}`;
-    if (label.endsWith(suffix)) {
-      return label.slice(0, -suffix.length);
-    }
-  }
-  const idx = label.lastIndexOf(".");
-  return idx > 0 ? label.slice(0, idx) : label;
-}
-
-function normalizeTag(value) {
-  return String(value || "")
-    .trim()
-    .toLocaleLowerCase("tr")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/ı/g, "i");
-}
-
-function isSvgIcon(value) {
-  return /\.svg(?:[?#].*)?$/i.test(String(value || ""));
-}
-
-function isOfficialLink(link, domainLabel) {
-  if (link && (link.official === true || String(link.official).toLowerCase() === "true")) {
-    return true;
-  }
-  if (!domainLabel) return false;
-  const base = normalizeTag(getDomainBase(domainLabel));
-  if (!base) return false;
-  const tags = Array.isArray(link?.tags) ? link.tags : [];
-  return tags.some(tag => normalizeTag(tag) === base);
-}
+// Copy and domain utilities imported from ./lib/copy-utils.js and ./lib/domain-utils.js
 
 function createLinkItem(link) {
   const li = document.createElement("li");
@@ -399,79 +268,26 @@ function createLinkItem(link) {
   stopNav(favBtn);
   a.appendChild(favBtn);
 
+  // Create custom-tooltip for info-tooltips.js to enhance
   if (link.description) {
-    li.classList.add("has-info");
-
-
     const tip = document.createElement("span");
     tip.className = "custom-tooltip";
 
-    // 1. Icon (if available)
+    // Icon (if available)
     if (link.icon) {
       const tipImg = document.createElement("img");
       tipImg.loading = "lazy";
       tipImg.width = 24;
       tipImg.height = 24;
-      tipImg.src = link.icon;
+      tipImg.setAttribute("data-src", link.icon);
       tipImg.className = "tip-icon";
       tipImg.onerror = () => { tipImg.src = "icon/fallback.svg"; };
       tip.appendChild(tipImg);
     }
 
-    // 2. Title (Name)
-    const tipTitle = document.createElement("strong");
-    tipTitle.className = "tip-title";
-    tipTitle.textContent = link.name;
-    tip.appendChild(tipTitle);
-
-    // 3. Description
-    const tipDesc = document.createElement("span");
-    tipDesc.className = "tip-desc";
-    tipDesc.textContent = link.description;
-    tip.appendChild(tipDesc);
-
-    // Create Info Button referencing the tip variable directly
-    const infoBtn = document.createElement("button");
-    infoBtn.className = "info-button";
-    infoBtn.type = "button";
-    infoBtn.title = "Bilgi";
-    infoBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>';
-    infoBtn.onclick = (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      const isVisible = tip.classList.contains('visible');
-
-      // Close any active tooltip (including this one if it's open)
-      closeActiveTooltip(); // This clears activeTooltip, activeItem, and hides backdrop
-
-      // If it wasn't visible before, open it now
-      if (!isVisible) {
-        // Move tooltip to body to avoid stacking/overflow issues
-        if (!tip._movedToBody) {
-          document.body.appendChild(tip);
-          tip._movedToBody = true;
-        }
-        tip.classList.add('visible');
-        activeTooltip = tip;
-
-        backdrop.classList.add('visible');
-      }
-    };
-    stopNav(infoBtn);
-    a.appendChild(infoBtn);
+    // Description text
+    tip.appendChild(document.createTextNode(link.description));
     a.appendChild(tip);
-    // Lazy-load tooltip image on demand (hover/focus)
-    const loadTipImg = () => {
-      try {
-        const ti = tip.querySelector('img[data-src]');
-        if (ti) { ti.src = ti.getAttribute('data-src'); ti.removeAttribute('data-src'); }
-      } catch { }
-    };
-    // Load when hovering/focusing the name or info button for better intent matching
-    try { text.addEventListener('mouseenter', loadTipImg, { once: true }); } catch { }
-    try { infoBtn.addEventListener('mouseenter', loadTipImg, { once: true }); } catch { }
-    try { text.addEventListener('focusin', loadTipImg, { once: true }); } catch { }
   }
 
   try {
@@ -657,47 +473,7 @@ function renderCategoriesLegacy(data, container) {
   container.appendChild(frag);
 }
 
-const THREE_COL_TITLES = new Set([
-  "sistem/ofis",
-  "sistem araclari & bakim",
-  "guvenlik & gizlilik",
-  "yazilim & paket yoneticileri"
-]);
-
-// Category icons mapping
-const CATEGORY_ICONS = {
-  "sistem/ofis": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>`,
-  "sistem araclari & bakim": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
-  "guvenlik & gizlilik": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
-  "yazilim & paket yoneticileri": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`,
-  "internet & tarayici": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
-  "medya & indirme": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>`,
-  "gelistirici & tasarim": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
-  "uygulamalar & araclar": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>`,
-  "mobil & iletisim": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
-  "oyun": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><rect x="2" y="6" width="20" height="12" rx="2"/></svg>`,
-  "favorilerim": `<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`
-};
-
-function getCategoryIcon(title) {
-  if (!title) return null;
-  const normalized = String(title).trim().toLocaleLowerCase("tr")
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .replace(/ı/g, "i").replace(/ğ/g, "g").replace(/ü/g, "u")
-    .replace(/ş/g, "s").replace(/ö/g, "o").replace(/ç/g, "c");
-  return CATEGORY_ICONS[normalized] || null;
-}
-
-function applyCategoryColumns(card, title) {
-  if (!card) return;
-  try {
-    const ct = String(title || "").trim();
-    const ctf = (typeof foldForSearch === "function") ? foldForSearch(ct) : ct.toLocaleLowerCase("tr");
-    const ctfn = ctf.replace(/\u0131/g, "i");
-    if (THREE_COL_TITLES.has(ctfn)) card.classList.add("cols-3");
-    else card.classList.remove("cols-3");
-  } catch { }
-}
+// Category icons and columns imported from ./lib/category-icons.js
 
 function createCategoryCard(title) {
   const card = document.createElement("div");
@@ -915,293 +691,9 @@ function areAllCategoriesLoaded() {
   return lazyState.entries.every(entry => entry.loaded);
 }
 
-const COPY_ICON_SHAPES = {
-  copy: '<rect x="9" y="9" width="12" height="12" rx="2" ry="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path>',
-  success: '<path d="M20 6 10 16l-4-4"></path>',
-  error: '<path d="M18 6 6 18"></path><path d="M6 6l12 12"></path>',
-  loading: '<circle cx="12" cy="12" r="9" stroke-opacity="0.25"></circle><path d="M21 12a9 9 0 0 0-9-9" stroke-opacity="0.9"></path>'
-};
+// Copy utilities imported from ./lib/copy-utils.js
 
-function setCopyIconOnButton(btn, name) {
-  const svg = btn.querySelector('svg');
-  if (svg) svg.innerHTML = COPY_ICON_SHAPES[name] || COPY_ICON_SHAPES.copy;
-}
-
-async function copyToClipboard(text) {
-  const fallback = () => {
-    const temp = document.createElement('textarea');
-    temp.value = text;
-    temp.setAttribute('readonly', '');
-    temp.style.position = 'fixed';
-    temp.style.opacity = '0';
-    document.body.appendChild(temp);
-    temp.select();
-    const ok = document.execCommand('copy');
-    document.body.removeChild(temp);
-    return ok;
-  };
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    try {
-      await navigator.clipboard.writeText(text);
-      return true;
-    } catch {
-      try { return fallback(); } catch { return false; }
-    }
-  }
-  try { return fallback(); } catch { return false; }
-}
-
-function setupCopyDelegation() {
-  const container = document.getElementById('links-container');
-  if (!container || container.dataset.copyDelegation === 'on') return;
-  container.dataset.copyDelegation = 'on';
-  container.addEventListener('click', async ev => {
-    const target = ev.target;
-    if (!target || !target.closest) return;
-    const btn = target.closest('button.copy-button');
-    if (!btn || !container.contains(btn)) return;
-    ev.preventDefault();
-    ev.stopPropagation();
-    if (btn.disabled) return;
-
-    const defaultLabel = btn.dataset.labelDefault || 'Kopyala';
-    const successLabel = btn.dataset.labelSuccess || 'Kopyalandı';
-    const errorLabel = btn.dataset.labelError || 'Kopyalanamadı';
-    const loadingLabel = btn.dataset.labelLoading || 'Kopyalanıyor';
-    const baseAriaLabel = btn.dataset.ariaBase || defaultLabel;
-    const sr = btn.querySelector('.sr-only');
-
-    const resetState = (label, className, iconName, ariaLabel) => {
-      btn.classList.remove('copy-error', 'copied', 'copy-loading');
-      if (className) btn.classList.add(className);
-      if (sr) sr.textContent = label;
-      btn.setAttribute('aria-label', ariaLabel || label);
-      setCopyIconOnButton(btn, iconName || 'copy');
-      btn.disabled = false;
-    };
-
-    btn.disabled = true;
-    btn.classList.remove('copy-error', 'copied');
-    btn.classList.add('copy-loading');
-    setCopyIconOnButton(btn, 'loading');
-    if (sr) sr.textContent = loadingLabel;
-    btn.setAttribute('aria-label', loadingLabel);
-
-    try {
-      const ok = await copyToClipboard(btn.dataset.copy || '');
-      if (ok) resetState(successLabel, 'copied', 'success');
-      else resetState(errorLabel, 'copy-error', 'error');
-    } catch {
-      resetState(errorLabel, 'copy-error', 'error');
-    }
-
-    if (btn._resetTimer) clearTimeout(btn._resetTimer);
-    btn._resetTimer = setTimeout(() => {
-      resetState(defaultLabel, null, 'copy', baseAriaLabel);
-    }, 2000);
-  });
-}
-
-const SEARCH_LOCALE = "tr";
-const DIACRITIC_PATTERN = /[\u0300-\u036f]/g;
-
-function normalizeForSearch(value) {
-  return String(value || "").toLocaleLowerCase(SEARCH_LOCALE);
-}
-
-function foldForSearch(value) {
-  // Turkish-friendly folding: remove diacritics and unify dotless i -> i
-  return normalizeForSearch(value)
-    .normalize("NFD")
-    .replace(DIACRITIC_PATTERN, "")
-    .replace(/ı/g, "i");
-}
-
-function tokenizeFoldedQuery(value) {
-  return foldForSearch(value).split(/\s+/).filter(Boolean);
-}
-
-function escapeRegExp(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, "\$&");
-}
-
-function buildHighlightRegex(value) {
-  const tokens = normalizeForSearch(value).trim().split(/\s+/).filter(Boolean);
-  if (!tokens.length) return null;
-  return new RegExp(`(${tokens.map(escapeRegExp).join("|")})`, "gi");
-}
-
-function createHighlightMeta(value) {
-  const hasQuery = value.trim().length > 0;
-  return {
-    raw: value,
-    hasQuery,
-    regex: hasQuery ? buildHighlightRegex(value) : null
-  };
-}
-
-function applyHighlight(node, _regex) {
-  const label = node.querySelector(".link-text");
-  if (label) {
-    const original = node.dataset.nameOriginal || label.textContent || "";
-    label.textContent = original;
-  }
-  const tip = node.querySelector(".custom-tooltip");
-  if (tip) {
-    const descOriginal = node.dataset.descOriginal || "";
-    if (descOriginal) {
-      const img = tip.querySelector("img");
-      // Rebuild tooltip content without any highlighting
-      try {
-        tip.innerHTML = "";
-        if (img) {
-          tip.appendChild(img);
-          tip.appendChild(document.createTextNode(" "));
-        }
-        tip.appendChild(document.createTextNode(descOriginal));
-      } catch {
-        // Fallback: set plain text
-        tip.textContent = descOriginal;
-      }
-    }
-  }
-}
-
-// Category visibility is managed via counters for performance
-// Toggling happens in createMatchApplier using 'is-hidden' class
-function updateCategoryVisibility() { }
-
-function createMatchApplier(nodes, dataset, status) {
-  const visible = new Set(dataset.map(entry => entry.index));
-  const catCounts = new Map();
-  const subCounts = new Map();
-  dataset.forEach(entry => {
-    if (!entry.isLink) return;
-    const cat = entry.catEl;
-    const sub = entry.subEl;
-    catCounts.set(cat, (catCounts.get(cat) || 0) + 1);
-    if (sub) subCounts.set(sub, (subCounts.get(sub) || 0) + 1);
-  });
-
-  function toggleContainer(el, countMap) {
-    if (!el) return;
-    const count = countMap.get(el) || 0;
-    el.classList.toggle('is-hidden', count <= 0);
-  }
-
-  function hideIndex(idx) {
-    const node = nodes[idx];
-    if (!node) return;
-    if (!node.classList.contains('is-hidden')) {
-      node.classList.add('is-hidden');
-      applyHighlight(node, null);
-      const entry = dataset[idx];
-      if (entry.isLink) {
-        const cat = entry.catEl; const sub = entry.subEl;
-        if (cat) { catCounts.set(cat, (catCounts.get(cat) || 0) - 1); toggleContainer(cat, catCounts); }
-        if (sub) { subCounts.set(sub, (subCounts.get(sub) || 0) - 1); toggleContainer(sub, subCounts); }
-      }
-    }
-    visible.delete(idx);
-  }
-
-  function showIndex(idx, regex) {
-    const node = nodes[idx];
-    if (!node) return false;
-    let wasHidden = node.classList.contains('is-hidden');
-    if (wasHidden) {
-      node.classList.remove('is-hidden');
-      const entry = dataset[idx];
-      if (entry.isLink) {
-        const cat = entry.catEl; const sub = entry.subEl;
-        if (cat) { catCounts.set(cat, (catCounts.get(cat) || 0) + 1); toggleContainer(cat, catCounts); }
-        if (sub) { subCounts.set(sub, (subCounts.get(sub) || 0) + 1); toggleContainer(sub, subCounts); }
-      }
-      visible.add(idx);
-    }
-    applyHighlight(node, regex);
-    return dataset[idx].isLink;
-  }
-
-  return function applyMatches(meta, matches) {
-    const matchSet = new Set(matches);
-    const toHide = [];
-    visible.forEach(idx => { if (!matchSet.has(idx)) toHide.push(idx); });
-    toHide.forEach(hideIndex);
-
-    let matchCount = 0;
-    matchSet.forEach(idx => { if (showIndex(idx, meta.regex)) matchCount++; });
-
-    if (meta.hasQuery) {
-      status.textContent = matchCount > 0 ? `${matchCount} sonuç bulundu` : "Sonuç bulunamadı";
-    } else {
-      status.textContent = "";
-    }
-  };
-}
-
-function createWorkerSearchEngine(nodes, dataset, status) {
-  if (typeof window === "undefined" || typeof window.Worker === "undefined") return null;
-  let worker;
-  try {
-    worker = new Worker(new URL("./searchWorker.js", import.meta.url), { type: "module" });
-  } catch (err) {
-    console.warn("Search worker could not start:", err);
-    return null;
-  }
-  const applyMatches = createMatchApplier(nodes, dataset, status);
-  const pending = new Map();
-  let lastQueryId = 0;
-  let latestApplied = 0;
-
-  worker.postMessage({ type: "seed", payload: dataset.map(entry => ({ index: entry.index, folded: entry.folded })) });
-
-  worker.addEventListener("message", event => {
-    const { type, payload } = event.data || {};
-    if (type !== "result" || !payload) return;
-    const { id, matches } = payload;
-    const meta = pending.get(id);
-    pending.delete(id);
-    if (!meta || id < latestApplied) return;
-    latestApplied = id;
-    applyMatches(meta, matches || []);
-  });
-
-  return {
-    run(query) {
-      const meta = createHighlightMeta(query);
-      const tokens = tokenizeFoldedQuery(query);
-      if (!tokens.length) {
-        const matches = dataset.map(entry => entry.index);
-        applyMatches(meta, matches);
-        return;
-      }
-      const id = ++lastQueryId;
-      pending.set(id, meta);
-      worker.postMessage({ type: "query", payload: { id, value: query } });
-    },
-    dispose() {
-      try { worker.terminate(); } catch { }
-    }
-  };
-}
-
-function createSyncSearchEngine(nodes, dataset, status) {
-  const applyMatches = createMatchApplier(nodes, dataset, status);
-  return {
-    run(query) {
-      const meta = createHighlightMeta(query);
-      const tokens = tokenizeFoldedQuery(query);
-      const matches = !tokens.length
-        ? dataset.map(entry => entry.index)
-        : dataset
-          .filter(entry => tokens.every(token => entry.folded.includes(token)))
-          .map(entry => entry.index);
-      applyMatches(meta, matches);
-    },
-    dispose() { }
-  };
-}
+// Search engine utilities imported from ./lib/search-engine.js
 
 function setupSearchLegacy() {
   const input = document.getElementById("search-input");
@@ -1610,7 +1102,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     container.textContent = "Bağlantılar yüklenemedi.";
     console.error(err);
   }
-  setupCopyDelegation();
+  setupCopyDelegation(document.getElementById('links-container'));
   setupSearch();
   setupPWAInstallUI();
   document.addEventListener('keydown', ev => {
@@ -1700,171 +1192,4 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// PWA install prompt handling and UI
-function setupPWAInstallUI() {
-  const state = { deferred: null, installed: false };
-  const cfg = { delayMs: 4500, minScroll: 200, snoozeDays: 7 };
-  const isStandalone = () => (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || (window.navigator && window.navigator.standalone);
-  const isAllowedPath = () => {
-    try {
-      const p = new URL(window.location.href).pathname;
-      return /(?:^|\/)index\.html$/.test(p) || /\/$/.test(p);
-    } catch { return true; }
-  };
-  const isSnoozed = () => {
-    try { const until = Number(localStorage.getItem('pwaDismissUntil') || '0'); return Date.now() < until; } catch { return false; }
-  };
-  const snooze = () => { try { localStorage.setItem('pwaDismissUntil', String(Date.now() + cfg.snoozeDays * 86400000)); } catch { } };
-
-  const createCard = () => {
-    const card = document.createElement('div');
-    card.className = 'install-card';
-    card.setAttribute('role', 'dialog');
-    card.setAttribute('aria-live', 'polite');
-    card.setAttribute('aria-label', 'Uygulamayı yükle');
-
-    const icon = document.createElement('img');
-    icon.className = 'install-icon';
-    icon.src = 'icon/bygog-lab-icon.svg';
-    icon.alt = '';
-    icon.width = 40; icon.height = 40;
-
-    const textWrap = document.createElement('div');
-    textWrap.className = 'install-text';
-    const title = document.createElement('div');
-    title.className = 'install-title';
-    title.textContent = 'byGOG\'u yükle';
-    const sub = document.createElement('div');
-    sub.className = 'install-sub';
-    sub.textContent = 'Hızlı erişim için ana ekrana ekle';
-    textWrap.appendChild(title);
-    textWrap.appendChild(sub);
-
-    const hint = document.createElement('div');
-    hint.className = 'install-hint';
-    hint.textContent = '';
-
-    const logoBtn = document.createElement('button');
-    logoBtn.type = 'button';
-    logoBtn.className = 'install-logo-btn';
-    logoBtn.setAttribute('aria-label', 'Ana ekrana ekle');
-    const logoImg = document.createElement('img');
-    logoImg.src = 'icon/bygog-lab-icon.svg';
-    logoImg.alt = '';
-    logoImg.width = 56; logoImg.height = 56;
-    logoImg.className = 'install-logo-img';
-    logoBtn.appendChild(logoImg);
-    const closeBtn = document.createElement('button');
-    closeBtn.type = 'button';
-    closeBtn.className = 'install-close';
-    closeBtn.setAttribute('aria-label', 'Kapat');
-    closeBtn.innerHTML = '×';
-
-    card.appendChild(icon);
-    card.appendChild(textWrap);
-    card.appendChild(hint);
-    card.appendChild(logoBtn);
-    card.appendChild(closeBtn);
-    document.body.appendChild(card);
-
-    // Handlers
-    logoBtn.addEventListener('click', async () => {
-      if (state.deferred) {
-        try {
-          await state.deferred.prompt();
-          const choice = await state.deferred.userChoice;
-          state.deferred = null;
-          if (choice && choice.outcome === 'accepted') hide();
-        } catch { }
-      } else {
-        alert('Uygulamayı ana ekrana eklemek için tarayıcınızın menüsünden "Ana Ekrana Ekle" seçeneğini kullanın.');
-      }
-    });
-    closeBtn.addEventListener('click', () => { snooze(); hide(); });
-
-    // State updater (platform-aware)
-    const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent);
-    const isAndroid = () => /android/i.test(navigator.userAgent);
-    const updateState = () => {
-      const hasPrompt = !!state.deferred;
-      if (hasPrompt) logoBtn.classList.add('ready'); else logoBtn.classList.remove('ready');
-      // Hint when iOS (or no prompt available)
-      if (isIOS()) {
-        hint.style.display = '';
-        hint.textContent = 'Safari: Paylaş menüsü → Ana Ekrana Ekle';
-      } else if (!hasPrompt) {
-        hint.style.display = '';
-        hint.textContent = isAndroid() ? 'Chrome menüsü → Ana ekrana ekle' : 'Tarayıcı menüsü → Ana ekrana ekle';
-      } else {
-        hint.style.display = 'none';
-      }
-    };
-    card._updateInstallState = updateState;
-    updateState();
-    return card;
-  };
-
-  let cardEl = null;
-  let miniEl = null;
-  const createMini = () => {
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'install-badge';
-    btn.setAttribute('aria-label', 'Ana ekrana ekle');
-    // Minimal plus icon (SVG)
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('viewBox', '0 0 24 24');
-    svg.setAttribute('aria-hidden', 'true');
-    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    const v = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    v.setAttribute('d', 'M12 5v14');
-    v.setAttribute('stroke', 'currentColor');
-    v.setAttribute('stroke-width', '2.2');
-    v.setAttribute('stroke-linecap', 'round');
-    v.setAttribute('fill', 'none');
-    const h = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    h.setAttribute('d', 'M5 12h14');
-    h.setAttribute('stroke', 'currentColor');
-    h.setAttribute('stroke-width', '2.2');
-    h.setAttribute('stroke-linecap', 'round');
-    h.setAttribute('fill', 'none');
-    g.appendChild(v); g.appendChild(h); svg.appendChild(g);
-    btn.appendChild(svg);
-    btn.addEventListener('click', async () => {
-      if (state.deferred) {
-        try {
-          await state.deferred.prompt();
-          const choice = await state.deferred.userChoice;
-          state.deferred = null;
-          if (choice && choice.outcome === 'accepted') hide();
-        } catch { }
-      } else {
-        alert('Uygulamayı ana ekrana eklemek için tarayıcınızın menüsünden "Ana Ekrana Ekle" seçeneğini kullanın.');
-      }
-    });
-    const host = document.querySelector('.author-fab');
-    if (host) host.appendChild(btn); else document.body.appendChild(btn);
-    return btn;
-  };
-  const show = () => { if (!cardEl) cardEl = createCard(); cardEl.style.display = ''; };
-  const showMini = () => { if (!miniEl) miniEl = createMini(); miniEl.style.display = ''; };
-  const hide = () => { if (cardEl) cardEl.style.display = 'none'; if (miniEl) miniEl.style.display = 'none'; };
-
-  if (isStandalone() || !isAllowedPath() || isSnoozed()) { hide(); return; }
-
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    state.deferred = e;
-    // Prefer mini icon near GitHub FAB
-    showMini();
-    try { if (miniEl) miniEl.classList.add('ready'); } catch { }
-    try { if (cardEl && cardEl._updateInstallState) cardEl._updateInstallState(); } catch { }
-  });
-  window.addEventListener('appinstalled', () => { state.installed = true; hide(); });
-  // Time + scroll gated fallback
-  let timeOk = false, scrollOk = false;
-  const maybeShow = () => { if (!state.deferred && !isStandalone() && !isSnoozed() && isAllowedPath() && timeOk && scrollOk) showMini(); };
-  setTimeout(() => { timeOk = true; maybeShow(); }, cfg.delayMs);
-  const onScroll = () => { if (window.scrollY >= cfg.minScroll) { scrollOk = true; maybeShow(); window.removeEventListener('scroll', onScroll); } };
-  window.addEventListener('scroll', onScroll, { passive: true });
-}
+// PWA install UI imported from ./lib/pwa-install.js

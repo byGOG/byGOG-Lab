@@ -50,7 +50,16 @@ function setInfoFlyoutContentFromTip(tip) {
     closeBtn.className = 'info-flyout-close';
     closeBtn.setAttribute('aria-label', 'Kapat');
     closeBtn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
-    closeBtn.addEventListener('click', hideInfoFlyout);
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      // Close li.info-open states too
+      document.querySelectorAll('li.info-open').forEach(li => {
+        li.classList.remove('info-open');
+        const btn = li.querySelector('button.info-button[aria-expanded="true"]');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+      hideInfoFlyout();
+    });
     fly.appendChild(closeBtn);
     
     // Create content wrapper
@@ -87,10 +96,16 @@ function hideInfoFlyout() {
 }
 
 function enhanceInfoTooltips() {
-  const container = document.getElementById('links-container');
-  if (!container) return;
+  // Enhance both main container and favorites sidebar
+  const containers = [
+    document.getElementById('links-container'),
+    document.getElementById('favorites-sidebar')
+  ].filter(Boolean);
+  
+  if (!containers.length) return;
 
-  const anchors = container.querySelectorAll('.category-card li a');
+  containers.forEach(container => {
+    const anchors = container.querySelectorAll('.category-card li a');
   anchors.forEach(a => {
     if (a.querySelector('button.info-button')) return; // already enhanced
     const tip = a.querySelector('span.custom-tooltip');
@@ -160,17 +175,21 @@ function enhanceInfoTooltips() {
   });
   // Ensure no native hover tooltips remain on created nodes
   stripNativeTitles(container);
+  }); // end containers.forEach
 }
 
 function setupInfoDelegation() {
   const container = document.getElementById('links-container');
-  if (!container || container.dataset.infoBtnDelegation === 'on') return;
+  const favSidebar = document.getElementById('favorites-sidebar');
+  if (!container) return;
+  if (container.dataset.infoBtnDelegation === 'on') return;
   container.dataset.infoBtnDelegation = 'on';
   ensureInfoFlyout();
 
   const closeAll = () => {
     try {
-      container.querySelectorAll('li.info-open').forEach(li => {
+      // Close in both containers
+      document.querySelectorAll('li.info-open').forEach(li => {
         li.classList.remove('info-open');
         const btn = li.querySelector('button.info-button[aria-expanded="true"]');
         if (btn) btn.setAttribute('aria-expanded','false');
@@ -179,46 +198,66 @@ function setupInfoDelegation() {
     hideInfoFlyout();
   };
 
+  // Direct click on overlay closes flyout
+  const overlay = ensureInfoOverlay();
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeAll();
+  });
+
   document.addEventListener('click', (e) => {
     try {
       const fly = document.getElementById('global-info-flyout');
-      const overlay = document.getElementById('info-overlay');
-      const inContainer = container.contains(e.target);
+      const ovl = document.getElementById('info-overlay');
       const inFlyout = !!(fly && fly.contains(e.target));
-      const inOverlay = !!(overlay && overlay.contains(e.target));
-      // If click is on overlay background (but not inside flyout), close.
-      if (!inContainer && inOverlay && !inFlyout) { closeAll(); return; }
-      if (!inContainer && !inFlyout) closeAll();
+      const inOverlay = !!(ovl && ovl.contains(e.target));
+      const isInfoBtn = !!(e.target.closest && e.target.closest('button.info-button'));
+      const isFlyoutClose = !!(e.target.closest && e.target.closest('.info-flyout-close'));
+      // Don't interfere with info button clicks or close button
+      if (isInfoBtn || isFlyoutClose) return;
+      // Don't close if clicking inside flyout content
+      if (inFlyout) return;
+      // Close if overlay is showing (info is open) and clicking outside flyout
+      if (inOverlay || document.querySelector('li.info-open')) {
+        closeAll();
+      }
     } catch {}
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeAll();
   });
 
-  container.addEventListener('click', (ev) => {
-    const target = ev.target;
-    if (!target || !target.closest) return;
-    const btn = target.closest('button.info-button');
-    if (!btn || !container.contains(btn)) return;
-    ev.preventDefault();
-    ev.stopPropagation();
-    const li = btn.closest('li');
-    if (!li) return;
-    const wasOpen = li.classList.contains('info-open');
-    closeAll();
-    if (!wasOpen) {
-      // Ensure tooltip image is loaded when opening
-      let tip;
-      try {
-        tip = btn.nextElementSibling;
-        const img = tip && tip.querySelector && tip.querySelector('img[data-src]');
-        if (img) { img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); }
-      } catch {}
-      li.classList.add('info-open');
-      btn.setAttribute('aria-expanded','true');
-      try { showInfoFlyout(tip); } catch {}
-    }
-  });
+  // Info button click handler for a container
+  const setupClickHandler = (cont) => {
+    if (!cont) return;
+    cont.addEventListener('click', (ev) => {
+      const target = ev.target;
+      if (!target || !target.closest) return;
+      const btn = target.closest('button.info-button');
+      if (!btn || !cont.contains(btn)) return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      const li = btn.closest('li');
+      if (!li) return;
+      const wasOpen = li.classList.contains('info-open');
+      closeAll();
+      if (!wasOpen) {
+        // Ensure tooltip image is loaded when opening
+        let tip;
+        try {
+          tip = btn.nextElementSibling;
+          const img = tip && tip.querySelector && tip.querySelector('img[data-src]');
+          if (img) { img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); }
+        } catch {}
+        li.classList.add('info-open');
+        btn.setAttribute('aria-expanded','true');
+        try { showInfoFlyout(tip); } catch {}
+      }
+    });
+  };
+  
+  // Setup for both containers
+  setupClickHandler(container);
+  setupClickHandler(favSidebar);
 
   // Preload info tooltip image when hovering the name text
   try {
@@ -239,16 +278,23 @@ function setupInfoDelegation() {
 
 function waitAndEnhance() {
   const container = document.getElementById('links-container');
+  const favSidebar = document.getElementById('favorites-sidebar');
   if (!container) { document.addEventListener('DOMContentLoaded', waitAndEnhance, { once: true }); return; }
   // Enhance now and also on subsequent DOM changes
   enhanceInfoTooltips();
-  stripNativeTitles(container);
+  if (container) stripNativeTitles(container);
+  if (favSidebar) stripNativeTitles(favSidebar);
   try {
     const mo = new MutationObserver(() => {
       enhanceInfoTooltips();
-      stripNativeTitles(container);
+      if (container) stripNativeTitles(container);
+      if (favSidebar) stripNativeTitles(favSidebar);
     });
     mo.observe(container, { childList: true, subtree: true });
+    // Also observe favorites sidebar
+    if (favSidebar) {
+      mo.observe(favSidebar, { childList: true, subtree: true });
+    }
   } catch {}
   setupInfoDelegation();
 }

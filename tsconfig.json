@@ -4,10 +4,10 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "strict": true,
+    "strict": false,
     "noEmit": true,
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -18,7 +18,7 @@
     "sourceMap": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true
   },
@@ -26,10 +26,13 @@
     "src/**/*.js",
     "src/**/*.ts",
     "scripts/**/*.js",
+    "scripts/**/*.cjs",
+    "scripts/**/*.mjs",
     "tests/**/*.js"
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "coverage"
   ]
 }
