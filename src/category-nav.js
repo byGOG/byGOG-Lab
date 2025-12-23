@@ -150,6 +150,11 @@ export function initCategoryNav() {
     };
     const scrollToSection = (entry, opts = {}) => {
         if (!entry || !entry.h2) return false;
+        try {
+            document.dispatchEvent(new CustomEvent("category-nav-select", {
+                detail: { card: entry.card || null, slug: entry.slug || "", id: entry.id || "" }
+            }));
+        } catch { }
         const off = navOffset();
         const top = entry.h2.getBoundingClientRect().top + window.scrollY - off;
         clickScrolling = true;

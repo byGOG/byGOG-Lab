@@ -691,6 +691,35 @@ function areAllCategoriesLoaded() {
   return lazyState.entries.every(entry => entry.loaded);
 }
 
+function getNavCardFromDetail(detail) {
+  if (!detail) return null;
+  if (detail.card && detail.card.classList && detail.card.classList.contains("category-card")) return detail.card;
+  const slug = detail.slug ? String(detail.slug) : "";
+  if (slug) {
+    const card = document.querySelector(`.category-card[data-cat-slug="${slug}"]`);
+    if (card) return card;
+  }
+  const id = detail.id ? String(detail.id) : "";
+  if (id) return document.querySelector(`.category-card[data-cat-id="${id}"]`);
+  return null;
+}
+
+function ensureLazyCategoryLoaded(card) {
+  if (!lazyState || !card || typeof lazyState.loadCategory !== "function") return;
+  const idx = Number(card.dataset.categoryIndex || "-1");
+  if (!Number.isFinite(idx) || idx < 0) return;
+  const entry = lazyState.entries && lazyState.entries[idx];
+  if (!entry) return;
+  lazyState.loadCategory(entry);
+}
+
+document.addEventListener("category-nav-select", (ev) => {
+  try {
+    const card = getNavCardFromDetail(ev.detail);
+    ensureLazyCategoryLoaded(card);
+  } catch { }
+});
+
 // Copy utilities imported from ./lib/copy-utils.js
 
 // Search engine utilities imported from ./lib/search-engine.js
