@@ -787,6 +787,21 @@
               ]
             },
             {
+              "url": "https://www.eset.com/tr/",
+              "name": "ESET",
+              "recommended": false,
+              "description": "ESET, bilgisayar ve mobil cihazlar\u0131 vir\u00FCs, zararl\u0131 yaz\u0131l\u0131m (malware), fidye yaz\u0131l\u0131m\u0131 (ransomware), phishing gibi siber tehditlerden koruyan bir siber g\u00FCvenlik yaz\u0131l\u0131m\u0131d\u0131r.",
+              "icon": "icon/fallback.svg",
+              "alt": "ESET",
+              "tags": [
+                "eset",
+                "antivirus",
+                "g\u00FCvenlik",
+                "gizlilik",
+                "nod32"
+              ]
+            },
+            {
               "url": "https://www.malwarebytes.com/",
               "name": "Malwarebytes",
               "recommended": false,
@@ -859,6 +874,20 @@
                 "sexy",
                 "g\u00FCvenlik",
                 "gizlilik"
+              ]
+            },
+            {
+              "url": "https://www.privacyguides.org/",
+              "name": "Privacy Guides",
+              "recommended": false,
+              "description": "Gizlilik odakl\u0131 yaz\u0131l\u0131m ve servis \u00F6nerileri sunan rehber platformu.",
+              "icon": "icon/fallback.svg",
+              "alt": "Privacy Guides",
+              "tags": [
+                "privacy",
+                "guides",
+                "gizlilik",
+                "g\u00FCvenlik"
               ]
             },
             {
@@ -1436,6 +1465,20 @@
               ]
             },
             {
+              "url": "https://mullvad.net/tr/browser",
+              "name": "Mullvad Browser",
+              "recommended": false,
+              "description": "Gizlilik odakl\u0131, izleme kar\u015F\u0131t\u0131 web taray\u0131c\u0131.",
+              "icon": "icon/fallback.svg",
+              "alt": "Mullvad Browser",
+              "tags": [
+                "mullvad",
+                "browser",
+                "taray\u0131c\u0131",
+                "gizlilik"
+              ]
+            },
+            {
               "url": "https://zen-browser.app/",
               "name": "Zen Browser",
               "recommended": false,
@@ -1738,6 +1781,38 @@
               "alt": "CRACKSurl",
               "tags": [
                 "cracksurl"
+              ]
+            },
+            {
+              "url": "https://t.me/esetkeyz_bot",
+              "name": "ESET Keyz Bot",
+              "recommended": false,
+              "description": "ESET lisans anahtarlar\u0131 payla\u015Fan Telegram botu.",
+              "icon": "icon/telegram.svg",
+              "alt": "ESET Keyz Bot",
+              "tags": [
+                "eset",
+                "nod32",
+                "key",
+                "anahtar",
+                "telegram",
+                "bot"
+              ]
+            },
+            {
+              "url": "https://t.me/esetnodkeys",
+              "name": "ESET NOD Keys",
+              "recommended": false,
+              "description": "ESET NOD32 anahtar payla\u015F\u0131m Telegram kanal\u0131.",
+              "icon": "icon/telegram.svg",
+              "alt": "ESET NOD Keys",
+              "tags": [
+                "eset",
+                "nod32",
+                "key",
+                "anahtar",
+                "telegram",
+                "kanal"
               ]
             }
           ]
@@ -2647,6 +2722,21 @@
               "copyText": "winget install XP8JNQFBQH6PVF",
               "tags": [
                 "perplexity"
+              ]
+            },
+            {
+              "url": "https://lmarena.ai/tr",
+              "name": "LMArena",
+              "recommended": false,
+              "description": "Yapay zek\u00E2 modellerini k\u0131yaslamak i\u00E7in arena ve liderlik tablosu.",
+              "icon": "icon/fallback.svg",
+              "alt": "LMArena",
+              "tags": [
+                "lmarena",
+                "ai",
+                "yapay zeka",
+                "k\u0131yaslama",
+                "leaderboard"
               ]
             }
           ]

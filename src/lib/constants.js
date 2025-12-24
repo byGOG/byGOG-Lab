@@ -47,7 +47,8 @@ export const DEFAULT_FAVORITES = [
   "Ninite",
   "Winutil",
   "PowerShell",
-  "FMHY"
+  "FMHY",
+  "Privacy Guides"
 ];
 
 export default {

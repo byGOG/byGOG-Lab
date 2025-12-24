@@ -12,7 +12,8 @@ const DEFAULT_FAVORITES = [
   "Ninite",
   "Winutil",
   "PowerShell",
-  "FMHY"
+  "FMHY",
+  "Privacy Guides"
 ];
 
 let favorites = new Set();
