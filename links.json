@@ -2333,7 +2333,7 @@
               "name": "DiziBox",
               "recommended": false,
               "description": "\u00C7evrim i\u00E7i dizi ve film izleme platformu.",
-              "icon": "icon/dizibox.svg",
+              "icon": "icon/fallback.svg",
               "alt": "DiziBox",
               "tags": [
                 "dizibox",
