@@ -7,7 +7,14 @@ const fs = require('fs');
 const path = require('path');
 
 const exts = new Set(['.json', '.js', '.html', '.css', '.md']);
-const ignoreDirs = new Set(['.git', 'node_modules', 'dist-assets']);
+const ignoreDirs = new Set([
+  '.git',
+  'node_modules',
+  'dist-assets',
+  'playwright-report',
+  'coverage',
+  'test-results'
+]);
 
 const patternSources = [
   '\\uFFFD',      // replacement char
