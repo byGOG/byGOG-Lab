@@ -17,8 +17,8 @@ jobs:
           node-version: '20'
 
       - name: Validate links.json structure
-        run: node scripts/validate.js
+        run: node scripts/validate.cjs
 
       - name: Check encoding/mojibake across files
-        run: node scripts/check-encoding.js
+        run: node scripts/check-encoding.cjs
 
