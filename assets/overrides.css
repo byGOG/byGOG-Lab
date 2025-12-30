@@ -425,17 +425,18 @@ li{min-width:0}
   .container{padding:12px 12px 56px}
   .logo{max-height:64px}
   /* Slightly compact link items on very small screens */
-  ul{gap:10px}
-  a{padding:10px 12px}
+  ul{gap:8px}
+  a{padding:8px 10px}
 }
 
 /* Ensure cards always fit on narrow viewports */
 @media (max-width:480px){
   ul{grid-template-columns:1fr}
   li{min-width:0}
-  .icon-wrapper{margin-right:12px}
-  .site-icon{width:24px;height:24px}
-  .category-card a{font-size:14px}
+  .icon-wrapper{margin-right:8px}
+  .site-icon{width:20px;height:20px}
+  .category-card a{font-size:13px}
+  a{padding:8px 10px}
   /* Avoid off-screen overlays on tiny viewports */
   .custom-tooltip{display:none}
 }
@@ -525,9 +526,9 @@ li{min-width:0}
 .link-text .marquee-gap{ display: inline-block; }
 
 @media (max-width:360px){
-  .site-icon{width:22px;height:22px}
-  .category-card a{font-size:13px}
-  a{padding:9px 10px}
+  .site-icon{width:18px;height:18px}
+  .category-card a{font-size:12px}
+  a{padding:7px 8px}
 }
 
 /* Final overrides: mobile ergonomics (≤768px) */
@@ -540,8 +541,8 @@ li{min-width:0}
   /* Tighter typographic scale on mobile */
   h2{font-size:20px;margin-top:24px;padding-bottom:6px}
   h3{font-size:17px;margin-top:16px;padding-bottom:4px}
-  ul{gap:8px}
-  a{padding:9px 12px}
+  ul{gap:6px}
+  a{padding:8px 10px}
   .site-header{margin-bottom:12px!important}
 }
 @media (max-width:720px){
@@ -1405,9 +1406,9 @@ body.modal-open{ overflow: hidden; }
 /* Mobile: keep action buttons visible in-flow */
 @media (max-width: 768px) {
   .category-card a {
-    padding-left: 12px !important;
-    padding-right: 12px !important;
-    gap: 10px;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    gap: 6px;
   }
 
   .text-col {
@@ -1424,7 +1425,7 @@ body.modal-open{ overflow: hidden; }
   .has-info a,
   .has-copy a,
   .has-copy.has-info a {
-    padding-right: 12px !important;
+    padding-right: 10px !important;
   }
 
   .fav-btn,
@@ -1440,11 +1441,13 @@ body.modal-open{ overflow: hidden; }
   .fav-btn { order: 0; }
   .icon-wrapper { order: 1; }
   .text-col { order: 2; min-width: 0; }
-  .info-button { order: 3; }
-  .copy-button { order: 4; }
+  .copy-button { order: 3; }
+  .info-button { order: 4; }
 
   .has-copy .copy-button { margin-left: auto !important; }
   .has-info .info-button { margin-left: auto !important; }
+  .has-copy.has-info .copy-button { margin-left: 0 !important; }
+  .has-copy.has-info .info-button { margin-left: auto !important; }
 }
 
 /* Lazy-load placeholders */
@@ -1619,33 +1622,37 @@ body.modal-open{ overflow: hidden; }
   }
   
   .category-card a {
-    font-size: 13px !important;
-    padding: 10px 12px !important;
+    font-size: 12px !important;
+    padding: 6px 8px !important;
+  }
+
+  .link-text {
+    line-height: 1.2;
   }
   
   .icon-wrapper {
-    margin-right: 10px !important;
+    margin-right: 8px !important;
   }
   
   .site-icon {
-    width: 22px !important;
-    height: 22px !important;
+    width: 18px !important;
+    height: 18px !important;
   }
   
   /* Butonlar daha kompakt */
   .copy-button,
   .info-button,
   .fav-btn {
-    width: 28px !important;
-    height: 28px !important;
-    min-width: 28px !important;
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
   }
   
   .copy-button svg,
   .info-button svg,
   .fav-btn svg {
-    width: 14px !important;
-    height: 14px !important;
+    width: 11px !important;
+    height: 11px !important;
   }
   
   /* Favoriler bölümü */
@@ -1750,8 +1757,8 @@ body.modal-open{ overflow: hidden; }
   }
   
   .category-card a {
-    font-size: 12px !important;
-    padding: 8px 10px !important;
+    font-size: 11px !important;
+    padding: 6px 7px !important;
   }
   
   .sc-embed {
@@ -1802,14 +1809,14 @@ body.modal-open{ overflow: hidden; }
   
   /* Link kartları için minimum dokunma alanı */
   .category-card a {
-    min-height: 44px;
+    min-height: 32px;
   }
   
   .copy-button,
   .info-button,
   .fav-btn {
-    min-width: 44px;
-    min-height: 44px;
+    min-width: 32px;
+    min-height: 32px;
   }
 }
 
