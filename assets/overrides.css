@@ -1660,15 +1660,27 @@ body.modal-open {
   display: block;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .sc-cover-btn {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
   }
 
   .sc-cover-icon img {
-    width: 56px;
-    height: 56px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 360px) {
+  .sc-cover-btn {
+    width: 72px;
+    height: 72px;
+  }
+
+  .sc-cover-icon img {
+    width: 40px;
+    height: 40px;
   }
 }
 
@@ -2225,16 +2237,36 @@ body.modal-open {
   .copy-button,
   .info-button,
   .fav-btn {
-    width: 22px !important;
-    height: 22px !important;
-    min-width: 22px !important;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    background: rgba(20, 26, 34, 0.85);
+    border: 1px solid rgba(120, 150, 190, 0.5);
   }
 
   .copy-button svg,
   .info-button svg,
   .fav-btn svg {
-    width: 11px !important;
-    height: 11px !important;
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .fav-btn svg {
+    stroke-width: 2.4;
+  }
+
+  .fav-btn {
+    color: rgba(163, 191, 250, 0.95);
+  }
+
+  .fav-btn.active {
+    background: rgba(250, 204, 21, 0.18);
+    border-color: rgba(250, 204, 21, 0.55);
+  }
+
+  .fav-btn.active svg {
+    fill: rgba(250, 204, 21, 0.85);
+    stroke: rgba(250, 204, 21, 0.85);
   }
 
   /* Favoriler bölümü */
