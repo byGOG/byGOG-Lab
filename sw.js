@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v0.2.0-62ab7c3f';
+const CACHE_VERSION = 'v0.2.0-5fc69544';
 const CACHE_NAME = `bygog-lab-cache-${CACHE_VERSION}`;
 const OFFLINE_URL = 'index.html';
 
@@ -8,8 +8,8 @@ const urlsToCache = [
   'index.html',
   'manifest.json',
   'dist/styles.aa97ef9f.css',
-  'dist/fab.84f9700d.css',
-  'dist/renderLinks.80a74f91.js',
+  'dist/fab.aab982f1.css',
+  'dist/renderLinks.8f1c02e0.js',
   'data/links-index.json',
   'icon/bygog-lab-icon.svg',
   'icon/bygog-lab-logo.svg'
@@ -215,6 +215,7 @@ self.addEventListener('fetch', event => {
     const isHashed = sameOrigin && /\.[0-9a-f]{8,}\.(?:css|js)$/.test(url.pathname);
     const isImage = /\.(?:png|jpg|jpeg|webp|svg|gif|ico)$/i.test(url.pathname);
     const isFont = /\.(?:woff2?|ttf|eot|otf)$/i.test(url.pathname);
+    const isJson = sameOrigin && /\.json$/i.test(url.pathname);
 
     // Network-first for HTML navigations (for fresh content)
     if (isHTML) {
@@ -233,6 +234,25 @@ self.addEventListener('fetch', event => {
         const cached = await cache.match(req) || await cache.match(OFFLINE_URL);
         return cached || createOfflineResponse();
       }
+    }
+
+    // Stale-while-revalidate for JSON data files
+    if (isJson) {
+      const cached = await cache.match(req);
+      const fetchPromise = fetch(req, { cache: 'no-store' }).then(net => {
+        if (net && net.status === 200) {
+          cache.put(req, net.clone()).catch(() => {});
+        }
+        return net;
+      }).catch(() => null);
+
+      if (cached) {
+        event.waitUntil(fetchPromise);
+        return cached;
+      }
+
+      const net = await fetchPromise;
+      return net || createOfflineResponse();
     }
 
     // Cache-first for hashed/immutable assets (forever cacheable)

@@ -13,21 +13,31 @@ function foldTr(value) {
   }
 }
 
-function enhanceLink(link) {
+function enhanceLink(link, context = {}) {
   const parts = [];
   if (link && link.name) parts.push(String(link.name));
   if (Array.isArray(link && link.tags) && link.tags.length) parts.push(link.tags.join(' '));
+  if (context.categoryTitle) parts.push(String(context.categoryTitle));
+  if (context.subTitle) parts.push(String(context.subTitle));
+  const isRecommended = !!(link && link.recommended);
+  parts.push(isRecommended ? 'onerilen onerilenler' : 'diger digerleri');
   const folded = foldTr(parts.join(' '));
   return { ...link, folded };
 }
 
 function enhanceCategory(cat) {
   const next = { ...cat };
-  if (Array.isArray(cat.links)) next.links = cat.links.map(enhanceLink);
+  const categoryTitle = cat && cat.title ? String(cat.title) : '';
+  if (Array.isArray(cat.links)) {
+    next.links = cat.links.map(link => enhanceLink(link, { categoryTitle }));
+  }
   if (Array.isArray(cat.subcategories)) {
     next.subcategories = cat.subcategories.map(sub => {
       const subNext = { ...sub };
-      if (Array.isArray(sub.links)) subNext.links = sub.links.map(enhanceLink);
+      const subTitle = sub && sub.title ? String(sub.title) : '';
+      if (Array.isArray(sub.links)) {
+        subNext.links = sub.links.map(link => enhanceLink(link, { categoryTitle, subTitle }));
+      }
       return subNext;
     });
   }

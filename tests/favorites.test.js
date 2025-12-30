@@ -4,6 +4,27 @@
 
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 
+vi.mock('../src/lib/logger.js', () => {
+  const noop = vi.fn();
+  const getStoredErrors = vi.fn(() => []);
+  return {
+    debug: noop,
+    info: noop,
+    warn: noop,
+    error: noop,
+    getStoredErrors,
+    clearStoredErrors: noop,
+    default: {
+      debug: noop,
+      info: noop,
+      warn: noop,
+      error: noop,
+      getStoredErrors,
+      clearStoredErrors: noop
+    }
+  };
+});
+
 // localStorage mock
 const localStorageMock = (() => {
   let store = {};

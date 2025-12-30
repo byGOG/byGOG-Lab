@@ -1189,10 +1189,22 @@ document.addEventListener("DOMContentLoaded", async () => {
         } catch { }
       };
 
-      navigator.serviceWorker.register("sw.js").then(
+      navigator.serviceWorker.register("sw.js", { scope: "./", updateViaCache: "none" }).then(
         reg => {
           lastReg = reg;
           console.log("ServiceWorker registration successful with scope:", reg.scope);
+          try {
+            setInterval(() => {
+              reg.update().catch(() => {});
+            }, 60 * 60 * 1000);
+          } catch { }
+          try {
+            if ("periodicSync" in reg) {
+              reg.periodicSync.register("update-content", {
+                minInterval: 24 * 60 * 60 * 1000
+              }).catch(() => {});
+            }
+          } catch { }
           try {
             // If a new worker is found and installed while a controller exists, show banner
             reg.addEventListener('updatefound', () => {
