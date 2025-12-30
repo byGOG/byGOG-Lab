@@ -2417,10 +2417,16 @@ body.modal-open {
   .info-button:active,
   .fav-btn:active,
   .fab:active,
-  .scroll-top-btn:active {
-    transform: scale(0.95);
-    opacity: 0.8;
-  }
+.scroll-top-btn:active {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+/* Hide scroll-to-top button */
+#back-to-top,
+.scroll-top-btn {
+  display: none !important;
+}
 
   /* Link kartları için minimum dokunma alanı */
   .category-card a {

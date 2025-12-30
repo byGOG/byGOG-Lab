@@ -9,19 +9,19 @@
 .author-fab-link {
   display: flex;
   align-items: center;
-  height: 52px;
+  height: 44px;
   width: auto;
-  min-width: 52px;
-  border-radius: 26px;
+  min-width: 44px;
+  border-radius: 22px;
   background: linear-gradient(135deg, rgba(35, 39, 47, 0.95) 0%, rgba(24, 28, 34, 0.98) 100%);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.4),
-    0 4px 16px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  padding: 4px 16px 4px 4px;
+    0 6px 20px rgba(0, 0, 0, 0.35),
+    0 2px 10px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  padding: 4px 12px 4px 4px;
   overflow: hidden;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -41,8 +41,8 @@
 }
 
 .author-fab-icon {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: transparent;
   border: none;
@@ -60,12 +60,12 @@
 }
 
 .author-fab-label {
-  margin-left: 12px;
-  font-size: 16px;
-  font-weight: 800;
+  margin-left: 8px;
+  font-size: 13px;
+  font-weight: 700;
   color: #ffffff;
   white-space: nowrap;
-  letter-spacing: 1px;
+  letter-spacing: 0.6px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block !important;
@@ -125,16 +125,19 @@
   }
   
   .author-fab-link {
-    height: 48px;
-    padding: 4px 14px 4px 4px;
+    height: 38px;
+    min-width: 38px;
+    padding: 4px 2px 4px 0;
+    border-radius: 19px;
   }
   
   .author-fab-icon {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
   
   .author-fab-label {
-    font-size: 14px;
+    margin-left: 4px;
+    font-size: 12px;
   }
 }
