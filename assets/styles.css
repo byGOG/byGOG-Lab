@@ -24,6 +24,7 @@
    Hareket hassasiyeti olan kullanıcılar için animasyonları devre dışı bırak
    ═══════════════════════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -32,7 +33,7 @@
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-    
+
     /* Özel animasyonları da devre dışı bırak */
     .gradient-blob,
     .author-fab-icon,
@@ -1267,35 +1268,37 @@ img[alt=RuckZuck] {
     isolation: isolate;
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  }
-  
-  .nav-item-icon {
+}
+
+.nav-item-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 16px;
     height: 16px;
     flex-shrink: 0;
-  }
-  .nav-item-icon svg {
+}
+
+.nav-item-icon svg {
     width: 100%;
     height: 100%;
     opacity: 0.7;
     transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-  .nav-item:hover .nav-item-icon svg,
-  .nav-item.active .nav-item-icon svg {
+}
+
+.nav-item:hover .nav-item-icon svg,
+.nav-item.active .nav-item-icon svg {
     opacity: 1;
     transform: scale(1.1);
-  }
-  .nav-item-text {
+}
+
+.nav-item-text {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
+}
 
-  /* Grid için eski border stilleri kaldırıldı */
-  }
+/* Grid için eski border stilleri kaldırıldı */
 
 .nav-item::before {
     content: '';
@@ -1321,8 +1324,8 @@ img[alt=RuckZuck] {
     z-index: -2;
 }
 
-  .nav-item:hover,
-  .nav-item:focus-visible {
+.nav-item:hover,
+.nav-item:focus-visible {
     border-color: rgba(128, 156, 214, 0.45);
     color: var(--text);
     transform: translateY(-1px);
@@ -1343,9 +1346,9 @@ img[alt=RuckZuck] {
     outline-offset: 2px;
 }
 
-  .nav-item:active {
-      transform: translateY(-1px) scale(0.995);
-  }
+.nav-item:active {
+    transform: translateY(-1px) scale(0.995);
+}
 
 .nav-item.active {
     border-color: rgba(128, 156, 214, 0.55);
