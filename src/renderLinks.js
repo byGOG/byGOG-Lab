@@ -29,8 +29,7 @@ const DEFAULT_FAVORITES = [
   "Ninite",
   "Winutil",
   "PowerShell",
-  "FMHY",
-  "Privacy Guides"
+  "FMHY"
 ];
 let favorites = new Set();
 let cachedData = null; // Stored for live sidebar updates
@@ -1136,10 +1135,122 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupSearch();
   setupPWAInstallUI();
   document.addEventListener('keydown', ev => {
+    const t = ev.target;
+    const tag = t && t.tagName ? t.tagName.toUpperCase() : "";
+    const inEditable = !!(t && (t.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(tag)));
+
     if (ev.key === 'Escape') {
       closeActiveTooltip();
+      // Help modalı kapat
+      const helpModal = document.getElementById('keyboard-help-modal');
+      if (helpModal) { helpModal.remove(); return; }
+    }
+
+    if (inEditable || ev.ctrlKey || ev.metaKey || ev.altKey) return;
+
+    // f — favoriler sidebar aç/kapat
+    if (ev.key === 'f' || ev.key === 'F') {
+      const sidebar = document.getElementById('favorites-sidebar');
+      if (sidebar) {
+        sidebar.classList.toggle('sidebar-hidden');
+        sidebar.classList.toggle('sidebar-visible');
+      }
+      return;
+    }
+
+    // ? — klavye kısayolları yardım modalı
+    if (ev.key === '?') {
+      const existingModal = document.getElementById('keyboard-help-modal');
+      if (existingModal) { existingModal.remove(); return; }
+
+      const modal = document.createElement('div');
+      modal.id = 'keyboard-help-modal';
+      modal.className = 'keyboard-help-modal';
+      modal.setAttribute('role', 'dialog');
+      modal.setAttribute('aria-modal', 'true');
+      modal.setAttribute('aria-label', 'Klavye kısayolları');
+
+      modal.innerHTML = `
+        <div class="keyboard-help-content">
+          <div class="keyboard-help-header">
+            <span class="keyboard-help-title">Klavye Kısayolları</span>
+            <button type="button" class="update-banner-close" aria-label="Kapat" id="keyboard-help-close">×</button>
+          </div>
+          <table class="keyboard-help-table">
+            <tbody>
+              <tr><td><kbd>/</kbd> veya <kbd>.</kbd></td><td>Aramaya odaklan</td></tr>
+              <tr><td><kbd>Ctrl+K</kbd></td><td>Aramaya odaklan</td></tr>
+              <tr><td><kbd>Esc</kbd></td><td>Aramayı temizle / kapat</td></tr>
+              <tr><td><kbd>Enter</kbd></td><td>İlk sonuca git</td></tr>
+              <tr><td><kbd>←</kbd> / <kbd>→</kbd></td><td>Önceki / sonraki kategori</td></tr>
+              <tr><td><kbd>f</kbd></td><td>Favoriler kenar çubuğu</td></tr>
+              <tr><td><kbd>?</kbd></td><td>Bu yardım ekranı</td></tr>
+            </tbody>
+          </table>
+        </div>`;
+
+      document.body.appendChild(modal);
+      modal.querySelector('#keyboard-help-close')?.addEventListener('click', () => modal.remove());
+      modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+      return;
+    }
+
+    // ← / → — kategori navigasyonu
+    if (ev.key === 'ArrowLeft' || ev.key === 'ArrowRight') {
+      const navBtns = Array.from(document.querySelectorAll('.category-nav button'));
+      if (!navBtns.length) return;
+      const activeIdx = navBtns.findIndex(b => b.classList.contains('active'));
+      const step = ev.key === 'ArrowRight' ? 1 : -1;
+      const next = navBtns[activeIdx + step];
+      if (next) { ev.preventDefault(); next.click(); }
     }
   });
+  // Offline/online status banner
+  (() => {
+    let offlineBanner = null;
+
+    const showOfflineBanner = () => {
+      if (offlineBanner) return;
+      offlineBanner = document.createElement('div');
+      offlineBanner.id = 'offline-banner';
+      offlineBanner.className = 'offline-banner';
+      offlineBanner.setAttribute('role', 'status');
+      offlineBanner.setAttribute('aria-live', 'polite');
+
+      const icon = document.createElement('span');
+      icon.className = 'offline-banner-icon';
+      icon.setAttribute('aria-hidden', 'true');
+      icon.textContent = '📡';
+
+      const msg = document.createElement('span');
+      msg.className = 'offline-banner-text';
+      msg.textContent = 'Çevrimdışısınız — önbellek kullanılıyor';
+
+      const close = document.createElement('button');
+      close.type = 'button';
+      close.className = 'update-banner-close';
+      close.setAttribute('aria-label', 'Kapat');
+      close.innerHTML = '×';
+      close.addEventListener('click', () => { try { offlineBanner.remove(); offlineBanner = null; } catch { } });
+
+      offlineBanner.appendChild(icon);
+      offlineBanner.appendChild(msg);
+      offlineBanner.appendChild(close);
+      document.body.appendChild(offlineBanner);
+    };
+
+    const hideOfflineBanner = () => {
+      if (!offlineBanner) return;
+      try { offlineBanner.remove(); } catch { }
+      offlineBanner = null;
+    };
+
+    window.addEventListener('offline', showOfflineBanner);
+    window.addEventListener('online', hideOfflineBanner);
+
+    if (!navigator.onLine) showOfflineBanner();
+  })();
+
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
       let hadController = !!navigator.serviceWorker.controller;

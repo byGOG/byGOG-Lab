@@ -148,6 +148,20 @@ export function initCategoryNav() {
     const activate = (btn) => {
         buttons.forEach(b => b.classList.toggle('active', b === btn));
     };
+    let clickScrollingTimer = null;
+    const endClickScrolling = (h2ForCorrection) => {
+        // After scroll ends, snap to the element's actual current position
+        // (lazy-loaded category content may have shifted layout during scroll)
+        if (h2ForCorrection) {
+            const off = navOffset();
+            const corrected = h2ForCorrection.getBoundingClientRect().top + window.scrollY - off;
+            if (Math.abs(corrected - window.scrollY) > 8) {
+                window.scrollTo({ top: corrected, behavior: 'instant' });
+            }
+        }
+        clickScrolling = false;
+        clickScrollingTimer = null;
+    };
     const scrollToSection = (entry, opts = {}) => {
         if (!entry || !entry.h2) return false;
         try {
@@ -155,13 +169,30 @@ export function initCategoryNav() {
                 detail: { card: entry.card || null, slug: entry.slug || "", id: entry.id || "" }
             }));
         } catch { }
-        const off = navOffset();
-        const top = entry.h2.getBoundingClientRect().top + window.scrollY - off;
         clickScrolling = true;
-        window.scrollTo({ top, behavior: opts.behavior || 'smooth' });
+        if (clickScrollingTimer) clearTimeout(clickScrollingTimer);
+        const off = navOffset();
+        const behavior = opts.behavior || 'smooth';
+        const top = entry.h2.getBoundingClientRect().top + window.scrollY - off;
+        window.scrollTo({ top, behavior });
         if (entry.btn) activate(entry.btn);
         if (opts.updateHash) setHash(entry.slug, true);
-        setTimeout(() => { clickScrolling = false; }, 800);
+        // After scroll completes, do an instant correction for any layout shift
+        // caused by lazy-loaded category content loading during scroll
+        const h2 = entry.h2;
+        if ('onscrollend' in window) {
+            const onScrollEnd = () => {
+                window.removeEventListener('scrollend', onScrollEnd);
+                endClickScrolling(behavior === 'smooth' ? h2 : null);
+            };
+            window.addEventListener('scrollend', onScrollEnd, { once: true });
+            clickScrollingTimer = setTimeout(() => {
+                window.removeEventListener('scrollend', onScrollEnd);
+                endClickScrolling(behavior === 'smooth' ? h2 : null);
+            }, 3000);
+        } else {
+            clickScrollingTimer = setTimeout(() => endClickScrolling(behavior === 'smooth' ? h2 : null), 2000);
+        }
         return true;
     };
 
@@ -209,6 +240,8 @@ export function initCategoryNav() {
 
     const syncSpacer = () => {
         spacer.style.height = `${nav.getBoundingClientRect().height + 12}px`;
+        // Keep scroll-margin-top in sync with actual nav offset
+        document.documentElement.style.setProperty('--cat-nav-offset', navOffset() + 'px');
     };
     requestAnimationFrame(syncSpacer);
     const onResize = () => syncSpacer();

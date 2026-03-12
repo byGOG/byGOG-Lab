@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -l \"export \" /c/Users/byGOG/byGOG-Lab/src/lib/*.js)",
+      "Bash(npx tsc:*)",
+      "Bash(node_modules/.bin/tsc --noEmit)",
+      "Bash(ls /mnt/)",
+      "Read(//c//**)",
+      "Bash(npm install:*)",
+      "Bash(export PATH=\"/c/Program Files/nodejs:$PATH\")",
+      "Bash(npm --version)",
+      "Bash(npm run:*)",
+      "Bash(npm test:*)",
+      "Bash(grep -n \"#[a-fA-F0-9]\\\\{3,6\\\\}\\\\|rgba\\\\|rgb\\\\|gradient\" \"c:\\\\Users\\\\byGOG\\\\byGOG-Lab\\\\assets\\\\styles.css\")",
+      "Bash(grep -n \"#[a-fA-F0-9]\\\\{3,6\\\\}\\\\|rgba\\\\|rgb\\\\|gradient\" \"c:\\\\Users\\\\byGOG\\\\byGOG-Lab\\\\assets\\\\overrides.css\")",
+      "Bash(grep -vEi \"\\(#[0-9a-f]{3}|#[0-9a-f]{6}|rgba?\\\\\\([0-9 ,.]+\\\\\\)\\)\")",
+      "Bash(grep -E \"rgba\\\\\\([0-9]{1,3},\\\\s*[0-9]{1,3},\\\\s*[0-9]{1,3}\")",
+      "Bash(npx playwright:*)",
+      "Bash(node -e \":*)",
+      "Bash(netstat -ano)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "Bash(cp /tmp/test-all-tabs.js c:/Users/byGOG/byGOG-Lab/test-all-tabs.js)",
+      "Bash(node test-all-tabs.js)"
+    ]
+  }
+}
