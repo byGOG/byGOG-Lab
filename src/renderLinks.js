@@ -350,8 +350,6 @@ function createLinkItem(link) {
     copyButton.dataset.labelLoading = loadingLabel;
     copyButton.dataset.ariaBase = baseAriaLabel;
 
-    a.appendChild(copyButton);
-
     // Direct handler to ensure copy always fires (even if delegation is blocked)
     copyButton.addEventListener('click', async ev => {
       ev.preventDefault();
@@ -394,6 +392,16 @@ function createLinkItem(link) {
         resetState(defaultLabel, null, 'copy', baseAriaLabel);
       }, 2000);
     });
+
+    // Komut kutusu + kopyala butonu yan yana, li'nin altında
+    const cmdRow = document.createElement("div");
+    cmdRow.className = "link-cmd-row";
+    const cmdLine = document.createElement("code");
+    cmdLine.className = "link-cmd";
+    cmdLine.textContent = copyValue;
+    cmdRow.appendChild(cmdLine);
+    cmdRow.appendChild(copyButton);
+    li.appendChild(cmdRow);
   }
 
   return li;

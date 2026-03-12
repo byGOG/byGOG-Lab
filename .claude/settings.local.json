@@ -20,7 +20,10 @@
       "Bash(netstat -ano)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
       "Bash(cp /tmp/test-all-tabs.js c:/Users/byGOG/byGOG-Lab/test-all-tabs.js)",
-      "Bash(node test-all-tabs.js)"
+      "Bash(node test-all-tabs.js)",
+      "Bash(grep -r \"copyText\" /c/Users/byGOG/byGOG-Lab/data/links/*.json)",
+      "Bash(grep -h \"copyText\\\\|name.*Winutil\\\\|christitus\" /c/Users/byGOG/byGOG-Lab/data/links/*.json)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)"
     ]
   }
 }
