@@ -720,6 +720,7 @@ li.has-copy > a {
   align-items: center;
   gap: 6px;
   margin-top: 6px;
+  padding-right: 14px;
 }
 
 .link-cmd {

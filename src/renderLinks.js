@@ -241,14 +241,6 @@ function createLinkItem(link) {
   const titleRow = document.createElement("div");
   titleRow.className = "link-title";
   titleRow.appendChild(text);
-  if (official) {
-    const badge = document.createElement("span");
-    badge.className = "official-badge";
-    badge.setAttribute("aria-label", "Resmi kaynak");
-    badge.setAttribute("title", "Resmi kaynak");
-    badge.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2l7 3v6c0 4.5-3 8.1-7 9-4-0.9-7-4.5-7-9V5l7-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path><path d="M8.5 12.5l2.5 2.5 4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="sr-only">Resmi kaynak</span>';
-    titleRow.appendChild(badge);
-  }
   textCol.appendChild(titleRow);
 
   a.appendChild(textCol);
