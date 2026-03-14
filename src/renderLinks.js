@@ -1,26 +1,41 @@
-import { initBackToTop } from "./back-to-top.js";
-import { initCategoryNav } from "./category-nav.js";
+import { initBackToTop } from './back-to-top.js';
+import { initCategoryNav } from './category-nav.js';
 
 // Import from modular libraries
-import { fetchLinks, isLinksIndex } from "./lib/data-fetcher.js";
-import { closeActiveTooltip, setActiveTooltip, showBackdrop } from "./lib/tooltip.js";
-import { getDomainLabel, getDomainBase, normalizeTag, isSvgIcon, isOfficialLink } from "./lib/domain-utils.js";
-import { getCategoryIcon, applyCategoryColumns, THREE_COL_TITLES } from "./lib/category-icons.js";
-import { resolveCopyValue, setCopyIconOnButton, copyToClipboard, setupCopyDelegation, COPY_ICON_SHAPES } from "./lib/copy-utils.js";
-import { 
-  foldForSearch, 
-  tokenizeFoldedQuery, 
-  createHighlightMeta, 
+import { fetchLinks, isLinksIndex } from './lib/data-fetcher.js';
+import { closeActiveTooltip, setActiveTooltip, showBackdrop } from './lib/tooltip.js';
+import {
+  getDomainLabel,
+  getDomainBase,
+  normalizeTag,
+  isSvgIcon,
+  isOfficialLink
+} from './lib/domain-utils.js';
+import { getCategoryIcon, applyCategoryColumns, THREE_COL_TITLES } from './lib/category-icons.js';
+import {
+  resolveCopyValue,
+  setCopyIconOnButton,
+  copyToClipboard,
+  setupCopyDelegation,
+  COPY_ICON_SHAPES
+} from './lib/copy-utils.js';
+import {
+  foldForSearch,
+  tokenizeFoldedQuery,
+  createHighlightMeta,
   applyHighlight,
   createMatchApplier,
   createWorkerSearchEngine,
   createSyncSearchEngine
-} from "./lib/search-engine.js";
-import { setupPWAInstallUI } from "./lib/pwa-install.js";
-import { DEFAULT_FAVORITES, STORAGE_KEYS } from "./lib/constants.js";
-import { renderSidebar as renderSidebarModule, toggleFavorite as toggleFavoriteModule } from "./favorites-sidebar.js";
-import { initLazyCategories as initLazyCategoriesModule } from "./lazy-loader.js";
-import * as logger from "./lib/logger.js";
+} from './lib/search-engine.js';
+import { setupPWAInstallUI } from './lib/pwa-install.js';
+import { DEFAULT_FAVORITES, STORAGE_KEYS } from './lib/constants.js';
+import {
+  renderSidebar as renderSidebarModule,
+  toggleFavorite as toggleFavoriteModule
+} from './favorites-sidebar.js';
+import { initLazyCategories as initLazyCategoriesModule } from './lazy-loader.js';
+import * as logger from './lib/logger.js';
 
 // Re-export fetchLinks for external use
 export { fetchLinks };
@@ -31,11 +46,15 @@ let cachedData = null; // Stored for live sidebar updates
 let lazyState = null;
 let searchState = null;
 
-function saveFavorites() { localStorage.setItem(FAV_KEY, JSON.stringify([...favorites])); }
+function saveFavorites() {
+  localStorage.setItem(FAV_KEY, JSON.stringify([...favorites]));
+}
 
 (() => {
   let stored = null;
-  try { stored = localStorage.getItem(FAV_KEY); } catch { }
+  try {
+    stored = localStorage.getItem(FAV_KEY);
+  } catch {}
   if (stored !== null) {
     try {
       const parsed = JSON.parse(stored);
@@ -43,16 +62,20 @@ function saveFavorites() { localStorage.setItem(FAV_KEY, JSON.stringify([...favo
         favorites = new Set(parsed);
         return;
       }
-    } catch { }
+    } catch {}
   }
   favorites = new Set(DEFAULT_FAVORITES);
-  try { saveFavorites(); } catch { }
+  try {
+    saveFavorites();
+  } catch {}
 })();
 
 // Sidebar Renderer — delegates to favorites-sidebar.js
 function renderSidebar() {
   renderSidebarModule(cachedData, favorites, createLinkItem, () => {
-    try { initCategoryNav(); } catch { }
+    try {
+      initCategoryNav();
+    } catch {}
   });
 }
 
@@ -65,19 +88,36 @@ function toggleFavorite(name) {
 // Copy and domain utilities imported from ./lib/copy-utils.js and ./lib/domain-utils.js
 
 function createLinkItem(link) {
-  const li = document.createElement("li");
-  const a = document.createElement("a");
+  const li = document.createElement('li');
+  const a = document.createElement('a');
   a.href = link.url;
-  a.target = "_blank";
-  a.rel = "noopener noreferrer";
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
 
-  const stopNav = (el) => {
-    ["click", "mousedown", "mouseup"].forEach(ev => {
-      try { el.addEventListener(ev, e => { e.preventDefault(); e.stopPropagation(); }, { passive: false }); } catch { }
+  const stopNav = el => {
+    ['click', 'mousedown', 'mouseup'].forEach(ev => {
+      try {
+        el.addEventListener(
+          ev,
+          e => {
+            e.preventDefault();
+            e.stopPropagation();
+          },
+          { passive: false }
+        );
+      } catch {}
     });
     // Allow touch to synthesize click on mobile; only stop bubbling.
-    ["touchstart", "touchend"].forEach(ev => {
-      try { el.addEventListener(ev, e => { e.stopPropagation(); }, { passive: true }); } catch { }
+    ['touchstart', 'touchend'].forEach(ev => {
+      try {
+        el.addEventListener(
+          ev,
+          e => {
+            e.stopPropagation();
+          },
+          { passive: true }
+        );
+      } catch {}
     });
   };
 
@@ -96,55 +136,60 @@ function createLinkItem(link) {
   */
 
   if (link.icon) {
-    const wrap = document.createElement("span");
-    wrap.className = "icon-wrapper";
-    const img = document.createElement("img");
+    const wrap = document.createElement('span');
+    wrap.className = 'icon-wrapper';
+    const img = document.createElement('img');
     const svgIcon = isSvgIcon(link.icon);
-    img.loading = svgIcon ? "eager" : "lazy";
-    img.decoding = "async";
+    img.loading = svgIcon ? 'eager' : 'lazy';
+    img.decoding = 'async';
     img.width = 28;
     img.height = 28;
     if (svgIcon) {
       img.src = link.icon;
     } else {
       img.setAttribute('data-src', link.icon);
-      img.src = "icon/fallback.svg";
+      img.src = 'icon/fallback.svg';
     }
     img.onerror = () => {
-      if (img.src && !img.src.endsWith("/icon/fallback.svg") && !img.src.endsWith("icon/fallback.svg")) {
-        img.src = "icon/fallback.svg";
+      if (
+        img.src &&
+        !img.src.endsWith('/icon/fallback.svg') &&
+        !img.src.endsWith('icon/fallback.svg')
+      ) {
+        img.src = 'icon/fallback.svg';
       }
     };
     if (link.alt) img.alt = link.alt;
-    img.className = "site-icon";
+    img.className = 'site-icon';
     wrap.appendChild(img);
     a.appendChild(wrap);
   }
 
-  const textCol = document.createElement("div");
-  textCol.className = "text-col";
+  const textCol = document.createElement('div');
+  textCol.className = 'text-col';
 
-  const text = document.createElement("span");
-  text.className = "link-text";
+  const text = document.createElement('span');
+  text.className = 'link-text';
   text.textContent = link.name;
-  li.dataset.nameOriginal = link.name || "";
+  li.dataset.nameOriginal = link.name || '';
   const domainLabel = getDomainLabel(link.url);
   const official = isOfficialLink(link, domainLabel);
-  const titleRow = document.createElement("div");
-  titleRow.className = "link-title";
+  const titleRow = document.createElement('div');
+  titleRow.className = 'link-title';
   titleRow.appendChild(text);
   textCol.appendChild(titleRow);
 
   a.appendChild(textCol);
 
   // Favorites Button
-  const favBtn = document.createElement("button");
+  const favBtn = document.createElement('button');
   const isFav = favorites.has(link.name);
-  favBtn.className = "fav-btn" + (isFav ? " active" : "");
+  favBtn.className = 'fav-btn' + (isFav ? ' active' : '');
   favBtn.dataset.name = link.name; // For mass update
-  favBtn.title = "Favorilere Ekle/Çıkar";
-  favBtn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
-  favBtn.onclick = (e) => {
+  favBtn.title = 'Favorilere Ekle/Çıkar';
+  favBtn.innerHTML =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+  favBtn.onclick = e => {
     e.preventDefault();
     e.stopPropagation();
     toggleFavorite(link.name);
@@ -154,18 +199,20 @@ function createLinkItem(link) {
 
   // Create custom-tooltip for info-tooltips.js to enhance
   if (link.description) {
-    const tip = document.createElement("span");
-    tip.className = "custom-tooltip";
+    const tip = document.createElement('span');
+    tip.className = 'custom-tooltip';
 
     // Icon (if available)
     if (link.icon) {
-      const tipImg = document.createElement("img");
-      tipImg.loading = "lazy";
+      const tipImg = document.createElement('img');
+      tipImg.loading = 'lazy';
       tipImg.width = 24;
       tipImg.height = 24;
-      tipImg.setAttribute("data-src", link.icon);
-      tipImg.className = "tip-icon";
-      tipImg.onerror = () => { tipImg.src = "icon/fallback.svg"; };
+      tipImg.setAttribute('data-src', link.icon);
+      tipImg.className = 'tip-icon';
+      tipImg.onerror = () => {
+        tipImg.src = 'icon/fallback.svg';
+      };
       tip.appendChild(tipImg);
     }
 
@@ -177,54 +224,57 @@ function createLinkItem(link) {
   try {
     const parts = [];
     if (link.name) parts.push(link.name);
-    if (Array.isArray(link.tags) && link.tags.length) parts.push(link.tags.join(" "));
-    li.dataset.search = parts.join(" ").toLocaleLowerCase("tr");
-    try { if (link.folded) li.dataset.folded = String(link.folded); } catch { }
+    if (Array.isArray(link.tags) && link.tags.length) parts.push(link.tags.join(' '));
+    li.dataset.search = parts.join(' ').toLocaleLowerCase('tr');
+    try {
+      if (link.folded) li.dataset.folded = String(link.folded);
+    } catch {}
     if (link.description) li.dataset.descOriginal = link.description;
-  } catch { }
+  } catch {}
 
   li.appendChild(a);
 
   const copyValue = resolveCopyValue(link);
 
   if (copyValue) {
-    li.classList.add("has-copy");
-    const copyButton = document.createElement("button");
-    copyButton.type = "button";
-    copyButton.className = "copy-button";
-    const defaultLabel = "Komutu kopyala";
-    const successLabel = "Komut kopyalandı";
-    const errorLabel = "Komut kopyalanamadı";
-    const loadingLabel = "Komut kopyalanıyor";
+    li.classList.add('has-copy');
+    const copyButton = document.createElement('button');
+    copyButton.type = 'button';
+    copyButton.className = 'copy-button';
+    const defaultLabel = 'Komutu kopyala';
+    const successLabel = 'Komut kopyalandı';
+    const errorLabel = 'Komut kopyalanamadı';
+    const loadingLabel = 'Komut kopyalanıyor';
 
-    const srLabel = document.createElement("span");
-    srLabel.className = "sr-only";
+    const srLabel = document.createElement('span');
+    srLabel.className = 'sr-only';
     srLabel.textContent = defaultLabel;
 
-    const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    icon.setAttribute("viewBox", "0 0 24 24");
-    icon.setAttribute("aria-hidden", "true");
-    icon.setAttribute("focusable", "false");
+    const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    icon.setAttribute('viewBox', '0 0 24 24');
+    icon.setAttribute('aria-hidden', 'true');
+    icon.setAttribute('focusable', 'false');
 
     const iconShapes = {
       copy: '<rect x="9" y="9" width="12" height="12" rx="2" ry="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path>',
       success: '<path d="M20 6 10 16l-4-4"></path>',
       error: '<path d="M18 6 6 18"></path><path d="M6 6l12 12"></path>',
-      loading: '<circle cx="12" cy="12" r="9" stroke-opacity="0.25"></circle><path d="M21 12a9 9 0 0 0-9-9" stroke-opacity="0.9"></path>'
+      loading:
+        '<circle cx="12" cy="12" r="9" stroke-opacity="0.25"></circle><path d="M21 12a9 9 0 0 0-9-9" stroke-opacity="0.9"></path>'
     };
 
     const setIcon = name => {
       icon.innerHTML = iconShapes[name] || iconShapes.copy;
     };
 
-    setIcon("copy");
+    setIcon('copy');
 
     copyButton.appendChild(icon);
     copyButton.appendChild(srLabel);
 
-    const baseAriaLabel = `${link.name || ""} komutunu kopyala`.trim() || defaultLabel;
-    copyButton.setAttribute("aria-label", baseAriaLabel);
-    copyButton.title = "Komutu panoya kopyala";
+    const baseAriaLabel = `${link.name || ''} komutunu kopyala`.trim() || defaultLabel;
+    copyButton.setAttribute('aria-label', baseAriaLabel);
+    copyButton.title = 'Komutu panoya kopyala';
 
     // Store labels and value for delegated handler
     copyButton.dataset.copy = copyValue;
@@ -278,10 +328,10 @@ function createLinkItem(link) {
     });
 
     // Komut kutusu + kopyala butonu yan yana, li'nin altında
-    const cmdRow = document.createElement("div");
-    cmdRow.className = "link-cmd-row";
-    const cmdLine = document.createElement("code");
-    cmdLine.className = "link-cmd";
+    const cmdRow = document.createElement('div');
+    cmdRow.className = 'link-cmd-row';
+    const cmdLine = document.createElement('code');
+    cmdLine.className = 'link-cmd';
     cmdLine.textContent = copyValue;
     cmdRow.appendChild(cmdLine);
     cmdRow.appendChild(copyButton);
@@ -301,12 +351,13 @@ function renderCategoriesLegacy(data, container) {
   // (The rest of renderCategories logic continues below...)
 
   data.categories.forEach(cat => {
-    const card = document.createElement("div");
-    card.className = "category-card";
+    const card = document.createElement('div');
+    card.className = 'category-card';
     // Force 3-column layout specifically for "Sistem/Ofis"
     try {
       const ct = String(cat.title).trim();
-      const ctf = (typeof foldForSearch === 'function') ? foldForSearch(ct) : ct.toLocaleLowerCase('tr');
+      const ctf =
+        typeof foldForSearch === 'function' ? foldForSearch(ct) : ct.toLocaleLowerCase('tr');
       const ctfn = ctf.replace(/\u0131/g, 'i');
       // Apply 3 columns for selected categories (normalized in TR locale)
       const threeColTitles = new Set([
@@ -318,38 +369,38 @@ function renderCategoriesLegacy(data, container) {
       if (threeColTitles.has(ctfn)) {
         card.classList.add('cols-3');
       }
-    } catch { }
+    } catch {}
 
-    const h2 = document.createElement("h2");
+    const h2 = document.createElement('h2');
     h2.textContent = cat.title;
     card.appendChild(h2);
 
     const renderList = (links, parent, catTitle, subTitle) => {
-      const ul = document.createElement("ul");
+      const ul = document.createElement('ul');
       // Sort inside groups alphabetically (tr): recommended A-Z, others A-Z
-      const cmp = (a, b) => String(a.name || "").localeCompare(String(b.name || ""), "tr");
+      const cmp = (a, b) => String(a.name || '').localeCompare(String(b.name || ''), 'tr');
       const sorted = links.filter(item => !item?.hidden).sort(cmp);
 
       sorted.forEach(item => {
         const li = createLinkItem(item);
         try {
-          const base = String(li.dataset.search || "");
-          const groupTokens = item.recommended ? "önerilen önerilenler" : "diğer diğerleri";
-          const catTokens = [catTitle, subTitle].filter(Boolean).join(" ");
-          li.dataset.search = `${base} ${groupTokens} ${catTokens}`.trim().toLocaleLowerCase("tr");
-        } catch { }
+          const base = String(li.dataset.search || '');
+          const groupTokens = item.recommended ? 'önerilen önerilenler' : 'diğer diğerleri';
+          const catTokens = [catTitle, subTitle].filter(Boolean).join(' ');
+          li.dataset.search = `${base} ${groupTokens} ${catTokens}`.trim().toLocaleLowerCase('tr');
+        } catch {}
         ul.appendChild(li);
       });
       parent.appendChild(ul);
     };
 
     if (cat.subcategories) {
-      const subWrap = document.createElement("div");
-      subWrap.className = "sub-category-container";
+      const subWrap = document.createElement('div');
+      subWrap.className = 'sub-category-container';
       cat.subcategories.forEach(sub => {
-        const sc = document.createElement("div");
-        sc.className = "sub-category";
-        const h3 = document.createElement("h3");
+        const sc = document.createElement('div');
+        sc.className = 'sub-category';
+        const h3 = document.createElement('h3');
         h3.textContent = sub.title;
         sc.appendChild(h3);
         renderList(sub.links, sc, cat.title, sub.title);
@@ -368,23 +419,23 @@ function renderCategoriesLegacy(data, container) {
 // Category icons and columns imported from ./lib/category-icons.js
 
 function createCategoryCard(title) {
-  const card = document.createElement("div");
-  card.className = "category-card";
-  const h2 = document.createElement("h2");
-  
+  const card = document.createElement('div');
+  card.className = 'category-card';
+  const h2 = document.createElement('h2');
+
   // Add category icon
   const iconSvg = getCategoryIcon(title);
   if (iconSvg) {
-    const iconSpan = document.createElement("span");
-    iconSpan.className = "category-icon";
+    const iconSpan = document.createElement('span');
+    iconSpan.className = 'category-icon';
     iconSpan.innerHTML = iconSvg;
     h2.appendChild(iconSpan);
   }
-  
-  const titleSpan = document.createElement("span");
-  titleSpan.textContent = title || "";
+
+  const titleSpan = document.createElement('span');
+  titleSpan.textContent = title || '';
   h2.appendChild(titleSpan);
-  
+
   card.appendChild(h2);
   applyCategoryColumns(card, title);
   return card;
@@ -392,18 +443,18 @@ function createCategoryCard(title) {
 
 function renderLinkList(links, parent, catTitle, subTitle) {
   if (!Array.isArray(links)) return;
-  const ul = document.createElement("ul");
-  const cmp = (a, b) => String(a.name || "").localeCompare(String(b.name || ""), "tr");
+  const ul = document.createElement('ul');
+  const cmp = (a, b) => String(a.name || '').localeCompare(String(b.name || ''), 'tr');
   const sorted = links.filter(item => !item?.hidden).sort(cmp);
 
   sorted.forEach(item => {
     const li = createLinkItem(item);
     try {
-      const base = String(li.dataset.search || "");
-      const groupTokens = item.recommended ? "onerilen onerilenler" : "diger digerleri";
-      const catTokens = [catTitle, subTitle].filter(Boolean).join(" ");
-      li.dataset.search = `${base} ${groupTokens} ${catTokens}`.trim().toLocaleLowerCase("tr");
-    } catch { }
+      const base = String(li.dataset.search || '');
+      const groupTokens = item.recommended ? 'onerilen onerilenler' : 'diger digerleri';
+      const catTokens = [catTitle, subTitle].filter(Boolean).join(' ');
+      li.dataset.search = `${base} ${groupTokens} ${catTokens}`.trim().toLocaleLowerCase('tr');
+    } catch {}
     ul.appendChild(li);
   });
   parent.appendChild(ul);
@@ -411,28 +462,28 @@ function renderLinkList(links, parent, catTitle, subTitle) {
 
 function renderCategoryContent(cat, card) {
   if (!cat) return null;
-  const title = cat.title || "";
+  const title = cat.title || '';
   const cardEl = card || createCategoryCard(title);
-  let h2 = cardEl.querySelector("h2");
+  let h2 = cardEl.querySelector('h2');
   if (!h2) {
-    h2 = document.createElement("h2");
-    cardEl.textContent = "";
+    h2 = document.createElement('h2');
+    cardEl.textContent = '';
     cardEl.appendChild(h2);
   }
-  
+
   // Clear h2 and add icon + title
-  h2.innerHTML = "";
+  h2.innerHTML = '';
   const iconSvg = getCategoryIcon(title);
   if (iconSvg) {
-    const iconSpan = document.createElement("span");
-    iconSpan.className = "category-icon";
+    const iconSpan = document.createElement('span');
+    iconSpan.className = 'category-icon';
     iconSpan.innerHTML = iconSvg;
     h2.appendChild(iconSpan);
   }
-  const titleSpan = document.createElement("span");
+  const titleSpan = document.createElement('span');
   titleSpan.textContent = title;
   h2.appendChild(titleSpan);
-  
+
   applyCategoryColumns(cardEl, title);
 
   let node = h2.nextSibling;
@@ -443,13 +494,13 @@ function renderCategoryContent(cat, card) {
   }
 
   if (Array.isArray(cat.subcategories) && cat.subcategories.length) {
-    const subWrap = document.createElement("div");
-    subWrap.className = "sub-category-container";
+    const subWrap = document.createElement('div');
+    subWrap.className = 'sub-category-container';
     cat.subcategories.forEach(sub => {
-      const sc = document.createElement("div");
-      sc.className = "sub-category";
-      const h3 = document.createElement("h3");
-      h3.textContent = sub.title || "";
+      const sc = document.createElement('div');
+      sc.className = 'sub-category';
+      const h3 = document.createElement('h3');
+      h3.textContent = sub.title || '';
       sc.appendChild(h3);
       renderLinkList(sub.links, sc, title, sub.title);
       subWrap.appendChild(sc);
@@ -488,37 +539,38 @@ function initLazyCategories(indexData, container) {
 
 function areAllCategoriesLoaded() {
   if (!lazyState) return true;
-  if (typeof lazyState.allLoaded === "function") return lazyState.allLoaded();
+  if (typeof lazyState.allLoaded === 'function') return lazyState.allLoaded();
   return lazyState.entries.every(entry => entry.loaded);
 }
 
 function getNavCardFromDetail(detail) {
   if (!detail) return null;
-  if (detail.card && detail.card.classList && detail.card.classList.contains("category-card")) return detail.card;
-  const slug = detail.slug ? String(detail.slug) : "";
+  if (detail.card && detail.card.classList && detail.card.classList.contains('category-card'))
+    return detail.card;
+  const slug = detail.slug ? String(detail.slug) : '';
   if (slug) {
     const card = document.querySelector(`.category-card[data-cat-slug="${slug}"]`);
     if (card) return card;
   }
-  const id = detail.id ? String(detail.id) : "";
+  const id = detail.id ? String(detail.id) : '';
   if (id) return document.querySelector(`.category-card[data-cat-id="${id}"]`);
   return null;
 }
 
 function ensureLazyCategoryLoaded(card) {
-  if (!lazyState || !card || typeof lazyState.loadCategory !== "function") return;
-  const idx = Number(card.dataset.categoryIndex || "-1");
+  if (!lazyState || !card || typeof lazyState.loadCategory !== 'function') return;
+  const idx = Number(card.dataset.categoryIndex || '-1');
   if (!Number.isFinite(idx) || idx < 0) return;
   const entry = lazyState.entries && lazyState.entries[idx];
   if (!entry) return;
   lazyState.loadCategory(entry);
 }
 
-document.addEventListener("category-nav-select", (ev) => {
+document.addEventListener('category-nav-select', ev => {
   try {
     const card = getNavCardFromDetail(ev.detail);
     ensureLazyCategoryLoaded(card);
-  } catch { }
+  } catch {}
 });
 
 // Copy utilities imported from ./lib/copy-utils.js
@@ -526,9 +578,9 @@ document.addEventListener("category-nav-select", (ev) => {
 // Search engine utilities imported from ./lib/search-engine.js
 
 function setupSearchLegacy() {
-  const input = document.getElementById("search-input");
-  const status = document.getElementById("search-status");
-  const nodes = Array.from(document.querySelectorAll(".category-card li"));
+  const input = document.getElementById('search-input');
+  const status = document.getElementById('search-status');
+  const nodes = Array.from(document.querySelectorAll('.category-card li'));
   if (!input || !status || !nodes.length) return;
 
   nodes.forEach((el, index) => {
@@ -536,13 +588,13 @@ function setupSearchLegacy() {
   });
 
   const dataset = nodes.map((el, index) => {
-    const raw = el.dataset.search || el.textContent || "";
+    const raw = el.dataset.search || el.textContent || '';
     const catEl = el.closest('.category-card');
     const subEl = el.closest('.sub-category');
     return {
       index,
       folded: el.dataset.folded ? String(el.dataset.folded) : foldForSearch(raw),
-      isLink: !!el.querySelector(".link-text"),
+      isLink: !!el.querySelector('.link-text'),
       catEl,
       subEl
     };
@@ -552,7 +604,9 @@ function setupSearchLegacy() {
   const getEngine = () => {
     if (engine) return engine;
     try {
-      engine = createWorkerSearchEngine(nodes, dataset, status) || createSyncSearchEngine(nodes, dataset, status);
+      engine =
+        createWorkerSearchEngine(nodes, dataset, status) ||
+        createSyncSearchEngine(nodes, dataset, status);
     } catch {
       engine = createSyncSearchEngine(nodes, dataset, status);
     }
@@ -561,7 +615,7 @@ function setupSearchLegacy() {
 
   let debounceTimer;
   function computeDelay(val) {
-    const n = (String(val || "").trim()).length;
+    const n = String(val || '').trim().length;
     if (n >= 8) return 80;
     if (n >= 4) return 120;
     return 250;
@@ -572,42 +626,57 @@ function setupSearchLegacy() {
     getEngine().run(value);
   }
 
-  input.addEventListener("input", () => {
+  input.addEventListener('input', () => {
     clearTimeout(debounceTimer);
     const delay = computeDelay(input.value);
     debounceTimer = setTimeout(() => {
       try {
         getEngine().run(input.value);
-      } catch { engine = createSyncSearchEngine(nodes, dataset, status); engine.run(input.value); }
+      } catch {
+        engine = createSyncSearchEngine(nodes, dataset, status);
+        engine.run(input.value);
+      }
       try {
         const url = new URL(window.location.href);
-        const v = (input.value || "").trim();
-        if (v) url.searchParams.set("q", v); else url.searchParams.delete("q");
-        history.replaceState(null, "", url.toString());
-      } catch { }
+        const v = (input.value || '').trim();
+        if (v) url.searchParams.set('q', v);
+        else url.searchParams.delete('q');
+        history.replaceState(null, '', url.toString());
+      } catch {}
     }, delay);
   });
 
-  document.addEventListener("keydown", ev => {
+  document.addEventListener('keydown', ev => {
     const t = ev.target;
-    const tag = t && t.tagName ? t.tagName.toUpperCase() : "";
-    const inEditable = !!(t && (t.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(tag)));
+    const tag = t && t.tagName ? t.tagName.toUpperCase() : '';
+    const inEditable = !!(
+      t &&
+      (t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(tag))
+    );
 
-    if ((ev.ctrlKey || ev.metaKey) && !ev.altKey && !ev.shiftKey && (ev.key === "k" || ev.key === "K")) {
+    if (
+      (ev.ctrlKey || ev.metaKey) &&
+      !ev.altKey &&
+      !ev.shiftKey &&
+      (ev.key === 'k' || ev.key === 'K')
+    ) {
       ev.preventDefault();
       input.focus();
       input.select();
       return;
     }
 
-    if (ev.ctrlKey && !ev.altKey && !ev.shiftKey && (ev.key === "e" || ev.key === "E")) {
+    if (ev.ctrlKey && !ev.altKey && !ev.shiftKey && (ev.key === 'e' || ev.key === 'E')) {
       ev.preventDefault();
       input.focus();
       input.select();
       return;
     }
 
-    if ((ev.key === "/" || ev.key === ".") && !(ev.ctrlKey || ev.metaKey || ev.altKey || ev.shiftKey)) {
+    if (
+      (ev.key === '/' || ev.key === '.') &&
+      !(ev.ctrlKey || ev.metaKey || ev.altKey || ev.shiftKey)
+    ) {
       if (inEditable) return;
       ev.preventDefault();
       input.focus();
@@ -615,20 +684,20 @@ function setupSearchLegacy() {
     }
   });
 
-  input.addEventListener("keydown", ev => {
-    if (ev.key === "Escape") {
+  input.addEventListener('keydown', ev => {
+    if (ev.key === 'Escape') {
       if (input.value) {
-        input.value = "";
-        runImmediate("");
+        input.value = '';
+        runImmediate('');
         try {
           const url = new URL(window.location.href);
-          url.searchParams.delete("q");
-          history.replaceState(null, "", url.toString());
-        } catch { }
+          url.searchParams.delete('q');
+          history.replaceState(null, '', url.toString());
+        } catch {}
       }
       ev.stopPropagation();
-    } else if (ev.key === "Enter") {
-      const q = (input.value || "").trim();
+    } else if (ev.key === 'Enter') {
+      const q = (input.value || '').trim();
       if (!q) return;
       const firstLink = document.querySelector('.category-card li:not(.is-hidden) a[href]');
       if (firstLink) {
@@ -640,7 +709,7 @@ function setupSearchLegacy() {
   });
 
   try {
-    const urlQ = new URL(window.location.href).searchParams.get("q");
+    const urlQ = new URL(window.location.href).searchParams.get('q');
     if (urlQ) {
       input.value = urlQ;
       runImmediate(urlQ);
@@ -653,41 +722,45 @@ function setupSearchLegacy() {
 
   // Lazy-load icons with IntersectionObserver
   try {
-    const io = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          const src = img.getAttribute('data-src');
-          if (src) {
-            img.src = src;
-            img.removeAttribute('data-src');
-          }
-          io.unobserve(img);
-        }
-      });
-    }, { rootMargin: '200px 0px' }) : null;
+    const io =
+      'IntersectionObserver' in window
+        ? new IntersectionObserver(
+            entries => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  const img = entry.target;
+                  const src = img.getAttribute('data-src');
+                  if (src) {
+                    img.src = src;
+                    img.removeAttribute('data-src');
+                  }
+                  io.unobserve(img);
+                }
+              });
+            },
+            { rootMargin: '200px 0px' }
+          )
+        : null;
     if (io) {
       document.querySelectorAll('img.site-icon[data-src]').forEach(img => io.observe(img));
     }
-  } catch { }
+  } catch {}
 }
 
-
-
 function buildSearchDataset() {
-  const nodes = Array.from(document.querySelectorAll(".category-card li"));
+  const nodes = Array.from(document.querySelectorAll('.category-card li'));
   nodes.forEach((el, index) => {
     el.dataset.searchIndex = String(index);
   });
 
   const dataset = nodes.map((el, index) => {
-    const raw = el.dataset.search || el.textContent || "";
-    const catEl = el.closest(".category-card");
-    const subEl = el.closest(".sub-category");
+    const raw = el.dataset.search || el.textContent || '';
+    const catEl = el.closest('.category-card');
+    const subEl = el.closest('.sub-category');
     return {
       index,
       folded: el.dataset.folded ? String(el.dataset.folded) : foldForSearch(raw),
-      isLink: !!el.querySelector(".link-text"),
+      isLink: !!el.querySelector('.link-text'),
       catEl,
       subEl
     };
@@ -706,27 +779,28 @@ function refreshSearchIndex(options = {}) {
 
   if (nodes.length) {
     try {
-      searchState.engine = createWorkerSearchEngine(nodes, dataset, searchState.status)
-        || createSyncSearchEngine(nodes, dataset, searchState.status);
+      searchState.engine =
+        createWorkerSearchEngine(nodes, dataset, searchState.status) ||
+        createSyncSearchEngine(nodes, dataset, searchState.status);
     } catch {
       searchState.engine = createSyncSearchEngine(nodes, dataset, searchState.status);
     }
   }
 
   if (options.runQuery === false) return;
-  const value = searchState.input.value || "";
+  const value = searchState.input.value || '';
   if (searchState.engine) {
     searchState.engine.run(value);
   } else if (value.trim()) {
-    searchState.status.textContent = "Sonuclar yukleniyor...";
+    searchState.status.textContent = 'Sonuclar yukleniyor...';
   } else {
-    searchState.status.textContent = "";
+    searchState.status.textContent = '';
   }
 }
 
 function setupSearch() {
-  const input = document.getElementById("search-input");
-  const status = document.getElementById("search-status");
+  const input = document.getElementById('search-input');
+  const status = document.getElementById('search-status');
   if (!input || !status) return;
   if (searchState) return searchState;
 
@@ -742,17 +816,17 @@ function setupSearch() {
 
   let debounceTimer;
   function computeDelay(val) {
-    const n = (String(val || "").trim()).length;
+    const n = String(val || '').trim().length;
     if (n >= 8) return 80;
     if (n >= 4) return 120;
     return 250;
   }
 
   function maybeLoadAll(value) {
-    const q = String(value || "").trim();
+    const q = String(value || '').trim();
     if (!q) return false;
     if (!lazyState || areAllCategoriesLoaded()) return false;
-    status.textContent = "Sonuclar yukleniyor...";
+    status.textContent = 'Sonuclar yukleniyor...';
     if (!lazyState.loadAllPromise) lazyState.loadAllPromise = lazyState.loadAll();
     return true;
   }
@@ -764,17 +838,18 @@ function setupSearch() {
     if (searchState.engine) searchState.engine.run(value);
   }
 
-  input.addEventListener("input", () => {
+  input.addEventListener('input', () => {
     clearTimeout(debounceTimer);
     const delay = computeDelay(input.value);
     debounceTimer = setTimeout(() => {
       if (maybeLoadAll(input.value)) {
         try {
           const url = new URL(window.location.href);
-          const v = (input.value || "").trim();
-          if (v) url.searchParams.set("q", v); else url.searchParams.delete("q");
-          history.replaceState(null, "", url.toString());
-        } catch { }
+          const v = (input.value || '').trim();
+          if (v) url.searchParams.set('q', v);
+          else url.searchParams.delete('q');
+          history.replaceState(null, '', url.toString());
+        } catch {}
         return;
       }
       if (!searchState.engine) refreshSearchIndex({ runQuery: false });
@@ -785,33 +860,45 @@ function setupSearch() {
       }
       try {
         const url = new URL(window.location.href);
-        const v = (input.value || "").trim();
-        if (v) url.searchParams.set("q", v); else url.searchParams.delete("q");
-        history.replaceState(null, "", url.toString());
-      } catch { }
+        const v = (input.value || '').trim();
+        if (v) url.searchParams.set('q', v);
+        else url.searchParams.delete('q');
+        history.replaceState(null, '', url.toString());
+      } catch {}
     }, delay);
   });
 
-  document.addEventListener("keydown", ev => {
+  document.addEventListener('keydown', ev => {
     const t = ev.target;
-    const tag = t && t.tagName ? t.tagName.toUpperCase() : "";
-    const inEditable = !!(t && (t.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(tag)));
+    const tag = t && t.tagName ? t.tagName.toUpperCase() : '';
+    const inEditable = !!(
+      t &&
+      (t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(tag))
+    );
 
-    if ((ev.ctrlKey || ev.metaKey) && !ev.altKey && !ev.shiftKey && (ev.key === "k" || ev.key === "K")) {
+    if (
+      (ev.ctrlKey || ev.metaKey) &&
+      !ev.altKey &&
+      !ev.shiftKey &&
+      (ev.key === 'k' || ev.key === 'K')
+    ) {
       ev.preventDefault();
       input.focus();
       input.select();
       return;
     }
 
-    if (ev.ctrlKey && !ev.altKey && !ev.shiftKey && (ev.key === "e" || ev.key === "E")) {
+    if (ev.ctrlKey && !ev.altKey && !ev.shiftKey && (ev.key === 'e' || ev.key === 'E')) {
       ev.preventDefault();
       input.focus();
       input.select();
       return;
     }
 
-    if ((ev.key === "/" || ev.key === ".") && !(ev.ctrlKey || ev.metaKey || ev.altKey || ev.shiftKey)) {
+    if (
+      (ev.key === '/' || ev.key === '.') &&
+      !(ev.ctrlKey || ev.metaKey || ev.altKey || ev.shiftKey)
+    ) {
       if (inEditable) return;
       ev.preventDefault();
       input.focus();
@@ -819,22 +906,22 @@ function setupSearch() {
     }
   });
 
-  input.addEventListener("keydown", ev => {
-    if (ev.key === "Escape") {
+  input.addEventListener('keydown', ev => {
+    if (ev.key === 'Escape') {
       if (input.value) {
-        input.value = "";
-        runImmediate("");
+        input.value = '';
+        runImmediate('');
         try {
           const url = new URL(window.location.href);
-          url.searchParams.delete("q");
-          history.replaceState(null, "", url.toString());
-        } catch { }
+          url.searchParams.delete('q');
+          history.replaceState(null, '', url.toString());
+        } catch {}
       }
       ev.stopPropagation();
-    } else if (ev.key === "Enter") {
-      const q = (input.value || "").trim();
+    } else if (ev.key === 'Enter') {
+      const q = (input.value || '').trim();
       if (!q) return;
-      const firstLink = document.querySelector(".category-card li:not(.is-hidden) a[href]");
+      const firstLink = document.querySelector('.category-card li:not(.is-hidden) a[href]');
       if (firstLink) {
         firstLink.click();
         ev.preventDefault();
@@ -844,7 +931,7 @@ function setupSearch() {
   });
 
   try {
-    const urlQ = new URL(window.location.href).searchParams.get("q");
+    const urlQ = new URL(window.location.href).searchParams.get('q');
     if (urlQ) {
       input.value = urlQ;
       if (!maybeLoadAll(urlQ)) runImmediate(urlQ);
@@ -859,37 +946,61 @@ function setupSearch() {
 }
 
 function setupThemeToggle() {
-  try { const c = document.querySelector('.theme-toggle-container'); if (c) c.remove(); } catch { }
-  try { document.body.classList.add('koyu'); } catch { }
+  try {
+    const c = document.querySelector('.theme-toggle-container');
+    if (c) c.remove();
+  } catch {}
+  try {
+    document.body.classList.add('koyu');
+  } catch {}
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener('DOMContentLoaded', async () => {
   setupThemeToggle();
   // Focus search input immediately on desktop for instant typing
   try {
-    const input = document.getElementById("search-input");
-    const isMobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent) || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
-    if (input && !isMobile) { input.focus(); input.select(); }
+    const input = document.getElementById('search-input');
+    const isMobile =
+      /android|iphone|ipad|ipod/i.test(navigator.userAgent) ||
+      (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+    if (input && !isMobile) {
+      input.focus();
+      input.select();
+    }
     if (input) {
       const clearOverlays = () => {
         closeActiveTooltip();
         try {
           const overlay = document.getElementById('info-overlay');
           const fly = document.getElementById('global-info-flyout');
-          if (overlay) { overlay.classList.remove('show'); overlay.setAttribute('aria-hidden', 'true'); }
-          if (fly) { fly.classList.remove('show'); fly.setAttribute('aria-hidden', 'true'); }
+          if (overlay) {
+            overlay.classList.remove('show');
+            overlay.setAttribute('aria-hidden', 'true');
+          }
+          if (fly) {
+            fly.classList.remove('show');
+            fly.setAttribute('aria-hidden', 'true');
+          }
           document.body.classList.remove('modal-open');
         } catch {}
       };
-      try { input.addEventListener('focus', clearOverlays); } catch {}
-      try { input.addEventListener('pointerdown', clearOverlays); } catch {}
+      try {
+        input.addEventListener('focus', clearOverlays);
+      } catch {}
+      try {
+        input.addEventListener('pointerdown', clearOverlays);
+      } catch {}
     }
-  } catch { }
-  const container = document.getElementById("links-container");
+  } catch {}
+  const container = document.getElementById('links-container');
   try {
     const result = await fetchLinks();
-    if (result && result.mode === "index") {
-      initLazyCategories(result.data, container);
+    if (result && result.mode === 'index') {
+      const state = initLazyCategories(result.data, container);
+      // Wait for all categories to load before building nav with subcategories
+      if (state && state.loadAllPromise) {
+        await state.loadAllPromise;
+      }
     } else if (result && result.data) {
       renderCategories(result.data, container);
     } else {
@@ -898,7 +1009,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     initCategoryNav();
     initBackToTop();
   } catch (err) {
-    container.textContent = "Bağlantılar yüklenemedi.";
+    container.textContent = 'Bağlantılar yüklenemedi.';
     console.error(err);
   }
   setupCopyDelegation(document.getElementById('links-container'));
@@ -906,14 +1017,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupPWAInstallUI();
   document.addEventListener('keydown', ev => {
     const t = ev.target;
-    const tag = t && t.tagName ? t.tagName.toUpperCase() : "";
-    const inEditable = !!(t && (t.isContentEditable || ["INPUT", "TEXTAREA", "SELECT"].includes(tag)));
+    const tag = t && t.tagName ? t.tagName.toUpperCase() : '';
+    const inEditable = !!(
+      t &&
+      (t.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(tag))
+    );
 
     if (ev.key === 'Escape') {
       closeActiveTooltip();
       // Help modalı kapat
       const helpModal = document.getElementById('keyboard-help-modal');
-      if (helpModal) { helpModal.remove(); return; }
+      if (helpModal) {
+        helpModal.remove();
+        return;
+      }
     }
 
     if (inEditable || ev.ctrlKey || ev.metaKey || ev.altKey) return;
@@ -931,7 +1048,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     // ? — klavye kısayolları yardım modalı
     if (ev.key === '?') {
       const existingModal = document.getElementById('keyboard-help-modal');
-      if (existingModal) { existingModal.remove(); return; }
+      if (existingModal) {
+        existingModal.remove();
+        return;
+      }
 
       const modal = document.createElement('div');
       modal.id = 'keyboard-help-modal';
@@ -961,7 +1081,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       document.body.appendChild(modal);
       modal.querySelector('#keyboard-help-close')?.addEventListener('click', () => modal.remove());
-      modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
+      modal.addEventListener('click', e => {
+        if (e.target === modal) modal.remove();
+      });
       return;
     }
 
@@ -972,7 +1094,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       const activeIdx = navBtns.findIndex(b => b.classList.contains('active'));
       const step = ev.key === 'ArrowRight' ? 1 : -1;
       const next = navBtns[activeIdx + step];
-      if (next) { ev.preventDefault(); next.click(); }
+      if (next) {
+        ev.preventDefault();
+        next.click();
+      }
     }
   });
   // Offline/online status banner
@@ -1001,7 +1126,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       close.className = 'update-banner-close';
       close.setAttribute('aria-label', 'Kapat');
       close.innerHTML = '×';
-      close.addEventListener('click', () => { try { offlineBanner.remove(); offlineBanner = null; } catch { } });
+      close.addEventListener('click', () => {
+        try {
+          offlineBanner.remove();
+          offlineBanner = null;
+        } catch {}
+      });
 
       offlineBanner.appendChild(icon);
       offlineBanner.appendChild(msg);
@@ -1011,7 +1141,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const hideOfflineBanner = () => {
       if (!offlineBanner) return;
-      try { offlineBanner.remove(); } catch { }
+      try {
+        offlineBanner.remove();
+      } catch {}
       offlineBanner = null;
     };
 
@@ -1021,8 +1153,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!navigator.onLine) showOfflineBanner();
   })();
 
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
       let hadController = !!navigator.serviceWorker.controller;
       let bannerShown = false;
       let lastReg = null;
@@ -1049,7 +1181,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             btn.textContent = 'Yenile';
             btn.setAttribute('aria-label', 'Sayfayı yenile');
             btn.addEventListener('click', () => {
-              try { if (lastReg && lastReg.waiting) lastReg.waiting.postMessage({ type: 'SKIP_WAITING' }); } catch { }
+              try {
+                if (lastReg && lastReg.waiting)
+                  lastReg.waiting.postMessage({ type: 'SKIP_WAITING' });
+              } catch {}
               window.location.reload();
             });
 
@@ -1058,7 +1193,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             close.className = 'update-banner-close';
             close.setAttribute('aria-label', 'Kapat');
             close.innerHTML = '×';
-            close.addEventListener('click', () => { try { bar.remove(); } catch { } });
+            close.addEventListener('click', () => {
+              try {
+                bar.remove();
+              } catch {}
+            });
 
             bar.appendChild(msg);
             bar.appendChild(btn);
@@ -1067,50 +1206,63 @@ document.addEventListener("DOMContentLoaded", async () => {
           } else {
             bar.style.display = '';
           }
-        } catch { }
+        } catch {}
       };
 
-      navigator.serviceWorker.register("sw.js", { scope: "./", updateViaCache: "none" }).then(
+      navigator.serviceWorker.register('sw.js', { scope: './', updateViaCache: 'none' }).then(
         reg => {
           lastReg = reg;
-          logger.info("sw", "ServiceWorker registration successful with scope: " + reg.scope);
+          logger.info('sw', 'ServiceWorker registration successful with scope: ' + reg.scope);
           try {
-            setInterval(() => {
-              reg.update().catch(() => {});
-            }, 60 * 60 * 1000);
-          } catch { }
+            setInterval(
+              () => {
+                reg.update().catch(() => {});
+              },
+              60 * 60 * 1000
+            );
+          } catch {}
           try {
-            if ("periodicSync" in reg) {
-              reg.periodicSync.register("update-content", {
-                minInterval: 24 * 60 * 60 * 1000
-              }).catch(() => {});
+            if ('periodicSync' in reg) {
+              reg.periodicSync
+                .register('update-content', {
+                  minInterval: 24 * 60 * 60 * 1000
+                })
+                .catch(() => {});
             }
-          } catch { }
+          } catch {}
           try {
             // If a new worker is found and installed while a controller exists, show banner
             reg.addEventListener('updatefound', () => {
               const inst = reg.installing;
               if (!inst) return;
               inst.addEventListener('statechange', () => {
-                if (inst.state === 'installed' && navigator.serviceWorker.controller && hadController) {
+                if (
+                  inst.state === 'installed' &&
+                  navigator.serviceWorker.controller &&
+                  hadController
+                ) {
                   showUpdateBanner();
                 }
               });
             });
             // Also, if there is already a waiting worker (rare with skipWaiting), show banner
-            if (reg.waiting && navigator.serviceWorker.controller && hadController) showUpdateBanner();
-          } catch { }
+            if (reg.waiting && navigator.serviceWorker.controller && hadController)
+              showUpdateBanner();
+          } catch {}
         },
-        err => logger.error("sw", "ServiceWorker registration failed", err)
+        err => logger.error('sw', 'ServiceWorker registration failed', err)
       );
 
       // When a new SW takes control, offer refresh instead of auto-reload
       try {
-        navigator.serviceWorker.addEventListener("controllerchange", () => {
-          if (!hadController) { hadController = true; return; }
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (!hadController) {
+            hadController = true;
+            return;
+          }
           showUpdateBanner();
         });
-      } catch { }
+      } catch {}
     });
   }
 });

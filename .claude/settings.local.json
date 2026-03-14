@@ -26,7 +26,15 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
       "Bash(find /c/Users/byGOG/byGOG-Lab/assets -type f -name \"*.css\" -exec wc -l {})",
       "Read(//c/Users/byGOG/byGOG-Lab/**)",
-      "Bash(grep -r \"theme\\\\|dark\\\\|light\" /c/Users/byGOG/byGOG-Lab/src/*.js)"
+      "Bash(grep -r \"theme\\\\|dark\\\\|light\" /c/Users/byGOG/byGOG-Lab/src/*.js)",
+      "Bash(gh run:*)",
+      "Bash(cat .github/workflows/*.yml)",
+      "Bash(npx eslint:*)",
+      "Bash(npx prettier:*)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Bash(node -e \"const d=require\\(''./$f''\\); console.log\\(d.title, ''→ subcategories:'', d.subcategories ? d.subcategories.length : ''none''\\)\")",
+      "Bash(done)"
     ]
   }
 }

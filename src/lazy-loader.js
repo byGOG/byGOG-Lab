@@ -30,20 +30,26 @@
  * @param {Function} deps.onCategoryLoaded - Called after each category finishes loading
  */
 export function initLazyCategories(indexData, container, deps) {
-  const { createCategoryCard, renderCategoryContent, getCachedCategories, getFavorites, onCategoryLoaded } = deps;
+  const {
+    createCategoryCard,
+    renderCategoryContent,
+    getCachedCategories,
+    getFavorites,
+    onCategoryLoaded
+  } = deps;
 
   const cachedCategories = getCachedCategories();
 
   // Render placeholder shells synchronously
   const frag = document.createDocumentFragment();
   const entries = (indexData.categories || []).map((meta, index) => {
-    const title = meta?.title || "";
+    const title = meta?.title || '';
     const card = createCategoryCard(title);
     card.dataset.categoryIndex = String(index);
     if (meta?.file) card.dataset.categoryFile = String(meta.file);
-    const loading = document.createElement("div");
-    loading.className = "category-loading";
-    loading.textContent = "Yukleniyor...";
+    const loading = document.createElement('div');
+    loading.className = 'category-loading';
+    loading.textContent = 'Yukleniyor...';
     card.appendChild(loading);
     frag.appendChild(card);
     cachedCategories.push({ title });
@@ -54,18 +60,20 @@ export function initLazyCategories(indexData, container, deps) {
   const state = { entries };
 
   const entryByFile = new Map();
-  entries.forEach(entry => { if (entry.meta?.file) entryByFile.set(entry.meta.file, entry); });
+  entries.forEach(entry => {
+    if (entry.meta?.file) entryByFile.set(entry.meta.file, entry);
+  });
   state.entryByFile = entryByFile;
 
   const showLoadError = card => {
     if (!card) return;
-    let msg = card.querySelector(".category-loading");
+    let msg = card.querySelector('.category-loading');
     if (!msg) {
-      msg = document.createElement("div");
-      msg.className = "category-loading";
+      msg = document.createElement('div');
+      msg.className = 'category-loading';
       card.appendChild(msg);
     }
-    msg.textContent = "Yuklenemedi.";
+    msg.textContent = 'Yuklenemedi.';
   };
 
   const loadCategory = async entry => {
@@ -73,8 +81,8 @@ export function initLazyCategories(indexData, container, deps) {
     entry.loading = true;
     entry.promise = (async () => {
       try {
-        const res = await fetch(entry.meta.file, { cache: "force-cache" });
-        if (!res.ok) throw new Error("Category load failed");
+        const res = await fetch(entry.meta.file, { cache: 'force-cache' });
+        if (!res.ok) throw new Error('Category load failed');
         const data = await res.json();
         renderCategoryContent(data, entry.card);
         entry.loaded = true;
@@ -103,7 +111,7 @@ export function initLazyCategories(indexData, container, deps) {
   state.allLoaded = () => entries.every(entry => entry.loaded);
 
   // Load all categories immediately
-  entries.forEach(entry => loadCategory(entry));
+  state.loadAll();
 
   return state;
 }
