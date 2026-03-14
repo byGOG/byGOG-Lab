@@ -545,8 +545,9 @@ function areAllCategoriesLoaded() {
 
 function getNavCardFromDetail(detail) {
   if (!detail) return null;
-  if (detail.card && detail.card.classList && detail.card.classList.contains('category-card'))
+  if (detail.card && detail.card.classList && detail.card.classList.contains('category-card')) {
     return detail.card;
+  }
   const slug = detail.slug ? String(detail.slug) : '';
   if (slug) {
     const card = document.querySelector(`.category-card[data-cat-slug="${slug}"]`);
@@ -1182,8 +1183,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             btn.setAttribute('aria-label', 'Sayfayı yenile');
             btn.addEventListener('click', () => {
               try {
-                if (lastReg && lastReg.waiting)
+                if (lastReg && lastReg.waiting) {
                   lastReg.waiting.postMessage({ type: 'SKIP_WAITING' });
+                }
               } catch {}
               window.location.reload();
             });
@@ -1246,8 +1248,9 @@ document.addEventListener('DOMContentLoaded', async () => {
               });
             });
             // Also, if there is already a waiting worker (rare with skipWaiting), show banner
-            if (reg.waiting && navigator.serviceWorker.controller && hadController)
+            if (reg.waiting && navigator.serviceWorker.controller && hadController) {
               showUpdateBanner();
+            }
           } catch {}
         },
         err => logger.error('sw', 'ServiceWorker registration failed', err)

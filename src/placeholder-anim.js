@@ -19,12 +19,14 @@
     let phrases = undefined;
     try {
       if (ds.phPhrases) {
-        if (ds.phPhrases.trim().startsWith('[')) phrases = JSON.parse(ds.phPhrases);
-        else
+        if (ds.phPhrases.trim().startsWith('[')) {
+          phrases = JSON.parse(ds.phPhrases);
+        } else {
           phrases = String(ds.phPhrases)
             .split('|')
             .map(s => s.trim())
             .filter(Boolean);
+        }
       }
     } catch {}
 
@@ -101,14 +103,12 @@
           dir = -1;
           pausedTicks = cfg.pauseTicks + 2;
         }
-      } else {
-        if (pos <= 0) {
-          pos = 0;
-          dir = 1;
-          idx = (idx + 1) % cfg.phrases.length;
-          pausedTicks = cfg.pauseTicks;
-          finishedOneLoop = true;
-        }
+      } else if (pos <= 0) {
+        pos = 0;
+        dir = 1;
+        idx = (idx + 1) % cfg.phrases.length;
+        pausedTicks = cfg.pauseTicks;
+        finishedOneLoop = true;
       }
       setPlaceholder(phrase.slice(0, pos));
 
