@@ -169,9 +169,12 @@ export function createMatchApplier(nodes, dataset, status) {
     matchSet.forEach(idx => { if (showIndex(idx, meta.regex)) matchCount++; });
 
     if (meta.hasQuery) {
-      status.textContent = matchCount > 0 ? `${matchCount} sonuç bulundu` : "Sonuç bulunamadı";
+      const noResults = matchCount === 0;
+      status.textContent = noResults ? "Sonuç bulunamadı" : `${matchCount} sonuç bulundu`;
+      status.toggleAttribute('data-no-results', noResults);
     } else {
       status.textContent = "";
+      status.removeAttribute('data-no-results');
     }
   };
 }

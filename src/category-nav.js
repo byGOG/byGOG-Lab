@@ -140,28 +140,24 @@ export function initCategoryNav() {
         }
     };
     const navOffset = () => {
-        const navRect = nav.getBoundingClientRect();
         const headerRect = header.getBoundingClientRect();
+        if (isSidebar()) {
+            // Sidebar mode: only header height matters
+            return Math.ceil(headerRect.bottom + 16);
+        }
+        // Top bar mode: header + nav
+        const navRect = nav.getBoundingClientRect();
         const bottom = Math.max(navRect.bottom, headerRect.bottom);
         return Math.ceil(bottom + 12);
     };
+    let activeBtn = null;
     const activate = (btn) => {
-        buttons.forEach(b => b.classList.toggle('active', b === btn));
+        if (activeBtn === btn) return;
+        if (activeBtn) activeBtn.classList.remove('active');
+        btn.classList.add('active');
+        activeBtn = btn;
     };
     let clickScrollingTimer = null;
-    const endClickScrolling = (h2ForCorrection) => {
-        // After scroll ends, snap to the element's actual current position
-        // (lazy-loaded category content may have shifted layout during scroll)
-        if (h2ForCorrection) {
-            const off = navOffset();
-            const corrected = h2ForCorrection.getBoundingClientRect().top + window.scrollY - off;
-            if (Math.abs(corrected - window.scrollY) > 8) {
-                window.scrollTo({ top: corrected, behavior: 'instant' });
-            }
-        }
-        clickScrolling = false;
-        clickScrollingTimer = null;
-    };
     const scrollToSection = (entry, opts = {}) => {
         if (!entry || !entry.h2) return false;
         try {
@@ -171,28 +167,27 @@ export function initCategoryNav() {
         } catch { }
         clickScrolling = true;
         if (clickScrollingTimer) clearTimeout(clickScrollingTimer);
-        const off = navOffset();
-        const behavior = opts.behavior || 'smooth';
-        const top = entry.h2.getBoundingClientRect().top + window.scrollY - off;
-        window.scrollTo({ top, behavior });
+
+        // Force-render the target card by temporarily removing content-visibility
+        const card = entry.card;
+        if (card) {
+            card.style.contentVisibility = 'visible';
+        }
+
         if (entry.btn) activate(entry.btn);
         if (opts.updateHash) setHash(entry.slug, true);
-        // After scroll completes, do an instant correction for any layout shift
-        // caused by lazy-loaded category content loading during scroll
-        const h2 = entry.h2;
-        if ('onscrollend' in window) {
-            const onScrollEnd = () => {
-                window.removeEventListener('scrollend', onScrollEnd);
-                endClickScrolling(behavior === 'smooth' ? h2 : null);
-            };
-            window.addEventListener('scrollend', onScrollEnd, { once: true });
-            clickScrollingTimer = setTimeout(() => {
-                window.removeEventListener('scrollend', onScrollEnd);
-                endClickScrolling(behavior === 'smooth' ? h2 : null);
-            }, 3000);
-        } else {
-            clickScrollingTimer = setTimeout(() => endClickScrolling(behavior === 'smooth' ? h2 : null), 2000);
-        }
+
+        // Use instant scroll to avoid jank from content-visibility layout shifts
+        const off = navOffset();
+        const top = entry.h2.getBoundingClientRect().top + window.scrollY - off;
+        window.scrollTo({ top, behavior: 'instant' });
+
+        // Restore content-visibility after a frame
+        requestAnimationFrame(() => {
+            if (card) card.style.contentVisibility = '';
+            clickScrollingTimer = setTimeout(() => { clickScrolling = false; }, 100);
+        });
+
         return true;
     };
 
@@ -238,8 +233,14 @@ export function initCategoryNav() {
     header.parentNode.insertBefore(spacer, header.nextSibling);
     spacer.parentNode.insertBefore(nav, spacer.nextSibling);
 
+    const isSidebar = () => window.innerWidth > 900;
+
     const syncSpacer = () => {
-        spacer.style.height = `${nav.getBoundingClientRect().height + 12}px`;
+        if (isSidebar()) {
+            spacer.style.height = '0px';
+        } else {
+            spacer.style.height = `${nav.getBoundingClientRect().height + 12}px`;
+        }
         // Keep scroll-margin-top in sync with actual nav offset
         document.documentElement.style.setProperty('--cat-nav-offset', navOffset() + 'px');
     };
@@ -249,18 +250,30 @@ export function initCategoryNav() {
 
     // Observe scroll position to sync active nav with visible section
     let observer = null;
+    let observerRafId = null;
     if (sections.length) {
         observer = new IntersectionObserver((entries) => {
             if (clickScrolling) return;
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                const id = entry.target.getAttribute('data-cat-id');
-                const btn = sectionMap.get(id);
-                if (btn) activate(btn);
+            // Debounce with rAF to avoid thrashing during fast scroll
+            if (observerRafId) return;
+            observerRafId = requestAnimationFrame(() => {
+                observerRafId = null;
+                let best = null;
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    if (!best || entry.intersectionRatio > best.intersectionRatio) {
+                        best = entry;
+                    }
+                });
+                if (best) {
+                    const id = best.target.getAttribute('data-cat-id');
+                    const btn = sectionMap.get(id);
+                    if (btn) activate(btn);
+                }
             });
         }, {
-            rootMargin: '-40% 0px -50% 0px',
-            threshold: [0.25, 0.5, 0.75]
+            rootMargin: '-35% 0px -55% 0px',
+            threshold: 0
         });
         sections.forEach(({ card }) => { if (card) observer.observe(card); });
     }
@@ -279,7 +292,7 @@ export function initCategoryNav() {
     });
     const onHashChange = () => {
         if (clickScrolling) return;
-        syncHashToView({ behavior: 'smooth' });
+        syncHashToView({ behavior: 'auto' });
     };
     window.addEventListener('hashchange', onHashChange);
 
