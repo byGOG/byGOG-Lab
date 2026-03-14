@@ -17,23 +17,17 @@ import {
   createSyncSearchEngine
 } from "./lib/search-engine.js";
 import { setupPWAInstallUI } from "./lib/pwa-install.js";
+import { DEFAULT_FAVORITES, STORAGE_KEYS } from "./lib/constants.js";
+import { renderSidebar as renderSidebarModule, toggleFavorite as toggleFavoriteModule } from "./favorites-sidebar.js";
+import { initLazyCategories as initLazyCategoriesModule } from "./lazy-loader.js";
+import * as logger from "./lib/logger.js";
 
 // Re-export fetchLinks for external use
 export { fetchLinks };
 // --- Favorites System ---
-const FAV_KEY = "bygog_favs";
-const DEFAULT_FAVORITES = [
-  "Microsoft Activation Scripts",
-  "Office Tool Plus",
-  "Snappy Driver Installer",
-  "Ninite",
-  "Winutil",
-  "PowerShell",
-  "FMHY"
-];
+const FAV_KEY = STORAGE_KEYS.FAVORITES;
 let favorites = new Set();
 let cachedData = null; // Stored for live sidebar updates
-let lastFavoritesVisible = null;
 let lazyState = null;
 let searchState = null;
 
@@ -55,119 +49,17 @@ function saveFavorites() { localStorage.setItem(FAV_KEY, JSON.stringify([...favo
   try { saveFavorites(); } catch { }
 })();
 
-// Sidebar Renderer
+// Sidebar Renderer — delegates to favorites-sidebar.js
 function renderSidebar() {
-  const favSidebar = document.getElementById('favorites-sidebar');
-  if (!favSidebar || !cachedData) return;
-
-  // Allow favorites on mobile; layout is single-column there
-  const forceHidden = false;
-
-  const allLinks = [];
-  cachedData.categories.forEach(c => {
-    if (c.links) allLinks.push(...c.links);
-    if (c.subcategories) c.subcategories.forEach(s => allLinks.push(...s.links));
-  });
-
-  const myFavs = allLinks.filter(x => favorites.has(x.name));
-  const hasFavorites = myFavs.length > 0;
-
-  if (hasFavorites) {
-    // Ensure visible
-    if (!forceHidden) {
-      favSidebar.classList.remove('sidebar-hidden');
-      favSidebar.classList.add('sidebar-visible');
-    }
-
-    const favCat = { title: "Favorilerim", links: myFavs };
-    let card = favSidebar.querySelector(".category-card");
-    let h2 = card ? card.querySelector("h2") : null;
-    let ul = card ? card.querySelector("ul") : null;
-
-    if (!card) {
-      card = document.createElement("div");
-      card.className = "category-card";
-      h2 = document.createElement("h2");
-      card.appendChild(h2);
-      ul = document.createElement("ul");
-      card.appendChild(ul);
-      favSidebar.appendChild(card);
-    } else {
-      if (!h2) {
-        h2 = document.createElement("h2");
-        card.insertBefore(h2, card.firstChild);
-      }
-      if (!ul) {
-        ul = document.createElement("ul");
-        card.appendChild(ul);
-      } else {
-        ul.innerHTML = "";
-      }
-    }
-
-    // Clear h2 and add icon + title for Favorilerim
-    h2.innerHTML = "";
-    const iconSvg = getCategoryIcon(favCat.title);
-    if (iconSvg) {
-      const iconSpan = document.createElement("span");
-      iconSpan.className = "category-icon";
-      iconSpan.innerHTML = iconSvg;
-      h2.appendChild(iconSpan);
-    }
-    const titleSpan = document.createElement("span");
-    titleSpan.textContent = favCat.title;
-    h2.appendChild(titleSpan);
-
-    // Sort favs
-    favCat.links.sort((a, b) => String(a.name).localeCompare(b.name, "tr"));
-
-    favCat.links.forEach(item => {
-      const li = createLinkItem(item);
-      ul.appendChild(li);
-    });
-
-    // Eager-load icons inside favorites to avoid blank placeholders
-    try {
-      favSidebar.querySelectorAll('img[data-src]').forEach(img => {
-        const src = img.getAttribute('data-src');
-        if (src) { img.src = src; img.removeAttribute('data-src'); }
-      });
-    } catch { }
-  } else {
-    // Hide if empty or forced hidden
-    favSidebar.classList.remove('sidebar-visible');
-    favSidebar.classList.add('sidebar-hidden');
-    favSidebar.innerHTML = '';
-  }
-
-  if (lastFavoritesVisible === null) {
-    lastFavoritesVisible = hasFavorites;
-  } else if (lastFavoritesVisible !== hasFavorites) {
-    lastFavoritesVisible = hasFavorites;
+  renderSidebarModule(cachedData, favorites, createLinkItem, () => {
     try { initCategoryNav(); } catch { }
-  }
+  });
 }
 
 // Tooltip functionality imported from ./lib/tooltip.js
 
-function toggleFavorite(name, clickedBtn) {
-  const isFav = favorites.has(name);
-  if (isFav) {
-    favorites.delete(name);
-  } else {
-    favorites.add(name);
-  }
-  saveFavorites();
-
-  // Update all instances of this button (e.g. in main list and fav list)
-  const allBtns = document.querySelectorAll(`.fav-btn[data-name="${name.replace(/"/g, '\\"')}"]`);
-  allBtns.forEach(btn => {
-    if (isFav) btn.classList.remove('active');
-    else btn.classList.add('active');
-  });
-
-  // Re-render sidebar live
-  renderSidebar();
+function toggleFavorite(name) {
+  toggleFavoriteModule(name, favorites, saveFavorites, renderSidebar);
 }
 
 // Copy and domain utilities imported from ./lib/copy-utils.js and ./lib/domain-utils.js
@@ -255,7 +147,7 @@ function createLinkItem(link) {
   favBtn.onclick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    toggleFavorite(link.name, favBtn);
+    toggleFavorite(link.name);
   };
   stopNav(favBtn);
   a.appendChild(favBtn);
@@ -575,110 +467,19 @@ function renderCategories(data, container) {
   renderCategoriesLegacy(data, container);
 }
 
-function renderCategoryShells(indexData, container) {
+function initLazyCategories(indexData, container) {
   cachedData = { categories: [] };
-  const frag = document.createDocumentFragment();
   renderSidebar();
 
-  const entries = (indexData.categories || []).map((meta, index) => {
-    const title = meta?.title || "";
-    const card = createCategoryCard(title);
-    card.dataset.categoryIndex = String(index);
-    if (meta?.file) card.dataset.categoryFile = String(meta.file);
-    const loading = document.createElement("div");
-    loading.className = "category-loading";
-    loading.textContent = "Yukleniyor...";
-    card.appendChild(loading);
-    frag.appendChild(card);
-    cachedData.categories.push({ title });
-    return { meta, card, index, loaded: false, loading: false, promise: null };
-  });
-
-  container.appendChild(frag);
-  return { entries };
-}
-
-function initLazyCategories(indexData, container) {
-  const state = renderCategoryShells(indexData, container);
-  const entries = state.entries;
-  const entryByFile = new Map();
-  entries.forEach(entry => { if (entry.meta?.file) entryByFile.set(entry.meta.file, entry); });
-  state.entryByFile = entryByFile;
-
-  const showLoadError = (card) => {
-    if (!card) return;
-    let msg = card.querySelector(".category-loading");
-    if (!msg) {
-      msg = document.createElement("div");
-      msg.className = "category-loading";
-      card.appendChild(msg);
-    }
-    msg.textContent = "Yuklenemedi.";
-  };
-
-  const loadCategory = async (entry) => {
-    if (!entry || entry.loaded || entry.loading) return entry?.promise;
-    entry.loading = true;
-    entry.promise = (async () => {
-      try {
-        const res = await fetch(entry.meta.file, { cache: "force-cache" });
-        if (!res.ok) throw new Error("Category load failed");
-        const data = await res.json();
-        renderCategoryContent(data, entry.card);
-        entry.loaded = true;
-        cachedData.categories[entry.index] = data;
-        renderSidebar();
-        refreshSearchIndex();
-        return data;
-      } catch {
-        showLoadError(entry.card);
-        return null;
-      } finally {
-        entry.loading = false;
-      }
-    })();
-    return entry.promise;
-  };
-
-  state.loadCategory = loadCategory;
-  state.loadAllPromise = null;
-  state.loadAll = async () => {
-    if (state.loadAllPromise) return state.loadAllPromise;
-    state.loadAllPromise = Promise.all(entries.map(entry => loadCategory(entry))).then(() => {
+  const state = initLazyCategoriesModule(indexData, container, {
+    createCategoryCard,
+    renderCategoryContent,
+    getCachedCategories: () => cachedData.categories,
+    getFavorites: () => favorites,
+    onCategoryLoaded: () => {
+      renderSidebar();
       refreshSearchIndex();
-    });
-    return state.loadAllPromise;
-  };
-  state.allLoaded = () => entries.every(entry => entry.loaded);
-
-  const io = typeof IntersectionObserver !== "undefined"
-    ? new IntersectionObserver(obsEntries => {
-      obsEntries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const idx = Number(entry.target.dataset.categoryIndex || "-1");
-        const targetEntry = entries[idx];
-        if (targetEntry) loadCategory(targetEntry);
-        if (io) io.unobserve(entry.target);
-      });
-    }, { rootMargin: "400px 0px" })
-    : null;
-
-  if (io) {
-    entries.forEach(entry => io.observe(entry.card));
-  } else {
-    entries.forEach(entry => loadCategory(entry));
-  }
-
-  const warmCount = Math.min(2, entries.length);
-  for (let i = 0; i < warmCount; i++) {
-    loadCategory(entries[i]);
-  }
-
-  const linkIndex = indexData.linkIndex || {};
-  const favFiles = new Set([...favorites].map(name => linkIndex[name]).filter(Boolean));
-  favFiles.forEach(file => {
-    const entry = entryByFile.get(file);
-    if (entry) loadCategory(entry);
+    }
   });
 
   lazyState = state;
@@ -1060,37 +861,6 @@ function setupSearch() {
 function setupThemeToggle() {
   try { const c = document.querySelector('.theme-toggle-container'); if (c) c.remove(); } catch { }
   try { document.body.classList.add('koyu'); } catch { }
-  return;
-  const btn = document.getElementById("theme-toggle");
-  const body = document.body;
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-  function apply(isDark) {
-    const dark = !!isDark;
-    if (dark) {
-      body.classList.add("koyu");
-      btn.textContent = "☀️";
-      btn.setAttribute("aria-label", "Aydınlık temaya geç");
-    } else {
-      body.classList.remove("koyu");
-      btn.textContent = "🌙";
-      btn.setAttribute("aria-label", "Koyu temaya geç");
-    }
-    btn.setAttribute("aria-pressed", String(dark));
-  }
-
-  btn.addEventListener("click", () => {
-    const willDark = !body.classList.contains("koyu");
-    apply(willDark);
-    localStorage.setItem("theme", willDark ? "koyu" : "aydinlik");
-  });
-
-  let pref = localStorage.getItem("theme");
-  if (!pref) pref = prefersDark.matches ? "koyu" : "aydinlik";
-  apply(pref === "koyu");
-  prefersDark.addEventListener("change", e => {
-    if (!localStorage.getItem("theme")) apply(e.matches);
-  });
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -1303,7 +1073,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       navigator.serviceWorker.register("sw.js", { scope: "./", updateViaCache: "none" }).then(
         reg => {
           lastReg = reg;
-          console.log("ServiceWorker registration successful with scope:", reg.scope);
+          logger.info("sw", "ServiceWorker registration successful with scope: " + reg.scope);
           try {
             setInterval(() => {
               reg.update().catch(() => {});
@@ -1331,7 +1101,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (reg.waiting && navigator.serviceWorker.controller && hadController) showUpdateBanner();
           } catch { }
         },
-        err => console.log("ServiceWorker registration failed:", err)
+        err => logger.error("sw", "ServiceWorker registration failed", err)
       );
 
       // When a new SW takes control, offer refresh instead of auto-reload

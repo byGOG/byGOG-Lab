@@ -31,9 +31,10 @@
     window.addEventListener('load', compute, { once: true });
   }
 
-  if (document.readyState === 'loading')
+  if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init, { once: true });
-  else
+  } else {
     init();
+  }
 })();
 

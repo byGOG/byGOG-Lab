@@ -2,7 +2,7 @@
  * Clipboard copy utilities
  */
 
-const WINUTIL_COMMAND = 'irm "https://christitus.com/win" | iex';
+import { WINUTIL_COMMAND } from './constants.js';
 
 export const COPY_ICON_SHAPES = {
   copy: '<rect x="9" y="9" width="12" height="12" rx="2" ry="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path>',
@@ -120,4 +120,4 @@ export function setupCopyDelegation(container) {
   });
 }
 
-export { WINUTIL_COMMAND };
+export { WINUTIL_COMMAND } from './constants.js';

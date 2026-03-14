@@ -95,8 +95,8 @@ describe('icon-loader', () => {
       img.setAttribute('data-src', 'icon/fallback.svg');
       document.body.appendChild(img);
 
-      // Fallback simülasyonu: IO yoksa hemen yükle
-      if (!hasIO || true) { // Test için her zaman fallback çalıştır
+      // Fallback simülasyonu: Test ortamında IO yok, her zaman fallback çalıştır
+      if (!hasIO) { // jsdom'da IntersectionObserver yoktur
         const src = img.getAttribute('data-src');
         if (src) {
           img.src = src;

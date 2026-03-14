@@ -65,7 +65,8 @@ let __minifyDone = false;
 (async () => { try { await minifyJS(); } finally { __minifyDone = true; } })();
 // Busy-wait very briefly if minification hasn't finished (ensures hashing sees minified output)
 const startWait = Date.now();
-while (!__minifyDone && Date.now() - startWait < 2000) {}
+// eslint-disable-next-line no-empty
+while (!__minifyDone && Date.now() - startWait < 2000) { /* intentional busy-wait */ }
 
 // 1.1) Minify JS (if esbuild is available)
 async function minifyJS() {

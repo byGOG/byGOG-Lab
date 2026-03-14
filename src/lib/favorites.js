@@ -3,18 +3,9 @@
  */
 
 import * as logger from './logger.js';
+import { DEFAULT_FAVORITES, STORAGE_KEYS } from './constants.js';
 
-const FAV_KEY = "bygog_favs";
-const DEFAULT_FAVORITES = [
-  "Microsoft Activation Scripts",
-  "Office Tool Plus",
-  "Snappy Driver Installer",
-  "Ninite",
-  "Winutil",
-  "PowerShell",
-  "FMHY",
-  "Privacy Guides"
-];
+const FAV_KEY = STORAGE_KEYS.FAVORITES;
 
 let favorites = new Set();
 let changeListeners = [];
