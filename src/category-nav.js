@@ -140,12 +140,12 @@ export function initCategoryNav() {
         }
     };
     const navOffset = () => {
-        const headerRect = header.getBoundingClientRect();
         if (isSidebar()) {
-            // Sidebar mode: only header height matters
-            return Math.ceil(headerRect.bottom + 16);
+            // Sidebar mode: header is in sidebar, not above content
+            return 24;
         }
         // Top bar mode: header + nav
+        const headerRect = header.getBoundingClientRect();
         const navRect = nav.getBoundingClientRect();
         const bottom = Math.max(navRect.bottom, headerRect.bottom);
         return Math.ceil(bottom + 12);
@@ -191,6 +191,25 @@ export function initCategoryNav() {
         return true;
     };
 
+    // SoundCloud nav item — scroll to .sc-embed
+    const scEmbed = document.querySelector('.sc-embed');
+    if (scEmbed) {
+        const scBtn = document.createElement('button');
+        scBtn.className = 'nav-item nav-item-sc';
+        const scIcon = document.createElement('span');
+        scIcon.className = 'nav-item-icon';
+        scIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 18V10.5a.5.5 0 0 1 1 0V18a.5.5 0 0 1-1 0zm3 1V9a.5.5 0 0 1 1 0v10a.5.5 0 0 1-1 0zm3 0V7a.5.5 0 0 1 1 0v12a.5.5 0 0 1-1 0zm3 0V5.5a.5.5 0 0 1 1 0V19a.5.5 0 0 1-1 0zm3 0V8a.5.5 0 0 1 1 0v11a.5.5 0 0 1-1 0zm3-1V9a.5.5 0 0 1 1 0v9c0 1.5-1 2-2 2h-1a.5.5 0 0 1 0-1h1c.55 0 1-.22 1-1zm3-1V11a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-.5a.5.5 0 0 1 0-1h.5a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1 .5.5 0 0 1-.5-.5V10c0-2.5-1.5-4-3.5-4a.5.5 0 0 1 0-1c2.5 0 4 2 4 5v1z"/></svg>';
+        scBtn.appendChild(scIcon);
+        const scText = document.createElement('span');
+        scText.className = 'nav-item-text';
+        scText.textContent = 'SoundCloud';
+        scBtn.appendChild(scText);
+        scBtn.onclick = () => {
+            scEmbed.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        };
+        nav.appendChild(scBtn);
+    }
+
     cats.forEach(h2 => {
         const card = h2.closest('.category-card');
         const id = `cat-${buttons.length}`;
@@ -200,21 +219,25 @@ export function initCategoryNav() {
             card.setAttribute('data-cat-slug', slug);
         }
 
+        // Category group wrapper
+        const group = document.createElement('div');
+        group.className = 'nav-group';
+
         const btn = document.createElement('button');
         btn.className = 'nav-item';
-        
+
         // Add icon
         const icon = document.createElement('span');
         icon.className = 'nav-item-icon';
         icon.innerHTML = getCategoryIcon(h2.textContent);
         btn.appendChild(icon);
-        
+
         // Add text
         const text = document.createElement('span');
         text.className = 'nav-item-text';
         text.textContent = h2.textContent;
         btn.appendChild(text);
-        
+
         btn.onclick = () => {
             scrollToSection({ h2, btn, slug }, { updateHash: true });
         };
@@ -224,7 +247,42 @@ export function initCategoryNav() {
             slugToSection.set(slug, { card, btn, h2, slug });
         }
         buttons.push(btn);
-        nav.appendChild(btn);
+        group.appendChild(btn);
+
+        // Add subcategory items (now or when lazy-loaded later)
+        const populateSubItems = (targetCard) => {
+            // Skip if already populated
+            if (group.querySelector('.nav-sub-item')) return;
+            const subHeadings = targetCard.querySelectorAll('.sub-category h3');
+            subHeadings.forEach(h3 => {
+                const subSlug = uniqueSlug(h3.textContent, `sub-${buttons.length}`);
+                const subBtn = document.createElement('button');
+                subBtn.className = 'nav-sub-item';
+                subBtn.textContent = h3.textContent;
+                subBtn.onclick = () => {
+                    scrollToSection({ h2: h3, btn, card: targetCard, slug: subSlug }, { updateHash: true });
+                };
+                slugToSection.set(subSlug, { card: targetCard, btn, h2: h3, slug: subSlug });
+                group.appendChild(subBtn);
+            });
+        };
+
+        if (card) {
+            // Try immediately (already rendered)
+            populateSubItems(card);
+            // Also observe for lazy-loaded content
+            if (!group.querySelector('.nav-sub-item')) {
+                const mo = new MutationObserver(() => {
+                    if (card.querySelector('.sub-category h3')) {
+                        populateSubItems(card);
+                        mo.disconnect();
+                    }
+                });
+                mo.observe(card, { childList: true, subtree: true });
+            }
+        }
+
+        nav.appendChild(group);
     });
 
     if (buttons.length) activate(buttons[0]);

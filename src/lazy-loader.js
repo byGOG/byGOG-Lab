@@ -102,37 +102,8 @@ export function initLazyCategories(indexData, container, deps) {
   };
   state.allLoaded = () => entries.every(entry => entry.loaded);
 
-  // IntersectionObserver: load categories as they scroll into view
-  const io = typeof IntersectionObserver !== "undefined"
-    ? new IntersectionObserver(obsEntries => {
-      obsEntries.forEach(oe => {
-        if (!oe.isIntersecting) return;
-        const idx = Number(oe.target.dataset.categoryIndex || "-1");
-        const targetEntry = entries[idx];
-        if (targetEntry) loadCategory(targetEntry);
-        if (io) io.unobserve(oe.target);
-      });
-    }, { rootMargin: "400px 0px" })
-    : null;
-
-  if (io) {
-    entries.forEach(entry => io.observe(entry.card));
-  } else {
-    entries.forEach(entry => loadCategory(entry));
-  }
-
-  // Pre-warm first 2 categories immediately
-  const warmCount = Math.min(2, entries.length);
-  for (let i = 0; i < warmCount; i++) loadCategory(entries[i]);
-
-  // Pre-load categories that contain current favorites
-  const linkIndex = indexData.linkIndex || {};
-  const favorites = getFavorites();
-  const favFiles = new Set([...favorites].map(name => linkIndex[name]).filter(Boolean));
-  favFiles.forEach(file => {
-    const entry = entryByFile.get(file);
-    if (entry) loadCategory(entry);
-  });
+  // Load all categories immediately
+  entries.forEach(entry => loadCategory(entry));
 
   return state;
 }
