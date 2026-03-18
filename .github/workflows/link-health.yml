@@ -1,0 +1,44 @@
+name: Link Health Check
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Every Monday at 06:00 UTC
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  check-links:
+    name: Check Links
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check link health
+        run: node scripts/check-links.cjs
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `Link Health Check — ${new Date().toISOString().split('T')[0]}`;
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'link-health'
+            });
+            if (existing.data.length > 0) return;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body: 'Automated link health check found broken links. Run `npm run check:links` locally for details.',
+              labels: ['link-health']
+            });

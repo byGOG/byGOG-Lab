@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <!-- Kritik render: charset + viewport + CSP en önce -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' https: data:; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; worker-src 'self'; connect-src 'self' https:; frame-src https://w.soundcloud.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+    />
+    <title>byGOG Lab</title>
+
+    <!-- SEO & Açıklama -->
+    <meta
+      name="description"
+      content="Windows ve Office kurulum rehberleri, sistem ara&#231;lar&#305;, VPN ve g&#252;venlik &#231;&#246;z&#252;mleri gibi g&#252;venilir yaz&#305;l&#305;mlara ba&#287;lant&#305;lar sunan kapsaml&#305; byGOG kaynak ar&#351;ivi."
+    />
+    <meta name="author" content="byGOG" />
+    <link rel="canonical" href="https://bygog.github.io/byGOG-Lab/" />
+
+    <!-- Tema & PWA -->
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#23272f" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="byGOG" />
+    <meta name="application-name" content="byGOG Lab" />
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Open Graph (Twitter/X og: fallback kullanır) -->
+    <meta property="og:title" content="byGOG Lab" />
+    <meta property="og:description" content="Windows ve yaz&#305;l&#305;m ara&#231;lar&#305; i&#231;in byGOG kaynak ar&#351;ivi." />
+    <meta property="og:image" content="https://bygog.github.io/profil.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://bygog.github.io/byGOG-Lab/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "byGOG Lab",
+        "url": "https://bygog.github.io/byGOG-Lab/",
+        "description": "Windows ve yazılım araçları için byGOG kaynak arşivi.",
+        "inLanguage": "tr",
+        "author": {
+          "@type": "Person",
+          "name": "byGOG",
+          "url": "https://bygog.github.io/"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://bygog.github.io/byGOG-Lab/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <!-- Preconnect & DNS (font + iframe) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://w.soundcloud.com" />
+
+    <!-- Kritik kaynaklar: preload & modulepreload -->
+    <link rel="preload" as="image" href="icon/bygog-lab-logo.svg" fetchpriority="high" />
+    <link rel="modulepreload" href="src/renderLinks.js" />
+    <link rel="preload" href="data/links-index.json" as="fetch" type="application/json" crossorigin />
+    <link rel="prefetch" href="src/searchWorker.js" as="worker" />
+
+    <!-- Stilller -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap"
+      rel="stylesheet"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/fab.css" />
+    <link rel="stylesheet" href="assets/overrides.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="icon/bygog-lab-icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="icon/bygog-lab-icon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/bygog-lab-icon-192.png" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link" data-i18n="a11y.skipLink">Ana içeriğe atla</a>
+    <div class="author-fab">
+      <a
+        href="https://bygog.github.io/"
+        target="_blank"
+        class="author-fab-link"
+        rel="noopener noreferrer"
+        aria-label="byGOG"
+      >
+        <img
+          loading="lazy"
+          decoding="async"
+          src="icon/bygog-lab-icon.svg"
+          width="44"
+          height="44"
+          alt="byGOG logo"
+          class="author-fab-icon"
+        />
+        <span class="author-fab-label">byGOG</span>
+      </a>
+    </div>
+    <div class="container">
+      <!-- Hero gradient background -->
+      <div class="hero-gradient" aria-hidden="true">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+      </div>
+      <header class="site-header">
+        <a href="#" class="logo-container" aria-label="Ana sayfaya dön" data-i18n-aria="a11y.goHome">
+          <img
+            src="icon/bygog-lab-logo.svg"
+            alt="byGOG Lab Logo"
+            class="logo"
+            width="640"
+            height="200"
+            decoding="async"
+            fetchpriority="high"
+            loading="eager"
+          />
+        </a>
+        <search class="search-container" data-i18n-aria="a11y.searchLabel" aria-label="Site içi arama">
+          <label for="search-input" class="visually-hidden">Arama</label>
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Ara..."
+            inputmode="search"
+            enterkeyhint="search"
+            autocomplete="off"
+            spellcheck="false"
+            aria-describedby="search-status"
+            aria-keyshortcuts="/, ., Control+K, Meta+K, Control+E"
+            data-ph-phrases='["Ara...","Steam, Rufus, Git","Ctrl+K"]'
+            data-ph-speed="65"
+            data-ph-delete-speed="38"
+            data-ph-pause-ticks="12"
+            data-ph-delay="900"
+            data-ph-once="false"
+            data-ph-scroll="true"
+            data-ph-scroll-cycles="2"
+          />
+        </search>
+      </header>
+      <div id="search-status" role="status" aria-live="polite" aria-atomic="true"></div>
+      <!-- Inline SoundCloud mini embed -->
+      <section class="sc-embed" aria-label="SoundCloud">
+        <iframe
+          title="SoundCloud Player"
+          allow="autoplay"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-popups"
+          data-src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/keinemusik&visual=false&show_comments=true&color=%23a3bffa"
+        >
+        </iframe>
+      </section>
+
+      <div class="main-layout">
+        <main id="main-content" class="content-area" data-i18n-aria="a11y.mainContent" aria-label="Ana içerik">
+          <div id="links-container" role="feed" data-i18n-aria="a11y.linkCategories" aria-label="Link kategorileri"></div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img
+            src="icon/bygog-lab-icon.svg"
+            alt="byGOG Lab"
+            class="footer-icon"
+            width="48"
+            height="48"
+          />
+          <span class="footer-logo">byGOG Lab</span>
+          <p class="footer-desc" data-i18n="footer.desc">Windows araçları ve yazılım kaynakları arşivi</p>
+        </div>
+        <div class="footer-divider"></div>
+        <p class="footer-copy" data-i18n="footer.copy">© 2025 byGOG Lab. Tüm hakları saklıdır.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="src/renderLinks.js"></script>
+    <script type="module" src="src/icon-loader.js"></script>
+    <script type="module" src="src/info-tooltips.js"></script>
+    <script type="module" src="src/placeholder-anim.js"></script>
+    <script type="module" src="src/scroll-anim.js"></script>
+    <script type="module" src="src/float-anim.js"></script>
+    <script type="module" src="src/header-offset.js"></script>
+    <script type="module" src="src/sc-clickload.js"></script>
+  </body>
+</html>

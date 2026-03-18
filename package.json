@@ -1,0 +1,71 @@
+{
+  "name": "bygog-lab",
+  "private": true,
+  "version": "0.2.0",
+  "description": "byGOG kaynak arşivi",
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "split:links": "node scripts/split-links.cjs",
+    "validate": "node scripts/validate.cjs",
+    "check:encoding": "node scripts/check-encoding.cjs",
+    "check:links": "node scripts/check-links.cjs",
+    "ci:validate": "npm run validate && npm run check:encoding",
+    "fix:titles": "node scripts/fix-titles.cjs",
+    "serve": "node scripts/serve.cjs",
+    "dev": "npm run build && npm run serve",
+    "dev:watch": "node scripts/watch.cjs",
+    "optimize:svg": "node scripts/optimize-svg.mjs",
+    "generate:sprite": "node scripts/generate-sprite.cjs",
+    "enrich:tags": "node scripts/enrich-tags.cjs",
+    "test": "node scripts/run-vitest.cjs run",
+    "test:watch": "node scripts/run-vitest.cjs",
+    "test:coverage": "node scripts/run-vitest.cjs run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
+    "test:all": "npm run test && npm run test:e2e",
+    "lint": "eslint src/ scripts/ tests/ --ext .js,.cjs,.mjs",
+    "lint:fix": "eslint src/ scripts/ tests/ --ext .js,.cjs,.mjs --fix",
+    "format": "prettier --write \"src/**/*.js\" \"scripts/**/*.cjs\" \"tests/**/*.js\" \"*.json\"",
+    "format:check": "prettier --check \"src/**/*.js\" \"scripts/**/*.cjs\" \"tests/**/*.js\" \"*.json\"",
+    "analyze": "node scripts/analyze-bundle.cjs",
+    "typecheck": "tsc --noEmit",
+    "release": "semantic-release",
+    "release:minor": "semantic-release --release-as minor",
+    "release:major": "semantic-release --release-as major",
+    "release:patch": "semantic-release --release-as patch",
+    "prepare": "husky || true"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
+    "@playwright/test": "^1.56.0",
+    "@semantic-release/changelog": "^6.0.0",
+    "@semantic-release/git": "^10.0.0",
+    "@vitest/coverage-v8": "^2.1.0",
+    "csso": "^5.0.5",
+    "esbuild": "^0.23.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vitest": "^0.5.0",
+    "husky": "^9.1.0",
+    "jsdom": "^25.0.0",
+    "lint-staged": "^15.2.0",
+    "playwright": "^1.56.0",
+    "prettier": "^3.3.0",
+    "semantic-release": "^24.0.0",
+    "sharp": "^0.34.5",
+    "svgo": "^4.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  },
+  "lint-staged": {
+    "*.{js,cjs,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css}": [
+      "prettier --write"
+    ]
+  }
+}
