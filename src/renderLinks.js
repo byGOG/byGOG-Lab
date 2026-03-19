@@ -262,9 +262,11 @@ function initLazyCategories(indexData, container) {
       markVisitedLinks(container);
       // Cache loaded icons in service worker for offline use
       if (navigator.serviceWorker && navigator.serviceWorker.controller) {
-        const urls = [...document.querySelectorAll('.site-icon[src]')]
-          .map(img => img.src)
-          .filter(src => src.includes('/icon/'));
+        const urls = [...new Set(
+          [...document.querySelectorAll('.site-icon[src]')]
+            .map(img => img.getAttribute('src'))
+            .filter(src => src && src.includes('icon/'))
+        )];
         if (urls.length) {
           navigator.serviceWorker.controller.postMessage({ type: 'CACHE_URLS', urls });
         }

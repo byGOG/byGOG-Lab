@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v0.2.0-2594d2d5';
+const CACHE_VERSION = 'v0.2.0-a059a69d';
 const CACHE_NAME = `bygog-lab-cache-${CACHE_VERSION}`;
 const OFFLINE_URL = 'index.html';
 
@@ -9,7 +9,7 @@ const urlsToCache = [
   'manifest.json',
   'dist/styles.c10e5317.css',
   'dist/fab.da466ffb.css',
-  'dist/renderLinks.46310808.js',
+  'dist/renderLinks.f25aecc4.js',
   'data/links-index.json',
   'icon/bygog-lab-icon.svg',
   'icon/bygog-lab-logo.svg'
@@ -90,7 +90,8 @@ self.addEventListener('message', event => {
       event.waitUntil(
         (async () => {
           const cache = await caches.open(CACHE_NAME);
-          await cache.addAll(data.urls);
+          const unique = [...new Set(data.urls)];
+          await cache.addAll(unique);
         })()
       );
     }

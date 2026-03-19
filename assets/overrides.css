@@ -792,6 +792,11 @@ li {
     position: static;
     width: 100%;
     max-width: 100%;
+    border-radius: 999px;
+  }
+
+  .search-container input#search-input {
+    border-radius: 999px;
   }
 }
 
@@ -1308,7 +1313,7 @@ li.has-copy > a {
 /* Tablet: top bar merged with header */
 @media (max-width: 900px) {
   .site-header {
-    border-radius: 26px 26px 0 0;
+    border-radius: 26px;
     border-bottom: 0;
   }
 
@@ -1328,7 +1333,7 @@ li.has-copy > a {
 
 @media (max-width: 720px) {
   .site-header {
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px;
   }
 
   .category-nav {
