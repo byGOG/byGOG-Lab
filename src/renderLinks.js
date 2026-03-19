@@ -15,6 +15,7 @@ import { initTagFilter } from './lib/tag-filter.js';
 import { renderFeaturedStrip } from './lib/featured-strip.js';
 import { renderNewAdditionsStrip } from './lib/new-additions-strip.js';
 import { initBatchInstall } from './lib/batch-install.js';
+import { initCustomCursor } from './custom-cursor.js';
 
 // Import from modular libraries
 import { fetchLinks } from './lib/data-fetcher.js';
@@ -593,6 +594,7 @@ function setupThemeToggle() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   setupThemeToggle();
+  initCustomCursor();
   initI18n();
   applyI18nToDom();
   initGlobalErrorHandler();
@@ -843,6 +845,49 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (!navigator.onLine) showOfflineBanner();
   })();
+
+  // Listen for data updates from service worker (stale-while-revalidate)
+  if (navigator.serviceWorker) {
+    let dataUpdateBannerShown = false;
+    navigator.serviceWorker.addEventListener('message', ev => {
+      try {
+        if (ev.data?.type === 'DATA_UPDATED' && !dataUpdateBannerShown) {
+          dataUpdateBannerShown = true;
+          let bar = document.getElementById('data-update-banner');
+          if (!bar) {
+            bar = document.createElement('div');
+            bar.id = 'data-update-banner';
+            bar.className = 'update-banner';
+            bar.setAttribute('role', 'status');
+            bar.setAttribute('aria-live', 'polite');
+
+            const msg = document.createElement('span');
+            msg.className = 'update-banner-text';
+            msg.textContent = t('update.dataChanged');
+
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'update-banner-action';
+            btn.textContent = t('update.refresh');
+            btn.setAttribute('aria-label', t('update.refreshAria'));
+            btn.addEventListener('click', () => window.location.reload());
+
+            const close = document.createElement('button');
+            close.type = 'button';
+            close.className = 'update-banner-close';
+            close.setAttribute('aria-label', t('info.close'));
+            close.innerHTML = '\u00d7';
+            close.addEventListener('click', () => { try { bar.remove(); } catch {} });
+
+            bar.appendChild(msg);
+            bar.appendChild(btn);
+            bar.appendChild(close);
+            document.body.appendChild(bar);
+          }
+        }
+      } catch {}
+    });
+  }
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {

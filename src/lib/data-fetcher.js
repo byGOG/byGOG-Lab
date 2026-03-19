@@ -34,7 +34,7 @@ export async function fetchLinksLegacy() {
  */
 export async function fetchLinks() {
   try {
-    const res = await fetch(LINKS_INDEX_PATH, { cache: 'force-cache' });
+    const res = await fetch(LINKS_INDEX_PATH);
     if (res.ok) {
       const data = await res.json();
       if (isLinksIndex(data)) return { mode: 'index', data };

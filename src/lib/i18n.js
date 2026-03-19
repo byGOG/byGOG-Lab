@@ -48,6 +48,7 @@ const translations = {
     'update.available': 'Yeni sürüm hazır',
     'update.refresh': 'Yenile',
     'update.refreshAria': 'Sayfayı yenile',
+    'update.dataChanged': 'Yeni veriler mevcut',
     'update.confirm': 'Yeni güncelleme mevcut! Yenilemek ister misiniz?',
 
     // Errors

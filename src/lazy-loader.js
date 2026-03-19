@@ -91,7 +91,7 @@ export function initLazyCategories(indexData, container, deps) {
     entry.loading = true;
     entry.promise = (async () => {
       try {
-        const res = await fetch(entry.meta.file, { cache: 'force-cache' });
+        const res = await fetch(entry.meta.file);
         if (!res.ok) throw new Error('Category load failed');
         const data = await res.json();
         renderCategoryContent(data, entry.card);

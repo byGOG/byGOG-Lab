@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v0.2.0-2b4e5ecd';
+const CACHE_VERSION = 'v0.2.0-357b61af';
 const CACHE_NAME = `bygog-lab-cache-${CACHE_VERSION}`;
 const OFFLINE_URL = 'index.html';
 
@@ -7,9 +7,9 @@ const urlsToCache = [
   '.',
   'index.html',
   'manifest.json',
-  'dist/styles.5f9bdf35.css',
+  'dist/styles.11ee030e.css',
   'dist/fab.da466ffb.css',
-  'dist/renderLinks.f25aecc4.js',
+  'dist/renderLinks.fbd996c8.js',
   'data/links-index.json',
   'icon/bygog-lab-icon.svg',
   'icon/bygog-lab-logo.svg'
@@ -237,15 +237,35 @@ self.addEventListener('fetch', event => {
       }
     }
 
-    // Stale-while-revalidate for JSON data files
+    // Stale-while-revalidate for JSON data files — notify client if content changed
     if (isJson) {
       const cached = await cache.match(req);
-      const fetchPromise = fetch(req, { cache: 'no-store' }).then(net => {
-        if (net && net.status === 200) {
-          cache.put(req, net.clone()).catch(() => {});
-        }
-        return net;
-      }).catch(() => null);
+      const fetchPromise = (async () => {
+        try {
+          const net = await fetch(req, { cache: 'no-store' });
+          if (net && net.status === 200) {
+            // Check if content actually changed
+            if (cached) {
+              try {
+                const [oldText, newText] = await Promise.all([
+                  cached.clone().text(),
+                  net.clone().text()
+                ]);
+                if (oldText !== newText) {
+                  // Notify all clients about data change
+                  const allClients = await self.clients.matchAll({ type: 'window' });
+                  for (const client of allClients) {
+                    client.postMessage({ type: 'DATA_UPDATED', url: req.url });
+                  }
+                }
+              } catch {}
+            }
+            await cache.put(req, net.clone());
+            return net;
+          }
+        } catch {}
+        return null;
+      })();
 
       if (cached) {
         event.waitUntil(fetchPromise);
