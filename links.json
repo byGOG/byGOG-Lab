@@ -2553,6 +2553,22 @@
                 "ai",
                 "yapay zeka"
               ]
+            },
+            {
+              "url": "https://github.com/lbjlaq/Antigravity-Manager",
+              "name": "Antigravity Manager",
+              "recommended": false,
+              "description": "Yapay zekâ hesaplarını yönetme ve tek tıkla geçiş aracı; çoklu hesap desteği, kota izleme ve API protokol dönüştürme özellikleri sunar.",
+              "icon": "icon/antigravity-manager.svg",
+              "alt": "Antigravity Manager",
+              "tags": [
+                "antigravity",
+                "ai",
+                "yapay zeka",
+                "hesap yönetici",
+                "api",
+                "proxy"
+              ]
             }
           ]
         },
