@@ -120,22 +120,9 @@ export function initLazyCategories(indexData, container, deps) {
   };
   state.allLoaded = () => entries.every(entry => entry.loaded);
 
-  // Use IntersectionObserver for true lazy loading
-  const observer = new IntersectionObserver(
-    observed => {
-      for (const o of observed) {
-        if (!o.isIntersecting) continue;
-        const idx = Number(o.target.dataset.categoryIndex);
-        const entry = entries[idx];
-        if (entry && !entry.loaded && !entry.loading) loadCategory(entry);
-        observer.unobserve(o.target);
-      }
-    },
-    { rootMargin: '300px 0px' }
-  );
-
-  entries.forEach(entry => observer.observe(entry.card));
-  state.observer = observer;
+  // Load all categories immediately (no lazy loading)
+  entries.forEach(entry => loadCategory(entry));
+  state.observer = null;
 
   return state;
 }

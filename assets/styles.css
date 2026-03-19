@@ -1711,56 +1711,104 @@ img[alt='RuckZuck'] {
   }
 }
 
-/* --- Back to Top --- */
-#back-to-top {
+/* --- Scroll Navigation --- */
+#scroll-nav {
   position: fixed;
   bottom: 82px;
   right: 24px;
-  width: 36px;
-  height: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px;
+  border-radius: 28px;
+  background: var(--card-bg, #0d1117);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid var(--card-border, #1b2332);
+  box-shadow:
+    0 8px 32px var(--card-shadow, rgba(0, 0, 0, 0.7)),
+    0 2px 8px var(--card-shadow2, rgba(0, 0, 0, 0.4)),
+    0 0 0 0.5px rgba(91, 156, 246, 0.05) inset;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.92);
+  transition:
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: var(--z-banner, 10001);
+}
+
+#scroll-nav.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+#scroll-nav:hover {
+  border-color: rgba(91, 156, 246, 0.2);
+  box-shadow:
+    0 8px 32px var(--card-shadow-hover, rgba(0, 0, 0, 0.9)),
+    0 4px 12px var(--card-shadow2-hover, rgba(0, 0, 0, 0.6)),
+    0 0 20px rgba(91, 156, 246, 0.06);
+}
+
+.scroll-nav-btn {
+  width: 38px;
+  height: 38px;
+  border: none;
   border-radius: 50%;
-  background: rgba(10, 10, 10, 0.94);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text);
+  background: transparent;
+  color: var(--text, #e8e8e8);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: var(--z-banner, 10001);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease,
+    opacity 0.2s ease;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
 
-#back-to-top svg {
+.scroll-nav-btn:hover {
+  color: var(--text-hover, #fff);
+  background: rgba(91, 156, 246, 0.12);
+}
+
+.scroll-nav-btn:active {
+  transform: scale(0.88);
+  background: rgba(91, 156, 246, 0.2);
+}
+
+.scroll-nav-btn.dimmed {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.scroll-nav-btn svg {
   width: 18px;
   height: 18px;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 2px rgba(91, 156, 246, 0.15));
 }
 
-#back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+.scroll-nav-btn:hover svg {
+  filter: drop-shadow(0 0 4px rgba(91, 156, 246, 0.35));
 }
 
-#back-to-top:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
-  transform: translateY(-2px);
-}
-
-#back-to-top:active {
-  transform: translateY(0) scale(0.95);
-}
-
-/* No extra shift needed - button is already above FAB */
-.author-fab ~ #back-to-top {
-  right: 24px;
+/* Separator line between buttons */
+.scroll-nav-up::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--card-border, #1b2332), transparent);
 }
 
 @media (max-width: 600px) {
@@ -1768,20 +1816,23 @@ img[alt='RuckZuck'] {
     bottom: 80px !important;
   }
 
-  /* Move fab up on mobile? Or just side-by-side */
-  #back-to-top {
+  #scroll-nav {
     bottom: 62px;
     right: 14px;
-    width: 32px;
-    height: 32px;
+    padding: 3px;
+    gap: 1px;
+    border-radius: 24px;
   }
 
-  .author-fab ~ #back-to-top {
-    right: 14px;
-    bottom: 62px;
+  .scroll-nav-btn {
+    width: 34px;
+    height: 34px;
   }
 
-  /* Stack vertically on mobile */
+  .scroll-nav-btn svg {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 /* --- Unified Action Buttons --- */

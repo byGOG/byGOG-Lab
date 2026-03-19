@@ -2785,8 +2785,8 @@ body.modal-open {
     opacity: 0.8;
   }
 
-  /* Hide scroll-to-top button */
-  #back-to-top,
+  /* Hide scroll navigation */
+  #scroll-nav,
   .scroll-top-btn {
     display: none !important;
   }
