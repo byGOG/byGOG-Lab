@@ -1,7 +1,7 @@
 /**
  * Scroll position restore.
  * Saves scroll position to sessionStorage so the user returns
- * to where they left off after clicking a link and pressing back.
+ * to where they left off after refresh or back navigation.
  */
 
 const KEY = 'bygog_scrollY';
@@ -13,10 +13,30 @@ export function initScrollRestore() {
     if (saved) {
       const y = parseInt(saved, 10);
       if (y > 0) {
-        // Wait for lazy-loaded content to settle
+        // Try restoring immediately, then re-check as lazy content loads
+        const restore = () => window.scrollTo({ top: y, behavior: 'instant' });
+
+        // Initial restore after first paint
         requestAnimationFrame(() => {
-          setTimeout(() => window.scrollTo({ top: y, behavior: 'instant' }), 120);
+          setTimeout(restore, 80);
         });
+
+        // Re-restore as layout shifts from lazy-loaded categories
+        // Use a MutationObserver to detect when content is added
+        const container = document.getElementById('links-container');
+        if (container) {
+          let restoreTimer = null;
+          const mo = new MutationObserver(() => {
+            clearTimeout(restoreTimer);
+            restoreTimer = setTimeout(restore, 50);
+          });
+          mo.observe(container, { childList: true, subtree: true });
+          // Stop observing after 5s (all categories should be loaded by then)
+          setTimeout(() => {
+            mo.disconnect();
+            clearTimeout(restoreTimer);
+          }, 5000);
+        }
       }
       sessionStorage.removeItem(KEY);
     }

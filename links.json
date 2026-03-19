@@ -13,7 +13,13 @@
               "description": "Orijinal Windows 10 ISO dosyası indir.",
               "icon": "icon/microsoft.svg",
               "alt": "Microsoft",
-              "tags": ["windows", "usb", "iso", "önyükleme", "microsoft"]
+              "tags": [
+                "windows",
+                "usb",
+                "iso",
+                "önyükleme",
+                "microsoft"
+              ]
             },
             {
               "url": "https://www.microsoft.com/tr-tr/software-download/windows11",
@@ -22,7 +28,13 @@
               "description": "Orijinal Windows 11 ISO dosyası indir.",
               "icon": "icon/microsoft.svg",
               "alt": "Microsoft",
-              "tags": ["windows", "usb", "iso", "önyükleme", "microsoft"],
+              "tags": [
+                "windows",
+                "usb",
+                "iso",
+                "önyükleme",
+                "microsoft"
+              ],
               "copyText": "winget install Microsoft.MediaCreationTool"
             },
             {
@@ -32,7 +44,12 @@
               "description": "USB'den kurulum medyası oluşturma.",
               "icon": "icon/rufus.svg",
               "alt": "Rufus",
-              "tags": ["rufus", "usb", "iso", "önyükleme"],
+              "tags": [
+                "rufus",
+                "usb",
+                "iso",
+                "önyükleme"
+              ],
               "copyText": "winget install Rufus.Rufus"
             },
             {
@@ -42,7 +59,12 @@
               "description": "Birden fazla işletim sistemi için çoklu önyükleme USB aracı.",
               "icon": "icon/ventoy.svg",
               "alt": "Ventoy",
-              "tags": ["ventoy", "usb", "iso", "önyükleme"],
+              "tags": [
+                "ventoy",
+                "usb",
+                "iso",
+                "önyükleme"
+              ],
               "copyText": "winget install Ventoy.Ventoy"
             },
             {
@@ -52,7 +74,14 @@
               "description": "Çapraz platform disk görüntülerini USB ve SD kartlara yazdırma aracı.",
               "icon": "icon/balenaetcher.svg",
               "alt": "balenaEtcher",
-              "tags": ["balenaetcher", "usb", "iso", "önyükleme", "etcher", "balena"],
+              "tags": [
+                "balenaetcher",
+                "usb",
+                "iso",
+                "önyükleme",
+                "etcher",
+                "balena"
+              ],
               "copyText": "winget install Balena.Etcher"
             },
             {
@@ -62,7 +91,11 @@
               "description": "Windows güncellemelerini indirip özelleştirilmiş ISO paketleri oluşturmanıza yardım eden web aracı.",
               "icon": "icon/uupdump.svg",
               "alt": "UUP Dump",
-              "tags": ["uupdump", "windows", "iso"]
+              "tags": [
+                "uupdump",
+                "windows",
+                "iso"
+              ]
             }
           ]
         },
@@ -76,7 +109,10 @@
               "description": "Optimize edilmiş Windows dağıtımı.",
               "icon": "icon/atlasos.svg",
               "alt": "AtlasOS",
-              "tags": ["atlasos", "windows"]
+              "tags": [
+                "atlasos",
+                "windows"
+              ]
             },
             {
               "url": "https://www.revi.cc/",
@@ -85,7 +121,12 @@
               "description": "Performans ve gizlilik odaklı Windows sürümü.",
               "icon": "icon/revi.svg",
               "alt": "ReviOS",
-              "tags": ["revios", "versiyon kontrol", "windows", "revi"]
+              "tags": [
+                "revios",
+                "versiyon kontrol",
+                "windows",
+                "revi"
+              ]
             }
           ]
         },
@@ -99,7 +140,9 @@
               "description": "Arch Linux tabanlı, kullanıcı dostu ve popüler bir Linux dağıtımı.",
               "icon": "icon/manjaro.svg",
               "alt": "Manjaro",
-              "tags": ["manjaro"]
+              "tags": [
+                "manjaro"
+              ]
             },
             {
               "url": "https://cachyos.org/",
@@ -108,7 +151,9 @@
               "description": "Arch Linux tabanlı, performans odaklı bir Linux dağıtımı.",
               "icon": "icon/cachyos.svg",
               "alt": "CachyOS",
-              "tags": ["cachyos"]
+              "tags": [
+                "cachyos"
+              ]
             },
             {
               "url": "https://ubuntu.com/desktop",
@@ -117,7 +162,9 @@
               "description": "En popüler, Debian tabanlı Linux dağıtımlarından biri.",
               "icon": "icon/ubuntu.svg",
               "alt": "Ubuntu",
-              "tags": ["ubuntu"]
+              "tags": [
+                "ubuntu"
+              ]
             },
             {
               "url": "https://distrowatch.com/",
@@ -126,7 +173,9 @@
               "description": "Linux dağıtımları hakkında haberler, popülerlik sıralamaları ve diğer bilgileri sağlayan bir web sitesi.",
               "icon": "icon/distrowatch.svg",
               "alt": "DistroWatch",
-              "tags": ["distrowatch"]
+              "tags": [
+                "distrowatch"
+              ]
             }
           ]
         },
@@ -141,7 +190,13 @@
               "icon": "icon/massgrave.svg",
               "alt": "Microsoft Activation Scripts",
               "copyText": "irm https://get.activated.win | iex",
-              "tags": ["microsoft", "activation", "scripts", "windows", "massgrave"]
+              "tags": [
+                "microsoft",
+                "activation",
+                "scripts",
+                "windows",
+                "massgrave"
+              ]
             }
           ]
         },
@@ -156,7 +211,11 @@
               "icon": "icon/otp.svg",
               "alt": "Office Tool Plus",
               "copyText": "irm https://officetool.plus | iex",
-              "tags": ["office", "windows", "officetool"]
+              "tags": [
+                "office",
+                "windows",
+                "officetool"
+              ]
             }
           ]
         }
@@ -176,7 +235,10 @@
               "icon": "icon/cpu-z.svg",
               "alt": "CPU-Z",
               "copyText": "winget install CPUID.CPU-Z",
-              "tags": ["cpu-z", "cpuid"]
+              "tags": [
+                "cpu-z",
+                "cpuid"
+              ]
             },
             {
               "url": "https://www.hwinfo.com/",
@@ -186,7 +248,9 @@
               "icon": "icon/hwinfo.svg",
               "alt": "HWiNFO",
               "copyText": "winget install REALiX.HWiNFO",
-              "tags": ["hwinfo"]
+              "tags": [
+                "hwinfo"
+              ]
             },
             {
               "url": "https://www.ocbase.com/",
@@ -196,7 +260,10 @@
               "icon": "icon/occt.svg",
               "alt": "OCCT",
               "copyText": "winget install OCBase.OCCT.Personal",
-              "tags": ["occt", "ocbase"]
+              "tags": [
+                "occt",
+                "ocbase"
+              ]
             },
             {
               "url": "https://www.techpowerup.com/gpuz/",
@@ -206,7 +273,11 @@
               "icon": "icon/gpu-z.svg",
               "alt": "GPU-Z",
               "copyText": "winget install TechPowerUp.GPU-Z",
-              "tags": ["gpu-z", "ekran görüntüsü", "techpowerup"]
+              "tags": [
+                "gpu-z",
+                "ekran görüntüsü",
+                "techpowerup"
+              ]
             },
             {
               "url": "https://geeks3d.com/furmark/",
@@ -216,7 +287,11 @@
               "icon": "icon/furmark.svg",
               "alt": "FurMark",
               "copyText": "winget install Geeks3D.FurMark.2",
-              "tags": ["furmark", "ekran görüntüsü", "geeks3d"]
+              "tags": [
+                "furmark",
+                "ekran görüntüsü",
+                "geeks3d"
+              ]
             },
             {
               "url": "https://www.passmark.com/products/burnintest/",
@@ -226,7 +301,10 @@
               "icon": "icon/burnintest.svg",
               "alt": "BurnInTest",
               "copyText": "curl -Lo %TEMP%\\b.exe https://www.passmark.com/downloads/BurnInTest_Windows_x86-64.exe && %TEMP%\\b.exe /silent",
-              "tags": ["burnintest", "passmark"]
+              "tags": [
+                "burnintest",
+                "passmark"
+              ]
             },
             {
               "url": "https://www.passmark.com/products/performancetest/",
@@ -236,7 +314,10 @@
               "icon": "icon/performancetest.svg",
               "alt": "PerformanceTest",
               "copyText": "winget install PassMark.PerformanceTest",
-              "tags": ["performancetest", "passmark"]
+              "tags": [
+                "performancetest",
+                "passmark"
+              ]
             },
             {
               "url": "https://learn.microsoft.com/tr-tr/sysinternals/downloads/sysinternals-suite",
@@ -246,7 +327,13 @@
               "icon": "icon/sysinternals.svg",
               "alt": "Sysinternals",
               "copyText": "winget install Microsoft.Sysinternals.Suite",
-              "tags": ["sysinternals", "suite", "windows", "learn", "microsoft"]
+              "tags": [
+                "sysinternals",
+                "suite",
+                "windows",
+                "learn",
+                "microsoft"
+              ]
             },
             {
               "url": "https://bitsum.com/",
@@ -256,7 +343,12 @@
               "icon": "icon/processlasso.svg",
               "alt": "Process Lasso",
               "copyText": "winget install Bitsum.ProcessLasso",
-              "tags": ["process lasso", "cpu", "performans", "bitsum"]
+              "tags": [
+                "process lasso",
+                "cpu",
+                "performans",
+                "bitsum"
+              ]
             }
           ]
         },
@@ -287,7 +379,13 @@
               "description": "AMD ekran kartı ve işlemci sürücülerini indir.",
               "icon": "icon/amd.svg",
               "alt": "AMD Software",
-              "tags": ["amd", "software", "sürücü", "güncelleme", "ekran görüntüsü"]
+              "tags": [
+                "amd",
+                "software",
+                "sürücü",
+                "güncelleme",
+                "ekran görüntüsü"
+              ]
             },
             {
               "url": "https://github.com/lostindark/DriverStoreExplorer",
@@ -297,7 +395,14 @@
               "icon": "icon/driverstoreexplorer.svg",
               "alt": "Driver Store Explorer",
               "copyText": "winget install lostindark.DriverStoreExplorer",
-              "tags": ["driver", "store", "explorer", "sürücü", "güncelleme", "windows"]
+              "tags": [
+                "driver",
+                "store",
+                "explorer",
+                "sürücü",
+                "güncelleme",
+                "windows"
+              ]
             },
             {
               "url": "https://www.guru3d.com/download/display-driver-uninstaller-download/",
@@ -324,7 +429,13 @@
               "icon": "icon/intel.svg",
               "alt": "Intel Driver ve Support Assistant",
               "copyText": "winget install Intel.IntelDriverAndSupportAssistant",
-              "tags": ["intel", "driver", "assistant", "sürücü", "güncelleme"]
+              "tags": [
+                "intel",
+                "driver",
+                "assistant",
+                "sürücü",
+                "güncelleme"
+              ]
             },
             {
               "url": "https://www.nvidia.com/tr-tr/software/nvidia-app/",
@@ -333,7 +444,10 @@
               "description": "NVIDIA ekran kartları için sürücü, oyun ve yapay zekâ destekli araç yönetimi.",
               "icon": "icon/nvidia.svg",
               "alt": "NVIDIA",
-              "tags": ["nvidia", "ekran görüntüsü"]
+              "tags": [
+                "nvidia",
+                "ekran görüntüsü"
+              ]
             }
           ]
         },
@@ -348,7 +462,9 @@
               "icon": "icon/bcuninstaller.svg",
               "alt": "BCUninstaller",
               "copyText": "winget install Klocman.BulkCrapUninstaller",
-              "tags": ["bcuninstaller"]
+              "tags": [
+                "bcuninstaller"
+              ]
             },
             {
               "url": "https://www.bleachbit.org/",
@@ -358,7 +474,9 @@
               "icon": "icon/bleachbit.svg",
               "alt": "BleachBit",
               "copyText": "winget install BleachBit.BleachBit",
-              "tags": ["bleachbit"]
+              "tags": [
+                "bleachbit"
+              ]
             },
             {
               "url": "https://www.oo-software.com/en/ooappbuster",
@@ -368,7 +486,11 @@
               "icon": "icon/appbuster.svg",
               "alt": "O&O AppBuster",
               "copyText": "winget install OO-Software.AppBuster",
-              "tags": ["appbuster", "windows", "oo-software"]
+              "tags": [
+                "appbuster",
+                "windows",
+                "oo-software"
+              ]
             },
             {
               "url": "https://github.com/farag2/Sophia-Script-for-Windows",
@@ -378,7 +500,13 @@
               "icon": "icon/powershell.svg",
               "alt": "Sophia Script for Windows",
               "copyText": "iwr script.sophia.team -useb | iex",
-              "tags": ["sophia", "script", "for", "windows", "github"]
+              "tags": [
+                "sophia",
+                "script",
+                "for",
+                "windows",
+                "github"
+              ]
             },
             {
               "url": "https://winconfigs.netlify.app/",
@@ -388,7 +516,11 @@
               "icon": "icon/winconfigs.svg",
               "alt": "WinConfigs",
               "copyText": "iwr \"https://fr0st.xyz/winconfigs\" | iex",
-              "tags": ["winconfigs", "windows", "netlify"]
+              "tags": [
+                "winconfigs",
+                "windows",
+                "netlify"
+              ]
             },
             {
               "url": "https://pcmanager.microsoft.com/tr-tr",
@@ -398,7 +530,13 @@
               "icon": "icon/microsoftpcmanager.svg",
               "alt": "Microsoft PC Manager",
               "copyText": "winget install Microsoft.PCManager",
-              "tags": ["microsoft", "manager", "paket yöneticisi", "windows", "pcmanager"]
+              "tags": [
+                "microsoft",
+                "manager",
+                "paket yöneticisi",
+                "windows",
+                "pcmanager"
+              ]
             },
             {
               "url": "https://github.com/Raphire/Win11Debloat",
@@ -408,7 +546,11 @@
               "icon": "icon/powershell.svg",
               "alt": "Win11Debloat",
               "copyText": "& ([scriptblock]::Create((irm \"https://debloat.raphi.re/\")))",
-              "tags": ["win11debloat", "windows", "github"]
+              "tags": [
+                "win11debloat",
+                "windows",
+                "github"
+              ]
             }
           ]
         },
@@ -423,7 +565,11 @@
               "icon": "icon/7-zip.svg",
               "alt": "7-Zip",
               "copyText": "winget install 7zip.7zip",
-              "tags": ["7-zip", "arşiv", "sıkıştırma"]
+              "tags": [
+                "7-zip",
+                "arşiv",
+                "sıkıştırma"
+              ]
             },
             {
               "url": "https://github.com/M2Team/NanaZip",
@@ -433,7 +579,14 @@
               "icon": "icon/nanazip.svg",
               "alt": "NanaZip",
               "copyText": "winget install M2Team.NanaZip",
-              "tags": ["nanazip", "arşiv", "sıkıştırma", "paket yöneticisi", "windows", "github"]
+              "tags": [
+                "nanazip",
+                "arşiv",
+                "sıkıştırma",
+                "paket yöneticisi",
+                "windows",
+                "github"
+              ]
             },
             {
               "url": "https://www.codesector.com/teracopy",
@@ -443,7 +596,10 @@
               "icon": "icon/teracopy.svg",
               "alt": "TeraCopy",
               "copyText": "winget install CodeSector.TeraCopy",
-              "tags": ["teracopy", "codesector"]
+              "tags": [
+                "teracopy",
+                "codesector"
+              ]
             },
             {
               "url": "https://www.rarlab.com/",
@@ -453,7 +609,10 @@
               "icon": "icon/winrar.svg",
               "alt": "WinRAR",
               "copyText": "winget install RARLab.WinRAR",
-              "tags": ["winrar", "rarlab"]
+              "tags": [
+                "winrar",
+                "rarlab"
+              ]
             },
             {
               "url": "https://github.com/idrassi/HashCheck",
@@ -463,7 +622,13 @@
               "icon": "icon/hashcheck.svg",
               "alt": "HashCheck",
               "copyText": "winget install idrassi.HashCheckShellExtension",
-              "tags": ["hashcheck", "shell", "extension", "windows", "github"]
+              "tags": [
+                "hashcheck",
+                "shell",
+                "extension",
+                "windows",
+                "github"
+              ]
             },
             {
               "url": "https://winmerge.org/",
@@ -473,7 +638,9 @@
               "icon": "icon/winmerge.svg",
               "alt": "WinMerge",
               "copyText": "winget install WinMerge.WinMerge",
-              "tags": ["winmerge"]
+              "tags": [
+                "winmerge"
+              ]
             },
             {
               "url": "https://macrorit.com/partition-magic-manager/free-edition.html",
@@ -482,7 +649,12 @@
               "description": "Ücretsiz, gelişmiş disk bölümlendirme ve yönetim aracı. Veri kaybı olmadan disk bölme, birleştirme, biçimlendirme ve kurtarma özellikleri.",
               "icon": "icon/macrorit.svg",
               "alt": "Macrorit Partition Expert",
-              "tags": ["macrorit", "partition", "expert", "paket yöneticisi"]
+              "tags": [
+                "macrorit",
+                "partition",
+                "expert",
+                "paket yöneticisi"
+              ]
             },
             {
               "url": "https://www.onecommander.com/",
@@ -492,7 +664,13 @@
               "icon": "icon/onecommander.svg",
               "alt": "OneCommander",
               "copyText": "winget install MilosParipovic.OneCommander",
-              "tags": ["onecommander", "dosya", "yöneticisi", "file", "manager"]
+              "tags": [
+                "onecommander",
+                "dosya",
+                "yöneticisi",
+                "file",
+                "manager"
+              ]
             }
           ]
         },
@@ -507,7 +685,11 @@
               "icon": "icon/everything.svg",
               "alt": "Everything",
               "copyText": "winget install voidtools.Everything",
-              "tags": ["everything", "windows", "voidtools"]
+              "tags": [
+                "everything",
+                "windows",
+                "voidtools"
+              ]
             },
             {
               "url": "https://diskanalyzer.com/",
@@ -517,7 +699,10 @@
               "icon": "icon/wiztree.svg",
               "alt": "WizTree",
               "copyText": "winget install AntibodySoftware.WizTree",
-              "tags": ["wiztree", "diskanalyzer"]
+              "tags": [
+                "wiztree",
+                "diskanalyzer"
+              ]
             }
           ]
         }
@@ -537,7 +722,14 @@
               "icon": "icon/avira.svg",
               "alt": "Avira Free Antivirus",
               "copyText": "winget install XPFD23M0L795KD",
-              "tags": ["avira", "free", "antivirus", "güvenlik", "gizlilik", "windows"]
+              "tags": [
+                "avira",
+                "free",
+                "antivirus",
+                "güvenlik",
+                "gizlilik",
+                "windows"
+              ]
             },
             {
               "url": "https://www.bitdefender.com/en-us/consumer/free-antivirus",
@@ -547,7 +739,13 @@
               "icon": "icon/bitdefender.svg",
               "alt": "Bitdefender Free Antivirus",
               "copyText": "curl -Lo \"%TEMP%\\bd.exe\" \"https://download.bitdefender.com/windows/installer/tr-tr/bitdefender_avfree.exe\" && \"%TEMP%\\bd.exe\" /silent",
-              "tags": ["bitdefender", "free", "antivirus", "güvenlik", "gizlilik"]
+              "tags": [
+                "bitdefender",
+                "free",
+                "antivirus",
+                "güvenlik",
+                "gizlilik"
+              ]
             },
             {
               "url": "https://www.eset.com/tr/",
@@ -556,7 +754,13 @@
               "description": "ESET, bilgisayar ve mobil cihazları virüs, zararlı yazılım (malware), fidye yazılımı (ransomware), phishing gibi siber tehditlerden koruyan bir siber güvenlik yazılımıdır.",
               "icon": "icon/eset.svg",
               "alt": "ESET",
-              "tags": ["eset", "antivirus", "güvenlik", "gizlilik", "nod32"]
+              "tags": [
+                "eset",
+                "antivirus",
+                "güvenlik",
+                "gizlilik",
+                "nod32"
+              ]
             },
             {
               "url": "https://www.malwarebytes.com/",
@@ -566,7 +770,9 @@
               "icon": "icon/malwarebytes.svg",
               "alt": "Malwarebytes",
               "copyText": "winget install Malwarebytes.Malwarebytes",
-              "tags": ["malwarebytes"]
+              "tags": [
+                "malwarebytes"
+              ]
             },
             {
               "url": "https://www.emsisoft.com/en/emergency-kit/",
@@ -576,7 +782,13 @@
               "icon": "icon/emsisoft.svg",
               "alt": "Emsisoft Emergency Kit",
               "copyText": "curl -Lo \"%TMP%\\ee.exe\" \"https://dl.emsisoft.com/EmsisoftEmergencyKit.exe\" && \"%TMP%\\ee.exe\" /s",
-              "tags": ["emsisoft", "emergency-kit", "portable", "scanner", "anti-malware"]
+              "tags": [
+                "emsisoft",
+                "emergency-kit",
+                "portable",
+                "scanner",
+                "anti-malware"
+              ]
             },
             {
               "url": "https://sandboxie-plus.com/",
@@ -586,7 +798,10 @@
               "icon": "icon/sandboxie.svg",
               "alt": "Sandboxie Plus",
               "copyText": "winget install Sandboxie.Plus",
-              "tags": ["sandboxie", "sandboxie-plus"]
+              "tags": [
+                "sandboxie",
+                "sandboxie-plus"
+              ]
             }
           ]
         },
@@ -601,7 +816,11 @@
               "icon": "icon/oosu10.svg",
               "alt": "O&O ShutUp10++",
               "copyText": "winget install OO-Software.ShutUp10",
-              "tags": ["shutup10", "windows", "oo-software"]
+              "tags": [
+                "shutup10",
+                "windows",
+                "oo-software"
+              ]
             },
             {
               "url": "https://privacy.sexy/",
@@ -611,7 +830,12 @@
               "icon": "icon/privacy.sexy.svg",
               "alt": "Privacy.sexy",
               "copyText": "winget install undergroundwires.privacy.sexy",
-              "tags": ["privacy", "sexy", "güvenlik", "gizlilik"]
+              "tags": [
+                "privacy",
+                "sexy",
+                "güvenlik",
+                "gizlilik"
+              ]
             },
             {
               "url": "https://github.com/ionuttbara/windows-defender-remover",
@@ -621,7 +845,12 @@
               "icon": "icon/defenderremover.svg",
               "alt": "Windows Defender Remover",
               "copyText": "git clone https://github.com/ionuttbara/windows-defender-remover.git; cd windows-defender-remover; .\\Script_Run.bat",
-              "tags": ["windows", "defender", "remover", "github"]
+              "tags": [
+                "windows",
+                "defender",
+                "remover",
+                "github"
+              ]
             },
             {
               "url": "https://www.sordum.org/9480/defender-control-v2-1/",
@@ -630,7 +859,12 @@
               "description": "Windows Defender'ı kolayca devre dışı bırakma ve etkinleştirme aracı.",
               "icon": "icon/defendercontrol.svg",
               "alt": "Defender Control",
-              "tags": ["defender", "control", "windows", "sordum"]
+              "tags": [
+                "defender",
+                "control",
+                "windows",
+                "sordum"
+              ]
             },
             {
               "url": "https://github.com/es3n1n/defendnot",
@@ -639,7 +873,11 @@
               "description": "Windows Defender'ı devre dışı bırakmayı kolaylaştıran script.",
               "icon": "icon/powershell.svg",
               "alt": "DefendNot",
-              "tags": ["defendnot", "windows", "github"],
+              "tags": [
+                "defendnot",
+                "windows",
+                "github"
+              ],
               "copyText": "irm https://dnot.sh/ | iex"
             },
             {
@@ -650,7 +888,13 @@
               "icon": "icon/zenprivacy.svg",
               "alt": "ZenPrivacy",
               "copyText": "winget install ZenPrivacy.ZenDesktop",
-              "tags": ["zen", "privacy", "güvenlik", "gizlilik", "zenprivacy"]
+              "tags": [
+                "zen",
+                "privacy",
+                "güvenlik",
+                "gizlilik",
+                "zenprivacy"
+              ]
             }
           ]
         },
@@ -664,7 +908,12 @@
               "description": "Engelli sitelere erişim için VPN hizmeti.",
               "icon": "icon/antizapret.svg",
               "alt": "Antizapret",
-              "tags": ["antizapret", "vpn", "gizlilik", "prostovpn"]
+              "tags": [
+                "antizapret",
+                "vpn",
+                "gizlilik",
+                "prostovpn"
+              ]
             },
             {
               "url": "https://github.com/cagritaskn/GoodbyeDPI-Turkey",
@@ -673,7 +922,10 @@
               "description": "Türkiye için DPI engelini aşma aracı.",
               "icon": "icon/goodbyedpi.svg",
               "alt": "GoodbyeDPI-Turkey",
-              "tags": ["goodbyedpi-turkey", "github"]
+              "tags": [
+                "goodbyedpi-turkey",
+                "github"
+              ]
             },
             {
               "url": "https://github.com/cagritaskn/SplitWire-Turkey",
@@ -683,7 +935,10 @@
               "icon": "icon/splitwire.svg",
               "alt": "SplitWire-Turkey",
               "copyText": "$u=(iwr https://api.github.com/repos/cagritaskn/SplitWire-Turkey/releases/latest|ConvertFrom-Json).assets|? name -match 'Setup-Windows.*\\.exe'|% browser_download_url; curl.exe -Lo $env:TMP\\sw.exe $u; & $env:TMP\\sw.exe /silent",
-              "tags": ["splitwire-turkey", "github"]
+              "tags": [
+                "splitwire-turkey",
+                "github"
+              ]
             },
             {
               "url": "https://github.com/ValdikSS/GoodbyeDPI",
@@ -692,7 +947,10 @@
               "description": "DPI tabanlı engellemeleri aşmak için araç.",
               "icon": "icon/goodbyedpi.svg",
               "alt": "GoodbyeDPI",
-              "tags": ["goodbyedpi", "github"]
+              "tags": [
+                "goodbyedpi",
+                "github"
+              ]
             },
             {
               "url": "https://openvpn.net/client/",
@@ -702,7 +960,11 @@
               "icon": "icon/openvpn.svg",
               "alt": "OpenVPN",
               "copyText": "winget install OpenVPNTechnologies.OpenVPNConnect",
-              "tags": ["openvpn", "vpn", "gizlilik"]
+              "tags": [
+                "openvpn",
+                "vpn",
+                "gizlilik"
+              ]
             },
             {
               "url": "https://protonvpn.com/",
@@ -712,7 +974,11 @@
               "icon": "icon/protonvpn.svg",
               "alt": "ProtonVPN",
               "copyText": "winget install Proton.ProtonVPN",
-              "tags": ["protonvpn", "vpn", "gizlilik"]
+              "tags": [
+                "protonvpn",
+                "vpn",
+                "gizlilik"
+              ]
             },
             {
               "url": "https://www.torproject.org/tr/",
@@ -722,7 +988,12 @@
               "icon": "icon/tor.svg",
               "alt": "Tor Browser",
               "copyText": "winget install TorProject.TorBrowser",
-              "tags": ["tor", "browser", "tarayıcı", "torproject"]
+              "tags": [
+                "tor",
+                "browser",
+                "tarayıcı",
+                "torproject"
+              ]
             }
           ]
         },
@@ -737,7 +1008,10 @@
               "icon": "icon/bitwarden.svg",
               "alt": "Bitwarden",
               "copyText": "winget install Bitwarden.Bitwarden",
-              "tags": ["bitwarden", "paket yöneticisi"]
+              "tags": [
+                "bitwarden",
+                "paket yöneticisi"
+              ]
             },
             {
               "url": "https://browserleaks.com/",
@@ -746,7 +1020,9 @@
               "description": "Tarayıcı gizliliği ve sızıntı testleri.",
               "icon": "icon/browserleaks.svg",
               "alt": "BrowserLeaks",
-              "tags": ["browserleaks"]
+              "tags": [
+                "browserleaks"
+              ]
             },
             {
               "url": "https://relay.firefox.com/",
@@ -755,7 +1031,12 @@
               "description": "E-posta gizliliği ve maskeleme servisi.",
               "icon": "icon/relay.svg",
               "alt": "Firefox Relay",
-              "tags": ["firefox", "relay", "tarayıcı", "e-posta"]
+              "tags": [
+                "firefox",
+                "relay",
+                "tarayıcı",
+                "e-posta"
+              ]
             }
           ]
         },
@@ -769,7 +1050,11 @@
               "description": "Reklamları, izleyicileri, kötü amaçlı yazılımları ve kimlik avı sitelerini engelleyen ücretsiz DNS hizmeti.",
               "icon": "icon/adguard.svg",
               "alt": "AdGuard DNS",
-              "tags": ["adguard", "dns", "adguard-dns"]
+              "tags": [
+                "adguard",
+                "dns",
+                "adguard-dns"
+              ]
             },
             {
               "url": "https://nextdns.io/",
@@ -779,7 +1064,9 @@
               "icon": "icon/nextdns.svg",
               "alt": "NextDNS",
               "copyText": "winget install NextDNS.NextDNS",
-              "tags": ["nextdns"]
+              "tags": [
+                "nextdns"
+              ]
             },
             {
               "url": "https://one.one.one.one/tr-TR/dns/",
@@ -789,7 +1076,11 @@
               "icon": "icon/cloudflare.svg",
               "alt": "Cloudflare 1.1.1.1",
               "copyText": "winget install Cloudflare.Warp",
-              "tags": ["cloudflare", "dns", "one"]
+              "tags": [
+                "cloudflare",
+                "dns",
+                "one"
+              ]
             },
             {
               "url": "https://www.sordum.org/7952/dns-jumper-v2-3/",
@@ -799,7 +1090,12 @@
               "icon": "icon/dnsjumper.svg",
               "alt": "DNS Jumper",
               "copyText": "winget install sordum.DnsJumper",
-              "tags": ["dns", "jumper", "windows", "sordum"]
+              "tags": [
+                "dns",
+                "jumper",
+                "windows",
+                "sordum"
+              ]
             }
           ]
         }
@@ -818,7 +1114,9 @@
               "description": "Popüler programları toplu ve otomatik kurar.",
               "icon": "icon/ninite.svg",
               "alt": "Ninite",
-              "tags": ["ninite"]
+              "tags": [
+                "ninite"
+              ]
             },
             {
               "url": "https://packagepicker.co/",
@@ -827,7 +1125,9 @@
               "description": "Toplu yazılım kurulum listeleri oluşturur.",
               "icon": "icon/packagepicker.svg",
               "alt": "PackagePicker",
-              "tags": ["packagepicker"]
+              "tags": [
+                "packagepicker"
+              ]
             },
             {
               "url": "https://winutil.christitus.com/",
@@ -837,7 +1137,11 @@
               "icon": "icon/winutil.svg",
               "alt": "WinUtil",
               "copyText": "irm \"https://christitus.com/win\" | iex",
-              "tags": ["winutil", "windows", "christitus"]
+              "tags": [
+                "winutil",
+                "windows",
+                "christitus"
+              ]
             }
           ]
         },
@@ -852,7 +1156,10 @@
               "icon": "icon/chocolatey.svg",
               "alt": "Chocolatey",
               "copyText": "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))",
-              "tags": ["chocolatey", "paket yöneticisi"]
+              "tags": [
+                "chocolatey",
+                "paket yöneticisi"
+              ]
             },
             {
               "url": "https://www.marticliment.com/unigetui/",
@@ -862,7 +1169,11 @@
               "icon": "icon/unigetui.svg",
               "alt": "UnigetUI",
               "copyText": "winget install MartiCliment.UniGetUI",
-              "tags": ["unigetui", "paket yöneticisi", "marticliment"]
+              "tags": [
+                "unigetui",
+                "paket yöneticisi",
+                "marticliment"
+              ]
             },
             {
               "url": "https://ruckzuck.tools/",
@@ -872,7 +1183,9 @@
               "icon": "icon/ruckzuck.svg",
               "alt": "RuckZuck",
               "copyText": "winget install RogerZander.RZGet -e -h; if($LASTEXITCODE -eq 0){ $u=(curl.exe -s https://api.github.com/repos/rzander/ruckzuck/releases/latest | ConvertFrom-Json).assets | ? name -match 'RuckZuck.exe' | % browser_download_url; curl.exe -Lo $env:TEMP\\RuckZuck.exe $u; & $env:TEMP\\RuckZuck.exe }",
-              "tags": ["ruckzuck"]
+              "tags": [
+                "ruckzuck"
+              ]
             },
             {
               "url": "https://www.quickinstaller.net/",
@@ -882,7 +1195,9 @@
               "icon": "icon/quickinstaller.svg",
               "alt": "QuickInstaller",
               "copyText": "curl -Lo %TMP%\\q.exe https://app.quickinstaller.net/downloads/QuickInstallerSetup.exe && %TMP%\\q.exe /silent",
-              "tags": ["quickinstaller"]
+              "tags": [
+                "quickinstaller"
+              ]
             },
             {
               "url": "https://scoop.sh/",
@@ -892,7 +1207,10 @@
               "icon": "icon/scoop.svg",
               "alt": "Scoop",
               "copyText": "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser; Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression",
-              "tags": ["scoop", "paket yöneticisi"]
+              "tags": [
+                "scoop",
+                "paket yöneticisi"
+              ]
             }
           ]
         },
@@ -906,7 +1224,10 @@
               "description": "Taşınabilir (portable) yazılım arşivi ve blogu.",
               "icon": "icon/portableappz.svg",
               "alt": "PortableAppZ",
-              "tags": ["portableappz", "blogspot"]
+              "tags": [
+                "portableappz",
+                "blogspot"
+              ]
             },
             {
               "url": "https://portableapps.com/",
@@ -915,7 +1236,9 @@
               "description": "En popüler taşınabilir uygulama platformu.",
               "icon": "icon/portableapps.svg",
               "alt": "PortableApps",
-              "tags": ["portableapps"]
+              "tags": [
+                "portableapps"
+              ]
             },
             {
               "url": "https://portapps.io/",
@@ -924,7 +1247,9 @@
               "description": "Açık kaynak taşınabilir uygulama koleksiyonu.",
               "icon": "icon/portapps.svg",
               "alt": "Portapps",
-              "tags": ["portapps"]
+              "tags": [
+                "portapps"
+              ]
             },
             {
               "url": "https://www.sordum.org/",
@@ -933,7 +1258,10 @@
               "description": "Ücretsiz taşınabilir Windows araçları ve yazılım çözümleri.",
               "icon": "icon/sordum.svg",
               "alt": "Sordum.org",
-              "tags": ["sordum", "windows"]
+              "tags": [
+                "sordum",
+                "windows"
+              ]
             }
           ]
         },
@@ -947,7 +1275,9 @@
               "description": "Popüler yazılımların alternatiflerini ve kullanıcı yorumlarını bulabileceğiniz karşılaştırma platformu.",
               "icon": "icon/alternativeto.svg",
               "alt": "AlternativeTo",
-              "tags": ["alternativeto"]
+              "tags": [
+                "alternativeto"
+              ]
             }
           ]
         },
@@ -961,7 +1291,9 @@
               "description": "Teknoloji haberleri, incelemeler ve yazılım indirmeleri.",
               "icon": "icon/techspot.svg",
               "alt": "TechSpot",
-              "tags": ["techspot"]
+              "tags": [
+                "techspot"
+              ]
             },
             {
               "url": "https://www.softpedia.com/",
@@ -970,7 +1302,9 @@
               "description": "Teknoloji haberleri, incelemeler ve yazılım indirmeleri.",
               "icon": "icon/softpedia.svg",
               "alt": "Softpedia",
-              "tags": ["softpedia"]
+              "tags": [
+                "softpedia"
+              ]
             },
             {
               "url": "https://fmhy.net/",
@@ -1007,7 +1341,10 @@
               "icon": "icon/brave.svg",
               "alt": "Brave",
               "copyText": "winget install Brave.Brave",
-              "tags": ["brave", "tarayıcı"]
+              "tags": [
+                "brave",
+                "tarayıcı"
+              ]
             },
             {
               "url": "https://www.google.com/chrome/",
@@ -1017,7 +1354,11 @@
               "icon": "icon/chrome.svg",
               "alt": "Google Chrome",
               "copyText": "winget install Google.Chrome",
-              "tags": ["google", "chrome", "tarayıcı"]
+              "tags": [
+                "google",
+                "chrome",
+                "tarayıcı"
+              ]
             },
             {
               "url": "https://www.mozilla.org/tr/firefox/new/",
@@ -1027,7 +1368,11 @@
               "icon": "icon/firefox.svg",
               "alt": "Mozilla Firefox",
               "copyText": "winget install Mozilla.Firefox.tr",
-              "tags": ["mozilla", "firefox", "tarayıcı"]
+              "tags": [
+                "mozilla",
+                "firefox",
+                "tarayıcı"
+              ]
             },
             {
               "url": "https://mullvad.net/tr/browser",
@@ -1036,7 +1381,12 @@
               "description": "Gizlilik odaklı, izleme karşıtı web tarayıcı.",
               "icon": "icon/mullvad.svg",
               "alt": "Mullvad Browser",
-              "tags": ["mullvad", "browser", "tarayıcı", "gizlilik"]
+              "tags": [
+                "mullvad",
+                "browser",
+                "tarayıcı",
+                "gizlilik"
+              ]
             },
             {
               "url": "https://zen-browser.app/",
@@ -1046,7 +1396,12 @@
               "icon": "icon/zenbrowser.svg",
               "alt": "Zen Browser",
               "copyText": "winget install Zen-Team.Zen-Browser",
-              "tags": ["zen", "browser", "tarayıcı", "zen-browser"]
+              "tags": [
+                "zen",
+                "browser",
+                "tarayıcı",
+                "zen-browser"
+              ]
             }
           ]
         },
@@ -1060,7 +1415,11 @@
               "description": "Gelişmiş, açık kaynaklı reklam ve içerik engelleyici.",
               "icon": "icon/ublock.svg",
               "alt": "uBlock Origin",
-              "tags": ["ublock", "origin", "ublockorigin"]
+              "tags": [
+                "ublock",
+                "origin",
+                "ublockorigin"
+              ]
             },
             {
               "url": "https://github.com/dessant/buster",
@@ -1069,7 +1428,12 @@
               "description": "ReCAPTCHA sesli doğrulama çözücü eklentisi.",
               "icon": "icon/buster.svg",
               "alt": "Buster (Captcha Solver)",
-              "tags": ["buster", "captcha", "solver", "github"]
+              "tags": [
+                "buster",
+                "captcha",
+                "solver",
+                "github"
+              ]
             },
             {
               "url": "https://darkreader.org/",
@@ -1078,7 +1442,11 @@
               "description": "Her web sitesi için karanlık tema oluşturan tarayıcı eklentisi.",
               "icon": "icon/darkreader.svg",
               "alt": "Dark Reader",
-              "tags": ["dark", "reader", "darkreader"]
+              "tags": [
+                "dark",
+                "reader",
+                "darkreader"
+              ]
             },
             {
               "url": "https://greasyfork.org/tr",
@@ -1087,7 +1455,11 @@
               "description": "Kullanıcı scriptleri ve tarayıcı betikleri arşivi.",
               "icon": "icon/greasyfork.svg",
               "alt": "Greasy Fork",
-              "tags": ["greasy", "fork", "greasyfork"]
+              "tags": [
+                "greasy",
+                "fork",
+                "greasyfork"
+              ]
             },
             {
               "url": "https://sponsor.ajay.app/",
@@ -1096,7 +1468,11 @@
               "description": "YouTube sponsor ve gereksiz bölümleri otomatik atlayan eklenti.",
               "icon": "icon/sponsorblock.svg",
               "alt": "SponsorBlock",
-              "tags": ["sponsorblock", "sponsor", "ajay"]
+              "tags": [
+                "sponsorblock",
+                "sponsor",
+                "ajay"
+              ]
             },
             {
               "url": "https://github.com/FilipePS/Traduzir-paginas-web",
@@ -1105,7 +1481,15 @@
               "description": "Web sayfalarını gerçek zamanlı çeviren açık kaynak tarayıcı eklentisi.",
               "icon": "icon/twp.svg",
               "alt": "TWP - Translate Web Pages",
-              "tags": ["twp", "traduzir", "translate", "çeviri", "web", "pages", "github"]
+              "tags": [
+                "twp",
+                "traduzir",
+                "translate",
+                "çeviri",
+                "web",
+                "pages",
+                "github"
+              ]
             }
           ]
         },
@@ -1119,7 +1503,12 @@
               "description": "Bufferbloat sorununu ve bağlantı gecikmesini ölçen test aracı.",
               "icon": "icon/waveform.svg",
               "alt": "Waveform Bufferbloat Test",
-              "tags": ["bufferbloat", "and", "internet", "waveform"]
+              "tags": [
+                "bufferbloat",
+                "and",
+                "internet",
+                "waveform"
+              ]
             },
             {
               "url": "https://dnsspeedtest.online/",
@@ -1128,7 +1517,13 @@
               "description": "DNS sağlayıcılarının hızını karşılaştıran test.",
               "icon": "icon/dnsspeedtest.svg",
               "alt": "DNS Speed Test",
-              "tags": ["dns", "speed", "test", "dnsspeedtest", "online"]
+              "tags": [
+                "dns",
+                "speed",
+                "test",
+                "dnsspeedtest",
+                "online"
+              ]
             },
             {
               "url": "https://fast.com/tr/",
@@ -1137,7 +1532,9 @@
               "description": "Netflix hiz testi ile indirme hizini saniyeler icinde olcer.",
               "icon": "icon/fast.svg",
               "alt": "Fast.com",
-              "tags": ["fast"]
+              "tags": [
+                "fast"
+              ]
             },
             {
               "url": "https://www.speedtest.net/",
@@ -1146,7 +1543,9 @@
               "description": "Ookla hiz testi ile indirme, yukleme ve ping degerlerini olcer.",
               "icon": "icon/speedtest.svg",
               "alt": "Speedtest",
-              "tags": ["speedtest"],
+              "tags": [
+                "speedtest"
+              ],
               "copyText": "winget install Ookla.Speedtest.CLI"
             },
             {
@@ -1156,7 +1555,11 @@
               "description": "Cloudflare hiz testi ile indirme, yukleme ve gecikme degerlerini olcer.",
               "icon": "icon/cloudflare.svg",
               "alt": "Cloudflare Speed Test",
-              "tags": ["cloudflare", "speed", "test"]
+              "tags": [
+                "cloudflare",
+                "speed",
+                "test"
+              ]
             }
           ]
         }
@@ -1175,7 +1578,11 @@
               "description": "Türkçe yazılım indirme platformu.",
               "icon": "icon/fullprogramlarindir.svg",
               "alt": "Full Programlar İndir",
-              "tags": ["full", "programlar", "fullprogramlarindir"]
+              "tags": [
+                "full",
+                "programlar",
+                "fullprogramlarindir"
+              ]
             },
             {
               "url": "https://www.warezturkey.me/",
@@ -1184,7 +1591,9 @@
               "description": "Yazılım, araç ve program arşivi.",
               "icon": "icon/warezturkey.svg",
               "alt": "Warezturkey",
-              "tags": ["warezturkey"]
+              "tags": [
+                "warezturkey"
+              ]
             },
             {
               "url": "https://www.cybermania.ws/",
@@ -1193,7 +1602,9 @@
               "description": "Oyun, yazılım ve Android uygulama arşivi.",
               "icon": "icon/cybermania.svg",
               "alt": "CyberMania",
-              "tags": ["cybermania"]
+              "tags": [
+                "cybermania"
+              ]
             },
             {
               "url": "https://silentall.net/",
@@ -1202,7 +1613,9 @@
               "description": "Program, oyun ve katılımsız yazılım paylaşım platformu.",
               "icon": "icon/silentall.svg",
               "alt": "Silentall",
-              "tags": ["silentall"]
+              "tags": [
+                "silentall"
+              ]
             },
             {
               "url": "https://www.solidshare.net/",
@@ -1211,7 +1624,9 @@
               "description": "Katılımsız programlar ve güncel yazılım arşivi.",
               "icon": "icon/solidshare.svg",
               "alt": "SolidShare",
-              "tags": ["solidshare"]
+              "tags": [
+                "solidshare"
+              ]
             }
           ]
         },
@@ -1225,7 +1640,9 @@
               "description": "Crack ve keygen paylaşım platformu.",
               "icon": "icon/cracksurl.svg",
               "alt": "CRACKSurl",
-              "tags": ["cracksurl"]
+              "tags": [
+                "cracksurl"
+              ]
             }
           ]
         },
@@ -1239,7 +1656,12 @@
               "description": "Dünyanın en büyük torrent arama motoru.",
               "icon": "icon/thepiratebay.svg",
               "alt": "The Pirate Bay",
-              "tags": ["the", "pirate", "bay", "thepiratebay"]
+              "tags": [
+                "the",
+                "pirate",
+                "bay",
+                "thepiratebay"
+              ]
             },
             {
               "url": "https://eztvx.to/",
@@ -1248,7 +1670,10 @@
               "description": "Dizi ve TV şovları için torrent platformu.",
               "icon": "icon/eztv.svg",
               "alt": "EZTV",
-              "tags": ["eztv", "eztvx"]
+              "tags": [
+                "eztv",
+                "eztvx"
+              ]
             },
             {
               "url": "https://showrss.info/",
@@ -1257,7 +1682,10 @@
               "description": "Dizi torrentleri için RSS beslemesi.",
               "icon": "icon/showrss.svg",
               "alt": "showRSS",
-              "tags": ["showrss", "info"]
+              "tags": [
+                "showrss",
+                "info"
+              ]
             },
             {
               "url": "https://www.1377x.to/",
@@ -1266,7 +1694,10 @@
               "description": "Torrent arama motoru.",
               "icon": "icon/1337x.svg",
               "alt": "1337x",
-              "tags": ["1337x", "1377x"]
+              "tags": [
+                "1337x",
+                "1377x"
+              ]
             },
             {
               "url": "https://therarbg.com/",
@@ -1275,7 +1706,11 @@
               "description": "Torrent web sitesi.",
               "icon": "icon/rarbg.svg",
               "alt": "The RARBG",
-              "tags": ["the", "rarbg", "therarbg"]
+              "tags": [
+                "the",
+                "rarbg",
+                "therarbg"
+              ]
             },
             {
               "url": "https://ext.to/",
@@ -1284,7 +1719,9 @@
               "description": "Torrent web sitesi.",
               "icon": "icon/ext.svg",
               "alt": "EXT",
-              "tags": ["ext"]
+              "tags": [
+                "ext"
+              ]
             }
           ]
         },
@@ -1298,7 +1735,9 @@
               "description": "Özel torrent ve DDL paylaşım platformu.",
               "icon": "icon/lucida.svg",
               "alt": "Lucida",
-              "tags": ["lucida"]
+              "tags": [
+                "lucida"
+              ]
             },
             {
               "url": "https://qqdl.site/",
@@ -1307,7 +1746,12 @@
               "description": "Qobuz müzik indirme aracı (web).",
               "icon": "icon/qbdlx.svg",
               "alt": "Qobuz-DL",
-              "tags": ["qobuz-dl", "web", "müzik", "qqdl"]
+              "tags": [
+                "qobuz-dl",
+                "web",
+                "müzik",
+                "qqdl"
+              ]
             },
             {
               "url": "https://github.com/WilliamSchack/Spotify-Downloader",
@@ -1316,7 +1760,11 @@
               "description": "Spotify müziklerini indirme aracı.",
               "icon": "icon/spotify-downloader.svg",
               "alt": "Spotify-Downloader",
-              "tags": ["spotify-downloader", "müzik", "github"]
+              "tags": [
+                "spotify-downloader",
+                "müzik",
+                "github"
+              ]
             },
             {
               "url": "https://github.com/yt-dlp/yt-dlp",
@@ -1326,7 +1774,12 @@
               "icon": "icon/yt-dlp.svg",
               "alt": "yt-dlp",
               "copyText": "winget install yt-dlp.yt-dlp",
-              "tags": ["yt-dlp", "oynatıcı", "video", "github"]
+              "tags": [
+                "yt-dlp",
+                "oynatıcı",
+                "video",
+                "github"
+              ]
             }
           ]
         },
@@ -1340,7 +1793,10 @@
               "description": "Gelişmiş müzik çalar.",
               "icon": "icon/aimp.svg",
               "alt": "AIMP",
-              "tags": ["aimp", "müzik"],
+              "tags": [
+                "aimp",
+                "müzik"
+              ],
               "copyText": "winget install AIMP.AIMP"
             },
             {
@@ -1350,7 +1806,11 @@
               "description": "K-Lite Codec Pack ile medya codec'leri.",
               "icon": "icon/codecguide.svg",
               "alt": "Codec Guide",
-              "tags": ["codec", "guide", "codecguide"],
+              "tags": [
+                "codec",
+                "guide",
+                "codecguide"
+              ],
               "copyText": "winget install CodecGuide.K-LiteCodecPack.Standard"
             },
             {
@@ -1360,7 +1820,14 @@
               "description": "Çok formatlı medya oynatıcı.",
               "icon": "icon/vlc.svg",
               "alt": "VLC Media Player",
-              "tags": ["vlc", "media", "player", "oynatıcı", "video", "videolan"],
+              "tags": [
+                "vlc",
+                "media",
+                "player",
+                "oynatıcı",
+                "video",
+                "videolan"
+              ],
               "copyText": "winget install VideoLAN.VLC"
             },
             {
@@ -1370,7 +1837,10 @@
               "description": "Hafif ve modüler müzik çalar.",
               "icon": "icon/foobar2000.svg",
               "alt": "foobar2000",
-              "tags": ["foobar2000", "müzik"],
+              "tags": [
+                "foobar2000",
+                "müzik"
+              ],
               "copyText": "winget install PeterPawlowski.foobar2000 PeterPawlowski.foobar2000.EncoderPack"
             },
             {
@@ -1381,7 +1851,11 @@
               "icon": "icon/spotx.svg",
               "alt": "SpotX",
               "copyText": "iex \"& { $(iwr -useb 'https://raw.githubusercontent.com/SpotX-Official/SpotX/refs/heads/main/run.ps1') } -confirm_uninstall_ms_spoti -confirm_spoti_recomended_over -podcasts_off -block_update_on -start_spoti -new_theme -adsections_off -lyrics_stat spotify\"",
-              "tags": ["spotx", "müzik", "github"]
+              "tags": [
+                "spotx",
+                "müzik",
+                "github"
+              ]
             },
             {
               "url": "https://www.beatstats.com/",
@@ -1390,7 +1864,9 @@
               "description": "Beatport istatistikleri ve en iyi parçalar.",
               "icon": "icon/beatstats.svg",
               "alt": "BeatStats",
-              "tags": ["beatstats"]
+              "tags": [
+                "beatstats"
+              ]
             },
             {
               "url": "https://www.beatport.com/",
@@ -1399,7 +1875,10 @@
               "description": "Elektronik müzik ve DJ kültürü için dijital mağaza.",
               "icon": "icon/beatport.svg",
               "alt": "Beatport",
-              "tags": ["beatport", "müzik"]
+              "tags": [
+                "beatport",
+                "müzik"
+              ]
             }
           ]
         },
@@ -1413,7 +1892,11 @@
               "description": "YouTube'un müzik akış hizmeti.",
               "icon": "icon/youtubemusic.svg",
               "alt": "YouTube Music",
-              "tags": ["youtube", "music", "müzik"]
+              "tags": [
+                "youtube",
+                "music",
+                "müzik"
+              ]
             },
             {
               "url": "https://open.spotify.com/",
@@ -1423,7 +1906,11 @@
               "icon": "icon/spotify.svg",
               "alt": "Spotify",
               "copyText": "winget install Spotify.Spotify",
-              "tags": ["spotify", "müzik", "open"]
+              "tags": [
+                "spotify",
+                "müzik",
+                "open"
+              ]
             },
             {
               "url": "https://www.stremio.com/",
@@ -1433,7 +1920,9 @@
               "icon": "icon/stremio.svg",
               "alt": "Stremio",
               "copyText": "winget install Stremio.Stremio",
-              "tags": ["stremio"]
+              "tags": [
+                "stremio"
+              ]
             },
             {
               "url": "https://tv.garden/",
@@ -1442,7 +1931,9 @@
               "description": "Çevrim içi TV ve yayın platformu.",
               "icon": "icon/tv.garden.svg",
               "alt": "tv.garden",
-              "tags": ["garden"]
+              "tags": [
+                "garden"
+              ]
             },
             {
               "url": "https://lmao.love/channels/",
@@ -1451,7 +1942,11 @@
               "description": "Canli TV kanallari listesi.",
               "icon": "icon/lmaochannels.svg",
               "alt": "LMAO Channels",
-              "tags": ["lmao", "channels", "tv"]
+              "tags": [
+                "lmao",
+                "channels",
+                "tv"
+              ]
             },
             {
               "url": "https://github.com/4gray/iptvnator",
@@ -1460,7 +1955,12 @@
               "description": "IPTV oynaticisi (Windows/Linux/macOS).",
               "icon": "icon/iptvnator.svg",
               "alt": "IPTVnator",
-              "tags": ["iptvnator", "iptv", "player", "github"]
+              "tags": [
+                "iptvnator",
+                "iptv",
+                "player",
+                "github"
+              ]
             },
             {
               "url": "https://www.dojostreams.com/",
@@ -1469,7 +1969,9 @@
               "description": "Dünya genelinde IPTV, canlı TV ve film platformu.",
               "icon": "icon/dojostreams.svg",
               "alt": "Dojostreams",
-              "tags": ["dojostreams"]
+              "tags": [
+                "dojostreams"
+              ]
             },
             {
               "url": "https://daddyny.com/",
@@ -1478,7 +1980,11 @@
               "description": "Canlı spor karşılaşmaları için ücretsiz yayın platformu.",
               "icon": "icon/dlhd.svg",
               "alt": "DaddyLiveHD",
-              "tags": ["daddylivehd", "dlhd", "dad"]
+              "tags": [
+                "daddylivehd",
+                "dlhd",
+                "dad"
+              ]
             },
             {
               "url": "https://streamed.pk/",
@@ -1487,7 +1993,10 @@
               "description": "Ücretsiz canlı spor yayınları izleme platformu.",
               "icon": "icon/streamed.svg",
               "alt": "Streamed",
-              "tags": ["streamed", "spor"]
+              "tags": [
+                "streamed",
+                "spor"
+              ]
             },
             {
               "url": "https://sportyhunter.live/",
@@ -1496,7 +2005,10 @@
               "description": "Canlı spor karşılaşmaları için ücretsiz yayın platformu.",
               "icon": "icon/sportyhunter.svg",
               "alt": "SportyHunter",
-              "tags": ["sportyhunter", "spor"]
+              "tags": [
+                "sportyhunter",
+                "spor"
+              ]
             },
             {
               "url": "https://monochrome.tf/",
@@ -1505,7 +2017,9 @@
               "description": "Canlı spor yayınları izleme platformu.",
               "icon": "icon/monochrome.svg",
               "alt": "Monochrome",
-              "tags": ["monochrome"]
+              "tags": [
+                "monochrome"
+              ]
             }
           ]
         },
@@ -1520,7 +2034,12 @@
               "icon": "icon/idm.svg",
               "alt": "Internet Download Manager",
               "copyText": "winget install Tonec.InternetDownloadManager",
-              "tags": ["internet", "manager", "paket yöneticisi", "internetdownloadmanager"]
+              "tags": [
+                "internet",
+                "manager",
+                "paket yöneticisi",
+                "internetdownloadmanager"
+              ]
             },
             {
               "url": "https://jdownloader.org/",
@@ -1530,7 +2049,10 @@
               "icon": "icon/jdownloader.svg",
               "alt": "JDownloader",
               "copyText": "winget install AppWork.JDownloader",
-              "tags": ["jdownloader", "paket yöneticisi"]
+              "tags": [
+                "jdownloader",
+                "paket yöneticisi"
+              ]
             },
             {
               "url": "https://handbrake.fr/",
@@ -1540,7 +2062,11 @@
               "icon": "icon/handbrake.svg",
               "alt": "HandBrake",
               "copyText": "winget install HandBrake.HandBrake",
-              "tags": ["handbrake", "oynatıcı", "video"]
+              "tags": [
+                "handbrake",
+                "oynatıcı",
+                "video"
+              ]
             },
             {
               "url": "https://www.nikse.dk/",
@@ -1550,7 +2076,12 @@
               "icon": "icon/subtitleedit.svg",
               "alt": "Subtitle Edit",
               "copyText": "winget install Nikse.SubtitleEdit",
-              "tags": ["subtitle", "altyazı", "edit", "nikse"]
+              "tags": [
+                "subtitle",
+                "altyazı",
+                "edit",
+                "nikse"
+              ]
             },
             {
               "url": "https://github.com/Valyreon/Subloader",
@@ -1560,7 +2091,11 @@
               "icon": "icon/subloader.svg",
               "alt": "Subloader",
               "copyText": "$v=(iwr https://api.github.com/repos/Valyreon/Subloader/releases/latest|ConvertFrom-Json).tag_name;$fn=\"SubloaderV$($v.TrimStart('v').Replace('.',''))Installer.exe\";$u=\"https://github.com/Valyreon/Subloader/releases/download/$v/$fn\";$d=\"$env:TMP\\subloader.exe\";curl.exe -fLS -o $d $u;& $d /silent",
-              "tags": ["subloader", "altyazı", "github"]
+              "tags": [
+                "subloader",
+                "altyazı",
+                "github"
+              ]
             },
             {
               "url": "https://www.opensubtitles.com/",
@@ -1569,7 +2104,10 @@
               "description": "Geniş altyazı arşiviyle film ve dizi altyazılarını ücretsiz sunan platform.",
               "icon": "icon/opensubtitles.svg",
               "alt": "OpenSubtitles",
-              "tags": ["opensubtitles", "altyazı"]
+              "tags": [
+                "opensubtitles",
+                "altyazı"
+              ]
             }
           ]
         },
@@ -1577,13 +2115,15 @@
           "title": "Dizi & Film Siteleri",
           "links": [
             {
-              "url": "https://dizipal1507.com/",
+              "url": "https://dizipal1543.com/",
               "name": "Dizipal",
               "recommended": false,
               "description": "Güncel dizi ve filmleri ücretsiz izleyebileceğiniz popüler platform.",
               "icon": "icon/dizipal.svg",
               "alt": "Dizipal",
-              "tags": ["dizipal", "dizipal1312"]
+              "tags": [
+                "dizipal"
+              ]
             },
             {
               "url": "https://diziwatch.tv/",
@@ -1592,7 +2132,9 @@
               "description": "Çevrim içi dizi ve film izleme platformu.",
               "icon": "icon/diziwatch.svg",
               "alt": "DiziWatch",
-              "tags": ["diziwatch"]
+              "tags": [
+                "diziwatch"
+              ]
             },
             {
               "url": "https://hdfilmcehennemi.com/",
@@ -1601,7 +2143,10 @@
               "description": "Full HD 1080p kalitede dizi, film ve animeleri ücretsiz izleme platformu.",
               "icon": "icon/hdfilmcehennemi.svg",
               "alt": "HDFilmCehennemi",
-              "tags": ["hdfilmcehennemi", "hdfilmcehennemi20"]
+              "tags": [
+                "hdfilmcehennemi",
+                "hdfilmcehennemi20"
+              ]
             },
             {
               "url": "https://www.dizibox.live/",
@@ -1610,16 +2155,11 @@
               "description": "Çevrim içi dizi ve film izleme platformu.",
               "icon": "icon/dizibox.svg",
               "alt": "DiziBox",
-              "tags": ["dizibox", "diziboxlive", "dizibox.live"]
-            },
-            {
-              "url": "https://dizipal1069.com/",
-              "name": "Dizipal 1069",
-              "recommended": false,
-              "description": "Çevrim içi dizi ve film izleme platformu.",
-              "icon": "icon/dizipal.svg",
-              "alt": "Dizipal",
-              "tags": ["dizipal", "dizipal1069"]
+              "tags": [
+                "dizibox",
+                "diziboxlive",
+                "dizibox.live"
+              ]
             },
             {
               "url": "https://sezonlukdizi8.com/",
@@ -1628,16 +2168,25 @@
               "description": "Çevrim içi dizi ve film izleme platformu.",
               "icon": "icon/sezonlukdizi.svg",
               "alt": "SezonlukDizi",
-              "tags": ["sezonlukdizi", "sezonlukdizi8"]
+              "tags": [
+                "sezonlukdizi",
+                "sezonlukdizi8"
+              ]
             },
             {
-              "url": "https://dizi21.life/",
-              "name": "Dizi21",
+              "url": "https://dizi47.life/",
+              "name": "Dizi.life",
               "recommended": false,
               "description": "Çevrim içi dizi ve film izleme platformu.",
-              "icon": "icon/dizi21.svg",
-              "alt": "Dizi21",
-              "tags": ["dizi21"]
+              "icon": "icon/dizilife.svg",
+              "alt": "Dizi.life",
+              "tags": [
+                "dizilife",
+                "dizi",
+                "film",
+                "izle"
+              ],
+              "folded": "dizi.life dizilife dizi film izle medya & indirme dizi & film siteleri diger digerleri"
             },
             {
               "url": "https://www.cineby.gd/",
@@ -1646,25 +2195,9 @@
               "description": "Ücretsiz film ve dizi izleme platformu.",
               "icon": "icon/cineby.svg",
               "alt": "Cineby",
-              "tags": ["cineby"]
-            },
-            {
-              "url": "https://nepu.to/",
-              "name": "Nepu",
-              "recommended": false,
-              "description": "Çevrim içi film ve dizi izleme platformu.",
-              "icon": "icon/nepu.svg",
-              "alt": "Nepu",
-              "tags": ["nepu"]
-            },
-            {
-              "url": "https://xprime.today/",
-              "name": "xPrime",
-              "recommended": false,
-              "description": "Film ve dizi izleme platformu.",
-              "icon": "icon/xprime.svg",
-              "alt": "xPrime",
-              "tags": ["xprime"]
+              "tags": [
+                "cineby"
+              ]
             },
             {
               "url": "https://seriesgraph.com/",
@@ -1673,7 +2206,11 @@
               "description": "Dizi takip ve keşfetme platformu.",
               "icon": "icon/seriesgraph.svg",
               "alt": "SeriesGraph",
-              "tags": ["seriesgraph", "dizi", "takip"]
+              "tags": [
+                "seriesgraph",
+                "dizi",
+                "takip"
+              ]
             }
           ]
         },
@@ -1688,7 +2225,10 @@
               "icon": "icon/dropbox.svg",
               "alt": "Dropbox",
               "copyText": "winget install Dropbox.Dropbox",
-              "tags": ["dropbox", "bulut"]
+              "tags": [
+                "dropbox",
+                "bulut"
+              ]
             },
             {
               "url": "https://drive.google.com/",
@@ -1698,7 +2238,11 @@
               "icon": "icon/googledrive.svg",
               "alt": "Google Drive",
               "copyText": "winget install Google.GoogleDrive",
-              "tags": ["google", "drive", "bulut"]
+              "tags": [
+                "google",
+                "drive",
+                "bulut"
+              ]
             }
           ]
         }
@@ -1718,7 +2262,10 @@
               "icon": "icon/virtualbox.svg",
               "alt": "VirtualBox",
               "copyText": "winget install Oracle.VirtualBox",
-              "tags": ["virtualbox", "windows"]
+              "tags": [
+                "virtualbox",
+                "windows"
+              ]
             },
             {
               "url": "https://code.visualstudio.com/",
@@ -1728,7 +2275,13 @@
               "icon": "icon/visualstudiocode.svg",
               "alt": "Visual Studio Code",
               "copyText": "winget install Microsoft.VisualStudioCode",
-              "tags": ["visual", "studio", "code", "editör", "visualstudio"]
+              "tags": [
+                "visual",
+                "studio",
+                "code",
+                "editör",
+                "visualstudio"
+              ]
             },
             {
               "url": "https://notepad-plus-plus.org/",
@@ -1738,7 +2291,11 @@
               "icon": "icon/notepadplusplus.svg",
               "alt": "Notepad++",
               "copyText": "winget install Notepad++.Notepad++",
-              "tags": ["notepad", "editör", "notepad-plus-plus"]
+              "tags": [
+                "notepad",
+                "editör",
+                "notepad-plus-plus"
+              ]
             },
             {
               "url": "https://cursor.com/",
@@ -1748,7 +2305,10 @@
               "icon": "icon/cursor.svg",
               "alt": "Cursor",
               "copyText": "winget install Anysphere.Cursor",
-              "tags": ["cursor", "editör"]
+              "tags": [
+                "cursor",
+                "editör"
+              ]
             },
             {
               "url": "https://www.angusj.com/resourcehacker/",
@@ -1758,16 +2318,25 @@
               "icon": "icon/resourcehacker.svg",
               "alt": "Resource Hacker",
               "copyText": "winget install AngusJohnson.ResourceHacker",
-              "tags": ["resource", "hacker", "windows", "angusj"]
+              "tags": [
+                "resource",
+                "hacker",
+                "windows",
+                "angusj"
+              ]
             },
             {
               "url": "https://antigravity.google/",
               "name": "Google Antigravity",
               "recommended": false,
               "description": "Yeni nesil IDE ile havalanın.",
-              "icon": "icon/googletranslate.svg",
+              "icon": "icon/antigravity.svg",
               "alt": "Google Antigravity",
-              "tags": ["google", "eğlence", "demo"]
+              "tags": [
+                "google",
+                "eğlence",
+                "demo"
+              ]
             },
             {
               "url": "https://github.com/tw93/Pake",
@@ -1776,7 +2345,13 @@
               "description": "Web sayfalarını Rust/Tauri ile hafif masaüstü uygulamasına dönüştüren araç.",
               "icon": "icon/pake.svg",
               "alt": "Pake",
-              "tags": ["pake", "tauri", "rust", "desktop", "github"]
+              "tags": [
+                "pake",
+                "tauri",
+                "rust",
+                "desktop",
+                "github"
+              ]
             }
           ]
         },
@@ -1791,7 +2366,9 @@
               "icon": "icon/java.svg",
               "alt": "Java",
               "copyText": "winget install Oracle.JavaRuntimeEnvironment",
-              "tags": ["java"]
+              "tags": [
+                "java"
+              ]
             },
             {
               "url": "https://www.python.org/",
@@ -1801,7 +2378,9 @@
               "icon": "icon/python.svg",
               "alt": "Python",
               "copyText": "winget install Python",
-              "tags": ["python"]
+              "tags": [
+                "python"
+              ]
             },
             {
               "url": "https://learn.microsoft.com/tr-tr/powershell/",
@@ -1811,7 +2390,11 @@
               "icon": "icon/powershell.svg",
               "alt": "PowerShell",
               "copyText": "winget install Microsoft.PowerShell",
-              "tags": ["powershell", "learn", "microsoft"]
+              "tags": [
+                "powershell",
+                "learn",
+                "microsoft"
+              ]
             },
             {
               "url": "https://git-scm.com/",
@@ -1821,7 +2404,11 @@
               "icon": "icon/git.svg",
               "alt": "Git",
               "copyText": "winget install Git.Git",
-              "tags": ["git", "versiyon kontrol", "git-scm"]
+              "tags": [
+                "git",
+                "versiyon kontrol",
+                "git-scm"
+              ]
             },
             {
               "url": "https://developer.android.com/tools/adb",
@@ -1831,7 +2418,12 @@
               "icon": "icon/android.svg",
               "alt": "ADB",
               "copyText": "winget install Google.PlatformTools",
-              "tags": ["android", "hata", "ayiklama", "developer"]
+              "tags": [
+                "android",
+                "hata",
+                "ayiklama",
+                "developer"
+              ]
             }
           ]
         },
@@ -1846,7 +2438,9 @@
               "icon": "icon/inkscape.svg",
               "alt": "Inkscape",
               "copyText": "winget install Inkscape.Inkscape",
-              "tags": ["inkscape"]
+              "tags": [
+                "inkscape"
+              ]
             }
           ]
         }
@@ -1866,7 +2460,9 @@
               "icon": "icon/deepl.svg",
               "alt": "DeepL",
               "copyText": "winget install DeepL.DeepL",
-              "tags": ["deepl"]
+              "tags": [
+                "deepl"
+              ]
             },
             {
               "url": "https://translate.google.com/",
@@ -1875,7 +2471,10 @@
               "description": "Google'ın ücretsiz metin çeviri servisi.",
               "icon": "icon/googletranslate.svg",
               "alt": "Google Translate",
-              "tags": ["google", "translate"]
+              "tags": [
+                "google",
+                "translate"
+              ]
             }
           ]
         },
@@ -1890,7 +2489,9 @@
               "icon": "icon/chatgpt.svg",
               "alt": "ChatGPT",
               "copyText": "winget install 9NT1R1C2HH7J",
-              "tags": ["chatgpt"]
+              "tags": [
+                "chatgpt"
+              ]
             },
             {
               "url": "https://claude.ai/",
@@ -1900,7 +2501,9 @@
               "icon": "icon/claude.svg",
               "alt": "Claude AI",
               "copyText": "winget install Anthropic.Claude",
-              "tags": ["claude"]
+              "tags": [
+                "claude"
+              ]
             },
             {
               "url": "https://copilot.microsoft.com/",
@@ -1910,7 +2513,10 @@
               "icon": "icon/copilot.svg",
               "alt": "Copilot",
               "copyText": "winget install 9NHT9RB2F4HD",
-              "tags": ["copilot", "microsoft"]
+              "tags": [
+                "copilot",
+                "microsoft"
+              ]
             },
             {
               "url": "https://gemini.google.com/",
@@ -1919,7 +2525,10 @@
               "description": "Google Gemini ile yapay zekâ sohbeti.",
               "icon": "icon/gemini.svg",
               "alt": "Gemini",
-              "tags": ["gemini", "google"]
+              "tags": [
+                "gemini",
+                "google"
+              ]
             },
             {
               "url": "https://www.perplexity.ai/",
@@ -1929,7 +2538,9 @@
               "icon": "icon/perplexity.svg",
               "alt": "Perplexity AI",
               "copyText": "winget install XP8JNQFBQH6PVF",
-              "tags": ["perplexity"]
+              "tags": [
+                "perplexity"
+              ]
             },
             {
               "url": "https://lmarena.ai/tr",
@@ -1938,7 +2549,13 @@
               "description": "Yapay zekâ modellerini kıyaslamak için arena ve liderlik tablosu.",
               "icon": "icon/lmarena.svg",
               "alt": "LMArena",
-              "tags": ["lmarena", "ai", "yapay zeka", "kıyaslama", "leaderboard"]
+              "tags": [
+                "lmarena",
+                "ai",
+                "yapay zeka",
+                "kıyaslama",
+                "leaderboard"
+              ]
             },
             {
               "url": "https://arena.ai/",
@@ -1947,7 +2564,11 @@
               "description": "Yapay zekâ modellerini yan yana karşılaştırma platformu.",
               "icon": "icon/arenaai.svg",
               "alt": "Arena AI",
-              "tags": ["arena", "ai", "yapay zeka"]
+              "tags": [
+                "arena",
+                "ai",
+                "yapay zeka"
+              ]
             }
           ]
         },
@@ -1962,7 +2583,10 @@
               "icon": "icon/anydesk.svg",
               "alt": "AnyDesk",
               "copyText": "winget install AnyDesk.AnyDesk",
-              "tags": ["anydesk", "uzaktan erişim"]
+              "tags": [
+                "anydesk",
+                "uzaktan erişim"
+              ]
             },
             {
               "url": "https://www.teamviewer.com/tr/",
@@ -1972,7 +2596,10 @@
               "icon": "icon/teamviewer.svg",
               "alt": "TeamViewer",
               "copyText": "winget install TeamViewer.TeamViewer",
-              "tags": ["teamviewer", "uzaktan erişim"]
+              "tags": [
+                "teamviewer",
+                "uzaktan erişim"
+              ]
             }
           ]
         },
@@ -1987,7 +2614,12 @@
               "icon": "icon/copyq.svg",
               "alt": "CopyQ",
               "copyText": "winget install hluk.CopyQ",
-              "tags": ["copyq", "paket yöneticisi", "hluk", "github"]
+              "tags": [
+                "copyq",
+                "paket yöneticisi",
+                "hluk",
+                "github"
+              ]
             },
             {
               "url": "https://getsharex.com/",
@@ -1997,7 +2629,11 @@
               "icon": "icon/sharex.svg",
               "alt": "ShareX",
               "copyText": "winget install ShareX.ShareX",
-              "tags": ["sharex", "ekran görüntüsü", "getsharex"]
+              "tags": [
+                "sharex",
+                "ekran görüntüsü",
+                "getsharex"
+              ]
             },
             {
               "url": "https://imageglass.org/",
@@ -2007,7 +2643,9 @@
               "icon": "icon/imageglass.svg",
               "alt": "ImageGlass",
               "copyText": "winget install DuongDieuPhap.ImageGlass",
-              "tags": ["imageglass"]
+              "tags": [
+                "imageglass"
+              ]
             },
             {
               "url": "https://localsend.org/tr",
@@ -2017,7 +2655,9 @@
               "icon": "icon/localsend.svg",
               "alt": "LocalSend",
               "copyText": "winget install LocalSend.LocalSend",
-              "tags": ["localsend"]
+              "tags": [
+                "localsend"
+              ]
             }
           ]
         }
@@ -2036,7 +2676,11 @@
               "description": "Canlı TV ve yayınlar için modlu Android uygulaması.",
               "icon": "icon/premiertv.svg",
               "alt": "Premier TV",
-              "tags": ["premier", "premiertvapps", "blogspot"]
+              "tags": [
+                "premier",
+                "premiertvapps",
+                "blogspot"
+              ]
             },
             {
               "url": "https://vanced.to/",
@@ -2045,7 +2689,12 @@
               "description": "YouTube Vanced ve benzeri modlu Android uygulamaları.",
               "icon": "icon/vanced.svg",
               "alt": "ReVanced Manager",
-              "tags": ["revanced", "manager", "paket yöneticisi", "vanced"]
+              "tags": [
+                "revanced",
+                "manager",
+                "paket yöneticisi",
+                "vanced"
+              ]
             },
             {
               "url": "https://www.xmanagerapp.com/",
@@ -2054,7 +2703,12 @@
               "description": "Spotify için reklamsız ve gelişmiş Android uygulama yöneticisi.",
               "icon": "icon/xmanager.svg",
               "alt": "xManager",
-              "tags": ["xmanager", "müzik", "paket yöneticisi", "xmanagerapp"]
+              "tags": [
+                "xmanager",
+                "müzik",
+                "paket yöneticisi",
+                "xmanagerapp"
+              ]
             },
             {
               "url": "https://t.me/netvgoldbilgi_bot",
@@ -2063,7 +2717,11 @@
               "description": "Canlı TV ve yayınlar için modlu Android uygulaması.",
               "icon": "icon/netvgold.svg",
               "alt": "Ne TV Gold",
-              "tags": ["gold", "netvgold", "github"]
+              "tags": [
+                "gold",
+                "netvgold",
+                "github"
+              ]
             },
             {
               "url": "https://t.me/inattvadmin",
@@ -2072,7 +2730,11 @@
               "description": "Canlı TV ve yayınlar için modlu Android uygulaması.",
               "icon": "icon/inattv.svg",
               "alt": "İnat TV",
-              "tags": ["inat", "inattv156", "cfd"]
+              "tags": [
+                "inat",
+                "inattv156",
+                "cfd"
+              ]
             }
           ]
         },
@@ -2086,7 +2748,12 @@
               "description": "iOS ve Apple Silicon cihazlara IPA dosyası yüklemek için sideload aracı.",
               "icon": "icon/sideloadly.svg",
               "alt": "Sideloadly",
-              "tags": ["sideloadly", "ios", "ipa", "sideload"]
+              "tags": [
+                "sideloadly",
+                "ios",
+                "ipa",
+                "sideload"
+              ]
             },
             {
               "url": "https://regram.fouadraheb.com/",
@@ -2095,7 +2762,12 @@
               "description": "iOS için Instagram'a gelişmiş özellikler sunan modlu uygulama.",
               "icon": "icon/regram.svg",
               "alt": "Regram",
-              "tags": ["regram", "fouad", "instagram", "ios"]
+              "tags": [
+                "regram",
+                "fouad",
+                "instagram",
+                "ios"
+              ]
             },
             {
               "url": "https://neofreebird.com/",
@@ -2104,7 +2776,12 @@
               "description": "iOS için Twitter/X'e reklamsız ve gelişmiş özellikler sunan modlu uygulama.",
               "icon": "icon/neofreebird.svg",
               "alt": "NeoFreeBird",
-              "tags": ["neofreebird", "twitter", "x", "ios"]
+              "tags": [
+                "neofreebird",
+                "twitter",
+                "x",
+                "ios"
+              ]
             }
           ]
         },
@@ -2119,7 +2796,9 @@
               "icon": "icon/discord.svg",
               "alt": "Discord",
               "copyText": "winget install Discord.Discord",
-              "tags": ["discord"]
+              "tags": [
+                "discord"
+              ]
             },
             {
               "url": "https://telegram.org/",
@@ -2129,7 +2808,9 @@
               "icon": "icon/telegram.svg",
               "alt": "Telegram",
               "copyText": "winget install Telegram.TelegramDesktop",
-              "tags": ["telegram"]
+              "tags": [
+                "telegram"
+              ]
             },
             {
               "url": "https://www.whatsapp.com/",
@@ -2139,7 +2820,9 @@
               "icon": "icon/whatsapp.svg",
               "alt": "WhatsApp",
               "copyText": "winget install 9NKSQGP7F2NH",
-              "tags": ["whatsapp"]
+              "tags": [
+                "whatsapp"
+              ]
             }
           ]
         },
@@ -2153,7 +2836,11 @@
               "description": "Microsoft Outlook ile e-posta servisi.",
               "icon": "icon/outlook.svg",
               "alt": "Outlook",
-              "tags": ["outlook", "e-posta", "live"],
+              "tags": [
+                "outlook",
+                "e-posta",
+                "live"
+              ],
               "copyText": "winget install 9NRX63209R7B"
             },
             {
@@ -2163,7 +2850,11 @@
               "description": "İle e-posta servisi ve oturum açma.",
               "icon": "icon/yahoo.svg",
               "alt": "Yahoo Mail",
-              "tags": ["yahoo", "mail", "e-posta"]
+              "tags": [
+                "yahoo",
+                "mail",
+                "e-posta"
+              ]
             },
             {
               "url": "https://mail.google.com/",
@@ -2172,7 +2863,12 @@
               "description": "Google Gmail ile e-posta servisi.",
               "icon": "icon/gmail.svg",
               "alt": "Gmail",
-              "tags": ["gmail", "e-posta", "mail", "google"]
+              "tags": [
+                "gmail",
+                "e-posta",
+                "mail",
+                "google"
+              ]
             },
             {
               "url": "https://www.thunderbird.net/tr/",
@@ -2181,7 +2877,10 @@
               "description": "Açık kaynaklı, güçlü ve güvenli e-posta istemcisi.",
               "icon": "icon/thunderbird.svg",
               "alt": "Thunderbird",
-              "tags": ["thunderbird", "e-posta"],
+              "tags": [
+                "thunderbird",
+                "e-posta"
+              ],
               "copyText": "winget install Mozilla.Thunderbird.tr"
             }
           ]
@@ -2201,7 +2900,11 @@
               "description": "Dijital oyun mağazası ve platformu.",
               "icon": "icon/steam.svg",
               "alt": "Steam",
-              "tags": ["steam", "store", "steampowered"],
+              "tags": [
+                "steam",
+                "store",
+                "steampowered"
+              ],
               "copyText": "winget install Valve.Steam"
             },
             {
@@ -2211,7 +2914,12 @@
               "description": "Epic Games'in dijital oyun mağazası ve platformu.",
               "icon": "icon/epicgames.svg",
               "alt": "Epic Games Store",
-              "tags": ["epic", "games", "store", "epicgames"],
+              "tags": [
+                "epic",
+                "games",
+                "store",
+                "epicgames"
+              ],
               "copyText": "winget install EpicGames.EpicGamesLauncher"
             },
             {
@@ -2221,7 +2929,9 @@
               "description": "Blizzard oyunları için resmi platform ve mağaza.",
               "icon": "icon/battle.net.svg",
               "alt": "Battle.net",
-              "tags": ["battle"],
+              "tags": [
+                "battle"
+              ],
               "copyText": "winget install Blizzard.BattleNet"
             }
           ]
@@ -2236,7 +2946,11 @@
               "description": "Popüler oyunlar için yüksek sıkıştırmalı repack arşivi.",
               "icon": "icon/fitgirl.svg",
               "alt": "FitGirl Repacks",
-              "tags": ["fitgirl", "repacks", "fitgirl-repacks"]
+              "tags": [
+                "fitgirl",
+                "repacks",
+                "fitgirl-repacks"
+              ]
             },
             {
               "url": "https://dodi-repacks.site/",
@@ -2245,7 +2959,11 @@
               "description": "Küçük boyutlu ve hızlı oyun repack arşivi.",
               "icon": "icon/dodi.svg",
               "alt": "DODI Repacks",
-              "tags": ["dodi", "repacks", "dodi-repacks"]
+              "tags": [
+                "dodi",
+                "repacks",
+                "dodi-repacks"
+              ]
             },
             {
               "url": "https://elamigos.site/",
@@ -2254,7 +2972,12 @@
               "description": "Güvenilir oyun repack ve ISO arşivi.",
               "icon": "icon/elamigos.svg",
               "alt": "ElAmigos",
-              "tags": ["elamigos", "usb", "iso", "önyükleme"]
+              "tags": [
+                "elamigos",
+                "usb",
+                "iso",
+                "önyükleme"
+              ]
             },
             {
               "url": "https://gamecopyworld.com/",
@@ -2263,7 +2986,9 @@
               "description": "Oyun crack ve patch arşivi.",
               "icon": "icon/gamecopyworld.svg",
               "alt": "GameCopyWorld",
-              "tags": ["gamecopyworld"]
+              "tags": [
+                "gamecopyworld"
+              ]
             },
             {
               "url": "https://ankergames.net/",
@@ -2272,7 +2997,11 @@
               "description": "Oyun repack ve indirilebilir paket paylaşımları.",
               "icon": "icon/ankergames.svg",
               "alt": "AnkerGames",
-              "tags": ["ankergames", "repack", "oyun"]
+              "tags": [
+                "ankergames",
+                "repack",
+                "oyun"
+              ]
             },
             {
               "url": "https://steamrip.com/",
@@ -2281,7 +3010,11 @@
               "description": "Ücretsiz PC oyun indirme platformu.",
               "icon": "icon/steamrip.svg",
               "alt": "SteamRip",
-              "tags": ["steamrip", "steam", "rip"]
+              "tags": [
+                "steamrip",
+                "steam",
+                "rip"
+              ]
             }
           ]
         }
