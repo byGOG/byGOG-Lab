@@ -67,11 +67,33 @@ function setInfoFlyoutContentFromTip(tip) {
     // Create content wrapper
     const content = document.createElement('div');
     content.className = 'info-flyout-content';
-    const frag = document.createDocumentFragment();
+
+    // Build header row: logo + name side by side
+    const header = document.createElement('div');
+    header.className = 'info-flyout-header';
+    let descText = '';
+
     tip.childNodes.forEach(node => {
-      frag.appendChild(node.cloneNode(true));
+      const clone = node.cloneNode(true);
+      if (clone.nodeType === 1 && (clone.tagName === 'IMG' || (clone.classList && clone.classList.contains('info-name')))) {
+        header.appendChild(clone);
+      } else if (clone.nodeType === 3) {
+        // Text node — collect as description
+        const t = clone.textContent.trim();
+        if (t) descText += (descText ? ' ' : '') + t;
+      }
     });
-    content.appendChild(frag);
+
+    content.appendChild(header);
+
+    // Add description below header
+    if (descText) {
+      const desc = document.createElement('div');
+      desc.className = 'info-flyout-desc';
+      desc.textContent = descText;
+      content.appendChild(desc);
+    }
+
     fly.appendChild(content);
 
     // Ensure any lazy image loads

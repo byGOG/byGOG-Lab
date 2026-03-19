@@ -1850,6 +1850,28 @@ body.modal-open {
   padding-right: 24px;
 }
 
+/* Info flyout header: logo + name in a row */
+.info-flyout-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.info-flyout-header img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  margin-right: 0;
+}
+
+.info-flyout-desc {
+  opacity: 0.85;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
 @media (max-width: 600px) {
   .info-flyout {
     top: 12px;
