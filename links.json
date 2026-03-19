@@ -716,11 +716,11 @@
           "links": [
             {
               "url": "https://www.avira.com/tr/free-antivirus-windows",
-              "name": "Avira Free Antivirus",
+              "name": "Avira Ücretsiz Güvenlik",
               "recommended": false,
               "description": "Ücretsiz, ödüllü antivirüs ve gerçek zamanlı koruma.",
               "icon": "icon/avira.svg",
-              "alt": "Avira Free Antivirus",
+              "alt": "Avira Ücretsiz Güvenlik",
               "copyText": "winget install XPFD23M0L795KD",
               "tags": [
                 "avira",
@@ -738,7 +738,7 @@
               "description": "Hafif, ücretsiz ve güçlü antivirüs koruması.",
               "icon": "icon/bitdefender.svg",
               "alt": "Bitdefender Free Antivirus",
-              "copyText": "curl -Lo \"%TEMP%\\bd.exe\" \"https://download.bitdefender.com/windows/installer/tr-tr/bitdefender_avfree.exe\" && \"%TEMP%\\bd.exe\" /silent",
+              "copyText": "winget install Bitdefender.Bitdefender",
               "tags": [
                 "bitdefender",
                 "free",
@@ -749,11 +749,12 @@
             },
             {
               "url": "https://www.eset.com/tr/",
-              "name": "ESET",
+              "name": "ESET Security",
               "recommended": false,
               "description": "ESET, bilgisayar ve mobil cihazları virüs, zararlı yazılım (malware), fidye yazılımı (ransomware), phishing gibi siber tehditlerden koruyan bir siber güvenlik yazılımıdır.",
               "icon": "icon/eset.svg",
-              "alt": "ESET",
+              "alt": "ESET Security",
+              "copyText": "winget install ESET.Security",
               "tags": [
                 "eset",
                 "antivirus",
@@ -916,25 +917,13 @@
               ]
             },
             {
-              "url": "https://github.com/cagritaskn/GoodbyeDPI-Turkey",
-              "name": "GoodbyeDPI-Turkey",
-              "recommended": false,
-              "description": "Türkiye için DPI engelini aşma aracı.",
-              "icon": "icon/goodbyedpi.svg",
-              "alt": "GoodbyeDPI-Turkey",
-              "tags": [
-                "goodbyedpi-turkey",
-                "github"
-              ]
-            },
-            {
               "url": "https://github.com/cagritaskn/SplitWire-Turkey",
               "name": "SplitWire-Turkey",
               "recommended": false,
               "description": "Türkiye için DPI aşma ve tünelleme otomasyonu.",
               "icon": "icon/splitwire.svg",
               "alt": "SplitWire-Turkey",
-              "copyText": "$u=(iwr https://api.github.com/repos/cagritaskn/SplitWire-Turkey/releases/latest|ConvertFrom-Json).assets|? name -match 'Setup-Windows.*\\.exe'|% browser_download_url; curl.exe -Lo $env:TMP\\sw.exe $u; & $env:TMP\\sw.exe /silent",
+              "copyText": "git clone https://github.com/cagritaskn/SplitWire-Turkey.git; cd SplitWire-Turkey/src",
               "tags": [
                 "splitwire-turkey",
                 "github"
@@ -947,8 +936,23 @@
               "description": "DPI tabanlı engellemeleri aşmak için araç.",
               "icon": "icon/goodbyedpi.svg",
               "alt": "GoodbyeDPI",
+              "copyText": "winget install ValdikSS.GoodbyeDPI",
               "tags": [
                 "goodbyedpi",
+                "github"
+              ]
+            },
+            {
+              "url": "https://github.com/Storik4pro/goodbyeDPI-UI",
+              "name": "GoodbyeDPI UI",
+              "recommended": false,
+              "description": "GoodbyeDPI için kullanıcı dostu arayüz.",
+              "icon": "icon/goodbyedpi.svg",
+              "alt": "GoodbyeDPI UI",
+              "copyText": "winget install Storik4pro.goodbyeDPI-UI",
+              "tags": [
+                "goodbyedpi",
+                "ui",
                 "github"
               ]
             },
@@ -1050,6 +1054,7 @@
               "description": "Reklamları, izleyicileri, kötü amaçlı yazılımları ve kimlik avı sitelerini engelleyen ücretsiz DNS hizmeti.",
               "icon": "icon/adguard.svg",
               "alt": "AdGuard DNS",
+              "copyText": "winget install AdGuard.AdGuard",
               "tags": [
                 "adguard",
                 "dns",
@@ -1168,23 +1173,11 @@
               "description": "Çoklu paket yöneticisi arayüzü.",
               "icon": "icon/unigetui.svg",
               "alt": "UnigetUI",
-              "copyText": "winget install MartiCliment.UniGetUI",
+              "copyText": "winget install Devolutions.UniGetUI",
               "tags": [
                 "unigetui",
                 "paket yöneticisi",
                 "marticliment"
-              ]
-            },
-            {
-              "url": "https://ruckzuck.tools/",
-              "name": "RuckZuck",
-              "recommended": false,
-              "description": "Hızlı yazılım yükleme ve güncelleme aracı.",
-              "icon": "icon/ruckzuck.svg",
-              "alt": "RuckZuck",
-              "copyText": "winget install RogerZander.RZGet -e -h; if($LASTEXITCODE -eq 0){ $u=(curl.exe -s https://api.github.com/repos/rzander/ruckzuck/releases/latest | ConvertFrom-Json).assets | ? name -match 'RuckZuck.exe' | % browser_download_url; curl.exe -Lo $env:TEMP\\RuckZuck.exe $u; & $env:TEMP\\RuckZuck.exe }",
-              "tags": [
-                "ruckzuck"
               ]
             },
             {
@@ -1381,6 +1374,7 @@
               "description": "Gizlilik odaklı, izleme karşıtı web tarayıcı.",
               "icon": "icon/mullvad.svg",
               "alt": "Mullvad Browser",
+              "copyText": "winget install MullvadVPN.MullvadBrowser",
               "tags": [
                 "mullvad",
                 "browser",
@@ -1546,7 +1540,7 @@
               "tags": [
                 "speedtest"
               ],
-              "copyText": "winget install Ookla.Speedtest.CLI"
+              "copyText": "winget install 9NBLGGH4Z1JC"
             },
             {
               "url": "https://speed.cloudflare.com/",
