@@ -83,7 +83,8 @@ export function renderRecentStrip(container) {
   list.className = 'recent-strip-list';
   list.setAttribute('role', 'list');
 
-  items.forEach((item, i) => {
+  const visible = items.slice(0, 5);
+  visible.forEach((item, i) => {
     const a = document.createElement('a');
     a.className = 'recent-strip-item';
     a.href = item.url;

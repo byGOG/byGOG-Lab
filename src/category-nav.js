@@ -82,7 +82,7 @@ export function initCategoryNav() {
   nav.addEventListener('pointermove', e => {
     if (!isPointerDown) return;
     const dx = e.clientX - startX;
-    if (!isDragging && Math.abs(dx) > 4) {
+    if (!isDragging && Math.abs(dx) > 10) {
       isDragging = true;
       nav.style.cursor = 'grabbing';
     }

@@ -78,7 +78,8 @@ self.addEventListener('message', event => {
     const pool = scope ? entries.filter(e => e.catSlug === scope) : entries;
     let matches;
     if (!tokens.length) {
-      matches = pool.map(entry => entry.index);
+      // No query → return all items; scope only filters when there is an active query
+      matches = entries.map(entry => entry.index);
     } else {
       const exact = [];
       const fuzzy = [];

@@ -297,10 +297,10 @@ export function createWorkerSearchEngine(nodes, dataset, status) {
       const meta = createHighlightMeta(query);
       const tokens = tokenizeFoldedQuery(query);
       if (!tokens.length) {
-        const pool = _scope ? dataset.filter(e => e.catSlug === _scope) : dataset;
+        // No query → show all items; scope only filters when there is an active query
         applyMatches(
           meta,
-          pool.map(entry => entry.index)
+          dataset.map(entry => entry.index)
         );
         return;
       }
@@ -352,9 +352,10 @@ export function createSyncSearchEngine(nodes, dataset, status) {
       const tokens = tokenizeFoldedQuery(query);
       const pool = scope ? dataset.filter(e => e.catSlug === scope) : dataset;
       if (!tokens.length) {
+        // No query → show all items; scope only filters when there is an active query
         applyMatches(
           meta,
-          pool.map(entry => entry.index)
+          dataset.map(entry => entry.index)
         );
         return;
       }

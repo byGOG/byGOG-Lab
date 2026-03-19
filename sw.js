@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v0.2.0-6afc4c8e';
+const CACHE_VERSION = 'v0.2.0-25a9c6e1';
 const CACHE_NAME = `bygog-lab-cache-${CACHE_VERSION}`;
 const OFFLINE_URL = 'index.html';
 
@@ -9,7 +9,7 @@ const urlsToCache = [
   'manifest.json',
   'dist/styles.c10e5317.css',
   'dist/fab.da466ffb.css',
-  'dist/renderLinks.cb7c6efe.js',
+  'dist/renderLinks.2510abf9.js',
   'data/links-index.json',
   'icon/bygog-lab-icon.svg',
   'icon/bygog-lab-logo.svg'
