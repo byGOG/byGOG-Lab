@@ -205,6 +205,24 @@ function renderCategoryContent(cat, card) {
   titleSpan.textContent = title;
   h2.appendChild(titleSpan);
 
+  // Calculate total visible link count and add badge
+  let totalLinks = 0;
+  if (Array.isArray(cat.subcategories)) {
+    totalLinks = cat.subcategories.reduce(
+      (sum, sub) => sum + (Array.isArray(sub.links) ? sub.links.filter(l => !l?.hidden).length : 0),
+      0
+    );
+  } else if (Array.isArray(cat.links)) {
+    totalLinks = cat.links.filter(l => !l?.hidden).length;
+  }
+  if (totalLinks > 0) {
+    const badge = document.createElement('span');
+    badge.className = 'category-count';
+    badge.textContent = totalLinks;
+    h2.appendChild(badge);
+  }
+  cardEl.dataset.catCount = totalLinks;
+
   applyCategoryColumns(cardEl, title);
 
   let node = h2.nextSibling;

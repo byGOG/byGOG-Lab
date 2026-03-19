@@ -273,6 +273,15 @@ export function initCategoryNav() {
     text.textContent = h2.textContent;
     btn.appendChild(text);
 
+    // Add item count badge
+    const countVal = card?.dataset.catCount;
+    if (countVal && countVal !== '0') {
+      const badge = document.createElement('span');
+      badge.className = 'nav-count';
+      badge.textContent = countVal;
+      btn.appendChild(badge);
+    }
+
     btn.setAttribute('aria-label', t('nav.goToCategory', { name: h2.textContent }));
     btn.onclick = () => {
       scrollToSection({ h2, btn, slug }, { updateHash: true });

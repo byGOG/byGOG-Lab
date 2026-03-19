@@ -1,17 +1,23 @@
 /**
  * Batch Install — select multiple tools and generate a combined winget command.
+ * Features a cart-style panel showing selected items with individual removal.
  */
 import { t } from './i18n.js';
 
-/** @type {Set<string>} selected link names */
-const selected = new Set();
+/** @type {Map<string, {name: string, command: string, li: HTMLLIElement}>} */
+const selected = new Map();
 let _container = null;
 let _panel = null;
+let _cartList = null;
+let _countEl = null;
+let _genBtn = null;
+let _clearBtn = null;
+let _cartToggle = null;
 let _active = false;
+let _cartOpen = false;
 
 /**
  * Extract winget package ID from copyText.
- * e.g. "winget install 7zip.7zip" → "7zip.7zip"
  * @param {string} copyText
  * @returns {string|null}
  */
@@ -25,12 +31,9 @@ function extractWingetId(copyText) {
  * @returns {string}
  */
 function generateCommand() {
-  if (!_container) return '';
   const commands = [];
-  _container.querySelectorAll('.category-card li.batch-selected').forEach(li => {
-    const copyBtn = li.querySelector('.copy-button[data-copy]');
-    if (!copyBtn) return;
-    const copyText = copyBtn.dataset.copy || '';
+  for (const [, item] of selected) {
+    const copyText = item.command || '';
     const id = extractWingetId(copyText);
     if (id) {
       commands.push(
@@ -39,8 +42,53 @@ function generateCommand() {
     } else if (copyText.trim()) {
       commands.push(copyText.trim());
     }
-  });
+  }
   return commands.join(' && ');
+}
+
+/**
+ * Render the cart item list.
+ */
+function renderCartList() {
+  if (!_cartList) return;
+  _cartList.innerHTML = '';
+
+  if (selected.size === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'batch-cart-empty';
+    empty.textContent = t('batch.empty');
+    _cartList.appendChild(empty);
+    return;
+  }
+
+  for (const [name, item] of selected) {
+    const row = document.createElement('div');
+    row.className = 'batch-cart-item';
+
+    const label = document.createElement('span');
+    label.className = 'batch-cart-item-name';
+    label.textContent = name;
+    row.appendChild(label);
+
+    const cmd = document.createElement('span');
+    cmd.className = 'batch-cart-item-cmd';
+    const id = extractWingetId(item.command);
+    cmd.textContent = id || item.command;
+    row.appendChild(cmd);
+
+    const removeBtn = document.createElement('button');
+    removeBtn.type = 'button';
+    removeBtn.className = 'batch-cart-item-remove';
+    removeBtn.innerHTML = '×';
+    removeBtn.setAttribute('aria-label', t('batch.removeItem', { name }));
+    removeBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      removeSelection(name);
+    });
+    row.appendChild(removeBtn);
+
+    _cartList.appendChild(row);
+  }
 }
 
 /**
@@ -49,9 +97,22 @@ function generateCommand() {
 function updatePanel() {
   if (!_panel) return;
   const count = selected.size;
-  const countEl = _panel.querySelector('.batch-panel-count');
-  if (countEl) countEl.textContent = t('batch.selected', { count });
-  _panel.classList.toggle('visible', count > 0);
+  if (_countEl) _countEl.textContent = t('batch.selected', { count });
+  if (_genBtn) _genBtn.disabled = count === 0;
+  _panel.classList.toggle('visible', count > 0 || _cartOpen);
+  renderCartList();
+}
+
+/**
+ * Toggle cart list visibility.
+ */
+function toggleCart() {
+  _cartOpen = !_cartOpen;
+  if (_panel) _panel.classList.toggle('cart-open', _cartOpen);
+  if (_cartToggle) {
+    _cartToggle.classList.toggle('open', _cartOpen);
+    _cartToggle.setAttribute('aria-expanded', String(_cartOpen));
+  }
 }
 
 /**
@@ -62,12 +123,24 @@ function toggleSelection(li) {
   const name = li.dataset.nameOriginal || '';
   if (!name) return;
   if (selected.has(name)) {
-    selected.delete(name);
-    li.classList.remove('batch-selected');
+    removeSelection(name);
   } else {
-    selected.add(name);
+    const copyBtn = li.querySelector('.copy-button[data-copy]');
+    const command = copyBtn?.dataset.copy || '';
+    selected.set(name, { name, command, li });
     li.classList.add('batch-selected');
+    updatePanel();
   }
+}
+
+/**
+ * Remove a single item from selection.
+ * @param {string} name
+ */
+function removeSelection(name) {
+  const item = selected.get(name);
+  if (item?.li) item.li.classList.remove('batch-selected');
+  selected.delete(name);
   updatePanel();
 }
 
@@ -75,11 +148,15 @@ function toggleSelection(li) {
  * Clear all selections.
  */
 function clearSelections() {
+  for (const [, item] of selected) {
+    if (item.li) item.li.classList.remove('batch-selected');
+  }
   selected.clear();
-  if (_container) {
-    _container.querySelectorAll('.batch-selected').forEach(li => {
-      li.classList.remove('batch-selected');
-    });
+  _cartOpen = false;
+  if (_panel) _panel.classList.remove('cart-open');
+  if (_cartToggle) {
+    _cartToggle.classList.remove('open');
+    _cartToggle.setAttribute('aria-expanded', 'false');
   }
   updatePanel();
 }
@@ -186,32 +263,69 @@ export function initBatchInstall(container) {
     quickBar.appendChild(toggleBtn);
   }
 
-  // Create floating panel
+  // Create floating panel with cart
   const panel = document.createElement('div');
   panel.className = 'batch-panel';
   _panel = panel;
 
+  // Cart list (expandable)
+  const cartList = document.createElement('div');
+  cartList.className = 'batch-cart-list';
+  _cartList = cartList;
+  panel.appendChild(cartList);
+
+  // Bottom bar
+  const bar = document.createElement('div');
+  bar.className = 'batch-panel-bar';
+
+  // Cart toggle (chevron + count)
+  const cartToggle = document.createElement('button');
+  cartToggle.type = 'button';
+  cartToggle.className = 'batch-cart-toggle';
+  cartToggle.setAttribute('aria-expanded', 'false');
+  cartToggle.setAttribute('aria-label', t('batch.showCart'));
+  _cartToggle = cartToggle;
+
+  const chevron = document.createElement('span');
+  chevron.className = 'batch-cart-chevron';
+  chevron.innerHTML =
+    '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 5l3-3 3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  cartToggle.appendChild(chevron);
+
   const countEl = document.createElement('span');
   countEl.className = 'batch-panel-count';
   countEl.textContent = t('batch.selected', { count: 0 });
-  panel.appendChild(countEl);
+  _countEl = countEl;
+  cartToggle.appendChild(countEl);
+
+  cartToggle.addEventListener('click', toggleCart);
+  bar.appendChild(cartToggle);
+
+  const btnGroup = document.createElement('div');
+  btnGroup.className = 'batch-panel-actions';
 
   const genBtn = document.createElement('button');
   genBtn.type = 'button';
   genBtn.className = 'batch-panel-btn primary';
   genBtn.textContent = t('batch.generate');
+  genBtn.disabled = true;
   genBtn.addEventListener('click', () => {
     const cmd = generateCommand();
     if (cmd) showResultModal(cmd);
   });
-  panel.appendChild(genBtn);
+  _genBtn = genBtn;
+  btnGroup.appendChild(genBtn);
 
   const clearBtn = document.createElement('button');
   clearBtn.type = 'button';
   clearBtn.className = 'batch-panel-btn danger';
   clearBtn.textContent = t('batch.clear');
   clearBtn.addEventListener('click', clearSelections);
-  panel.appendChild(clearBtn);
+  _clearBtn = clearBtn;
+  btnGroup.appendChild(clearBtn);
+
+  bar.appendChild(btnGroup);
+  panel.appendChild(bar);
 
   document.body.appendChild(panel);
 
@@ -241,8 +355,9 @@ export function initBatchInstall(container) {
   // Language change
   window.addEventListener('langchange', () => {
     toggleBtn.textContent = t('batch.toggle');
-    genBtn.textContent = t('batch.generate');
-    clearBtn.textContent = t('batch.clear');
+    if (_genBtn) _genBtn.textContent = t('batch.generate');
+    if (_clearBtn) _clearBtn.textContent = t('batch.clear');
+    if (_cartToggle) _cartToggle.setAttribute('aria-label', t('batch.showCart'));
     updatePanel();
   });
 }

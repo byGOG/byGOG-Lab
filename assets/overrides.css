@@ -3389,11 +3389,8 @@ body.batch-mode .category-card li.has-copy > a {
   left: 0;
   right: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 12px 20px;
-  background: rgba(15, 17, 23, 0.95);
+  flex-direction: column;
+  background: rgba(15, 17, 23, 0.97);
   backdrop-filter: blur(12px);
   border-top: 1px solid rgba(91, 156, 246, 0.15);
   z-index: 2000;
@@ -3401,9 +3398,111 @@ body.batch-mode .category-card li.has-copy > a {
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .batch-panel.visible { transform: translateY(0); }
+
+/* Cart list (expandable) */
+.batch-cart-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.batch-panel.cart-open .batch-cart-list {
+  max-height: 240px;
+  overflow-y: auto;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.batch-cart-empty {
+  padding: 20px;
+  text-align: center;
+  color: rgba(255,255,255,0.35);
+  font-size: 13px;
+}
+.batch-cart-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  transition: background 0.15s;
+}
+.batch-cart-item:last-child { border-bottom: none; }
+.batch-cart-item:hover { background: rgba(255,255,255,0.03); }
+.batch-cart-item-name {
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+  flex-shrink: 0;
+  max-width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.batch-cart-item-cmd {
+  font-size: 11px;
+  color: rgba(91, 156, 246, 0.6);
+  font-family: 'Cascadia Code', 'Fira Code', monospace;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.batch-cart-item-remove {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: rgba(255,100,100,0.5);
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+  line-height: 1;
+}
+.batch-cart-item-remove:hover {
+  background: rgba(255,80,80,0.15);
+  color: rgba(255,100,100,0.9);
+}
+
+/* Bottom bar */
+.batch-panel-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  gap: 12px;
+}
+.batch-cart-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.batch-cart-toggle:hover { background: rgba(255,255,255,0.06); }
+.batch-cart-chevron {
+  display: inline-flex;
+  transition: transform 0.25s ease;
+}
+.batch-cart-toggle.open .batch-cart-chevron {
+  transform: rotate(180deg);
+}
 .batch-panel-count {
   font-size: 13px;
+  font-weight: 500;
   color: rgba(255,255,255,0.7);
+}
+.batch-panel-actions {
+  display: flex;
+  gap: 8px;
 }
 .batch-panel-btn {
   padding: 6px 16px;
@@ -3413,10 +3512,14 @@ body.batch-mode .category-card li.has-copy > a {
   color: #a3bffa;
   font-size: 13px;
   cursor: pointer;
-  transition: background 0.15s;
+  transition: background 0.15s, opacity 0.15s;
 }
 .batch-panel-btn:hover {
   background: rgba(91, 156, 246, 0.25);
+}
+.batch-panel-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 .batch-panel-btn.primary {
   background: rgba(91, 156, 246, 0.3);
@@ -3555,4 +3658,45 @@ body.batch-mode .category-card li.has-copy > a {
   .site-footer {
     padding-bottom: calc(20px + env(safe-area-inset-bottom)) !important;
   }
+}
+
+/* Category item count badges */
+.category-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 7px;
+  margin-left: 8px;
+  border-radius: 11px;
+  background: rgba(91, 156, 246, 0.12);
+  border: 1px solid rgba(91, 156, 246, 0.2);
+  color: rgba(91, 156, 246, 0.75);
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.nav-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  margin-left: auto;
+  border-radius: 9px;
+  background: rgba(91, 156, 246, 0.1);
+  color: rgba(91, 156, 246, 0.6);
+  font-size: 10px;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover .nav-count,
+.nav-item.active .nav-count {
+  background: rgba(91, 156, 246, 0.2);
+  color: rgba(91, 156, 246, 0.9);
 }

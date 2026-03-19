@@ -121,6 +121,8 @@ const translations = {
     'batch.copied': 'Kopyalandı!',
     'batch.title': 'Toplu Kurulum Komutu',
     'batch.empty': 'Komut içeren araçları seçin',
+    'batch.showCart': 'Sepeti göster',
+    'batch.removeItem': '{name} öğesini kaldır',
 
     // Post-install
     'postInstall.title': 'Kurulum Sonrası',

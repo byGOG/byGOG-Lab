@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/byGOG/byGOG-Lab -name *.json -path */data/* -o -name *i18n*)",
+      "Bash(grep -r \"itemCount\\\\|item_count\\\\|count\" /c/Users/byGOG/byGOG-Lab/data/links*.json)"
+    ]
+  }
+}
