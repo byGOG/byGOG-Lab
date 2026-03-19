@@ -2239,31 +2239,6 @@ body.modal-open {
   color: var(--text-hover, #ffffff);
 }
 
-/* Language toggle button */
-.lang-toggle {
-  position: absolute;
-  right: 16px;
-  top: 16px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: var(--text-muted, #aaa);
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  letter-spacing: 0.04em;
-  z-index: 2;
-}
-
-.lang-toggle:hover,
-.lang-toggle:focus-visible {
-  background: rgba(255, 255, 255, 0.15);
-  color: var(--text-hover, #fff);
-  outline: none;
-}
 
 /* Offline status banner */
 .offline-banner {

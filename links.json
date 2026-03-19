@@ -712,7 +712,7 @@
       "title": "Güvenlik & Gizlilik",
       "subcategories": [
         {
-          "title": "Antivirüs & Temizleyiciler",
+          "title": "Antivirüs & Koruma",
           "links": [
             {
               "url": "https://www.avira.com/tr/free-antivirus-windows",
@@ -896,11 +896,22 @@
                 "gizlilik",
                 "zenprivacy"
               ]
+            },
+            {
+              "url": "https://browserleaks.com/",
+              "name": "BrowserLeaks",
+              "recommended": false,
+              "description": "Tarayıcı gizliliği ve sızıntı testleri.",
+              "icon": "icon/browserleaks.svg",
+              "alt": "BrowserLeaks",
+              "tags": [
+                "browserleaks"
+              ]
             }
           ]
         },
         {
-          "title": "Ağ, VPN & Güvenlik Araçlar",
+          "title": "VPN & Sansür Aşma",
           "links": [
             {
               "url": "https://antizapret.prostovpn.org/",
@@ -1002,7 +1013,7 @@
           ]
         },
         {
-          "title": "Şifre & Gizlilik Araçlar",
+          "title": "Şifre & Kimlik Araçlar",
           "links": [
             {
               "url": "https://bitwarden.com/",
@@ -1015,17 +1026,6 @@
               "tags": [
                 "bitwarden",
                 "paket yöneticisi"
-              ]
-            },
-            {
-              "url": "https://browserleaks.com/",
-              "name": "BrowserLeaks",
-              "recommended": false,
-              "description": "Tarayıcı gizliliği ve sızıntı testleri.",
-              "icon": "icon/browserleaks.svg",
-              "alt": "BrowserLeaks",
-              "tags": [
-                "browserleaks"
               ]
             },
             {
@@ -1147,12 +1147,7 @@
                 "windows",
                 "christitus"
               ]
-            }
-          ]
-        },
-        {
-          "title": "Taşınabilir Uygulama Platformlar",
-          "links": [
+            },
             {
               "url": "https://chocolatey.org/",
               "name": "Chocolatey",
@@ -1208,7 +1203,7 @@
           ]
         },
         {
-          "title": "Alternatifler & Karşılaştırma",
+          "title": "Taşınabilir Uygulama Platformlar",
           "links": [
             {
               "url": "https://portableappz.blogspot.com/",
@@ -1271,12 +1266,7 @@
               "tags": [
                 "alternativeto"
               ]
-            }
-          ]
-        },
-        {
-          "title": "Portallar/İncelemeler",
-          "links": [
+            },
             {
               "url": "https://www.techspot.com/",
               "name": "TechSpot",
@@ -1324,7 +1314,7 @@
       "title": "İnternet & Tarayıcı",
       "subcategories": [
         {
-          "title": "Web Tarayıcılar & Eklentiler",
+          "title": "Web Tarayıcılar",
           "links": [
             {
               "url": "https://brave.com/tr/",
@@ -1400,7 +1390,7 @@
           ]
         },
         {
-          "title": "Tarayıcı Eklentileri & Güvenlik",
+          "title": "Tarayıcı Eklentileri",
           "links": [
             {
               "url": "https://ublockorigin.com/tr",
@@ -1488,7 +1478,7 @@
           ]
         },
         {
-          "title": "Ağ Testleri/Hız",
+          "title": "Ağ & Hız Testleri",
           "links": [
             {
               "url": "https://www.waveform.com/tools/bufferbloat",
@@ -1563,7 +1553,7 @@
       "title": "Medya & İndirme",
       "subcategories": [
         {
-          "title": "İndirme & Arşivler",
+          "title": "Warez & Arşivler",
           "links": [
             {
               "url": "https://www.fullprogramlarindir.net/",
@@ -1621,12 +1611,7 @@
               "tags": [
                 "solidshare"
               ]
-            }
-          ]
-        },
-        {
-          "title": "Crack/Keygen",
-          "links": [
+            },
             {
               "url": "https://cracksurl.com/",
               "name": "CRACKSurl",
@@ -1720,7 +1705,7 @@
           ]
         },
         {
-          "title": "Medya & Eğlence",
+          "title": "Müzik & Video İndirme",
           "links": [
             {
               "url": "https://lucida.to/",
@@ -1778,7 +1763,7 @@
           ]
         },
         {
-          "title": "Müzik & Video Akış",
+          "title": "Medya Oynatıcılar",
           "links": [
             {
               "url": "https://www.aimp.ru/",
@@ -1836,48 +1821,11 @@
                 "müzik"
               ],
               "copyText": "winget install PeterPawlowski.foobar2000 PeterPawlowski.foobar2000.EncoderPack"
-            },
-            {
-              "url": "https://github.com/SpotX-Official/SpotX",
-              "name": "SpotX",
-              "recommended": false,
-              "description": "Spotify için reklamsız deneyim aracı.",
-              "icon": "icon/spotx.svg",
-              "alt": "SpotX",
-              "copyText": "iex \"& { $(iwr -useb 'https://raw.githubusercontent.com/SpotX-Official/SpotX/refs/heads/main/run.ps1') } -confirm_uninstall_ms_spoti -confirm_spoti_recomended_over -podcasts_off -block_update_on -start_spoti -new_theme -adsections_off -lyrics_stat spotify\"",
-              "tags": [
-                "spotx",
-                "müzik",
-                "github"
-              ]
-            },
-            {
-              "url": "https://www.beatstats.com/",
-              "name": "BeatStats",
-              "recommended": false,
-              "description": "Beatport istatistikleri ve en iyi parçalar.",
-              "icon": "icon/beatstats.svg",
-              "alt": "BeatStats",
-              "tags": [
-                "beatstats"
-              ]
-            },
-            {
-              "url": "https://www.beatport.com/",
-              "name": "Beatport",
-              "recommended": false,
-              "description": "Elektronik müzik ve DJ kültürü için dijital mağaza.",
-              "icon": "icon/beatport.svg",
-              "alt": "Beatport",
-              "tags": [
-                "beatport",
-                "müzik"
-              ]
             }
           ]
         },
         {
-          "title": "Müzik ve Yayın Platformlar",
+          "title": "Müzik Platformlar",
           "links": [
             {
               "url": "https://music.youtube.com/",
@@ -1907,17 +1855,47 @@
               ]
             },
             {
-              "url": "https://www.stremio.com/",
-              "name": "Stremio",
+              "url": "https://www.beatstats.com/",
+              "name": "BeatStats",
               "recommended": false,
-              "description": "Film ve dizi akış platformu.",
-              "icon": "icon/stremio.svg",
-              "alt": "Stremio",
-              "copyText": "winget install Stremio.Stremio",
+              "description": "Beatport istatistikleri ve en iyi parçalar.",
+              "icon": "icon/beatstats.svg",
+              "alt": "BeatStats",
               "tags": [
-                "stremio"
+                "beatstats"
               ]
             },
+            {
+              "url": "https://www.beatport.com/",
+              "name": "Beatport",
+              "recommended": false,
+              "description": "Elektronik müzik ve DJ kültürü için dijital mağaza.",
+              "icon": "icon/beatport.svg",
+              "alt": "Beatport",
+              "tags": [
+                "beatport",
+                "müzik"
+              ]
+            },
+            {
+              "url": "https://github.com/SpotX-Official/SpotX",
+              "name": "SpotX",
+              "recommended": false,
+              "description": "Spotify için reklamsız deneyim aracı.",
+              "icon": "icon/spotx.svg",
+              "alt": "SpotX",
+              "copyText": "iex \"& { $(iwr -useb 'https://raw.githubusercontent.com/SpotX-Official/SpotX/refs/heads/main/run.ps1') } -confirm_uninstall_ms_spoti -confirm_spoti_recomended_over -podcasts_off -block_update_on -start_spoti -new_theme -adsections_off -lyrics_stat spotify\"",
+              "tags": [
+                "spotx",
+                "müzik",
+                "github"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Canlı TV & Spor Yayınlar",
+          "links": [
             {
               "url": "https://tv.garden/",
               "name": "tv.garden",
@@ -2018,7 +1996,7 @@
           ]
         },
         {
-          "title": "Medya Dönüştürücüler & İndiriciler",
+          "title": "İndirme & Dönüştürme Araçlar",
           "links": [
             {
               "url": "https://www.internetdownloadmanager.com/",
@@ -2205,11 +2183,23 @@
                 "dizi",
                 "takip"
               ]
+            },
+            {
+              "url": "https://www.stremio.com/",
+              "name": "Stremio",
+              "recommended": false,
+              "description": "Film ve dizi akış platformu.",
+              "icon": "icon/stremio.svg",
+              "alt": "Stremio",
+              "copyText": "winget install Stremio.Stremio",
+              "tags": [
+                "stremio"
+              ]
             }
           ]
         },
         {
-          "title": "Bulut/Yedekleme",
+          "title": "Bulut & Depolama",
           "links": [
             {
               "url": "https://www.dropbox.com/",
@@ -2780,7 +2770,7 @@
           ]
         },
         {
-          "title": "İletişim & E-posta",
+          "title": "Mesajlaşma & İletişim",
           "links": [
             {
               "url": "https://discord.com/",
@@ -2821,7 +2811,7 @@
           ]
         },
         {
-          "title": "E-posta & Hesap Yönetim",
+          "title": "E-posta",
           "links": [
             {
               "url": "https://outlook.live.com/",

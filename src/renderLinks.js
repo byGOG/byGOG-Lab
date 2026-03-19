@@ -2,7 +2,7 @@ import { initBackToTop } from './back-to-top.js';
 import { initCategoryNav } from './category-nav.js';
 import { initWebVitals } from './lib/web-vitals.js';
 import { initGlobalErrorHandler } from './lib/global-error-handler.js';
-import { initI18n, createLangToggle, t, applyI18nToDom } from './lib/i18n.js';
+import { initI18n, t, applyI18nToDom } from './lib/i18n.js';
 import { readUrlState, writeUrlState } from './lib/url-state.js';
 import { isNewLink, updateKnownLinks } from './lib/new-badge.js';
 import { trackClick, renderRecentStrip, getVisitedNames } from './lib/recent-links.js';
@@ -598,15 +598,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Re-apply i18n to static DOM elements on language change
   window.addEventListener('langchange', () => applyI18nToDom());
-
-  // Add language toggle to header
-  try {
-    const header = document.querySelector('.site-header');
-    if (header) {
-      const langBtn = createLangToggle();
-      header.appendChild(langBtn);
-    }
-  } catch {}
   // Focus search input immediately on desktop for instant typing
   try {
     const input = document.getElementById('search-input');
