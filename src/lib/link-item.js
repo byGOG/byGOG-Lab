@@ -147,6 +147,11 @@ export function createLinkItem(link, deps) {
 
   if (copyValue) {
     li.classList.add('has-copy');
+    // Detect PowerShell commands (irm, iex, powershell, pwsh)
+    const cvLower = copyValue.toLowerCase();
+    if (/\b(irm|iex|powershell|pwsh)\b/.test(cvLower)) {
+      li.classList.add('has-powershell');
+    }
     const copyButton = document.createElement('button');
     copyButton.type = 'button';
     copyButton.className = 'copy-button';

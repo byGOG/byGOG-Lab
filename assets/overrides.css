@@ -3373,6 +3373,12 @@ li.tag-hidden { display: none !important; }
   border-color: rgba(255,165,0,0.5);
   color: #fff;
 }
+body.batch-mode .category-card li.has-powershell {
+  cursor: default;
+}
+body.batch-mode .category-card li.has-powershell::before {
+  display: none;
+}
 body.batch-mode .category-card li.has-copy {
   cursor: pointer;
   position: relative;

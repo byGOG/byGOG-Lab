@@ -222,6 +222,7 @@ export function initBatchInstall(container) {
       if (!_active) return;
       const li = ev.target.closest('.category-card li.has-copy');
       if (!li || !container.contains(li)) return;
+      if (li.classList.contains('has-powershell')) return;
       // Don't interfere with info buttons or copy buttons
       if (
         ev.target.closest('button.info-button') ||
