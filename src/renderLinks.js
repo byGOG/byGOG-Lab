@@ -15,7 +15,6 @@ import { initTagFilter } from './lib/tag-filter.js';
 import { renderFeaturedStrip } from './lib/featured-strip.js';
 import { renderNewAdditionsStrip } from './lib/new-additions-strip.js';
 import { initBatchInstall } from './lib/batch-install.js';
-import { initCustomCursor } from './custom-cursor.js';
 import { initKeyboardHelp } from './lib/keyboard-help.js';
 import { initOfflineBanner } from './lib/offline-banner.js';
 
@@ -618,7 +617,6 @@ function setupThemeToggle() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   setupThemeToggle();
-  initCustomCursor();
   initKeyboardHelp();
   initOfflineBanner();
   initI18n();
