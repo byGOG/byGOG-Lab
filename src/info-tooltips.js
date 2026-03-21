@@ -108,6 +108,38 @@ function setInfoFlyoutContentFromTip(tip) {
   return fly;
 }
 
+function trapFocusInFlyout(fly) {
+  if (!fly) return;
+  fly._focusTrap = e => {
+    if (e.key !== 'Tab') return;
+    const focusable = fly.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  };
+  fly.addEventListener('keydown', fly._focusTrap);
+}
+
+function removeFocusTrap(fly) {
+  if (fly && fly._focusTrap) {
+    fly.removeEventListener('keydown', fly._focusTrap);
+    fly._focusTrap = null;
+  }
+}
+
 function showInfoFlyout(tip, sourceLi) {
   const fly = setInfoFlyoutContentFromTip(tip);
   const overlay = ensureInfoOverlay();
@@ -118,6 +150,12 @@ function showInfoFlyout(tip, sourceLi) {
   try {
     document.body.classList.add('modal-open');
   } catch {}
+  // Focus trap & auto-focus
+  trapFocusInFlyout(fly);
+  requestAnimationFrame(() => {
+    const closeBtn = fly.querySelector('.info-flyout-close');
+    if (closeBtn) closeBtn.focus();
+  });
 
   // Make the info-name clickable as a link to the tool's URL
   if (sourceLi) {
@@ -247,6 +285,7 @@ function hideInfoFlyout() {
   const fly = document.getElementById('global-info-flyout');
   const overlay = document.getElementById('info-overlay');
   if (fly) {
+    removeFocusTrap(fly);
     fly.classList.remove('show');
     fly.setAttribute('aria-hidden', 'true');
   }
@@ -276,6 +315,7 @@ function enhanceInfoTooltips() {
       infoBtn.type = 'button';
       infoBtn.className = 'info-button';
       infoBtn.setAttribute('aria-expanded', 'false');
+      infoBtn.title = t('info.button');
       const sr = document.createElement('span');
       sr.className = 'sr-only';
       sr.textContent = t('info.show');

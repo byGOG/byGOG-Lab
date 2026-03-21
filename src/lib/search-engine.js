@@ -93,15 +93,52 @@ export function createHighlightMeta(value) {
 }
 
 /**
+ * Highlight text using regex, returning a DocumentFragment
+ * @param {string} text
+ * @param {RegExp} regex
+ * @returns {DocumentFragment}
+ */
+function highlightText(text, regex) {
+  const frag = document.createDocumentFragment();
+  let lastIndex = 0;
+  // Clone regex to reset lastIndex
+  const re = new RegExp(regex.source, regex.flags);
+  let match;
+  while ((match = re.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      frag.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+    }
+    const mark = document.createElement('mark');
+    mark.textContent = match[0];
+    frag.appendChild(mark);
+    lastIndex = re.lastIndex;
+    if (match[0].length === 0) break; // prevent infinite loop on zero-length matches
+  }
+  if (lastIndex < text.length) {
+    frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+  }
+  return frag;
+}
+
+/**
  * Apply or remove highlight from node
  * @param {HTMLElement} node
- * @param {RegExp|null} _regex
+ * @param {RegExp|null} regex
  */
-export function applyHighlight(node, _regex) {
+export function applyHighlight(node, regex) {
   const label = node.querySelector('.link-text');
   if (label) {
     const original = node.dataset.nameOriginal || label.textContent || '';
-    label.textContent = original;
+    // Preserve badge elements
+    const badge = label.querySelector('.new-badge');
+    if (regex) {
+      label.innerHTML = '';
+      label.appendChild(highlightText(original, regex));
+      if (badge) label.appendChild(badge);
+    } else {
+      label.textContent = original;
+      if (badge) label.appendChild(badge);
+    }
   }
   const tip = node.querySelector('.custom-tooltip');
   if (tip) {
@@ -114,7 +151,11 @@ export function applyHighlight(node, _regex) {
           tip.appendChild(img);
           tip.appendChild(document.createTextNode(' '));
         }
-        tip.appendChild(document.createTextNode(descOriginal));
+        if (regex) {
+          tip.appendChild(highlightText(descOriginal, regex));
+        } else {
+          tip.appendChild(document.createTextNode(descOriginal));
+        }
       } catch {
         tip.textContent = descOriginal;
       }

@@ -3,6 +3,7 @@
  */
 
 import { WINUTIL_COMMAND } from './constants.js';
+import { showToast } from './toast.js';
 
 export const COPY_ICON_SHAPES = {
   copy: '<rect x="9" y="9" width="12" height="12" rx="2" ry="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path>',
@@ -115,9 +116,16 @@ export function setupCopyDelegation(container) {
     btn.setAttribute('aria-label', loadingLabel);
 
     try {
-      const ok = await copyToClipboard(btn.dataset.copy || '');
-      if (ok) resetState(successLabel, 'copied', 'success');
-      else resetState(errorLabel, 'copy-error', 'error');
+      const copyText = btn.dataset.copy || '';
+      const ok = await copyToClipboard(copyText);
+      if (ok) {
+        resetState(successLabel, 'copied', 'success');
+        // Detect PowerShell commands for toast
+        const isPowershell = /\b(irm|iex|powershell|pwsh)\b/i.test(copyText);
+        showToast(isPowershell ? 'PowerShell komutu kopyalandı' : successLabel);
+      } else {
+        resetState(errorLabel, 'copy-error', 'error');
+      }
     } catch {
       resetState(errorLabel, 'copy-error', 'error');
     }
@@ -125,7 +133,7 @@ export function setupCopyDelegation(container) {
     if (btn._resetTimer) clearTimeout(btn._resetTimer);
     btn._resetTimer = setTimeout(() => {
       resetState(defaultLabel, null, 'copy', baseAriaLabel);
-    }, 2000);
+    }, 2500);
   });
 }
 

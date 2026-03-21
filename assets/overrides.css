@@ -1514,18 +1514,18 @@ button.info-button {
   position: relative;
   top: auto;
   right: auto;
-  width: 24px;
-  height: 24px;
-  min-width: 24px;
-  border-radius: 7px;
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   margin-left: auto;
-  background: rgba(91, 156, 246, 0.04);
+  background: rgba(91, 156, 246, 0.08);
   color: var(--copy-btn-color, currentColor);
-  border: 1px solid rgba(91, 156, 246, 0.1);
+  border: 1px solid rgba(91, 156, 246, 0.18);
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1534,9 +1534,10 @@ button.info-button {
 }
 
 button.info-button:hover {
-  background: rgba(91, 156, 246, 0.08);
-  border-color: rgba(91, 156, 246, 0.25);
+  background: rgba(91, 156, 246, 0.15);
+  border-color: rgba(91, 156, 246, 0.35);
   box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.3);
+  transform: scale(1.08);
 }
 
 button.info-button:focus {
@@ -3699,4 +3700,245 @@ body.batch-mode .category-card li.has-copy > a {
 .nav-item.active .nav-count {
   background: rgba(91, 156, 246, 0.2);
   color: rgba(91, 156, 246, 0.9);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Keyboard Help Modal
+   ═══════════════════════════════════════════════════════════════ */
+.kbd-help-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s;
+}
+
+.kbd-help-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.kbd-help-panel {
+  position: relative;
+  background: var(--card-bg, #0d1117);
+  border: 1.5px solid var(--card-border, #1b2332);
+  border-radius: 16px;
+  padding: 28px 32px 24px;
+  max-width: 420px;
+  width: 90vw;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.kbd-help-title {
+  margin: 0 0 18px;
+  font-size: 18px;
+  color: var(--h2, #e6edf3);
+}
+
+.kbd-help-list {
+  margin: 0;
+  padding: 0;
+}
+
+.kbd-help-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.kbd-help-row:last-child {
+  border-bottom: none;
+}
+
+.kbd-help-row dt {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.kbd-help-row dd {
+  margin: 0;
+  color: var(--text, #c9d1d9);
+  font-size: 14px;
+}
+
+.kbd-help-row kbd {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(91, 156, 246, 0.08);
+  border: 1px solid rgba(91, 156, 246, 0.2);
+  color: var(--text-hover, #fff);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  min-width: 26px;
+  text-align: center;
+}
+
+.kbd-help-sep {
+  color: var(--text, #c9d1d9);
+  opacity: 0.5;
+  font-size: 12px;
+}
+
+.kbd-help-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text, #c9d1d9);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.kbd-help-close:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.kbd-help-close:focus-visible {
+  outline: 2px solid var(--text-hover, #fff);
+  outline-offset: 2px;
+}
+
+.kbd-help-close svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Search highlight mark
+   ═══════════════════════════════════════════════════════════════ */
+.link-text mark,
+.custom-tooltip mark {
+  background: rgba(91, 156, 246, 0.25);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Toast notification
+   ═══════════════════════════════════════════════════════════════ */
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 10001;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: var(--card-bg, #0d1117);
+  border: 1.5px solid var(--card-border, #1b2332);
+  color: var(--text, #c9d1d9);
+  font-size: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  pointer-events: none;
+}
+
+.toast-notification.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Offline banner
+   ═══════════════════════════════════════════════════════════════ */
+.offline-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10002;
+  padding: 8px 16px;
+  background: rgba(234, 179, 8, 0.15);
+  border-bottom: 1px solid rgba(234, 179, 8, 0.3);
+  color: #eab308;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.offline-banner.show {
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Category load error with retry
+   ═══════════════════════════════════════════════════════════════ */
+.category-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px;
+  color: var(--text, #c9d1d9);
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.category-retry-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border, #1b2332);
+  background: var(--card-bg, #0d1117);
+  color: var(--text-hover, #fff);
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.15s ease;
+}
+
+.category-retry-btn:hover {
+  background: rgba(91, 156, 246, 0.1);
+}
+
+.category-retry-btn:focus-visible {
+  outline: 2px solid var(--text-hover, #fff);
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Touch target expansion (min 44x44px via pseudo-element)
+   ═══════════════════════════════════════════════════════════════ */
+.copy-button::after,
+button.info-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SoundCloud embed: hide on very small screens
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .sc-embed {
+    display: none;
+  }
 }

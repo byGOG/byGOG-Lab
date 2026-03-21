@@ -345,6 +345,19 @@ export function initCategoryNav() {
 
   if (buttons.length) activate(buttons[0]);
 
+  // Keyboard arrow navigation within nav
+  nav.addEventListener('keydown', e => {
+    if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
+    const focused = document.activeElement;
+    const idx = buttons.indexOf(focused);
+    if (idx === -1) return;
+    e.preventDefault();
+    const dir = e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 1;
+    const next = (idx + dir + buttons.length) % buttons.length;
+    buttons[next].focus();
+    buttons[next].click();
+  });
+
   // Insert spacer to preserve flow, then fixed nav
   header.parentNode.insertBefore(spacer, header.nextSibling);
   spacer.parentNode.insertBefore(nav, spacer.nextSibling);

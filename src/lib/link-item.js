@@ -240,7 +240,7 @@ export function createLinkItem(link, deps) {
       }
       /** @type {any} */ (copyButton)._resetTimer = setTimeout(() => {
         resetState(dl, null, 'copy', ba);
-      }, 2000);
+      }, 2500);
     });
 
     const cmdRow = document.createElement('div');

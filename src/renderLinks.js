@@ -16,6 +16,8 @@ import { renderFeaturedStrip } from './lib/featured-strip.js';
 import { renderNewAdditionsStrip } from './lib/new-additions-strip.js';
 import { initBatchInstall } from './lib/batch-install.js';
 import { initCustomCursor } from './custom-cursor.js';
+import { initKeyboardHelp } from './lib/keyboard-help.js';
+import { initOfflineBanner } from './lib/offline-banner.js';
 
 // Import from modular libraries
 import { fetchLinks } from './lib/data-fetcher.js';
@@ -504,6 +506,10 @@ function setupSearch() {
   input.addEventListener('input', () => {
     clearTimeout(debounceTimer);
     const delay = computeDelay(input.value);
+    // Show searching indicator while debouncing
+    if (input.value.trim() && searchState.status) {
+      searchState.status.textContent = t('search.loading');
+    }
     debounceTimer = setTimeout(() => {
       if (maybeLoadAll(input.value)) {
         writeUrlState({ q: (input.value || '').trim() || null });
@@ -613,6 +619,8 @@ function setupThemeToggle() {
 document.addEventListener('DOMContentLoaded', async () => {
   setupThemeToggle();
   initCustomCursor();
+  initKeyboardHelp();
+  initOfflineBanner();
   initI18n();
   applyI18nToDom();
   initGlobalErrorHandler();
@@ -671,6 +679,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     initCategoryNav();
     initBackToTop();
+    // FAB scroll-away: hide when scrolling down, show when scrolling up
+    try {
+      const fab = document.querySelector('.author-fab');
+      if (fab) {
+        let lastY = window.scrollY;
+        window.addEventListener('scroll', () => {
+          const y = window.scrollY;
+          fab.classList.toggle('fab-hidden', y > lastY && y > 200);
+          lastY = y;
+        }, { passive: true });
+      }
+    } catch {}
     updateKnownLinks();
     renderRecentStrip(container);
     initQuickFilters(container);

@@ -73,7 +73,7 @@ export function initLazyCategories(indexData, container, deps) {
   });
   state.entryByFile = entryByFile;
 
-  const showLoadError = card => {
+  const showLoadError = (card, entry) => {
     if (!card) return;
     const skel = card.querySelector('.skeleton-list');
     if (skel) skel.remove();
@@ -83,7 +83,24 @@ export function initLazyCategories(indexData, container, deps) {
       msg.className = 'category-loading';
       card.appendChild(msg);
     }
-    msg.textContent = 'Yüklenemedi.';
+    msg.innerHTML = '';
+    const text = document.createElement('span');
+    text.textContent = 'Kategori yüklenemedi.';
+    msg.appendChild(text);
+    const retryBtn = document.createElement('button');
+    retryBtn.type = 'button';
+    retryBtn.className = 'category-retry-btn';
+    retryBtn.textContent = 'Tekrar dene';
+    retryBtn.addEventListener('click', () => {
+      msg.textContent = 'Yükleniyor...';
+      if (entry) {
+        entry.loaded = false;
+        entry.loading = false;
+        entry.promise = null;
+        loadCategory(entry);
+      }
+    });
+    msg.appendChild(retryBtn);
   };
 
   const loadCategory = async entry => {
@@ -100,7 +117,7 @@ export function initLazyCategories(indexData, container, deps) {
         if (onCategoryLoaded) onCategoryLoaded();
         return data;
       } catch {
-        showLoadError(entry.card);
+        showLoadError(entry.card, entry);
         return null;
       } finally {
         entry.loading = false;
