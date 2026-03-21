@@ -22,7 +22,7 @@ let _cartOpen = false;
  * @returns {string|null}
  */
 function extractWingetId(copyText) {
-  const m = copyText.match(/winget\s+install\s+(?:--id\s+)?(\S+)/i);
+  const m = copyText.match(/winget\s+install\s+(\S+)/i);
   return m ? m[1] : null;
 }
 
@@ -36,9 +36,7 @@ function generateCommand() {
     const copyText = item.command || '';
     const id = extractWingetId(copyText);
     if (id) {
-      commands.push(
-        `winget install --id ${id} -e --accept-source-agreements --accept-package-agreements`
-      );
+      commands.push(`winget install ${id}`);
     } else if (copyText.trim()) {
       commands.push(copyText.trim());
     }

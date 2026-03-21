@@ -3399,6 +3399,11 @@ body.batch-mode .category-card li.has-copy > a {
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .batch-panel.visible { transform: translateY(0); }
+.batch-panel.visible ~ .author-fab,
+body:has(.batch-panel.visible) .author-fab {
+  bottom: 72px;
+  transition: bottom 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 /* Cart list (expandable) */
 .batch-cart-list {
