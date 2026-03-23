@@ -1,5 +1,8 @@
 node_modules/
 dist/
+coverage/
+playwright-report/
+test-results/
 _tmp.txt
 _lines_with_fffd.txt
 tmp*
