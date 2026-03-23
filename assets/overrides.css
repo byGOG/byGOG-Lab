@@ -1237,8 +1237,8 @@ li.has-copy > a {
     max-width: 100%;
     transform: none;
     margin-left: 0;
-    padding: 2px 4px;
-    border-radius: 10px;
+    padding: 4px 6px;
+    border-radius: 999px;
     background: rgba(10, 14, 24, 0.6);
     border: 1px solid rgba(91, 156, 246, 0.08);
     box-shadow: none;
@@ -1246,8 +1246,8 @@ li.has-copy > a {
 
   .site-header .search-container input#search-input {
     font-size: 11px !important;
-    padding: 7px 8px;
-    border-radius: 8px;
+    padding: 7px 12px;
+    border-radius: 999px;
   }
 
   #search-status {
@@ -2584,12 +2584,13 @@ body.modal-open {
 
   .search-container {
     padding: 4px 10px !important;
-    border-radius: 14px !important;
+    border-radius: 999px !important;
   }
 
   .search-container input {
     font-size: 14px !important;
-    padding: 8px 12px !important;
+    padding: 8px 16px !important;
+    border-radius: 999px !important;
   }
 
   .category-nav {
@@ -3939,11 +3940,4 @@ button.info-button::after {
   transform: translate(-50%, -50%);
 }
 
-/* ═══════════════════════════════════════════════════════════════
-   SoundCloud embed: hide on very small screens
-   ═══════════════════════════════════════════════════════════════ */
-@media (max-width: 480px) {
-  .sc-embed {
-    display: none;
-  }
-}
+/* SoundCloud embed: mobilde de görünür */
