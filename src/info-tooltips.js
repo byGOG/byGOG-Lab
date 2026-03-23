@@ -75,7 +75,10 @@ function setInfoFlyoutContentFromTip(tip) {
 
     tip.childNodes.forEach(node => {
       const clone = node.cloneNode(true);
-      if (clone.nodeType === 1 && (clone.tagName === 'IMG' || (clone.classList && clone.classList.contains('info-name')))) {
+      if (
+        clone.nodeType === 1 &&
+        (clone.tagName === 'IMG' || (clone.classList && clone.classList.contains('info-name')))
+      ) {
         header.appendChild(clone);
       } else if (clone.nodeType === 3) {
         // Text node — collect as description

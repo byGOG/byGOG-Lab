@@ -282,11 +282,13 @@ function initLazyCategories(indexData, container) {
       markVisitedLinks(container);
       // Cache loaded icons in service worker for offline use
       if (navigator.serviceWorker && navigator.serviceWorker.controller) {
-        const urls = [...new Set(
-          [...document.querySelectorAll('.site-icon[src]')]
-            .map(img => img.getAttribute('src'))
-            .filter(src => src && src.includes('icon/'))
-        )];
+        const urls = [
+          ...new Set(
+            [...document.querySelectorAll('.site-icon[src]')]
+              .map(img => img.getAttribute('src'))
+              .filter(src => src && src.includes('icon/'))
+          )
+        ];
         if (urls.length) {
           navigator.serviceWorker.controller.postMessage({ type: 'CACHE_URLS', urls });
         }
@@ -682,11 +684,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       const fab = document.querySelector('.author-fab');
       if (fab) {
         let lastY = window.scrollY;
-        window.addEventListener('scroll', () => {
-          const y = window.scrollY;
-          fab.classList.toggle('fab-hidden', y > lastY && y > 200);
-          lastY = y;
-        }, { passive: true });
+        window.addEventListener(
+          'scroll',
+          () => {
+            const y = window.scrollY;
+            fab.classList.toggle('fab-hidden', y > lastY && y > 200);
+            lastY = y;
+          },
+          { passive: true }
+        );
       }
     } catch {}
     updateKnownLinks();
@@ -913,7 +919,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             close.className = 'update-banner-close';
             close.setAttribute('aria-label', t('info.close'));
             close.innerHTML = '\u00d7';
-            close.addEventListener('click', () => { try { bar.remove(); } catch {} });
+            close.addEventListener('click', () => {
+              try {
+                bar.remove();
+              } catch {}
+            });
 
             bar.appendChild(msg);
             bar.appendChild(btn);

@@ -28,8 +28,7 @@ export function initBackToTop() {
   let ticking = false;
   const update = () => {
     const scrollY = window.scrollY;
-    const maxScroll =
-      document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const maxScroll = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
     // Show container when scrolled past 300px
     if (scrollY > 300) {
