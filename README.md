@@ -1,86 +1,127 @@
 <div align="center">
 
-<!-- HERO -->
-<img src="icon/bygog-lab-icon.svg" alt="byGOG Lab" width="140" height="140">
-
-# byGOG Lab
-
-**Windows & Yazılım Dünyasının Rehberi**
-
-Güvenilir uygulamalar, sistem araçları, güvenlik çözümleri ve daha fazlası —
-tek bir yerde, reklamsız ve takipsiz.
+<img src="icon/bygog-lab-icon.svg" alt="byGOG Lab" width="120">
 
 <br>
 
-<!-- ANA BUTONLAR -->
-<a href="https://bygog.github.io/byGOG-Lab/">
-  <img src="https://img.shields.io/badge/▶_Siteyi_Aç-FF5722?style=for-the-badge&logoColor=white" alt="Siteyi Aç">
-</a>
-&nbsp;
-<a href="CHANGELOG.md">
-  <img src="https://img.shields.io/badge/v0.2.0-00C853?style=for-the-badge&logo=semver&logoColor=white" alt="Sürüm">
-</a>
-&nbsp;
-<a href="LICENSE">
-  <img src="https://img.shields.io/badge/MIT-FFC107?style=for-the-badge&logo=opensourceinitiative&logoColor=black" alt="Lisans">
-</a>
+# byGOG Lab
 
-<br><br>
+### Tek Tıkla Kur. Güvenle Kullan.
 
-<!-- ÖZELLİK BADGE'LERİ -->
-<img src="https://img.shields.io/badge/180+_Araç-4285F4?style=flat-square&logo=databricks&logoColor=white" alt="180+ Araç">
-<img src="https://img.shields.io/badge/10_Kategori-9C27B0?style=flat-square&logo=bookstack&logoColor=white" alt="10 Kategori">
-<img src="https://img.shields.io/badge/PWA-5A0FC8?style=flat-square&logo=pwa&logoColor=white" alt="PWA">
-<img src="https://img.shields.io/badge/Çevrimdışı_Çalışır-607D8B?style=flat-square&logo=offlinetv&logoColor=white" alt="Offline">
-<img src="https://img.shields.io/badge/Sıfır_İzleme-E91E63?style=flat-square&logo=ghostery&logoColor=white" alt="No Tracking">
-<img src="https://img.shields.io/badge/Karanlık_Mod-212121?style=flat-square&logo=darkreader&logoColor=white" alt="Dark Mode">
+Windows yazılım dünyasının **hızlı, güvenli ve reklamsız** rehberi.<br>
+207 araç, 10 kategori, sıfır izleme — hepsi tek sayfada.
+
+<br>
+
+[![Siteyi Aç](https://img.shields.io/badge/%E2%96%B6%EF%B8%8F_Siteyi_A%C3%A7-0D1117?style=for-the-badge&logo=github&logoColor=white)](https://bygog.github.io/byGOG-Lab/)
+&nbsp;&nbsp;
+[![PWA Kur](https://img.shields.io/badge/%F0%9F%93%B2_Uygulama_Olarak_Kur-5A0FC8?style=for-the-badge)](https://bygog.github.io/byGOG-Lab/)
+&nbsp;&nbsp;
+[![Changelog](https://img.shields.io/badge/v0.2.0-00C853?style=for-the-badge&logo=semver&logoColor=white)](CHANGELOG.md)
+
+<br>
+
+<img src="https://img.shields.io/badge/207+_Ara%C3%A7-4285F4?style=flat-square&logo=databricks&logoColor=white" alt="207+ Araç">&nbsp;
+<img src="https://img.shields.io/badge/10_Kategori-9C27B0?style=flat-square&logo=bookstack&logoColor=white" alt="10 Kategori">&nbsp;
+<img src="https://img.shields.io/badge/PWA-5A0FC8?style=flat-square&logo=pwa&logoColor=white" alt="PWA">&nbsp;
+<img src="https://img.shields.io/badge/%C3%87evrimd%C4%B1%C5%9F%C4%B1_%C3%87al%C4%B1%C5%9F%C4%B1r-607D8B?style=flat-square&logo=wifi&logoColor=white" alt="Offline">&nbsp;
+<img src="https://img.shields.io/badge/S%C4%B1f%C4%B1r_%C4%B0zleme-E91E63?style=flat-square&logo=ghostery&logoColor=white" alt="No Tracking">&nbsp;
+<img src="https://img.shields.io/badge/Karanl%C4%B1k_Tema-212121?style=flat-square&logo=darkreader&logoColor=white" alt="Dark Mode">
 
 </div>
 
 <br>
 
----
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="icon/bygog-lab-logo.svg">
+  <source media="(prefers-color-scheme: light)" srcset="icon/bygog-lab-logo.svg">
+  <img src="icon/bygog-lab-logo.svg" alt="byGOG Lab Screenshot" width="600">
+</picture>
+</div>
 
 <br>
 
-## 📂 Ne Bulursun?
+## Nedir?
+
+**byGOG Lab**, Windows kullanıcıları icin hazirlanmis kapsamli bir yazilim rehberidir. Her aracinresmi kaynagi, kurulum komutu ve aciklamasi tek sayfada sunulur. Winget/PowerShell komutlarini tek tikla kopyalar, toplu kurulum scripti olusturur ve internet olmadan bile calisir.
+
+<br>
+
+## Kategoriler
 
 <table>
 <tr>
-<td width="50%">
+<td align="center" width="20%">
 
-**🖥️ Sistem & Ofis**
-> Windows/Linux kurulum, Office çözümleri
-
-**🔧 Sistem Araçları**
-> Donanım bilgisi, sürücü, temizlik, arşiv
-
-**🔒 Güvenlik & Gizlilik**
-> Antivirüs, VPN, DNS, parola yönetimi
-
-**📦 Paket Yöneticileri**
-> Winget, Chocolatey, Scoop, portable uygulamalar
-
-**🌐 İnternet & Tarayıcı**
-> Tarayıcılar, eklentiler, hız testleri
+<img src="https://img.shields.io/badge/-14_Ara%C3%A7-4285F4?style=flat-square" alt="14"><br>
+<b>Sistem / Ofis</b><br>
+<sub>Windows & Linux kurulum,<br>Office, aktivasyon</sub>
 
 </td>
-<td width="50%">
+<td align="center" width="20%">
 
-**🎬 Medya & İndirme**
-> Müzik, video, torrent, altyazı, IPTV
+<img src="https://img.shields.io/badge/-31_Ara%C3%A7-4285F4?style=flat-square" alt="31"><br>
+<b>Sistem Araclari</b><br>
+<sub>Donanim, surucu, temizlik,<br>disk yonetimi</sub>
 
-**💻 Geliştirici & Tasarım**
-> IDE, editör, programlama dilleri, araçlar
+</td>
+<td align="center" width="20%">
 
-**🛠️ Uygulamalar**
-> Yapay zeka, uzak masaüstü, dosya paylaşımı
+<img src="https://img.shields.io/badge/-26_Ara%C3%A7-4285F4?style=flat-square" alt="26"><br>
+<b>Guvenlik & Gizlilik</b><br>
+<sub>Antivirus, VPN, DNS,<br>parola yonetimi</sub>
 
-**📱 Mobil & İletişim**
-> Mesajlaşma, e-posta, spor skorları
+</td>
+<td align="center" width="20%">
 
-**🎮 Oyun**
-> Mağazalar, repack siteleri
+<img src="https://img.shields.io/badge/-16_Ara%C3%A7-4285F4?style=flat-square" alt="16"><br>
+<b>Paket Yoneticileri</b><br>
+<sub>Winget, Chocolatey,<br>Scoop, portable</sub>
+
+</td>
+<td align="center" width="20%">
+
+<img src="https://img.shields.io/badge/-17_Ara%C3%A7-4285F4?style=flat-square" alt="17"><br>
+<b>Internet & Tarayici</b><br>
+<sub>Tarayicilar, eklentiler,<br>hiz testleri</sub>
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+<img src="https://img.shields.io/badge/-50_Ara%C3%A7-4285F4?style=flat-square" alt="50"><br>
+<b>Medya & Indirme</b><br>
+<sub>Muzik, video, torrent,<br>IPTV, bulut</sub>
+
+</td>
+<td align="center">
+
+<img src="https://img.shields.io/badge/-13_Ara%C3%A7-4285F4?style=flat-square" alt="13"><br>
+<b>Gelistirici & Tasarim</b><br>
+<sub>IDE, editor, programlama<br>dilleri & araclari</sub>
+
+</td>
+<td align="center">
+
+<img src="https://img.shields.io/badge/-16_Ara%C3%A7-4285F4?style=flat-square" alt="16"><br>
+<b>Uygulamalar</b><br>
+<sub>Yapay zeka, uzak masaustu,<br>uretkenlik</sub>
+
+</td>
+<td align="center">
+
+<img src="https://img.shields.io/badge/-15_Ara%C3%A7-4285F4?style=flat-square" alt="15"><br>
+<b>Mobil & Iletisim</b><br>
+<sub>Android/iOS, mesajlasma,<br>e-posta</sub>
+
+</td>
+<td align="center">
+
+<img src="https://img.shields.io/badge/-9_Ara%C3%A7-4285F4?style=flat-square" alt="9"><br>
+<b>Oyun</b><br>
+<sub>Magazalar, topluluk,<br>repack siteleri</sub>
 
 </td>
 </tr>
@@ -88,50 +129,38 @@ tek bir yerde, reklamsız ve takipsiz.
 
 <br>
 
----
-
-<br>
-
-## ✨ Özellikler
+## Ozellikler
 
 <table>
 <tr>
-<td align="center" width="33%">
+<td width="50%">
 
-### 🔍 Anlık Arama
-Yazdıkça filtrele,<br>eşleşmeleri vurgula
+### Anlik Arama
+Yazmaya baslayin, sonuclar aninda filtrelensin. Turkce karakterlere duyarli, akilli eslesme destekli arama motoru.
 
-</td>
-<td align="center" width="33%">
+### Toplu Kurulum
+Araclari sepete ekleyin, tek bir winget/PowerShell scripti olarak kopyalayin. Birden fazla uygulamayi ayni anda kurun.
 
-### ⭐ Favoriler
-Araçları yıldızla,<br>kenar çubuğundan eriş
+### Tek Tikla Kopyala
+Her aracin yanindaki butona basin — winget komutu aninda panoya kopyalanir.
 
-</td>
-<td align="center" width="33%">
-
-### 📋 Tek Tık Kopyala
-Winget / PowerShell<br>komutlarını panoya al
+### Favoriler
+Sik kullandiginiz araclari yildizlayin, kenar cubugundan hizla erisin.
 
 </td>
-</tr>
-<tr>
-<td align="center">
+<td width="50%">
 
-### 📴 Çevrimdışı Mod
-İnternet olmadan<br>tüm içeriğe eriş
+### Cevrimdisi Calisir
+Siteyi bir kez ziyaret edin, internet olmadan tum icerige erisin. Service Worker sayesinde tam cevrimdisi destek.
 
-</td>
-<td align="center">
+### Sifir Izleme
+Reklam yok, analitik yok, cerez yok. Tum verileriniz tarayicinizda kalir.
 
-### 🔒 Gizlilik Öncelikli
-Reklam yok, analitik yok,<br>izleme yok
+### Uygulama Olarak Kur (PWA)
+Masaustune veya telefona kur, yerel uygulama gibi kullan. Tum tarayicilarda desteklenir.
 
-</td>
-<td align="center">
-
-### 🌓 Otomatik Tema
-Sistem temanızla<br>uyumlu açık/koyu mod
+### SoundCloud Entegrasyonu
+Kod keserken muzik dinleyin — entegre SoundCloud oynatici ile kesintisiz deneyim.
 
 </td>
 </tr>
@@ -139,174 +168,142 @@ Sistem temanızla<br>uyumlu açık/koyu mod
 
 <br>
 
----
+## Hizli Baslangic
 
-<br>
+```
+1. Siteyi ac  →  bygog.github.io/byGOG-Lab
+2. Arama yap  →  Yazmaya basla, sonuclar aninda gelsin
+3. Komutu kopyala  →  📋 butonuna tikla
+4. Terminal'e yapistir  →  Ctrl+V ile calistir
+```
 
-## 🚀 Nasıl Kullanılır?
+### Toplu Kurulum Ornegi
 
-| Adım | |
-|:-----|:--|
-| **1.** Siteyi aç | [bygog.github.io/byGOG-Lab](https://bygog.github.io/byGOG-Lab/) |
-| **2.** Arama kutusuna yaz | Yazdıkça sonuçlar anında filtrelenir |
-| **3.** Kategorilere göz at | 10 farklı kategoride 180+ araç |
-| **4.** Komutu kopyala | Winget/PowerShell butonuna tıkla → panoya kopyalanır |
-| **5.** Favorilere ekle | ⭐ ile işaretle, sonra kenar çubuğundan eriş |
+```powershell
+# byGOG Lab'dan "Toplu Kurulum" ile olusturulmus script
+winget install --id Rufus.Rufus --accept-package-agreements
+winget install --id 7zip.7zip --accept-package-agreements
+winget install --id Mozilla.Firefox --accept-package-agreements
+```
 
-### ⌨️ Kısayollar
+### Klavye Kisayollari
 
-| Tuş | İşlev |
+| Tus | Islem |
 |:---:|:------|
 | <kbd>/</kbd> | Aramaya odaklan |
-| <kbd>Esc</kbd> | Aramayı temizle |
+| <kbd>Esc</kbd> | Aramayi temizle |
+| <kbd>Ctrl</kbd>+<kbd>K</kbd> | Hizli arama |
 
 <br>
 
----
+## Uygulama Olarak Kur
 
-<br>
+> Tarayicinizdan kurarak masaustu veya telefon uygulamasi gibi kullanin.
 
-## 📲 Uygulamayı Kur (PWA)
-
-Tarayıcıdan kurarak masaüstü veya telefon uygulaması gibi kullanabilirsiniz.
-
-<details open>
-<summary><b>💻 Masaüstü</b></summary>
-
-<br>
-
-| Tarayıcı | Nasıl? |
-|:--------:|:--------|
-| <img src="https://img.shields.io/badge/-Chrome-4285F4?style=flat-square&logo=googlechrome&logoColor=white"> | Adres çubuğundaki `⊕` simgesi → **Uygulamayı yükle** |
-| <img src="https://img.shields.io/badge/-Edge-0078D7?style=flat-square&logo=microsoftedge&logoColor=white"> | `···` menüsü → **Uygulamalar** → **Yükle** |
-| <img src="https://img.shields.io/badge/-Firefox-FF7139?style=flat-square&logo=firefox&logoColor=white"> | `☰` menüsü → **Uygulamayı yükle** |
-
-</details>
-
-<details>
-<summary><b>📱 Mobil</b></summary>
-
-<br>
-
-| Platform | Nasıl? |
-|:--------:|:--------|
-| <img src="https://img.shields.io/badge/-iOS-000000?style=flat-square&logo=apple&logoColor=white"> | Paylaş `↑` → **Ana Ekrana Ekle** |
-| <img src="https://img.shields.io/badge/-Android-3DDC84?style=flat-square&logo=android&logoColor=white"> | `⋮` menüsü → **Ana ekrana ekle** |
-
-</details>
-
-<br>
+<table>
+<tr>
+<th align="center">Platform</th>
+<th>Nasil?</th>
+</tr>
+<tr>
+<td align="center"><img src="https://img.shields.io/badge/-Chrome-4285F4?style=flat-square&logo=googlechrome&logoColor=white"></td>
+<td>Adres cubugundaki <code>+</code> simgesi → <b>Uygulamayi yukle</b></td>
+</tr>
+<tr>
+<td align="center"><img src="https://img.shields.io/badge/-Edge-0078D7?style=flat-square&logo=microsoftedge&logoColor=white"></td>
+<td><code>···</code> menusu → <b>Uygulamalar</b> → <b>Yukle</b></td>
+</tr>
+<tr>
+<td align="center"><img src="https://img.shields.io/badge/-Android-3DDC84?style=flat-square&logo=android&logoColor=white"></td>
+<td><code>⋮</code> menusu → <b>Ana ekrana ekle</b></td>
+</tr>
+<tr>
+<td align="center"><img src="https://img.shields.io/badge/-iOS-000000?style=flat-square&logo=apple&logoColor=white"></td>
+<td>Paylas <code>↑</code> → <b>Ana Ekrana Ekle</b></td>
+</tr>
+</table>
 
 > [!TIP]
-> Güncelleme sonrası sorun yaşarsanız <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> ile sayfayı yenileyin.
+> Guncelleme sonrasi sorun yasarsaniz <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> ile sayfayi yenileyin.
 
 <br>
 
----
-
-<br>
-
-## ❓ Sıkça Sorulan Sorular
+## Sikca Sorulan Sorular
 
 <details>
-<summary><b>Komutlar güvenli mi?</b></summary>
-
+<summary><b>Komutlar guvenli mi?</b></summary>
 <br>
-
-Komutlar resmî kaynaklardan alınır. Yine de çalıştırmadan önce **kaynağı doğrulamanız** önerilir.
-
+Tum komutlar resmi paket yoneticilerinden (winget, Chocolatey) alinir. Yine de calistirmadan once kaynak dogrulamaniz onerilir.
 </details>
 
 <details>
-<summary><b>Bağlantılar güvenli mi?</b></summary>
-
+<summary><b>Baglantilar guvenli mi?</b></summary>
 <br>
-
-Tüm bağlantılar resmî veya güvenilir kaynaklardan seçilir. İndirdiğiniz dosyaları:
-- ✅ Antivirüs yazılımıyla tarayın
-- ✅ Hash değerlerini kontrol edin
-
+Her baglanti resmi veya guvenirligi dogrulanmis kaynaklardan secilir. Indirdiginiz dosyalari antivirus ile tarayin ve hash degerlerini kontrol edin.
 </details>
 
 <details>
-<summary><b>İnternet olmadan çalışır mı?</b></summary>
-
+<summary><b>Verilerim toplaniyor mu?</b></summary>
 <br>
-
-Evet! Siteyi bir kez ziyaret ettikten sonra, Service Worker sayesinde çevrimdışı olarak tüm içeriğe erişebilirsiniz.
-
+Hayir. Hicbir analitik, izleme veya reklam kodu yoktur. Favorileriniz yalnizca tarayicinizda (localStorage) saklanir.
 </details>
 
 <details>
-<summary><b>Verilerim toplanıyor mu?</b></summary>
-
+<summary><b>Internet olmadan calisir mi?</b></summary>
 <br>
-
-Hayır. Hiçbir analitik, izleme veya reklam kodu yoktur. Favorileriniz yalnızca tarayıcınızda (localStorage) saklanır.
-
+Evet. Siteyi bir kez ziyaret ettikten sonra, Service Worker sayesinde cevrimdisi olarak tum icerige erisebilirsiniz.
 </details>
 
 <br>
 
----
+## Sorun Giderme
 
-<br>
-
-## 🔧 Sorun Giderme
-
-| Sorun | Çözüm |
+| Sorun | Cozum |
 |:------|:------|
-| İkon veya görsel bozuk | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> ile yenileyin |
-| Kopyalama çalışmıyor | Tarayıcıya pano (clipboard) izni verin |
-| Eski veriler görünüyor | Tarayıcı ayarlarından site verisini temizleyin |
+| Gorseller bozuk gorunuyor | <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> ile hard refresh yapin |
+| Kopyalama calismiyor | Tarayiciya pano (clipboard) izni verin |
+| Eski veriler gorunuyor | Tarayici ayarlarindan site verisini temizleyin |
 
 <br>
 
----
-
-<br>
-
-## 🤝 Katkıda Bulun
+## Katkida Bulun
 
 <table>
 <tr>
 <td align="center">
 
-**🐛 Bug buldun?**
-[Issue Aç](../../issues/new)
+**Bug buldun?**<br>
+[Issue Ac](../../issues/new)
 
 </td>
 <td align="center">
 
-**💡 Fikrin var?**
-[Tartışma Başlat](../../discussions)
+**Fikrin var?**<br>
+[Tartisma Baslat](../../discussions)
 
 </td>
 <td align="center">
 
-**🔧 Kod katkısı?**
-[Katkı Rehberi](CONTRIBUTING.md)
+**Kod katkisi?**<br>
+[Katki Rehberi](CONTRIBUTING.md)
 
 </td>
 </tr>
 </table>
 
-<br>
-
 <details>
-<summary><b>🛠️ Geliştiriciler İçin</b></summary>
-
+<summary><b>Gelistiriciler Icin</b></summary>
 <br>
 
 ```bash
-npm install          # Bağımlılıkları kur
-npm run serve        # Geliştirme sunucusu
-npm run build        # Üretim derlemesi
-npm test             # Testleri çalıştır
-npm run lint         # Kod kalitesi kontrolü
+npm install          # Bagimliliklari kur
+npm run serve        # Gelistirme sunucusu (localhost:5173)
+npm run build        # Uretim derlemesi
+npm test             # Testleri calistir
+npm run lint         # Kod kalitesi kontrolu
 ```
 
-Detaylı bilgi için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
+Detayli bilgi icin [CONTRIBUTING.md](CONTRIBUTING.md) dosyasina bakin.
 
 </details>
 
@@ -314,22 +311,16 @@ Detaylı bilgi için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına bakın.
 
 ---
 
-<br>
-
 <div align="center">
 
-### ⭐ Beğendiysen yıldız bırak!
-
-<br>
-
-**[`⬆ Başa Dön`](#bygog-lab)**
-
-<br>
-
----
-
 <sub>
-Made with ❤️ by <a href="https://github.com/bygog">byGOG</a>
+
+**[bygog.github.io/byGOG-Lab](https://bygog.github.io/byGOG-Lab/)** | MIT Lisans
+
+Begendin mi? Yildiz birak!
+
+Made with ❤️ by [byGOG](https://github.com/bygog)
+
 </sub>
 
 </div>
