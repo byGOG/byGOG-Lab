@@ -1719,6 +1719,16 @@
               "tags": ["resource", "hacker", "windows", "angusj"]
             },
             {
+              "url": "https://github.com/ful1e5/Bibata_Cursor",
+              "name": "Bibata Cursor",
+              "recommended": false,
+              "description": "Açık kaynak, kompakt ve material tasarım ilkeleriyle oluşturulmuş popüler imleç koleksiyonu.",
+              "icon": "icon/bibata.svg",
+              "alt": "Bibata Cursor",
+              "copyText": "irm https://bygog.github.io/Bibata-Cursor-Installer/install.ps1 | iex",
+              "tags": ["bibata", "cursor", "imleç", "tema", "windows", "linux"]
+            },
+            {
               "url": "https://antigravity.google/",
               "name": "Google Antigravity",
               "recommended": false,
