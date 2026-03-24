@@ -6,6 +6,18 @@
 
 const KEY = 'bygog_scrollY';
 
+// Module-level flag: true when a saved scroll position exists at load time.
+// Checked synchronously by other modules (e.g. category-nav) to skip hash scroll.
+let _restoring = false;
+try {
+  const _saved = sessionStorage.getItem(KEY);
+  if (_saved && parseInt(_saved, 10) > 0) _restoring = true;
+} catch {}
+
+export function isScrollRestoring() {
+  return _restoring;
+}
+
 export function initScrollRestore() {
   // Restore saved position
   try {
@@ -35,6 +47,7 @@ export function initScrollRestore() {
           setTimeout(() => {
             mo.disconnect();
             clearTimeout(restoreTimer);
+            _restoring = false;
           }, 5000);
         }
       }

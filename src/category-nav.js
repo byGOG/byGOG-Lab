@@ -1,5 +1,6 @@
 import { getSubcategoryIcon } from './lib/category-icons.js';
 import { t } from './lib/i18n.js';
+import { isScrollRestoring } from './lib/scroll-restore.js';
 
 // Category icons mapping
 const categoryIcons = {
@@ -421,9 +422,12 @@ export function initCategoryNav() {
   };
 
   // Handle initial hash navigation after layout settles.
+  // Skip if scroll-restore is active (F5 refresh should stay in place).
   requestAnimationFrame(() => {
     setTimeout(() => {
-      syncHashToView({ behavior: 'auto' });
+      if (!isScrollRestoring()) {
+        syncHashToView({ behavior: 'auto' });
+      }
     }, 0);
   });
   const onHashChange = () => {
