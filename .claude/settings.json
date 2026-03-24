@@ -9,7 +9,19 @@
       "Bash(node -e \"const d=JSON.parse\\(require\\(''fs''\\).readFileSync\\(''data/links-index.json'',''utf8''\\)\\); console.log\\(''Macrorit:'', ''Macrorit Partition Expert'' in d.linkIndex\\)\")",
       "WebFetch(domain:helium.computer)",
       "Bash(winget search:*)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -sL \"https://www.sordum.org/files/downloads.php?st-windows-update-blocker\" -o wub.zip)",
+      "Bash(unzip -o wub.zip -d wub_extract)",
+      "Bash(pip show:*)",
+      "Bash(npm list:*)",
+      "Bash(powershell.exe -Command \":*)",
+      "Bash(powershell.exe -NoProfile -Command \":*)",
+      "Bash(cygpath -w /tmp/wub_extract/Wub/Wub.exe)",
+      "Bash(cygpath -u \"C:\\\\Users\\\\byGOG\\\\AppData\\\\Local\\\\Temp\\\\wub_icon_256.png\")",
+      "Bash(node -e \"JSON.parse\\(require\\(''fs''\\).readFileSync\\(''c:/Users/byGOG/byGOG-Lab/links.json'',''utf8''\\)\\); console.log\\(''JSON valid''\\)\")"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
     ]
   }
 }

@@ -623,6 +623,16 @@
               "tags": ["defender", "control", "windows", "sordum"]
             },
             {
+              "url": "https://www.sordum.org/9470/windows-update-blocker-v1-8/",
+              "name": "Windows Update Blocker",
+              "recommended": false,
+              "description": "Windows güncellemelerini kolayca devre dışı bırakma ve etkinleştirme aracı.",
+              "icon": "icon/wub.svg",
+              "alt": "Windows Update Blocker",
+              "copyText": "winget install sordum.WindowsUpdateBlocker",
+              "tags": ["windows", "update", "blocker", "sordum", "wub"]
+            },
+            {
               "url": "https://github.com/es3n1n/defendnot",
               "name": "DefendNot",
               "recommended": false,
