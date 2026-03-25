@@ -126,7 +126,7 @@ export function initQuickFilters(container) {
 
     // Hide non-recent strips if any filter/category is active
     if (hideableStrips) {
-      hideableStrips.forEach(s => (s.style.display = (isFiltered || isCatSelected) ? 'none' : ''));
+      hideableStrips.forEach(s => (s.style.display = isFiltered || isCatSelected ? 'none' : ''));
     }
 
     // Add filter class
@@ -259,12 +259,14 @@ export function initQuickFilters(container) {
     const combined = [...domCards, ...Array.from(detachedCards)];
     // Deduplicate and sort by categoryIndex
     const seen = new Set();
-    const cards = combined.filter(c => {
-      const idx = c.dataset.categoryIndex;
-      if (idx == null || seen.has(idx)) return false;
-      seen.add(idx);
-      return true;
-    }).sort((a, b) => parseInt(a.dataset.categoryIndex) - parseInt(b.dataset.categoryIndex));
+    const cards = combined
+      .filter(c => {
+        const idx = c.dataset.categoryIndex;
+        if (idx == null || seen.has(idx)) return false;
+        seen.add(idx);
+        return true;
+      })
+      .sort((a, b) => parseInt(a.dataset.categoryIndex) - parseInt(b.dataset.categoryIndex));
     if (!cards.length) return;
 
     collectCards();
@@ -277,7 +279,8 @@ export function initQuickFilters(container) {
     recBtn.dataset.i18nKey = 'filter.recommended';
     const starIcon = document.createElement('span');
     starIcon.className = 'category-tab-icon';
-    starIcon.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+    starIcon.innerHTML =
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
     recBtn.appendChild(starIcon);
     const recText = document.createElement('span');
     recText.textContent = t('filter.recommended');
