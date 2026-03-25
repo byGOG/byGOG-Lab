@@ -1,7 +1,7 @@
 /**
  * Quick filter bar for links
- * Filters: All, Recommended, Has Command
- * Category tabs: each category becomes a tab, only the selected category is shown.
+ * Default view: Recommended. Category tabs show individual categories.
+ * "All" is never a user-facing state — recommended is always the fallback.
  *
  * Uses tab-based rendering: only the active tab's matching items stay in the DOM.
  * Non-matching category cards are detached (not just hidden) for better performance.
@@ -86,7 +86,7 @@ export function initQuickFilters(container) {
   }
 
   function cardHasItems(card, filterKey) {
-    if (filterKey === 'all') return true;
+    if (filterKey === 'all' || filterKey === 'category') return true;
     if (filterKey === 'recommended') {
       return card.querySelector('li[data-recommended="1"]') !== null;
     }
@@ -121,28 +121,18 @@ export function initQuickFilters(container) {
       '.featured-strip, .new-additions-strip'
     );
 
-    const isFiltered = filterKey !== 'all';
     const isCatSelected = catIdx !== null;
 
-    // Hide non-recent strips if any filter/category is active
+    // Hide non-recent strips when a specific category is selected
     if (hideableStrips) {
-      hideableStrips.forEach(s => (s.style.display = isFiltered || isCatSelected ? 'none' : ''));
+      hideableStrips.forEach(s => (s.style.display = isCatSelected ? 'none' : ''));
     }
 
     // Add filter class
     if (filterKey === 'recommended') container.classList.add('filter-recommended');
     else if (filterKey === 'has-copy') container.classList.add('filter-has-copy');
 
-    // Show all or just one category
-    if (filterKey === 'all' && !isCatSelected) {
-      // Show everything
-      container.querySelectorAll('.category-card').forEach(card => {
-        card.style.display = '';
-      });
-      container.querySelectorAll('.sub-category').forEach(sub => {
-        sub.style.display = '';
-      });
-    } else {
+    {
       // Detach cards that don't match
       container.querySelectorAll('.category-card').forEach(card => {
         const idx = card.dataset.categoryIndex;
@@ -159,7 +149,7 @@ export function initQuickFilters(container) {
 
       // Hide empty subcategories
       container.querySelectorAll('.sub-category').forEach(sub => {
-        if (filterKey === 'all') {
+        if (filterKey === 'all' || filterKey === 'category') {
           sub.style.display = '';
         } else {
           let hasVisible = false;
@@ -181,7 +171,7 @@ export function initQuickFilters(container) {
     // Update category tab states
     catRow.querySelectorAll('.category-tab-btn').forEach(btn => {
       if (btn.dataset.filter === 'recommended') {
-        btn.classList.toggle('active', filterKey === 'recommended');
+        btn.classList.toggle('active', filterKey === 'recommended' && !isCatSelected);
       } else {
         btn.classList.toggle('active', btn.dataset.catIndex === catIdx);
       }
@@ -238,9 +228,9 @@ export function initQuickFilters(container) {
     btn.dataset.i18nKey = f.i18nKey;
     btn.innerHTML = `${t(f.i18nKey)} <span class="filter-count"></span>`;
     btn.addEventListener('click', () => {
-      // Toggle: clicking active filter deactivates it (back to 'all')
+      // Toggle: clicking active filter goes back to 'recommended'
       if (activeFilter === f.key) {
-        applyFilter('all', activeCategory);
+        applyFilter('recommended', null);
       } else {
         applyFilter(f.key, activeCategory);
       }
@@ -289,9 +279,8 @@ export function initQuickFilters(container) {
     recCount.className = 'filter-count';
     recBtn.appendChild(recCount);
     recBtn.addEventListener('click', () => {
-      if (activeFilter === 'recommended') {
-        applyFilter('all', null);
-      } else {
+      // Always stay on recommended — never go to 'all'
+      if (activeFilter !== 'recommended' || activeCategory !== null) {
         applyFilter('recommended', null);
       }
     });
@@ -325,8 +314,8 @@ export function initQuickFilters(container) {
           // Clicking active category again → deselect, go back to recommended
           applyFilter('recommended', null);
         } else {
-          // Selecting a category → show all items in that category
-          applyFilter('all', idx);
+          // Selecting a category → show all items in that category (internally 'all' but only for that category)
+          applyFilter('category', idx);
         }
       });
 
@@ -358,8 +347,7 @@ export function initQuickFilters(container) {
       knownCatCount = totalCards;
       buildCategoryTabs();
     }
-    if (activeFilter === 'all' && !activeCategory) updateCounts();
-    else applyFilter(activeFilter, activeCategory, { skipUrl: true });
+    applyFilter(activeFilter, activeCategory, { skipUrl: true });
   });
   observer.observe(container, { childList: true, subtree: true });
 
@@ -367,14 +355,8 @@ export function initQuickFilters(container) {
   setTimeout(() => {
     buildCategoryTabs();
     updateCounts();
-    let initialFilter = 'recommended';
-    try {
-      const urlState = readUrlState();
-      if (urlState.filter && urlState.filter !== 'recommended') {
-        initialFilter = urlState.filter;
-      }
-    } catch {}
-    applyFilter(initialFilter, null, { skipUrl: true });
+    // Always start with 'recommended' — 'all' is never a user-facing state
+    applyFilter('recommended', null, { skipUrl: true });
   }, 100);
 
   // When search is active, restore all cards so the search engine can index everything
