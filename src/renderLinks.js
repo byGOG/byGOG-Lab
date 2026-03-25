@@ -11,7 +11,7 @@ import { initCategoryCollapse } from './lib/category-collapse.js';
 import { initWebShare } from './lib/web-share.js';
 import { initScrollRestore } from './lib/scroll-restore.js';
 import { initSearchSuggest } from './lib/search-suggest.js';
-import { initTagFilter } from './lib/tag-filter.js';
+
 import { renderFeaturedStrip } from './lib/featured-strip.js';
 import { renderNewAdditionsStrip } from './lib/new-additions-strip.js';
 import { initBatchInstall } from './lib/batch-install.js';
@@ -490,6 +490,14 @@ function setupSearch() {
     if (!lazyState || areAllCategoriesLoaded()) return false;
     status.textContent = t('search.loading');
     if (!lazyState.loadAllPromise) lazyState.loadAllPromise = lazyState.loadAll();
+    // After all categories load, restore cards, rebuild index and re-run query
+    lazyState.loadAllPromise.then(() => {
+      window.dispatchEvent(new CustomEvent('searchactive'));
+      refreshSearchIndex({ runQuery: false });
+      if (searchState.engine) {
+        searchState.engine.run(input.value, getScope());
+      }
+    });
     return true;
   }
 
@@ -504,13 +512,27 @@ function setupSearch() {
     if (searchState.engine) searchState.engine.run(value, getScope());
   }
 
+  let searchWasActive = false;
   input.addEventListener('input', () => {
     clearTimeout(debounceTimer);
+    const hasQuery = !!input.value.trim();
     const delay = computeDelay(input.value);
     // Show searching indicator while debouncing
-    if (input.value.trim() && searchState.status) {
+    if (hasQuery && searchState.status) {
       searchState.status.textContent = t('search.loading');
     }
+
+    // Restore all cards when search starts, re-apply filter when cleared
+    if (hasQuery && !searchWasActive) {
+      searchWasActive = true;
+      window.dispatchEvent(new CustomEvent('searchactive'));
+      // Rebuild search index after cards are restored
+      refreshSearchIndex({ runQuery: false });
+    } else if (!hasQuery && searchWasActive) {
+      searchWasActive = false;
+      window.dispatchEvent(new CustomEvent('searchclear'));
+    }
+
     debounceTimer = setTimeout(() => {
       if (maybeLoadAll(input.value)) {
         writeUrlState({ q: (input.value || '').trim() || null });
@@ -570,6 +592,10 @@ function setupSearch() {
         input.value = '';
         runImmediate('');
         writeUrlState({ q: null });
+        if (searchWasActive) {
+          searchWasActive = false;
+          window.dispatchEvent(new CustomEvent('searchclear'));
+        }
       }
       ev.stopPropagation();
     } else if (ev.key === 'Enter') {
@@ -698,7 +724,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateKnownLinks();
     renderRecentStrip(container);
     initQuickFilters(container);
-    initTagFilter(container);
+
     renderFeaturedStrip(container, cachedData);
     renderNewAdditionsStrip(container);
     initBatchInstall(container);
@@ -710,21 +736,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error(err);
   }
   setupCopyDelegation(document.getElementById('links-container'));
-  // Tag chip click delegation (single listener for all tag chips)
-  container.addEventListener('click', ev => {
-    const chip = ev.target.closest('.tag-chip[data-tag]');
-    if (chip) {
-      ev.preventDefault();
-      ev.stopPropagation();
-      const input = document.getElementById('search-input');
-      if (input) {
-        input.value = chip.dataset.tag;
-        input.dispatchEvent(new Event('input', { bubbles: true }));
-        input.focus();
-      }
-      return;
-    }
-  });
   // Track external link clicks for "Son Kullanılanlar"
   container.addEventListener('click', ev => {
     const a = ev.target.closest('.category-card li > a[href]');
@@ -743,24 +754,25 @@ document.addEventListener('DOMContentLoaded', async () => {
   initSearchSuggest(document.getElementById('search-input'), container);
   setupPWAInstallUI();
 
-  // Logo click → reset and scroll to top
-  const logoLink = document.querySelector('.logo-container');
-  if (logoLink) {
-    logoLink.addEventListener('click', ev => {
-      ev.preventDefault();
-      const input = document.getElementById('search-input');
-      if (input && input.value) {
-        input.value = '';
-        input.dispatchEvent(new Event('input', { bubbles: true }));
-      }
-      if (searchState && searchState.clearCategoryScope) searchState.clearCategoryScope();
-      writeUrlState({ q: null, filter: null, tag: null, cat: null });
-      try {
-        history.replaceState(null, '', window.location.pathname);
-      } catch {}
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  // Logo / footer brand click → reset and scroll to top
+  function handleHomeClick(ev) {
+    ev.preventDefault();
+    const input = document.getElementById('search-input');
+    if (input && input.value) {
+      input.value = '';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+    if (searchState && searchState.clearCategoryScope) searchState.clearCategoryScope();
+    writeUrlState({ q: null, filter: null, tag: null, cat: null });
+    try {
+      history.replaceState(null, '', window.location.pathname);
+    } catch {}
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+  const logoLink = document.querySelector('.logo-container');
+  if (logoLink) logoLink.addEventListener('click', handleHomeClick);
+  const footerHome = document.querySelector('.footer-home-link');
+  if (footerHome) footerHome.addEventListener('click', handleHomeClick);
   document.addEventListener('keydown', ev => {
     const t = ev.target;
     const tag = t && t.tagName ? t.tagName.toUpperCase() : '';

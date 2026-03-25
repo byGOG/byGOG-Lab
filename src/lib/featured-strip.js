@@ -85,9 +85,8 @@ export function renderFeaturedStrip(container, data) {
   strip.appendChild(list);
 
   // Insert before links-container but after filter bars
-  const tagBar = container.parentElement?.querySelector('.tag-filter-bar');
   const quickBar = container.parentElement?.querySelector('.quick-filter-bar');
-  const insertRef = tagBar || quickBar;
+  const insertRef = quickBar;
   if (insertRef) {
     insertRef.insertAdjacentElement('afterend', strip);
   } else {

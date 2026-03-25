@@ -81,22 +81,6 @@ export function createLinkItem(link, deps) {
   titleRow.appendChild(text);
   textCol.appendChild(titleRow);
 
-  // Tag chips (click handled via event delegation on container)
-  if (Array.isArray(link.tags) && link.tags.length) {
-    const tagWrap = document.createElement('div');
-    tagWrap.className = 'tag-chips';
-    const tags = link.tags;
-    const len = tags.length < 3 ? tags.length : 3;
-    for (let i = 0; i < len; i++) {
-      const chip = document.createElement('span');
-      chip.className = 'tag-chip';
-      chip.textContent = tags[i];
-      chip.dataset.tag = tags[i];
-      tagWrap.appendChild(chip);
-    }
-    textCol.appendChild(tagWrap);
-  }
-
   a.appendChild(textCol);
 
   // Create custom-tooltip for info-tooltips.js to enhance
@@ -130,12 +114,18 @@ export function createLinkItem(link, deps) {
   try {
     const parts = [];
     if (link.name) parts.push(link.name);
+    if (link.description) parts.push(link.description);
+    if (link.url) parts.push(link.url);
+    if (link.copyText) parts.push(link.copyText);
     if (Array.isArray(link.tags) && link.tags.length) parts.push(link.tags.join(' '));
     li.dataset.search = parts.join(' ').toLocaleLowerCase('tr');
     if (link.name) li.dataset.nameSearch = link.name.toLocaleLowerCase('tr');
     if (link.recommended) li.dataset.recommended = '1';
     try {
-      if (link.folded) li.dataset.folded = String(link.folded);
+      // Append description, url, copyText to pre-computed folded for full-text search
+      const extra = [link.description, link.url, link.copyText].filter(Boolean).join(' ');
+      const base = link.folded ? String(link.folded) : '';
+      li.dataset.folded = extra ? (base + ' ' + extra).toLocaleLowerCase('tr') : base;
     } catch {}
     if (link.description) li.dataset.descOriginal = link.description;
     if (link.postInstallNote) li.dataset.postInstallNote = link.postInstallNote;

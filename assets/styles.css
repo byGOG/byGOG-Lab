@@ -917,15 +917,16 @@ img[alt='RuckZuck'] {
   z-index: 200;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   margin-bottom: 32px;
   padding: 18px 0 14px;
-  background: rgba(6, 8, 13, 0.92);
+  background: rgba(6, 8, 13, 0.55);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.4),
-    0 0 60px rgba(91, 156, 246, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
   border-bottom: none;
 }
 
@@ -936,7 +937,7 @@ img[alt='RuckZuck'] {
   bottom: 0;
   left: 10%;
   right: 10%;
-  height: 1.5px;
+  height: 1px;
   background: linear-gradient(
     90deg,
     transparent,
@@ -944,7 +945,7 @@ img[alt='RuckZuck'] {
     var(--accent-end, #a78bfa),
     transparent
   );
-  opacity: 0.5;
+  opacity: 0.2;
   border-radius: 1px;
 }
 
@@ -1065,6 +1066,7 @@ img[alt='RuckZuck'] {
 
 .search-container {
   margin-left: 24px;
+  flex: 0 1 480px;
 }
 
 @media (max-width: 900px) {
@@ -1378,32 +1380,7 @@ img[alt='RuckZuck'] {
 
 /* --- Category Nav (Sidebar on desktop, top bar on mobile) --- */
 .category-nav {
-  position: fixed;
-  top: calc(var(--header-offset, 132px) + 16px);
-  left: 16px;
-  z-index: var(--z-nav, 900);
-  width: 260px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 12px;
-  border-radius: 16px;
-  overflow: hidden;
-  background: rgba(10, 14, 24, 0.92);
-  border: 1px solid rgba(91, 156, 246, 0.1);
-  box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.22),
-    0 0 1px rgba(91, 156, 246, 0.15);
-  overflow-y: auto;
-  max-height: calc(100vh - var(--header-offset, 132px) - 40px);
-  scrollbar-width: thin;
-  scrollbar-color: rgba(91, 156, 246, 0.18) transparent;
-  isolation: isolate;
-  transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  display: none !important;
 }
 
 .category-nav-spacer {
@@ -1640,12 +1617,7 @@ img[alt='RuckZuck'] {
   transform: scale(0.98);
 }
 
-/* Desktop sidebar — push content right */
-@media (min-width: 901px) {
-  .container {
-    margin-left: 292px;
-  }
-}
+/* Sidebar removed — categories are now tabs at the top */
 
 /* Tablet/Mobile — sidebar becomes top bar */
 @media (max-width: 900px) {

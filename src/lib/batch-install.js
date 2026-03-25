@@ -255,10 +255,13 @@ export function initBatchInstall(container) {
     }
   });
 
-  // Insert after quick-filter-bar
-  const quickBar = container.parentElement?.querySelector('.quick-filter-bar');
-  if (quickBar) {
-    quickBar.appendChild(toggleBtn);
+  // Insert into filter row (inside quick-filter-bar)
+  const filterRow = container.parentElement?.querySelector('.filter-row');
+  if (filterRow) {
+    filterRow.appendChild(toggleBtn);
+  } else {
+    const quickBar = container.parentElement?.querySelector('.quick-filter-bar');
+    if (quickBar) quickBar.appendChild(toggleBtn);
   }
 
   // Create floating panel with cart

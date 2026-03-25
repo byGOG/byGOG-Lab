@@ -66,8 +66,8 @@ const translations = {
     'a11y.goHome': 'Ana sayfaya dön',
 
     // Footer
-    'footer.desc': 'Windows araçları ve yazılım kaynakları arşivi',
-    'footer.copy': '© 2025 byGOG Lab. Tüm hakları saklıdır.',
+    'footer.desc': 'Windows için en iyi araçlar, tek adreste.',
+    'footer.copy': '© 2026 byGOG Lab. Tüm hakları saklıdır.',
 
     // Filters
     'filter.all': 'Tümü',
