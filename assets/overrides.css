@@ -1416,21 +1416,21 @@ a.footer-home-link:hover {
 
 @media (min-width: 901px) {
   .container {
-    padding-top: 86px !important;
+    padding-top: 186px !important;
   }
 }
 
 @media (max-width: 900px) {
   .container {
-    padding-top: 108px;
-    padding-top: calc(108px + env(safe-area-inset-top));
+    padding-top: 186px;
+    padding-top: calc(186px + env(safe-area-inset-top));
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 600px) {
   .container {
-    padding-top: 112px;
-    padding-top: calc(112px + env(safe-area-inset-top));
+    padding-top: 160px;
+    padding-top: calc(160px + env(safe-area-inset-top));
   }
 }
 
@@ -2015,7 +2015,7 @@ body.modal-open {
   right: auto;
   transform: translateX(-50%);
   width: calc(100% - 32px) !important;
-  height: 66px !important;
+  height: 166px !important;
   max-width: 1800px !important;
   margin: 0 !important;
   border: 1px solid rgba(91, 156, 246, 0.12);
@@ -2049,7 +2049,7 @@ body.modal-open {
 @media (max-width: 900px) {
   .sc-embed {
     width: calc(100% - 24px) !important;
-    height: 66px !important;
+    height: 166px !important;
     top: 6px;
   }
 }
@@ -2057,7 +2057,7 @@ body.modal-open {
 @media (max-width: 600px) {
   .sc-embed {
     width: calc(100% - 16px) !important;
-    height: 66px !important;
+    height: 140px !important;
     top: 6px;
     border-radius: 10px;
   }
