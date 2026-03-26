@@ -2013,7 +2013,7 @@ body.modal-open {
   width: 100% !important;
   max-width: 1400px !important;
   height: 80px !important;
-  margin: 0 auto !important;
+  margin: 0 auto 20px auto !important;
   padding: 0 !important;
   border: none !important;
   border-radius: 12px !important;
