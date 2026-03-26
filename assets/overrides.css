@@ -2585,13 +2585,6 @@ body.modal-open {
     display: none !important;
   }
 
-  /* SoundCloud embed */
-  .sc-embed {
-    margin: 12px 16px 20px !important;
-    width: calc(100% - 32px) !important;
-    max-width: none !important;
-  }
-
   /* Kartlar */
   .category-card {
     padding: 20px 16px 16px !important;
@@ -2648,13 +2641,6 @@ body.modal-open {
 
   .nav-item-text {
     display: block !important;
-  }
-
-  /* SoundCloud embed */
-  .sc-embed {
-    margin: 10px 12px 16px !important;
-    width: calc(100% - 24px) !important;
-    height: 100px !important;
   }
 
   /* Link kartları - tek sütun */
@@ -2780,11 +2766,6 @@ body.modal-open {
     padding: 6px 7px !important;
   }
 
-  .sc-embed {
-    height: 80px !important;
-    margin: 8px 10px 12px !important;
-    width: calc(100% - 20px) !important;
-  }
 }
 
 /* Landscape (yatay) mod için düzeltmeler */
