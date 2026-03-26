@@ -2037,6 +2037,7 @@ body.modal-open {
   height: 100% !important;
   border: none;
   overflow: hidden;
+  filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(1.1);
 }
 
 /* Kenar karartma kaldırıldı */
