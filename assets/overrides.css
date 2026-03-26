@@ -1416,21 +1416,21 @@ a.footer-home-link:hover {
 
 @media (min-width: 901px) {
   .container {
-    padding-top: 100px !important;
+    padding-top: 12px !important;
   }
 }
 
 @media (max-width: 900px) {
   .container {
-    padding-top: 92px;
-    padding-top: calc(92px + env(safe-area-inset-top));
+    padding-top: 10px;
+    padding-top: calc(10px + env(safe-area-inset-top));
   }
 }
 
 @media (max-width: 600px) {
   .container {
-    padding-top: 80px;
-    padding-top: calc(80px + env(safe-area-inset-top));
+    padding-top: 8px;
+    padding-top: calc(8px + env(safe-area-inset-top));
   }
 }
 
@@ -2006,25 +2006,21 @@ body.modal-open {
   transform: translateY(0) scale(1);
 }
 
-/* SoundCloud embed wrapper */
-/* SoundCloud — fixed top-right music box */
+/* SoundCloud embed wrapper — gömülü, sayfanın en üstünde */
 .sc-embed {
-  position: fixed !important;
-  top: 8px !important;
-  left: 50% !important;
-  right: auto !important;
-  transform: translateX(-50%) !important;
-  width: calc(100% - 64px) !important;
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
   max-width: 1400px !important;
   height: 80px !important;
-  margin: 0 !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
   border: none !important;
   border-radius: 12px !important;
   overflow: hidden;
   box-shadow: none;
   background: transparent;
-  z-index: 3100;
-  transition: opacity 0.2s, transform 0.2s;
+  z-index: 10;
 }
 
 .sc-embed::before {
@@ -2050,17 +2046,13 @@ body.modal-open {
 
 @media (max-width: 900px) {
   .sc-embed {
-    width: calc(100% - 48px) !important;
     height: 72px !important;
-    top: 6px !important;
   }
 }
 
 @media (max-width: 600px) {
   .sc-embed {
-    width: calc(100% - 32px) !important;
     height: 64px !important;
-    top: 6px !important;
     border-radius: 10px !important;
   }
   .sc-embed iframe {
