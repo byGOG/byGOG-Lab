@@ -258,6 +258,17 @@
           "copyText": "& ([scriptblock]::Create((irm \"https://debloat.raphi.re/\")))",
           "tags": ["win11debloat", "windows", "github"],
           "folded": "win11debloat win11debloat windows github sistem araclari & bakim optimizasyon/temizlik diger digerleri"
+        },
+        {
+          "url": "https://www.startallback.com/",
+          "name": "StartAllBack",
+          "recommended": false,
+          "description": "Windows 11 başlat menüsü, görev çubuğu ve dosya gezgini kişiselleştirme aracı.",
+          "icon": "icon/startallback.svg",
+          "alt": "StartAllBack",
+          "copyText": "winget install StartIsBack.StartAllBack",
+          "tags": ["startallback", "windows", "başlat menüsü", "görev çubuğu", "kişiselleştirme"],
+          "folded": "startallback startallback windows baslat menusu gorev cubugu kisisellestirme sistem araclari & bakim optimizasyon/temizlik diger digerleri"
         }
       ]
     },
