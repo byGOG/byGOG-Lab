@@ -92,6 +92,17 @@
     <link rel="apple-touch-icon" sizes="180x180" href="icon/bygog-lab-icon-192.png" />
   </head>
   <body>
+    <!-- SoundCloud: body altında, container dışında — position:fixed kırılmasın -->
+    <section class="sc-embed" aria-label="SoundCloud">
+      <iframe
+        title="SoundCloud Player"
+        allow="autoplay"
+        loading="lazy"
+        sandbox="allow-scripts allow-same-origin allow-popups"
+        data-src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/keinemusik&visual=true&show_comments=false&color=%23a3bffa&show_artwork=true&show_playcount=true"
+      >
+      </iframe>
+    </section>
     <a href="#main-content" class="skip-link" data-i18n="a11y.skipLink">Ana içeriğe atla</a>
     <div class="author-fab">
       <a
@@ -157,17 +168,6 @@
         </search>
       </header>
       <div id="search-status" role="status" aria-live="polite" aria-atomic="true"></div>
-      <!-- Inline SoundCloud mini embed -->
-      <section class="sc-embed" aria-label="SoundCloud">
-        <iframe
-          title="SoundCloud Player"
-          allow="autoplay"
-          loading="lazy"
-          sandbox="allow-scripts allow-same-origin allow-popups"
-          data-src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/keinemusik&visual=true&show_comments=false&color=%23a3bffa&show_artwork=true&show_playcount=true"
-        >
-        </iframe>
-      </section>
 
       <div class="main-layout">
         <main id="main-content" class="content-area" data-i18n-aria="a11y.mainContent" aria-label="Ana içerik">
