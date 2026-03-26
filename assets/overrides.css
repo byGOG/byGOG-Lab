@@ -2031,26 +2031,28 @@ body.modal-open {
   display: none !important;
 }
 
-/* Iframe: sağ/sol kırpma + temaya uyum */
+/* Iframe: sağ/sol/üst/alt agresif kırpma */
 .sc-embed iframe {
   display: block;
   position: absolute;
-  top: -2px;
-  left: -20px;
-  width: calc(100% + 40px) !important;
-  height: calc(100% + 4px) !important;
+  top: -10px;
+  left: -80px;
+  width: calc(100% + 160px) !important;
+  height: calc(100% + 20px) !important;
   border: none;
   overflow: hidden;
-  filter: saturate(0.85) brightness(0.9);
+  filter: saturate(0.8) brightness(0.85);
 }
 
-/* Kenar karartma — temaya uyum */
+/* Kenar karartma — koyu temaya yumuşak geçiş */
 .sc-embed::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(to right, #0a0e18 0%, transparent 3%, transparent 97%, #0a0e18 100%);
+  background:
+    linear-gradient(to right, #0a0e18 0%, #0a0e18 1%, transparent 8%, transparent 92%, #0a0e18 99%, #0a0e18 100%),
+    linear-gradient(to bottom, #0a0e18 0%, transparent 6%, transparent 90%, #0a0e18 100%);
   z-index: 1;
 }
 
@@ -2065,8 +2067,8 @@ body.modal-open {
     height: 140px !important;
   }
   .sc-embed iframe {
-    left: -10px;
-    width: calc(100% + 20px) !important;
+    left: -40px;
+    width: calc(100% + 80px) !important;
   }
 }
 
