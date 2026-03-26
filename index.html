@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self' https: data:; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; worker-src 'self'; connect-src 'self' https:; frame-src https://w.soundcloud.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+      content="default-src 'self'; img-src 'self' https: data:; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; worker-src 'self'; connect-src 'self' https:; frame-src https://w.soundcloud.com https://api.soundcloud.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
     />
     <title>byGOG Lab</title>
 
@@ -120,8 +120,8 @@
           title="SoundCloud Player"
           allow="autoplay"
           loading="lazy"
-          sandbox="allow-scripts allow-same-origin allow-popups"
-          data-src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/keinemusik/tracks&visual=true&show_comments=false&color=%23a3bffa&show_artwork=true&show_playcount=true"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          data-src="https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1941789807&show_artwork=true&color=%23a3bffa&auto_play=false"
         >
         </iframe>
       </section>
