@@ -2010,16 +2010,16 @@ body.modal-open {
 /* SoundCloud — fixed top-right music box */
 .sc-embed {
   position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  transform: none !important;
-  width: 100% !important;
+  top: 8px !important;
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  width: calc(100% - 64px) !important;
+  max-width: 1400px !important;
   height: 80px !important;
-  max-width: none !important;
   margin: 0 !important;
   border: none !important;
-  border-radius: 0 !important;
+  border-radius: 12px !important;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
   background: #0a0e18;
@@ -2050,21 +2050,27 @@ body.modal-open {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  border-radius: inherit;
   background:
-    linear-gradient(to right, #0a0e18 0%, #0a0e18 2%, transparent 12%, transparent 88%, #0a0e18 98%, #0a0e18 100%),
-    linear-gradient(to bottom, #0a0e18 0%, transparent 15%, transparent 80%, #0a0e18 100%);
+    linear-gradient(to right, #0a0e18 0%, transparent 10%, transparent 90%, #0a0e18 100%),
+    linear-gradient(to bottom, #0a0e18 0%, transparent 18%, transparent 78%, #0a0e18 100%);
   z-index: 1;
 }
 
 @media (max-width: 900px) {
   .sc-embed {
+    width: calc(100% - 48px) !important;
     height: 72px !important;
+    top: 6px !important;
   }
 }
 
 @media (max-width: 600px) {
   .sc-embed {
+    width: calc(100% - 32px) !important;
     height: 64px !important;
+    top: 6px !important;
+    border-radius: 10px !important;
   }
   .sc-embed iframe {
     left: -80px;
