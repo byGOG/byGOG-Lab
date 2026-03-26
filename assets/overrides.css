@@ -2018,8 +2018,9 @@ body.modal-open {
   border: none !important;
   border-radius: 12px !important;
   overflow: hidden;
-  box-shadow: none;
-  background: transparent;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  background: #0d1117;
+  border: 1px solid rgba(91, 156, 246, 0.1) !important;
   z-index: 10;
 }
 
@@ -2037,7 +2038,7 @@ body.modal-open {
   height: 100% !important;
   border: none;
   overflow: hidden;
-  filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(1.1);
+  filter: invert(0.88) hue-rotate(180deg) saturate(0.6) brightness(0.7);
 }
 
 /* Kenar karartma kaldırıldı */
