@@ -2014,9 +2014,9 @@ body.modal-open {
   left: 50%;
   right: auto;
   transform: translateX(-50%);
-  width: calc(100% - 128px) !important;
+  width: calc(100% - 32px) !important;
   height: 66px !important;
-  max-width: 1400px !important;
+  max-width: 1800px !important;
   margin: 0 !important;
   border: 1px solid rgba(91, 156, 246, 0.12);
   border-radius: 12px;
@@ -2048,18 +2048,17 @@ body.modal-open {
 
 @media (max-width: 900px) {
   .sc-embed {
-    width: calc(100% - 64px) !important;
-    height: 70px !important;
-    top: 8px;
+    width: calc(100% - 24px) !important;
+    height: 66px !important;
+    top: 6px;
   }
 }
 
 @media (max-width: 600px) {
   .sc-embed {
-    width: calc(100% - 32px) !important;
+    width: calc(100% - 16px) !important;
     height: 66px !important;
     top: 6px;
-    border-radius: 12px;
     border-radius: 10px;
   }
 }
