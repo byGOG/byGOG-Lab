@@ -342,6 +342,17 @@
           "folded": "winmerge winmerge sistem araclari & bakim dosya & disk yonetim diger digerleri"
         },
         {
+          "url": "https://www.partitionwizard.com/free-partition-manager.html",
+          "name": "MiniTool Partition Wizard Free",
+          "recommended": false,
+          "description": "Disk bölümlendirme, yeniden boyutlandırma, birleştirme ve format işlemleri için ücretsiz araç.",
+          "icon": "icon/minitool.svg",
+          "alt": "MiniTool Partition Wizard",
+          "copyText": "winget install MiniTool.PartitionWizard.Free",
+          "tags": ["minitool", "partition", "wizard", "disk", "bölümlendirme"],
+          "folded": "minitool partition wizard free minitool partition wizard disk bolumlendirme sistem araclari & bakim dosya & disk yonetim diger digerleri"
+        },
+        {
           "url": "https://www.onecommander.com/",
           "name": "OneCommander",
           "recommended": false,
