@@ -11,6 +11,7 @@
           "description": "Orijinal Windows 10 ISO dosyası indir.",
           "icon": "icon/microsoft.svg",
           "alt": "Microsoft",
+          "copyText": "winget install Microsoft.MediaCreationTool.Windows10",
           "tags": ["windows", "usb", "iso", "önyükleme", "microsoft"],
           "folded": "windows 10 indir windows usb iso onyukleme microsoft sistem/ofis windows indirme & kurulum diger digerleri"
         },

@@ -101,6 +101,7 @@
           "description": "En popüler taşınabilir uygulama platformu.",
           "icon": "icon/portableapps.svg",
           "alt": "PortableApps",
+          "copyText": "winget install PortableApps.PortableAppsPlatform",
           "tags": ["portableapps"],
           "folded": "portableapps portableapps yazilim & paket yoneticileri tasinabilir uygulama platformlar diger digerleri"
         },
