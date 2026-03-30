@@ -2,10 +2,19 @@
  * DOM yardımcı fonksiyonları
  */
 
-/**
- * Element oluşturur ve özelliklerini atar
- */
-export function createElement(tag, options = {}) {
+interface CreateElementOptions {
+  className?: string;
+  id?: string;
+  textContent?: string;
+  innerHTML?: string;
+  attrs?: Record<string, string>;
+  dataset?: Record<string, string>;
+  styles?: Record<string, string>;
+  children?: (Node | null)[];
+  parent?: HTMLElement;
+}
+
+export function createElement(tag: string, options: CreateElementOptions = {}): HTMLElement {
   const el = document.createElement(tag);
 
   if (options.className) el.className = options.className;
@@ -27,7 +36,7 @@ export function createElement(tag, options = {}) {
 
   if (options.styles) {
     Object.entries(options.styles).forEach(([key, value]) => {
-      el.style[key] = value;
+      (el.style as unknown as Record<string, string>)[key] = value;
     });
   }
 
@@ -44,10 +53,7 @@ export function createElement(tag, options = {}) {
   return el;
 }
 
-/**
- * SVG element oluşturur
- */
-export function createSVGElement(tag, attrs = {}) {
+export function createSVGElement(tag: string, attrs: Record<string, string> = {}): SVGElement {
   const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
   Object.entries(attrs).forEach(([key, value]) => {
     el.setAttribute(key, value);
@@ -55,10 +61,7 @@ export function createSVGElement(tag, attrs = {}) {
   return el;
 }
 
-/**
- * Element event'lerini durdurur (navigation engellemek için)
- */
-export function stopNavigation(el) {
+export function stopNavigation(el: HTMLElement): void {
   ['click', 'mousedown', 'mouseup'].forEach(ev => {
     try {
       el.addEventListener(
@@ -89,23 +92,19 @@ export function stopNavigation(el) {
   });
 }
 
-/**
- * Debounce fonksiyonu
- */
-export function debounce(fn, delay) {
-  let timer = null;
-  return function (...args) {
-    clearTimeout(timer);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function debounce<T extends (...args: any[]) => void>(fn: T, delay: number): (...args: Parameters<T>) => void {
+  let timer: ReturnType<typeof setTimeout> | null = null;
+  return function (this: unknown, ...args: Parameters<T>) {
+    if (timer) clearTimeout(timer);
     timer = setTimeout(() => fn.apply(this, args), delay);
   };
 }
 
-/**
- * Throttle fonksiyonu
- */
-export function throttle(fn, limit) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function throttle<T extends (...args: any[]) => void>(fn: T, limit: number): (...args: Parameters<T>) => void {
   let inThrottle = false;
-  return function (...args) {
+  return function (this: unknown, ...args: Parameters<T>) {
     if (!inThrottle) {
       fn.apply(this, args);
       inThrottle = true;

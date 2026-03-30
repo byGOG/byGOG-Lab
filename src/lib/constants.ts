@@ -11,14 +11,14 @@ export const STORAGE_KEYS = {
   THEME: 'theme',
   ERRORS: 'bygog_errors',
   PWA_DISMISS: 'pwaDismissUntil'
-};
+} as const;
 
 // PWA yapılandırması
 export const PWA_CONFIG = {
   delayMs: 4500,
   minScroll: 200,
   snoozeDays: 7
-};
+} as const;
 
 // Winutil özel komutu
 export const WINUTIL_COMMAND = 'irm "https://christitus.com/win" | iex';
@@ -36,7 +36,7 @@ export const SEARCH_DELAYS = {
   SHORT_QUERY: 250, // < 4 karakter
   MEDIUM_QUERY: 120, // 4-7 karakter
   LONG_QUERY: 80 // >= 8 karakter
-};
+} as const;
 
 export default {
   LINKS_INDEX_PATH,

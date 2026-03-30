@@ -2,6 +2,8 @@
  * Domain and URL utility functions
  */
 
+import type { Link } from '../types.js';
+
 export const MULTI_PART_TLDS = new Set([
   'com.tr',
   'org.tr',
@@ -33,12 +35,7 @@ export const MULTI_PART_TLDS = new Set([
 
 export const SORTED_MULTI_TLDS = Array.from(MULTI_PART_TLDS).sort((a, b) => b.length - a.length);
 
-/**
- * Extract domain label from URL
- * @param {string} url
- * @returns {string}
- */
-export function getDomainLabel(url) {
+export function getDomainLabel(url: string): string {
   if (!url) return '';
   try {
     const parsed = new URL(String(url));
@@ -56,12 +53,7 @@ export function getDomainLabel(url) {
   }
 }
 
-/**
- * Get base domain without TLD
- * @param {string} label
- * @returns {string}
- */
-export function getDomainBase(label) {
+export function getDomainBase(label: string): string {
   if (!label) return '';
   if (/^\d{1,3}(\.\d{1,3}){3}$/.test(label)) return label;
   for (const tld of SORTED_MULTI_TLDS) {
@@ -74,12 +66,7 @@ export function getDomainBase(label) {
   return idx > 0 ? label.slice(0, idx) : label;
 }
 
-/**
- * Normalize tag for comparison
- * @param {string} value
- * @returns {string}
- */
-export function normalizeTag(value) {
+export function normalizeTag(value: string): string {
   return String(value || '')
     .trim()
     .toLocaleLowerCase('tr')
@@ -88,22 +75,11 @@ export function normalizeTag(value) {
     .replace(/ı/g, 'i');
 }
 
-/**
- * Check if icon is SVG
- * @param {string} value
- * @returns {boolean}
- */
-export function isSvgIcon(value) {
+export function isSvgIcon(value: string): boolean {
   return /\.svg(?:[?#].*)?$/i.test(String(value || ''));
 }
 
-/**
- * Check if link is official based on domain or explicit flag
- * @param {object} link
- * @param {string} domainLabel
- * @returns {boolean}
- */
-export function isOfficialLink(link, domainLabel) {
+export function isOfficialLink(link: Partial<Link> | null, domainLabel: string): boolean {
   if (link && (link.official === true || String(link.official).toLowerCase() === 'true')) {
     return true;
   }

@@ -1,23 +1,16 @@
-// @ts-check
 /**
  * Fuzzy matching utilities for search
  * Provides Levenshtein distance and fuzzy token matching
  */
 
-/**
- * Compute Levenshtein distance between two strings (single-row optimized)
- * @param {string} a
- * @param {string} b
- * @returns {number}
- */
-export function levenshtein(a, b) {
+export function levenshtein(a: string, b: string): number {
   if (a === b) return 0;
   if (!a.length) return b.length;
   if (!b.length) return a.length;
 
   const bLen = b.length;
   let prev = Array.from({ length: bLen + 1 }, (_, i) => i);
-  let curr = new Array(bLen + 1);
+  let curr = new Array<number>(bLen + 1);
 
   for (let i = 1; i <= a.length; i++) {
     curr[0] = i;
@@ -30,24 +23,13 @@ export function levenshtein(a, b) {
   return prev[bLen];
 }
 
-/**
- * Determine max edit distance based on token length
- * @param {string} token
- * @returns {number}
- */
-export function maxDistance(token) {
+export function maxDistance(token: string): number {
   if (token.length < 3) return 0;
   if (token.length <= 5) return 1;
   return 2;
 }
 
-/**
- * Check if a token fuzzy-matches any word in the text
- * @param {string} token - search token (already folded)
- * @param {string} text - folded text to search in
- * @returns {boolean}
- */
-export function fuzzyMatch(token, text) {
+export function fuzzyMatch(token: string, text: string): boolean {
   const max = maxDistance(token);
   if (max === 0) return false;
 

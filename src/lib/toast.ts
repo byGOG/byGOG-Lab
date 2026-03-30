@@ -2,10 +2,10 @@
  * Simple toast notification utility
  */
 
-let toastEl = null;
-let hideTimer = null;
+let toastEl: HTMLDivElement | null = null;
+let hideTimer: ReturnType<typeof setTimeout> | null = null;
 
-function ensureToast() {
+function ensureToast(): HTMLDivElement {
   if (toastEl) return toastEl;
   toastEl = document.createElement('div');
   toastEl.className = 'toast-notification';
@@ -15,12 +15,7 @@ function ensureToast() {
   return toastEl;
 }
 
-/**
- * Show a toast message
- * @param {string} message
- * @param {number} [duration=2500]
- */
-export function showToast(message, duration = 2500) {
+export function showToast(message: string, duration = 2500): void {
   const el = ensureToast();
   el.textContent = message;
   el.classList.add('show');

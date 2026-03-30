@@ -5,9 +5,93 @@
 
 const STORAGE_KEY = 'bygog_lang';
 const DEFAULT_LANG = 'tr';
-const SUPPORTED_LANGS = ['tr'];
+const SUPPORTED_LANGS = ['tr'] as const;
 
-const translations = {
+type LangKey = (typeof SUPPORTED_LANGS)[number];
+
+type TranslationKeys =
+  | 'search.placeholder'
+  | 'search.results'
+  | 'search.noResults'
+  | 'search.loading'
+  | 'favorites.title'
+  | 'favorites.add'
+  | 'favorites.remove'
+  | 'favorites.toggle'
+  | 'copy.default'
+  | 'copy.success'
+  | 'copy.error'
+  | 'copy.loading'
+  | 'copy.tooltip'
+  | 'copy.ariaLabel'
+  | 'info.button'
+  | 'info.official'
+  | 'info.show'
+  | 'info.close'
+  | 'pwa.install'
+  | 'pwa.installSub'
+  | 'pwa.iosHint'
+  | 'pwa.androidHint'
+  | 'pwa.browserHint'
+  | 'pwa.manualHint'
+  | 'update.available'
+  | 'update.refresh'
+  | 'update.refreshAria'
+  | 'update.dataChanged'
+  | 'update.confirm'
+  | 'error.linksLoad'
+  | 'error.categoryLoad'
+  | 'loading.category'
+  | 'a11y.skipLink'
+  | 'a11y.searchLabel'
+  | 'a11y.favoritesLabel'
+  | 'a11y.mainContent'
+  | 'a11y.linkCategories'
+  | 'a11y.openNewTab'
+  | 'a11y.goHome'
+  | 'footer.desc'
+  | 'footer.copy'
+  | 'filter.all'
+  | 'filter.recommended'
+  | 'filter.hasCopy'
+  | 'filter.quickLabel'
+  | 'badge.new'
+  | 'badge.newAria'
+  | 'recent.title'
+  | 'share.label'
+  | 'offline.message'
+  | 'keyboard.title'
+  | 'keyboard.ariaLabel'
+  | 'keyboard.focusSearch'
+  | 'keyboard.clearSearch'
+  | 'keyboard.firstResult'
+  | 'keyboard.prevNext'
+  | 'keyboard.help'
+  | 'keyboard.or'
+  | 'nav.goToCategory'
+  | 'nav.goToSubcategory'
+  | 'featured.title'
+  | 'newAdditions.title'
+  | 'tags.label'
+  | 'tags.clearAll'
+  | 'batch.toggle'
+  | 'batch.selected'
+  | 'batch.generate'
+  | 'batch.clear'
+  | 'batch.copy'
+  | 'batch.copied'
+  | 'batch.title'
+  | 'batch.empty'
+  | 'batch.showCart'
+  | 'batch.removeItem'
+  | 'postInstall.title'
+  | 'similar.title'
+  | 'scope.clear'
+  | 'scope.label';
+
+type TranslationMap = Record<TranslationKeys, string>;
+
+const translations: Record<LangKey, TranslationMap> = {
   tr: {
     // Search
     'search.placeholder': 'Ara...',
@@ -136,45 +220,27 @@ const translations = {
   }
 };
 
-let currentLang = DEFAULT_LANG;
+let currentLang: LangKey = DEFAULT_LANG;
 
-/**
- * Initialize i18n
- */
-export function initI18n() {
+export function initI18n(): void {
   currentLang = DEFAULT_LANG;
   document.documentElement.lang = currentLang;
 }
 
-/**
- * Get current language
- * @returns {string}
- */
-export function getLang() {
+export function getLang(): string {
   return currentLang;
 }
 
-/**
- * Set language
- * @param {string} lang
- */
-export function setLang(lang) {
-  if (!SUPPORTED_LANGS.includes(lang)) return;
-  currentLang = lang;
+export function setLang(lang: string): void {
+  if (!(SUPPORTED_LANGS as readonly string[]).includes(lang)) return;
+  currentLang = lang as LangKey;
   document.documentElement.lang = lang;
 }
 
-/**
- * Get translation for key
- * @param {string} key
- * @param {object} params - Optional interpolation params
- * @returns {string}
- */
-export function t(key, params = {}) {
+export function t(key: string, params: Record<string, string | number> = {}): string {
   const langData = translations[currentLang] || translations[DEFAULT_LANG];
-  let text = langData[key] || key;
+  let text = (langData as Record<string, string>)[key] || key;
 
-  // Interpolate params like {count}
   Object.entries(params).forEach(([k, v]) => {
     text = text.replace(new RegExp(`\\{${k}\\}`, 'g'), String(v));
   });
@@ -182,36 +248,24 @@ export function t(key, params = {}) {
   return text;
 }
 
-/**
- * Get all translations for current language
- * @returns {object}
- */
-export function getTranslations() {
+export function getTranslations(): TranslationMap {
   return translations[currentLang] || translations[DEFAULT_LANG];
 }
 
-/**
- * Get supported languages
- * @returns {string[]}
- */
-export function getSupportedLangs() {
+export function getSupportedLangs(): string[] {
   return [...SUPPORTED_LANGS];
 }
 
-/**
- * Scan DOM for elements with data-i18n attribute and update their text.
- * Also handles data-i18n-aria for aria-label and data-i18n-title for title.
- */
-export function applyI18nToDom() {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
+export function applyI18nToDom(): void {
+  document.querySelectorAll<HTMLElement>('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (key) el.textContent = t(key);
   });
-  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+  document.querySelectorAll<HTMLElement>('[data-i18n-aria]').forEach(el => {
     const key = el.getAttribute('data-i18n-aria');
     if (key) el.setAttribute('aria-label', t(key));
   });
-  document.querySelectorAll('[data-i18n-title]').forEach(el => {
+  document.querySelectorAll<HTMLElement>('[data-i18n-title]').forEach(el => {
     const key = el.getAttribute('data-i18n-title');
     if (key) el.title = t(key);
   });

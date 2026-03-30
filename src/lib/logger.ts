@@ -7,51 +7,47 @@ const LOG_LEVELS = {
   INFO: 1,
   WARN: 2,
   ERROR: 3
-};
+} as const;
 
 const currentLevel = LOG_LEVELS.WARN;
 
-/**
- * @param {string} level
- * @param {string} module
- * @param {string} message
- * @param {Record<string, unknown>|null} [data]
- */
-function formatMessage(level, module, message, data) {
-  const timestamp = new Date().toISOString();
-  const prefix = `[${timestamp}] [${level}] [${module}]`;
-  return { prefix, message, data };
+interface StoredError {
+  timestamp: string;
+  module: string;
+  message: string;
+  data: unknown;
 }
 
-/** @param {string} module @param {string} message @param {Record<string, unknown>|null} [data] */
-export function debug(module, message, data = null) {
+function formatMessage(level: string, module: string, message: string, _data?: Record<string, unknown> | null) {
+  const timestamp = new Date().toISOString();
+  const prefix = `[${timestamp}] [${level}] [${module}]`;
+  return { prefix, message };
+}
+
+export function debug(module: string, message: string, data: Record<string, unknown> | null = null): void {
   if (currentLevel > LOG_LEVELS.DEBUG) return;
   const { prefix } = formatMessage('DEBUG', module, message, data);
   console.debug(prefix, message, data || '');
 }
 
-/** @param {string} module @param {string} message @param {Record<string, unknown>|null} [data] */
-export function info(module, message, data = null) {
+export function info(module: string, message: string, data: Record<string, unknown> | null = null): void {
   if (currentLevel > LOG_LEVELS.INFO) return;
   const { prefix } = formatMessage('INFO', module, message, data);
   console.info(prefix, message, data || '');
 }
 
-/** @param {string} module @param {string} message @param {Record<string, unknown>|null} [data] */
-export function warn(module, message, data = null) {
+export function warn(module: string, message: string, data: Record<string, unknown> | null = null): void {
   if (currentLevel > LOG_LEVELS.WARN) return;
   const { prefix } = formatMessage('WARN', module, message, data);
   console.warn(prefix, message, data || '');
 }
 
-/** @param {string} module @param {string} message @param {Record<string, unknown>|null} [data] */
-export function error(module, message, data = null) {
-  const { prefix } = formatMessage('ERROR', module, message, data);
+export function error(module: string, message: string, data: Record<string, unknown> | Error | null = null): void {
+  const { prefix } = formatMessage('ERROR', module, message);
   console.error(prefix, message, data || '');
 
-  // Hataları localStorage'a kaydet (debug için)
   try {
-    const errors = JSON.parse(localStorage.getItem('bygog_errors') || '[]');
+    const errors: StoredError[] = JSON.parse(localStorage.getItem('bygog_errors') || '[]');
     errors.push({
       timestamp: new Date().toISOString(),
       module,
@@ -59,7 +55,6 @@ export function error(module, message, data = null) {
       data:
         data instanceof Error ? { name: data.name, message: data.message, stack: data.stack } : data
     });
-    // Son 50 hatayı tut
     if (errors.length > 50) errors.shift();
     localStorage.setItem('bygog_errors', JSON.stringify(errors));
   } catch {
@@ -67,7 +62,7 @@ export function error(module, message, data = null) {
   }
 }
 
-export function getStoredErrors() {
+export function getStoredErrors(): StoredError[] {
   try {
     return JSON.parse(localStorage.getItem('bygog_errors') || '[]');
   } catch {
@@ -75,7 +70,7 @@ export function getStoredErrors() {
   }
 }
 
-export function clearStoredErrors() {
+export function clearStoredErrors(): void {
   try {
     localStorage.removeItem('bygog_errors');
   } catch {

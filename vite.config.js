@@ -1,7 +1,32 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
-import { cpSync, readFileSync, writeFileSync } from 'fs';
+import { cpSync, readFileSync, writeFileSync, existsSync } from 'fs';
 import { createHash } from 'crypto';
+
+/**
+ * Plugin: .js importlarını .ts dosyalarına çözümle
+ * (TypeScript moduleResolution: "bundler" convention)
+ */
+function resolveJsToTsPlugin() {
+  return {
+    name: 'resolve-js-to-ts',
+    enforce: 'pre',
+    async resolveId(source, importer, options) {
+      if (!source.endsWith('.js') || !importer) return null;
+      // Sadece relative importlarda çalış
+      if (!source.startsWith('.')) return null;
+      const dir = resolve(importer, '..');
+      const jsPath = resolve(dir, source);
+      // .js yoksa .ts'yi dene
+      if (!existsSync(jsPath)) {
+        const tsSource = source.replace(/\.js$/, '.ts');
+        const resolved = await this.resolve(tsSource, importer, { ...options, skipSelf: true });
+        return resolved;
+      }
+      return null;
+    }
+  };
+}
 
 /**
  * Plugin: manifest.json ve icon/ gibi statik dosyaları
@@ -170,6 +195,7 @@ export default defineConfig({
     port: 3000
   },
   plugins: [
+    resolveJsToTsPlugin(),
     preserveStaticAssetsPlugin(),
     postBuildPlugin()
   ]

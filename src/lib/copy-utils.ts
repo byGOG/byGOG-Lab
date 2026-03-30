@@ -4,8 +4,9 @@
 
 import { WINUTIL_COMMAND } from './constants.js';
 import { showToast } from './toast.js';
+import type { Link } from '../types.js';
 
-export const COPY_ICON_SHAPES = {
+export const COPY_ICON_SHAPES: Record<string, string> = {
   copy: '<rect x="9" y="9" width="12" height="12" rx="2" ry="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path>',
   success: '<path d="M20 6 10 16l-4-4"></path>',
   error: '<path d="M18 6 6 18"></path><path d="M6 6l12 12"></path>',
@@ -13,12 +14,7 @@ export const COPY_ICON_SHAPES = {
     '<circle cx="12" cy="12" r="9" stroke-opacity="0.25"></circle><path d="M21 12a9 9 0 0 0-9-9" stroke-opacity="0.9"></path>'
 };
 
-/**
- * Resolve copy value for a link
- * @param {object} link
- * @returns {string}
- */
-export function resolveCopyValue(link) {
+export function resolveCopyValue(link: Partial<Link> | null): string {
   if (link && link.copyText) return String(link.copyText);
   const name = String(link?.name || '').toLocaleLowerCase('tr');
   const url = String(link?.url || '');
@@ -28,23 +24,13 @@ export function resolveCopyValue(link) {
   return '';
 }
 
-/**
- * Set icon on copy button
- * @param {HTMLButtonElement} btn
- * @param {string} name
- */
-export function setCopyIconOnButton(btn, name) {
+export function setCopyIconOnButton(btn: HTMLButtonElement, name: string): void {
   const svg = btn.querySelector('svg');
   if (svg) svg.innerHTML = COPY_ICON_SHAPES[name] || COPY_ICON_SHAPES.copy;
 }
 
-/**
- * Copy text to clipboard with fallback
- * @param {string} text
- * @returns {Promise<boolean>}
- */
-export async function copyToClipboard(text) {
-  const fallback = () => {
+export async function copyToClipboard(text: string): Promise<boolean> {
+  const fallback = (): boolean => {
     const temp = document.createElement('textarea');
     temp.value = text;
     temp.setAttribute('readonly', '');
@@ -75,18 +61,18 @@ export async function copyToClipboard(text) {
   }
 }
 
-/**
- * Setup copy button event delegation on container
- * @param {HTMLElement} container
- */
-export function setupCopyDelegation(container) {
+interface CopyButton extends HTMLButtonElement {
+  _resetTimer?: ReturnType<typeof setTimeout>;
+}
+
+export function setupCopyDelegation(container: HTMLElement): void {
   if (!container || container.dataset.copyDelegation === 'on') return;
   container.dataset.copyDelegation = 'on';
 
   container.addEventListener('click', async ev => {
-    const target = ev.target;
+    const target = ev.target as HTMLElement | null;
     if (!target || !target.closest) return;
-    const btn = target.closest('button.copy-button');
+    const btn = target.closest('button.copy-button') as CopyButton | null;
     if (!btn || !container.contains(btn)) return;
     ev.preventDefault();
     ev.stopPropagation();
@@ -99,7 +85,7 @@ export function setupCopyDelegation(container) {
     const baseAriaLabel = btn.dataset.ariaBase || defaultLabel;
     const sr = btn.querySelector('.sr-only');
 
-    const resetState = (label, className, iconName, ariaLabel) => {
+    const resetState = (label: string, className: string | null, iconName: string | null, ariaLabel?: string) => {
       btn.classList.remove('copy-error', 'copied', 'copy-loading');
       if (className) btn.classList.add(className);
       if (sr) sr.textContent = label;
@@ -120,7 +106,6 @@ export function setupCopyDelegation(container) {
       const ok = await copyToClipboard(copyText);
       if (ok) {
         resetState(successLabel, 'copied', 'success');
-        // Detect PowerShell commands for toast
         const isPowershell = /\b(irm|iex|powershell|pwsh)\b/i.test(copyText);
         showToast(isPowershell ? 'PowerShell komutu kopyalandı' : successLabel);
       } else {

@@ -2,6 +2,8 @@
  * URL ve domain işlemleri
  */
 
+import type { Link } from '../types.js';
+
 const MULTI_PART_TLDS = new Set([
   'com.tr',
   'org.tr',
@@ -33,10 +35,7 @@ const MULTI_PART_TLDS = new Set([
 
 const SORTED_MULTI_TLDS = Array.from(MULTI_PART_TLDS).sort((a, b) => b.length - a.length);
 
-/**
- * URL'den domain etiketini çıkarır
- */
-export function getDomainLabel(url) {
+export function getDomainLabel(url: string): string {
   if (!url) return '';
   try {
     const parsed = new URL(String(url));
@@ -54,10 +53,7 @@ export function getDomainLabel(url) {
   }
 }
 
-/**
- * Domain etiketinden base kısmını çıkarır (TLD hariç)
- */
-export function getDomainBase(label) {
+export function getDomainBase(label: string): string {
   if (!label) return '';
   if (/^\d{1,3}(\.\d{1,3}){3}$/.test(label)) return label;
   for (const tld of SORTED_MULTI_TLDS) {
@@ -70,10 +66,7 @@ export function getDomainBase(label) {
   return idx > 0 ? label.slice(0, idx) : label;
 }
 
-/**
- * Tag'i normalleştirir
- */
-export function normalizeTag(value) {
+export function normalizeTag(value: string): string {
   return String(value || '')
     .trim()
     .toLocaleLowerCase('tr')
@@ -82,10 +75,7 @@ export function normalizeTag(value) {
     .replace(/ı/g, 'i');
 }
 
-/**
- * Link'in resmi kaynak olup olmadığını kontrol eder
- */
-export function isOfficialLink(link, domainLabel) {
+export function isOfficialLink(link: Partial<Link> | null, domainLabel: string): boolean {
   if (link && (link.official === true || String(link.official).toLowerCase() === 'true')) {
     return true;
   }
@@ -96,10 +86,7 @@ export function isOfficialLink(link, domainLabel) {
   return tags.some(tag => normalizeTag(tag) === base);
 }
 
-/**
- * Icon'un SVG olup olmadığını kontrol eder
- */
-export function isSvgIcon(value) {
+export function isSvgIcon(value: string): boolean {
   return /\.svg(?:[?#].*)?$/i.test(String(value || ''));
 }
 
