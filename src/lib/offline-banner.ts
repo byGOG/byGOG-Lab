@@ -4,9 +4,9 @@
  */
 import { t } from './i18n.js';
 
-let bannerEl = null;
+let bannerEl: HTMLElement | null = null;
 
-function ensureBanner() {
+function ensureBanner(): HTMLElement {
   if (bannerEl) return bannerEl;
   bannerEl = document.createElement('div');
   bannerEl.className = 'offline-banner';
@@ -16,8 +16,8 @@ function ensureBanner() {
   return bannerEl;
 }
 
-export function initOfflineBanner() {
-  const update = () => {
+export function initOfflineBanner(): void {
+  const update = (): void => {
     const banner = ensureBanner();
     banner.classList.toggle('show', !navigator.onLine);
   };

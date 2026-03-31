@@ -1,89 +1,56 @@
-// @ts-check
 /**
  * Search engine utilities
- */
-
-/**
- * @typedef {Object} SearchEntry
- * @property {number} index
- * @property {string} folded
- * @property {string} [nameFolded]
- * @property {boolean} [recommended]
- * @property {string} [catSlug]
- * @property {boolean} [isLink]
- * @property {HTMLElement} [catEl]
- * @property {HTMLElement} [subEl]
- */
-
-/**
- * @typedef {Object} HighlightMeta
- * @property {string} raw
- * @property {boolean} hasQuery
- * @property {RegExp|null} regex
  */
 
 import { fuzzyMatch as fuzzyMatchFn } from './fuzzy.js';
 import { t } from './i18n.js';
 
+export interface SearchEntry {
+  index: number;
+  folded: string;
+  nameFolded?: string;
+  recommended?: boolean;
+  catSlug?: string;
+  isLink?: boolean;
+  catEl?: HTMLElement;
+  subEl?: HTMLElement;
+}
+
+export interface HighlightMeta {
+  raw: string;
+  hasQuery: boolean;
+  regex: RegExp | null;
+}
+
 const SEARCH_LOCALE = 'tr';
 const DIACRITIC_PATTERN = /[\u0300-\u036f]/g;
 
-/**
- * Normalize string for search
- * @param {string} value
- * @returns {string}
- */
-export function normalizeForSearch(value) {
+export function normalizeForSearch(value: string): string {
   return String(value || '').toLocaleLowerCase(SEARCH_LOCALE);
 }
 
-/**
- * Fold string for search (remove diacritics, normalize Turkish chars)
- * @param {string} value
- * @returns {string}
- */
-export function foldForSearch(value) {
+export function foldForSearch(value: string): string {
   return normalizeForSearch(value)
     .normalize('NFD')
     .replace(DIACRITIC_PATTERN, '')
     .replace(/ı/g, 'i');
 }
 
-/**
- * Tokenize folded query
- * @param {string} value
- * @returns {string[]}
- */
-export function tokenizeFoldedQuery(value) {
+export function tokenizeFoldedQuery(value: string): string[] {
   return foldForSearch(value).split(/\s+/).filter(Boolean);
 }
 
-/**
- * Escape special regex characters
- * @param {string} value
- * @returns {string}
- */
-export function escapeRegExp(value) {
+export function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-/**
- * Build highlight regex from query
- * @param {string} value
- * @returns {RegExp|null}
- */
-export function buildHighlightRegex(value) {
+export function buildHighlightRegex(value: string): RegExp | null {
   const tokens = normalizeForSearch(value).trim().split(/\s+/).filter(Boolean);
   if (!tokens.length) return null;
   return new RegExp(`(${tokens.map(escapeRegExp).join('|')})`, 'gi');
 }
 
-/**
- * Create highlight metadata object
- * @param {string} value
- * @returns {{raw: string, hasQuery: boolean, regex: RegExp|null}}
- */
-export function createHighlightMeta(value) {
+export function createHighlightMeta(value: string): HighlightMeta {
   const hasQuery = value.trim().length > 0;
   return {
     raw: value,
@@ -92,16 +59,9 @@ export function createHighlightMeta(value) {
   };
 }
 
-/**
- * Highlight text using regex, returning a DocumentFragment
- * @param {string} text
- * @param {RegExp} regex
- * @returns {DocumentFragment}
- */
-function highlightText(text, regex) {
+function highlightText(text: string, regex: RegExp): DocumentFragment {
   const frag = document.createDocumentFragment();
   let lastIndex = 0;
-  // Clone regex to reset lastIndex
   const re = new RegExp(regex.source, regex.flags);
   let match;
   while ((match = re.exec(text)) !== null) {
@@ -112,7 +72,7 @@ function highlightText(text, regex) {
     mark.textContent = match[0];
     frag.appendChild(mark);
     lastIndex = re.lastIndex;
-    if (match[0].length === 0) break; // prevent infinite loop on zero-length matches
+    if (match[0].length === 0) break;
   }
   if (lastIndex < text.length) {
     frag.appendChild(document.createTextNode(text.slice(lastIndex)));
@@ -120,16 +80,10 @@ function highlightText(text, regex) {
   return frag;
 }
 
-/**
- * Apply or remove highlight from node
- * @param {HTMLElement} node
- * @param {RegExp|null} regex
- */
-export function applyHighlight(node, regex) {
+export function applyHighlight(node: HTMLElement, regex: RegExp | null): void {
   const label = node.querySelector('.link-text');
   if (label) {
-    const original = node.dataset.nameOriginal || label.textContent || '';
-    // Preserve badge elements
+    const original = (node as HTMLElement).dataset.nameOriginal || label.textContent || '';
     const badge = label.querySelector('.new-badge');
     if (regex) {
       label.innerHTML = '';
@@ -142,7 +96,7 @@ export function applyHighlight(node, regex) {
   }
   const tip = node.querySelector('.custom-tooltip');
   if (tip) {
-    const descOriginal = node.dataset.descOriginal || '';
+    const descOriginal = (node as HTMLElement).dataset.descOriginal || '';
     if (descOriginal) {
       const img = tip.querySelector('img');
       try {
@@ -163,35 +117,30 @@ export function applyHighlight(node, regex) {
   }
 }
 
-/**
- * Create match applier function for search results
- * @param {HTMLElement[]} nodes
- * @param {SearchEntry[]} dataset
- * @param {HTMLElement} status
- * @returns {(meta: HighlightMeta, matches: number[]) => void}
- */
-export function createMatchApplier(nodes, dataset, status) {
+export function createMatchApplier(
+  nodes: HTMLElement[],
+  dataset: SearchEntry[],
+  status: HTMLElement
+): (meta: HighlightMeta, matches: number[]) => void {
   const visible = new Set(dataset.map(entry => entry.index));
-  const catCounts = new Map();
-  const subCounts = new Map();
+  const catCounts = new Map<HTMLElement, number>();
+  const subCounts = new Map<HTMLElement, number>();
 
   dataset.forEach(entry => {
     if (!entry.isLink) return;
     const cat = entry.catEl;
     const sub = entry.subEl;
-    catCounts.set(cat, (catCounts.get(cat) || 0) + 1);
+    if (cat) catCounts.set(cat, (catCounts.get(cat) || 0) + 1);
     if (sub) subCounts.set(sub, (subCounts.get(sub) || 0) + 1);
   });
 
-  /** @param {HTMLElement|undefined} el @param {Map<HTMLElement, number>} countMap */
-  function toggleContainer(el, countMap) {
+  function toggleContainer(el: HTMLElement | undefined, countMap: Map<HTMLElement, number>): void {
     if (!el) return;
     const count = countMap.get(el) || 0;
     el.classList.toggle('is-hidden', count <= 0);
   }
 
-  /** @param {number} idx */
-  function hideIndex(idx) {
+  function hideIndex(idx: number): void {
     const node = nodes[idx];
     if (!node) return;
     if (!node.classList.contains('is-hidden')) {
@@ -214,8 +163,7 @@ export function createMatchApplier(nodes, dataset, status) {
     visible.delete(idx);
   }
 
-  /** @param {number} idx @param {RegExp|null} regex */
-  function showIndex(idx, regex) {
+  function showIndex(idx: number, regex: RegExp | null): boolean {
     const node = nodes[idx];
     if (!node) return false;
     const wasHidden = node.classList.contains('is-hidden');
@@ -237,13 +185,12 @@ export function createMatchApplier(nodes, dataset, status) {
       visible.add(idx);
     }
     applyHighlight(node, regex);
-    return dataset[idx].isLink;
+    return !!dataset[idx].isLink;
   }
 
-  return function applyMatches(meta, matches) {
+  return function applyMatches(meta: HighlightMeta, matches: number[]): void {
     const matchSet = new Set(matches);
-    /** @type {number[]} */
-    const toHide = [];
+    const toHide: number[] = [];
     visible.forEach(idx => {
       if (!matchSet.has(idx)) toHide.push(idx);
     });
@@ -268,9 +215,7 @@ export function createMatchApplier(nodes, dataset, status) {
         clearBtn.className = 'no-results-clear';
         clearBtn.textContent = t('keyboard.clearSearch');
         clearBtn.addEventListener('click', () => {
-          const input = /** @type {HTMLInputElement|null} */ (
-            document.getElementById('search-input')
-          );
+          const input = document.getElementById('search-input') as HTMLInputElement | null;
           if (input) {
             input.value = '';
             input.dispatchEvent(new Event('input', { bubbles: true }));
@@ -288,16 +233,13 @@ export function createMatchApplier(nodes, dataset, status) {
   };
 }
 
-/**
- * Create Web Worker search engine
- * @param {HTMLElement[]} nodes
- * @param {SearchEntry[]} dataset
- * @param {HTMLElement} status
- * @returns {{run: (query: string, scope: string) => void, dispose: () => void}|null}
- */
-export function createWorkerSearchEngine(nodes, dataset, status) {
+export function createWorkerSearchEngine(
+  nodes: HTMLElement[],
+  dataset: SearchEntry[],
+  status: HTMLElement
+): { run: (query: string, scope: string) => void; dispose: () => void } | null {
   if (typeof window === 'undefined' || typeof window.Worker === 'undefined') return null;
-  let worker;
+  let worker: Worker;
   try {
     worker = new Worker(new URL('../searchWorker.js', import.meta.url), { type: 'module' });
   } catch (err) {
@@ -305,7 +247,7 @@ export function createWorkerSearchEngine(nodes, dataset, status) {
     return null;
   }
   const applyMatches = createMatchApplier(nodes, dataset, status);
-  const pending = new Map();
+  const pending = new Map<number, HighlightMeta>();
   let lastQueryId = 0;
   let latestApplied = 0;
 
@@ -333,12 +275,11 @@ export function createWorkerSearchEngine(nodes, dataset, status) {
 
   let _scope = '';
   return {
-    run(query, scope) {
+    run(query: string, scope: string) {
       _scope = scope || '';
       const meta = createHighlightMeta(query);
       const tokens = tokenizeFoldedQuery(query);
       if (!tokens.length) {
-        // No query → show all items; scope only filters when there is an active query
         applyMatches(
           meta,
           dataset.map(entry => entry.index)
@@ -357,43 +298,30 @@ export function createWorkerSearchEngine(nodes, dataset, status) {
   };
 }
 
-/**
- * Score a search result for ranking
- * Higher score = better match
- * @param {SearchEntry} entry
- * @param {string[]} tokens
- * @returns {number}
- */
-function scoreEntry(entry, tokens) {
+function scoreEntry(entry: SearchEntry, tokens: string[]): number {
   let score = 0;
   const name = entry.nameFolded || '';
-  // Name match bonus (+10 per token found in name)
   if (name) {
-    for (const t of tokens) {
-      if (name.includes(t)) score += 10;
+    for (const tok of tokens) {
+      if (name.includes(tok)) score += 10;
     }
   }
-  // Recommended bonus
   if (entry.recommended) score += 5;
   return score;
 }
 
-/**
- * Create synchronous search engine (fallback)
- * @param {HTMLElement[]} nodes
- * @param {SearchEntry[]} dataset
- * @param {HTMLElement} status
- * @returns {{run: (query: string, scope: string) => void, dispose: () => void}}
- */
-export function createSyncSearchEngine(nodes, dataset, status) {
+export function createSyncSearchEngine(
+  nodes: HTMLElement[],
+  dataset: SearchEntry[],
+  status: HTMLElement
+): { run: (query: string, scope: string) => void; dispose: () => void } {
   const applyMatches = createMatchApplier(nodes, dataset, status);
   return {
-    run(query, scope) {
+    run(query: string, scope: string) {
       const meta = createHighlightMeta(query);
       const tokens = tokenizeFoldedQuery(query);
       const pool = scope ? dataset.filter(e => e.catSlug === scope) : dataset;
       if (!tokens.length) {
-        // No query → show all items; scope only filters when there is an active query
         applyMatches(
           meta,
           dataset.map(entry => entry.index)
@@ -401,24 +329,22 @@ export function createSyncSearchEngine(nodes, dataset, status) {
         return;
       }
 
-      const exact = [];
-      const fuzzy = [];
+      const exact: SearchEntry[] = [];
+      const fuzzy: SearchEntry[] = [];
 
       for (const entry of pool) {
-        const allExact = tokens.every(t => entry.folded.includes(t));
+        const allExact = tokens.every(tok => entry.folded.includes(tok));
         if (allExact) {
           exact.push(entry);
         } else {
           const allFuzzy = tokens.every(
-            t => entry.folded.includes(t) || fuzzyMatchFn(t, entry.folded)
+            tok => entry.folded.includes(tok) || fuzzyMatchFn(tok, entry.folded)
           );
           if (allFuzzy) fuzzy.push(entry);
         }
       }
 
-      // Sort each group by score (name match + recommended)
-      /** @type {(a: SearchEntry, b: SearchEntry) => number} */
-      const cmp = (a, b) => scoreEntry(b, tokens) - scoreEntry(a, tokens);
+      const cmp = (a: SearchEntry, b: SearchEntry): number => scoreEntry(b, tokens) - scoreEntry(a, tokens);
       exact.sort(cmp);
       fuzzy.sort(cmp);
 

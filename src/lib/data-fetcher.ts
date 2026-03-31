@@ -2,27 +2,26 @@
  * Data fetching utilities for links
  */
 
+import type { LinksIndex, LinksData } from '../types.js';
+
 const LINKS_INDEX_PATH = 'data/links-index.json';
 const LINKS_FALLBACK_PATH = 'links.json';
 
 /**
  * Check if data is a links index format
- * @param {unknown} data
- * @returns {boolean}
  */
-export function isLinksIndex(data) {
+export function isLinksIndex(data: unknown): data is LinksIndex {
   return !!(
     data &&
-    Array.isArray(data.categories) &&
-    data.categories.every(cat => typeof cat?.file === 'string')
+    Array.isArray((data as LinksIndex).categories) &&
+    (data as LinksIndex).categories.every(cat => typeof cat?.file === 'string')
   );
 }
 
 /**
  * Fetch links from legacy single file
- * @returns {Promise<object>}
  */
-export async function fetchLinksLegacy() {
+export async function fetchLinksLegacy(): Promise<LinksData> {
   const res = await fetch(LINKS_FALLBACK_PATH);
   if (!res.ok) throw new Error('links.json yüklenemedi');
   return res.json();
@@ -30,9 +29,8 @@ export async function fetchLinksLegacy() {
 
 /**
  * Fetch links - tries index first, falls back to legacy
- * @returns {Promise<{mode: 'index' | 'full', data: object}>}
  */
-export async function fetchLinks() {
+export async function fetchLinks(): Promise<{ mode: 'index' | 'full'; data: LinksIndex | LinksData }> {
   try {
     const res = await fetch(LINKS_INDEX_PATH);
     if (res.ok) {

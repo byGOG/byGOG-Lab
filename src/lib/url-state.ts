@@ -1,25 +1,19 @@
 /**
  * URL State management for shareable links.
  * Encodes filter/search/tag/category state in URL query parameters.
- *
- * Schema:
- *   ?q=searchterm       — search query
- *   ?filter=recommended — quick filter (all | recommended | has-copy)
- *   ?tag=a,b            — active tag filters (comma-separated)
- *   ?cat=slug           — category scope for search
- *   #hash               — scroll position (managed by category-nav.js)
  */
 
-/** @typedef {{ q?: string, filter?: string, tag?: string[], cat?: string }} UrlState */
+export interface UrlState {
+  q?: string;
+  filter?: string;
+  tag?: string[];
+  cat?: string;
+}
 
-/**
- * Read the current URL state from query parameters.
- * @returns {UrlState}
- */
-export function readUrlState() {
+export function readUrlState(): UrlState {
   try {
     const params = new URL(window.location.href).searchParams;
-    const state = {};
+    const state: UrlState = {};
     const q = params.get('q');
     if (q) state.q = q;
     const filter = params.get('filter');
@@ -34,13 +28,7 @@ export function readUrlState() {
   }
 }
 
-/**
- * Write partial state to URL query parameters.
- * Only provided keys are updated; others are left as-is.
- * Pass null/undefined/empty to remove a parameter.
- * @param {Partial<UrlState>} partial
- */
-export function writeUrlState(partial) {
+export function writeUrlState(partial: Partial<UrlState>): void {
   try {
     const url = new URL(window.location.href);
     if ('q' in partial) {
@@ -66,13 +54,10 @@ export function writeUrlState(partial) {
       else url.searchParams.delete('cat');
     }
     history.replaceState(null, '', url.toString());
-  } catch {}
+  } catch { /* URL güncellenemedi */ }
 }
 
-/**
- * Clear all URL state parameters.
- */
-export function clearUrlState() {
+export function clearUrlState(): void {
   try {
     const url = new URL(window.location.href);
     url.searchParams.delete('q');
@@ -80,5 +65,5 @@ export function clearUrlState() {
     url.searchParams.delete('tag');
     url.searchParams.delete('cat');
     history.replaceState(null, '', url.toString());
-  } catch {}
+  } catch { /* URL güncellenemedi */ }
 }

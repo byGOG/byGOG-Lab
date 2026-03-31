@@ -2,53 +2,37 @@
  * Arama yardımcı fonksiyonları
  */
 
+import type { HighlightMeta } from '../types.js';
+
 const SEARCH_LOCALE = 'tr';
 const DIACRITIC_PATTERN = /[\u0300-\u036f]/g;
 
-/**
- * Metni arama için normalleştirir (küçük harf)
- */
-export function normalizeForSearch(value) {
+export function normalizeForSearch(value: string): string {
   return String(value || '').toLocaleLowerCase(SEARCH_LOCALE);
 }
 
-/**
- * Türkçe karakterleri ve diyakritik işaretleri kaldırır
- */
-export function foldForSearch(value) {
+export function foldForSearch(value: string): string {
   return normalizeForSearch(value)
     .normalize('NFD')
     .replace(DIACRITIC_PATTERN, '')
     .replace(/ı/g, 'i');
 }
 
-/**
- * Sorguyu token'lara ayırır
- */
-export function tokenizeFoldedQuery(value) {
+export function tokenizeFoldedQuery(value: string): string[] {
   return foldForSearch(value).split(/\s+/).filter(Boolean);
 }
 
-/**
- * Regex özel karakterlerini escape eder
- */
-export function escapeRegExp(value) {
+export function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-/**
- * Highlight için regex oluşturur
- */
-export function buildHighlightRegex(value) {
+export function buildHighlightRegex(value: string): RegExp | null {
   const tokens = normalizeForSearch(value).trim().split(/\s+/).filter(Boolean);
   if (!tokens.length) return null;
   return new RegExp(`(${tokens.map(escapeRegExp).join('|')})`, 'gi');
 }
 
-/**
- * Highlight meta objesi oluşturur
- */
-export function createHighlightMeta(value) {
+export function createHighlightMeta(value: string): HighlightMeta {
   const hasQuery = value.trim().length > 0;
   return {
     raw: value,

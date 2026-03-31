@@ -1,26 +1,22 @@
-// @ts-check
 /**
  * Link item DOM creation
  * Extracted from renderLinks.js for modularity and testability
  */
 import { t } from './i18n.js';
+import type { Link } from '../types.js';
 
-/**
- * @typedef {import('../types.ts').Link} Link
- */
+interface CreateLinkItemDeps {
+  isSvgIcon: (path: string) => boolean;
+  resolveCopyValue: (link: Link) => string;
+  setCopyIconOnButton: (btn: HTMLElement, name: string) => void;
+  copyToClipboard: (text: string) => Promise<boolean>;
+  isNewLink?: (name: string) => boolean;
+}
 
 /**
  * Create a link list item element
- * @param {Link} link - Link data object
- * @param {object} deps - Dependencies
- * @param {(path: string) => boolean} deps.isSvgIcon - Check if icon path is SVG
- * @param {(link: Link) => string} deps.resolveCopyValue - Resolve copy command value
- * @param {(btn: HTMLElement, name: string) => void} deps.setCopyIconOnButton - Set icon on copy button
- * @param {(text: string) => Promise<boolean>} deps.copyToClipboard - Copy text to clipboard
- * @param {((name: string) => boolean)|undefined} [deps.isNewLink] - Check if link is new
- * @returns {HTMLLIElement}
  */
-export function createLinkItem(link, deps) {
+export function createLinkItem(link: Link, deps: CreateLinkItemDeps): HTMLLIElement {
   const { isSvgIcon, resolveCopyValue, setCopyIconOnButton, copyToClipboard, isNewLink } = deps;
 
   const li = document.createElement('li');
@@ -112,7 +108,7 @@ export function createLinkItem(link, deps) {
   }
 
   try {
-    const parts = [];
+    const parts: string[] = [];
     if (link.name) parts.push(link.name);
     if (link.description) parts.push(link.description);
     if (link.url) parts.push(link.url);
@@ -159,7 +155,7 @@ export function createLinkItem(link, deps) {
     icon.setAttribute('aria-hidden', 'true');
     icon.setAttribute('focusable', 'false');
 
-    const iconShapes = {
+    const iconShapes: Record<string, string> = {
       copy: '<rect x="9" y="9" width="12" height="12" rx="2" ry="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path>',
       success: '<path d="M20 6 10 16l-4-4"></path>',
       error: '<path d="M18 6 6 18"></path><path d="M6 6l12 12"></path>',
@@ -167,8 +163,7 @@ export function createLinkItem(link, deps) {
         '<circle cx="12" cy="12" r="9" stroke-opacity="0.25"></circle><path d="M21 12a9 9 0 0 0-9-9" stroke-opacity="0.9"></path>'
     };
 
-    /** @param {keyof typeof iconShapes} name */
-    const setIcon = name => {
+    const setIcon = (name: string): void => {
       icon.innerHTML = iconShapes[name] || iconShapes.copy;
     };
 
@@ -194,14 +189,13 @@ export function createLinkItem(link, deps) {
       if (copyButton.disabled) return;
 
       const dl = copyButton.dataset.labelDefault || 'Kopyala';
-      const sl = copyButton.dataset.labelSuccess || 'Kopyaland\u0131';
-      const el = copyButton.dataset.labelError || 'Kopyalanamad\u0131';
-      const ll = copyButton.dataset.labelLoading || 'Kopyalan\u0131yor';
+      const sl = copyButton.dataset.labelSuccess || 'Kopyalandı';
+      const el = copyButton.dataset.labelError || 'Kopyalanamadı';
+      const ll = copyButton.dataset.labelLoading || 'Kopyalanıyor';
       const ba = copyButton.dataset.ariaBase || dl;
       const sr = copyButton.querySelector('.sr-only');
 
-      /** @param {string} label @param {string|null} className @param {string} [iconName] @param {string} [ariaLabel] */
-      const resetState = (label, className, iconName, ariaLabel) => {
+      const resetState = (label: string, className: string | null, iconName?: string, ariaLabel?: string): void => {
         copyButton.classList.remove('copy-error', 'copied', 'copy-loading');
         if (className) copyButton.classList.add(className);
         if (sr) sr.textContent = label;
@@ -225,10 +219,10 @@ export function createLinkItem(link, deps) {
         resetState(el, 'copy-error', 'error');
       }
 
-      if (/** @type {any} */ (copyButton)._resetTimer) {
-        clearTimeout(/** @type {any} */ (copyButton)._resetTimer);
+      if ((copyButton as HTMLButtonElement & { _resetTimer?: ReturnType<typeof setTimeout> })._resetTimer) {
+        clearTimeout((copyButton as HTMLButtonElement & { _resetTimer?: ReturnType<typeof setTimeout> })._resetTimer);
       }
-      /** @type {any} */ (copyButton)._resetTimer = setTimeout(() => {
+      (copyButton as HTMLButtonElement & { _resetTimer?: ReturnType<typeof setTimeout> })._resetTimer = setTimeout(() => {
         resetState(dl, null, 'copy', ba);
       }, 2500);
     });

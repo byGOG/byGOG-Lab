@@ -4,28 +4,20 @@
 
 import * as logger from './logger.js';
 
-/**
- * Metni panoya kopyalar
- * @param {string} text - Kopyalanacak metin
- * @returns {Promise<boolean>} - Başarılı olursa true
- */
-export async function copyToClipboard(text) {
-  // Modern Clipboard API
+export async function copyToClipboard(text: string): Promise<boolean> {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     try {
       await navigator.clipboard.writeText(text);
       return true;
     } catch (err) {
-      logger.warn('clipboard', 'Clipboard API başarısız, fallback deneniyor', err);
+      logger.warn('clipboard', 'Clipboard API başarısız, fallback deneniyor', err as Record<string, unknown>);
       return fallbackCopy(text);
     }
   }
-
-  // Fallback: execCommand
   return fallbackCopy(text);
 }
 
-function fallbackCopy(text) {
+function fallbackCopy(text: string): boolean {
   try {
     const textarea = document.createElement('textarea');
     textarea.value = text;
@@ -38,7 +30,7 @@ function fallbackCopy(text) {
     document.body.removeChild(textarea);
     return success;
   } catch (err) {
-    logger.error('clipboard', 'Fallback kopyalama başarısız', err);
+    logger.error('clipboard', 'Fallback kopyalama başarısız', err as Error);
     return false;
   }
 }

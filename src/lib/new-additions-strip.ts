@@ -4,12 +4,17 @@
  */
 import { t } from './i18n.js';
 
+interface NewItem {
+  name: string;
+  url: string;
+  icon: string;
+}
+
 /**
  * Render the new additions strip.
  * Call AFTER updateKnownLinks() and after all categories are loaded.
- * @param {HTMLElement} container - #links-container
  */
-export function renderNewAdditionsStrip(container) {
+export function renderNewAdditionsStrip(container: HTMLElement): void {
   if (!container) return;
 
   // Remove existing strip
@@ -17,14 +22,14 @@ export function renderNewAdditionsStrip(container) {
   if (existing) existing.remove();
 
   // Find all <li> elements with a .new-badge child
-  const newItems = [];
+  const newItems: NewItem[] = [];
   container.querySelectorAll('.category-card li .new-badge').forEach(badge => {
-    const li = badge.closest('li');
+    const li = badge.closest('li') as HTMLElement | null;
     if (!li) return;
     const name = li.dataset.nameOriginal || '';
-    const a = li.querySelector('a[href]');
+    const a = li.querySelector('a[href]') as HTMLAnchorElement | null;
     const url = a ? a.href : '';
-    const img = li.querySelector('.icon-wrapper img');
+    const img = li.querySelector('.icon-wrapper img') as HTMLImageElement | null;
     const icon = img ? img.getAttribute('data-src') || img.src || '' : '';
     if (name && url) {
       newItems.push({ name, url, icon });
@@ -76,12 +81,12 @@ export function renderNewAdditionsStrip(container) {
   const featuredStrip = container.parentElement?.querySelector('.featured-strip');
   const recentStrip = container.parentElement?.querySelector('.recent-strip');
   const insertRef = featuredStrip || recentStrip || container;
-  container.parentElement.insertBefore(strip, insertRef);
+  container.parentElement!.insertBefore(strip, insertRef);
 
   // Hide when search is active
-  const input = document.getElementById('search-input');
+  const input = document.getElementById('search-input') as HTMLInputElement | null;
   if (input) {
-    const toggle = () => {
+    const toggle = (): void => {
       strip.hidden = input.value.trim().length > 0;
     };
     input.addEventListener('input', toggle);

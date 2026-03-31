@@ -6,17 +6,16 @@
 
 const STORAGE_KEY = 'bygog_collapsed';
 
-/** @returns {Set<string>} */
-function loadCollapsed() {
+function loadCollapsed(): Set<string> {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? new Set(JSON.parse(raw)) : new Set();
+    return raw ? new Set(JSON.parse(raw) as string[]) : new Set();
   } catch {
     return new Set();
   }
 }
 
-function saveCollapsed(set) {
+function saveCollapsed(set: Set<string>): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify([...set]));
   } catch {}
@@ -24,18 +23,17 @@ function saveCollapsed(set) {
 
 /**
  * Initialize collapse/expand on all category cards.
- * @param {HTMLElement} container - #links-container
  */
-export function initCategoryCollapse(container) {
+export function initCategoryCollapse(container: HTMLElement): void {
   if (!container) return;
   const collapsed = loadCollapsed();
 
-  function setupCard(card) {
-    const h2 = card.querySelector('h2');
+  function setupCard(card: HTMLElement): void {
+    const h2 = card.querySelector('h2') as HTMLElement | null;
     if (!h2 || h2.dataset.collapseInit) return;
     h2.dataset.collapseInit = '1';
 
-    const slug = card.dataset.catSlug || h2.textContent.trim();
+    const slug = (card as HTMLElement).dataset.catSlug || h2.textContent!.trim();
 
     // Add toggle indicator
     const toggle = document.createElement('span');
@@ -55,9 +53,9 @@ export function initCategoryCollapse(container) {
       h2.setAttribute('aria-expanded', 'true');
     }
 
-    function toggleCollapse() {
+    function toggleCollapse(): void {
       const isCollapsed = card.classList.toggle('is-collapsed');
-      h2.setAttribute('aria-expanded', String(!isCollapsed));
+      h2!.setAttribute('aria-expanded', String(!isCollapsed));
       if (isCollapsed) collapsed.add(slug);
       else collapsed.delete(slug);
       saveCollapsed(collapsed);
@@ -65,7 +63,7 @@ export function initCategoryCollapse(container) {
 
     h2.addEventListener('click', ev => {
       // Don't collapse if clicking a link inside h2
-      if (ev.target.closest('a')) return;
+      if ((ev.target as HTMLElement).closest('a')) return;
       toggleCollapse();
     });
 
@@ -78,15 +76,15 @@ export function initCategoryCollapse(container) {
   }
 
   // Setup existing cards
-  container.querySelectorAll('.category-card').forEach(setupCard);
+  container.querySelectorAll('.category-card').forEach(card => setupCard(card as HTMLElement));
 
   // Watch for new cards (lazy loaded)
   try {
     const mo = new MutationObserver(muts => {
       for (const m of muts) {
         m.addedNodes.forEach(node => {
-          if (node.nodeType === 1 && node.classList?.contains('category-card')) setupCard(node);
-          if (node.nodeType === 1) node.querySelectorAll?.('.category-card').forEach(setupCard);
+          if (node.nodeType === 1 && (node as HTMLElement).classList?.contains('category-card')) setupCard(node as HTMLElement);
+          if (node.nodeType === 1) (node as HTMLElement).querySelectorAll?.('.category-card').forEach(c => setupCard(c as HTMLElement));
         });
       }
     });

@@ -2,10 +2,10 @@
  * Global tooltip and backdrop management
  */
 
-let activeTooltip = null;
+let activeTooltip: HTMLElement | null = null;
 
 // Create and append backdrop
-const backdrop =
+const backdrop: HTMLElement | null =
   typeof document !== 'undefined'
     ? (() => {
         const el = document.createElement('div');
@@ -18,7 +18,7 @@ const backdrop =
 /**
  * Close active tooltip and hide backdrop
  */
-export function closeActiveTooltip() {
+export function closeActiveTooltip(): void {
   if (activeTooltip) {
     activeTooltip.classList.remove('visible');
     activeTooltip = null;
@@ -30,24 +30,22 @@ export function closeActiveTooltip() {
 
 /**
  * Set active tooltip
- * @param {HTMLElement} tooltip
  */
-export function setActiveTooltip(tooltip) {
+export function setActiveTooltip(tooltip: HTMLElement): void {
   activeTooltip = tooltip;
 }
 
 /**
  * Get active tooltip
- * @returns {HTMLElement|null}
  */
-export function getActiveTooltip() {
+export function getActiveTooltip(): HTMLElement | null {
   return activeTooltip;
 }
 
 /**
  * Show backdrop
  */
-export function showBackdrop() {
+export function showBackdrop(): void {
   if (backdrop) {
     backdrop.classList.add('visible');
   }
@@ -56,7 +54,7 @@ export function showBackdrop() {
 /**
  * Initialize tooltip event listeners
  */
-export function initTooltipListeners() {
+export function initTooltipListeners(): void {
   if (typeof document === 'undefined') return;
 
   if (backdrop) {
@@ -70,7 +68,7 @@ export function initTooltipListeners() {
     e => {
       // Always close tooltip on any click outside of it
       if (!activeTooltip) return;
-      const t = e.target;
+      const t = e.target as HTMLElement;
       try {
         // Keep open if clicking inside tooltip or on info button
         if (activeTooltip.contains(t)) return;

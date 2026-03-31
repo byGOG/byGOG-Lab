@@ -1,17 +1,10 @@
-// @ts-check
 /**
  * Navigation utility functions extracted for testability
- * These mirror the implementations in category-nav.js
  */
 
 const DIACRITIC_RE = /[\u0300-\u036f]/g;
 
-/**
- * Create a URL-safe slug from a category name
- * @param {string} value
- * @returns {string}
- */
-export function slugify(value) {
+export function slugify(value: string): string {
   const base = String(value || '')
     .trim()
     .toLocaleLowerCase('tr')
@@ -24,10 +17,7 @@ export function slugify(value) {
   return base || 'kategori';
 }
 
-/**
- * Category icons mapping
- */
-export const categoryIcons = {
+export const categoryIcons: Record<string, string> = {
   favorilerim:
     '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h12a1 1 0 0 1 1 1v15l-7-4-7 4V5a1 1 0 0 1 1-1z"/></svg>',
   'sistem/ofis':
@@ -40,12 +30,7 @@ export const categoryIcons = {
 const DEFAULT_ICON =
   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>';
 
-/**
- * Get category navigation icon by title
- * @param {string} title
- * @returns {string} SVG string
- */
-export function getCategoryNavIcon(title) {
+export function getCategoryNavIcon(title: string): string {
   const key = title.toLowerCase().trim();
   for (const [k, v] of Object.entries(categoryIcons)) {
     if (key.includes(k) || k.includes(key)) return v;

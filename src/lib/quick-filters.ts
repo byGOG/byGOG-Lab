@@ -7,27 +7,23 @@
  * Non-matching category cards are detached (not just hidden) for better performance.
  */
 import { t } from './i18n.js';
-import { readUrlState, writeUrlState } from './url-state.js';
+import { writeUrlState } from './url-state.js';
 import { getCategoryIcon } from './category-icons.js';
 
-/** @type {string} */
 let activeFilter = 'recommended';
-/** @type {string|null} */
-let activeCategory = null;
+let activeCategory: string | null = null;
 
 /**
  * Get the currently active quick filter key.
- * @returns {string}
  */
-export function getActiveFilter() {
+export function getActiveFilter(): string {
   return activeFilter;
 }
 
 /**
  * Initialize the quick filter bar above the links container.
- * @param {HTMLElement} container - #links-container
  */
-export function initQuickFilters(container) {
+export function initQuickFilters(container: HTMLElement): void {
   if (!container) return;
 
   const bar = document.createElement('div');
@@ -39,34 +35,34 @@ export function initQuickFilters(container) {
   const filterRow = document.createElement('div');
   filterRow.className = 'filter-row';
 
-  const filters = [];
+  const filters: { key: string; i18nKey: string }[] = [];
 
   // --- Category tabs row ---
   const catRow = document.createElement('div');
   catRow.className = 'category-tab-row';
 
-  let observer = null;
+  let observer: MutationObserver | null = null;
   let applyingFilter = false;
 
   /** All category cards, kept for restore */
-  let allCards = [];
+  let allCards: HTMLElement[] = [];
   /** Map: categoryIndex -> card element */
-  const cardByIndex = new Map();
+  const cardByIndex: Map<string, HTMLElement> = new Map();
   /** Currently detached cards (from filter or category selection) */
-  const detachedCards = new Set();
+  const detachedCards: Set<HTMLElement> = new Set();
 
-  function collectCards() {
-    allCards = Array.from(container.querySelectorAll('.category-card'));
+  function collectCards(): void {
+    allCards = Array.from(container.querySelectorAll('.category-card')) as HTMLElement[];
     allCards.forEach(card => {
       const idx = card.dataset.categoryIndex;
       if (idx != null) cardByIndex.set(idx, card);
     });
   }
 
-  function restoreAllCards() {
+  function restoreAllCards(): void {
     // Re-insert all detached cards in order
     if (!detachedCards.size) return;
-    const children = Array.from(container.children);
+    const children = Array.from(container.children) as HTMLElement[];
     for (const card of detachedCards) {
       const pos = parseInt(card.dataset?.categoryIndex ?? '-1', 10);
       let inserted = false;
@@ -80,12 +76,12 @@ export function initQuickFilters(container) {
       }
       if (!inserted) container.appendChild(card);
       children.length = 0;
-      children.push(...container.children);
+      children.push(...(Array.from(container.children) as HTMLElement[]));
     }
     detachedCards.clear();
   }
 
-  function cardHasItems(card, filterKey) {
+  function cardHasItems(card: HTMLElement, filterKey: string): boolean {
     if (filterKey === 'all' || filterKey === 'category') return true;
     if (filterKey === 'recommended') {
       return card.querySelector('li[data-recommended="1"]') !== null;
@@ -99,7 +95,7 @@ export function initQuickFilters(container) {
   /**
    * Apply filter + category selection.
    */
-  function applyFilter(filterKey, catIdx, opts = {}) {
+  function applyFilter(filterKey: string, catIdx: string | null, opts: { skipUrl?: boolean } = {}): void {
     if (applyingFilter) return;
     applyingFilter = true;
     if (observer) observer.disconnect();
@@ -125,7 +121,7 @@ export function initQuickFilters(container) {
 
     // Hide non-recent strips when a specific category is selected
     if (hideableStrips) {
-      hideableStrips.forEach(s => (s.style.display = isCatSelected ? 'none' : ''));
+      hideableStrips.forEach(s => ((s as HTMLElement).style.display = isCatSelected ? 'none' : ''));
     }
 
     // Add filter class
@@ -135,45 +131,48 @@ export function initQuickFilters(container) {
     {
       // Detach cards that don't match
       container.querySelectorAll('.category-card').forEach(card => {
-        const idx = card.dataset.categoryIndex;
+        const el = card as HTMLElement;
+        const idx = el.dataset.categoryIndex;
         const matchesCat = !isCatSelected || idx === catIdx;
-        const matchesFilter = cardHasItems(card, filterKey);
+        const matchesFilter = cardHasItems(el, filterKey);
 
         if (!matchesCat || !matchesFilter) {
-          detachedCards.add(card);
-          card.remove();
+          detachedCards.add(el);
+          el.remove();
         } else {
-          card.style.display = '';
+          el.style.display = '';
         }
       });
 
       // Hide empty subcategories
       container.querySelectorAll('.sub-category').forEach(sub => {
+        const el = sub as HTMLElement;
         if (filterKey === 'all' || filterKey === 'category') {
-          sub.style.display = '';
+          el.style.display = '';
         } else {
           let hasVisible = false;
           if (filterKey === 'recommended') {
-            hasVisible = sub.querySelector('li[data-recommended="1"]') !== null;
+            hasVisible = el.querySelector('li[data-recommended="1"]') !== null;
           } else if (filterKey === 'has-copy') {
-            hasVisible = sub.querySelector('li.has-copy') !== null;
+            hasVisible = el.querySelector('li.has-copy') !== null;
           }
-          sub.style.display = hasVisible ? '' : 'none';
+          el.style.display = hasVisible ? '' : 'none';
         }
       });
     }
 
     // Update filter button states
     filterRow.querySelectorAll('.quick-filter-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.filter === filterKey);
+      (btn as HTMLElement).classList.toggle('active', (btn as HTMLElement).dataset.filter === filterKey);
     });
 
     // Update category tab states
     catRow.querySelectorAll('.category-tab-btn').forEach(btn => {
-      if (btn.dataset.filter === 'recommended') {
-        btn.classList.toggle('active', filterKey === 'recommended' && !isCatSelected);
+      const el = btn as HTMLElement;
+      if (el.dataset.filter === 'recommended') {
+        el.classList.toggle('active', filterKey === 'recommended' && !isCatSelected);
       } else {
-        btn.classList.toggle('active', btn.dataset.catIndex === catIdx);
+        el.classList.toggle('active', el.dataset.catIndex === catIdx);
       }
     });
 
@@ -185,7 +184,7 @@ export function initQuickFilters(container) {
     window.dispatchEvent(new CustomEvent('quickfilterchange', { detail: { filter: filterKey } }));
   }
 
-  function updateCounts() {
+  function updateCounts(): void {
     let allCount = 0;
     let recCount = 0;
     let copyCount = 0;
@@ -193,7 +192,7 @@ export function initQuickFilters(container) {
     // Count from container
     container.querySelectorAll('.category-card li').forEach(li => {
       allCount++;
-      if (li.dataset.recommended === '1') recCount++;
+      if ((li as HTMLElement).dataset.recommended === '1') recCount++;
       if (li.classList.contains('has-copy')) copyCount++;
     });
 
@@ -208,14 +207,15 @@ export function initQuickFilters(container) {
 
     // Update count on recommended tab
     const recTab = catRow.querySelector('.category-tab-recommended .filter-count');
-    if (recTab) recTab.textContent = recCount;
+    if (recTab) recTab.textContent = String(recCount);
 
     filterRow.querySelectorAll('.quick-filter-btn').forEach(btn => {
-      const countEl = btn.querySelector('.filter-count');
+      const el = btn as HTMLElement;
+      const countEl = el.querySelector('.filter-count');
       if (!countEl) return;
-      if (btn.dataset.filter === 'all') countEl.textContent = allCount;
-      else if (btn.dataset.filter === 'recommended') countEl.textContent = recCount;
-      else if (btn.dataset.filter === 'has-copy') countEl.textContent = copyCount;
+      if (el.dataset.filter === 'all') countEl.textContent = String(allCount);
+      else if (el.dataset.filter === 'recommended') countEl.textContent = String(recCount);
+      else if (el.dataset.filter === 'has-copy') countEl.textContent = String(copyCount);
     });
   }
 
@@ -241,14 +241,13 @@ export function initQuickFilters(container) {
   bar.appendChild(filterRow);
 
   // --- Build category tabs (populated after categories load) ---
-  function buildCategoryTabs() {
+  function buildCategoryTabs(): void {
     catRow.innerHTML = '';
     // Use all cards (including detached) so tabs always show every category
-    const domCards = Array.from(container.querySelectorAll('.category-card'));
-    const allVisible = new Set(domCards);
+    const domCards = Array.from(container.querySelectorAll('.category-card')) as HTMLElement[];
     const combined = [...domCards, ...Array.from(detachedCards)];
     // Deduplicate and sort by categoryIndex
-    const seen = new Set();
+    const seen = new Set<string>();
     const cards = combined
       .filter(c => {
         const idx = c.dataset.categoryIndex;
@@ -256,7 +255,7 @@ export function initQuickFilters(container) {
         seen.add(idx);
         return true;
       })
-      .sort((a, b) => parseInt(a.dataset.categoryIndex) - parseInt(b.dataset.categoryIndex));
+      .sort((a, b) => parseInt(a.dataset.categoryIndex!) - parseInt(b.dataset.categoryIndex!));
     if (!cards.length) return;
 
     collectCards();
@@ -315,7 +314,7 @@ export function initQuickFilters(container) {
           applyFilter('recommended', null);
         } else {
           // Selecting a category → show all items in that category (internally 'all' but only for that category)
-          applyFilter('category', idx);
+          applyFilter('category', idx!);
         }
       });
 
@@ -334,7 +333,7 @@ export function initQuickFilters(container) {
     bar.insertBefore(searchRow, catRow);
   }
 
-  container.parentElement.insertBefore(bar, container);
+  container.parentElement!.insertBefore(bar, container);
 
   /** Track total known categories (DOM + detached) */
   let knownCatCount = 0;
@@ -368,10 +367,10 @@ export function initQuickFilters(container) {
     restoreAllCards();
     // Show all cards/subcategories so search can use them
     container.querySelectorAll('.category-card').forEach(card => {
-      card.style.display = '';
+      (card as HTMLElement).style.display = '';
     });
     container.querySelectorAll('.sub-category').forEach(sub => {
-      sub.style.display = '';
+      (sub as HTMLElement).style.display = '';
     });
     container.classList.remove('filter-recommended', 'filter-has-copy');
   });
@@ -393,11 +392,12 @@ export function initQuickFilters(container) {
       if (textSpan) textSpan.textContent = t('filter.recommended');
     }
     filterRow.querySelectorAll('.quick-filter-btn').forEach(btn => {
-      const key = btn.dataset.i18nKey;
+      const el = btn as HTMLElement;
+      const key = el.dataset.i18nKey;
       if (!key) return;
-      const countEl = btn.querySelector('.filter-count');
+      const countEl = el.querySelector('.filter-count');
       const countText = countEl ? countEl.textContent : '';
-      btn.innerHTML = `${t(key)} <span class="filter-count">${countText}</span>`;
+      el.innerHTML = `${t(key)} <span class="filter-count">${countText}</span>`;
     });
   });
 }

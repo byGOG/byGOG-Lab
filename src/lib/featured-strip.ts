@@ -3,12 +3,16 @@
  */
 import { t } from './i18n.js';
 
+interface FeaturedItem {
+  name: string;
+  url: string;
+  icon: string;
+}
+
 /**
  * Render the featured tools strip.
- * @param {HTMLElement} container - #links-container
- * @param {object} data - Full links data (categories array)
  */
-export function renderFeaturedStrip(container, data) {
+export function renderFeaturedStrip(container: HTMLElement, data: { categories?: unknown[] } | unknown[]): void {
   if (!container || !data) return;
 
   // Remove existing strip
@@ -16,25 +20,25 @@ export function renderFeaturedStrip(container, data) {
   if (existing) existing.remove();
 
   // Collect recommended links from data
-  const featured = [];
-  const cats = data.categories || data;
+  const featured: FeaturedItem[] = [];
+  const cats = (data as { categories?: unknown[] }).categories || data;
   if (!Array.isArray(cats)) return;
 
   for (const cat of cats) {
-    const subs = cat.subcategories || cat.links || [];
-    for (const sub of subs) {
-      const links = sub.links || [];
+    const subs = (cat as Record<string, unknown>).subcategories || (cat as Record<string, unknown>).links || [];
+    for (const sub of subs as Record<string, unknown>[]) {
+      const links = (sub.links || []) as Record<string, unknown>[];
       for (const link of links) {
         if (link.recommended && link.name) {
-          featured.push({ name: link.name, url: link.url, icon: link.icon || '' });
+          featured.push({ name: link.name as string, url: link.url as string, icon: (link.icon as string) || '' });
         }
       }
     }
     // Direct links in category
-    if (Array.isArray(cat.links)) {
-      for (const link of cat.links) {
+    if (Array.isArray((cat as Record<string, unknown>).links)) {
+      for (const link of (cat as Record<string, unknown>).links as Record<string, unknown>[]) {
         if (link.recommended && link.name) {
-          featured.push({ name: link.name, url: link.url, icon: link.icon || '' });
+          featured.push({ name: link.name as string, url: link.url as string, icon: (link.icon as string) || '' });
         }
       }
     }
@@ -90,13 +94,13 @@ export function renderFeaturedStrip(container, data) {
   if (insertRef) {
     insertRef.insertAdjacentElement('afterend', strip);
   } else {
-    container.parentElement.insertBefore(strip, container);
+    container.parentElement!.insertBefore(strip, container);
   }
 
   // Hide when search is active
-  const input = document.getElementById('search-input');
+  const input = document.getElementById('search-input') as HTMLInputElement | null;
   if (input) {
-    const toggle = () => {
+    const toggle = (): void => {
       strip.hidden = input.value.trim().length > 0;
     };
     input.addEventListener('input', toggle);

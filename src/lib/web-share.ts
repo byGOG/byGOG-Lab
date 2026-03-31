@@ -9,14 +9,13 @@ const SHARE_ICON =
 
 /**
  * Initialize share buttons on all link cards.
- * @param {HTMLElement} container - #links-container
  */
-export function initWebShare(container) {
+export function initWebShare(container: HTMLElement): void {
   if (!container) return;
   if (!navigator.share && !navigator.clipboard) return;
 
   // Add share buttons to existing and future cards via MutationObserver
-  function addShareButtons(root) {
+  function addShareButtons(root: HTMLElement): void {
     root.querySelectorAll('.category-card li').forEach(li => {
       if (li.querySelector('.share-btn')) return;
       const a = li.querySelector('a[href]');
@@ -42,16 +41,16 @@ export function initWebShare(container) {
 
   // Delegated click handler
   container.addEventListener('click', async ev => {
-    const btn = ev.target.closest('.share-btn');
+    const btn = (ev.target as HTMLElement).closest('.share-btn') as HTMLElement | null;
     if (!btn) return;
     ev.preventDefault();
     ev.stopPropagation();
 
-    const li = btn.closest('li');
-    const a = li?.querySelector('a[href]');
+    const li = btn.closest('li') as HTMLElement | null;
+    const a = li?.querySelector('a[href]') as HTMLAnchorElement | null;
     if (!a) return;
 
-    const name = li.dataset.nameOriginal || a.textContent.trim();
+    const name = (li as HTMLElement).dataset.nameOriginal || a.textContent!.trim();
     const url = a.href;
 
     try {
@@ -63,7 +62,7 @@ export function initWebShare(container) {
         setTimeout(() => btn.classList.remove('share-copied'), 1500);
       }
     } catch (err) {
-      if (err.name !== 'AbortError') {
+      if ((err as DOMException).name !== 'AbortError') {
         // Fallback: copy URL
         try {
           await navigator.clipboard.writeText(url);

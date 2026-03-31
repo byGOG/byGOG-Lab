@@ -4,12 +4,17 @@
  */
 import { t } from './i18n.js';
 
+interface RecentItem {
+  name: string;
+  url: string;
+  icon: string;
+}
+
 const STORAGE_KEY = 'bygog_recent';
 const MAX_ITEMS = 20;
-let _container = null;
+let _container: HTMLElement | null = null;
 
-/** @returns {{ name: string, url: string, icon: string }[]} */
-function loadRecent() {
+function loadRecent(): RecentItem[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     return raw ? JSON.parse(raw) : [];
@@ -18,7 +23,7 @@ function loadRecent() {
   }
 }
 
-function saveRecent(items) {
+function saveRecent(items: RecentItem[]): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
   } catch {}
@@ -26,11 +31,8 @@ function saveRecent(items) {
 
 /**
  * Track a link click. Call this from a delegated click handler.
- * @param {string} name
- * @param {string} url
- * @param {string} [icon]
  */
-export function trackClick(name, url, icon) {
+export function trackClick(name: string, url: string, icon?: string): void {
   if (!name || !url) return;
   const items = loadRecent().filter(i => i.name !== name);
   items.unshift({ name, url, icon: icon || '' });
@@ -46,11 +48,10 @@ export function trackClick(name, url, icon) {
   } catch {}
 }
 
-/** @returns {Set<string>} */
-export function getVisitedNames() {
+export function getVisitedNames(): Set<string> {
   try {
     const raw = localStorage.getItem('bygog_visited');
-    return raw ? new Set(JSON.parse(raw)) : new Set();
+    return raw ? new Set(JSON.parse(raw) as string[]) : new Set();
   } catch {
     return new Set();
   }
@@ -58,9 +59,8 @@ export function getVisitedNames() {
 
 /**
  * Render the "Son Kullanılanlar" strip above the container.
- * @param {HTMLElement} container - #links-container
  */
-export function renderRecentStrip(container) {
+export function renderRecentStrip(container: HTMLElement): void {
   if (!container) return;
   _container = container;
 
@@ -121,5 +121,5 @@ export function renderRecentStrip(container) {
   });
 
   strip.appendChild(list);
-  container.parentElement.insertBefore(strip, container);
+  container.parentElement!.insertBefore(strip, container);
 }

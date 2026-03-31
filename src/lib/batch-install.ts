@@ -4,34 +4,29 @@
  */
 import { t } from './i18n.js';
 
-/** @type {Map<string, {name: string, command: string, li: HTMLLIElement}>} */
-const selected = new Map();
-let _container = null;
-let _panel = null;
-let _cartList = null;
-let _countEl = null;
-let _genBtn = null;
-let _clearBtn = null;
-let _cartToggle = null;
+interface SelectedItem {
+  name: string;
+  command: string;
+  li: HTMLLIElement;
+}
+
+const selected: Map<string, SelectedItem> = new Map();
+let _panel: HTMLElement | null = null;
+let _cartList: HTMLElement | null = null;
+let _countEl: HTMLElement | null = null;
+let _genBtn: HTMLButtonElement | null = null;
+let _clearBtn: HTMLButtonElement | null = null;
+let _cartToggle: HTMLButtonElement | null = null;
 let _active = false;
 let _cartOpen = false;
 
-/**
- * Extract winget package ID from copyText.
- * @param {string} copyText
- * @returns {string|null}
- */
-function extractWingetId(copyText) {
+function extractWingetId(copyText: string): string | null {
   const m = copyText.match(/winget\s+install\s+(\S+)/i);
   return m ? m[1] : null;
 }
 
-/**
- * Generate batch command from selected items.
- * @returns {string}
- */
-function generateCommand() {
-  const commands = [];
+function generateCommand(): string {
+  const commands: string[] = [];
   for (const [, item] of selected) {
     const copyText = item.command || '';
     const id = extractWingetId(copyText);
@@ -44,10 +39,7 @@ function generateCommand() {
   return commands.join(' && ');
 }
 
-/**
- * Render the cart item list.
- */
-function renderCartList() {
+function renderCartList(): void {
   if (!_cartList) return;
   _cartList.innerHTML = '';
 
@@ -89,10 +81,7 @@ function renderCartList() {
   }
 }
 
-/**
- * Update the panel UI.
- */
-function updatePanel() {
+function updatePanel(): void {
   if (!_panel) return;
   const count = selected.size;
   if (_countEl) _countEl.textContent = t('batch.selected', { count });
@@ -101,10 +90,7 @@ function updatePanel() {
   renderCartList();
 }
 
-/**
- * Toggle cart list visibility.
- */
-function toggleCart() {
+function toggleCart(): void {
   _cartOpen = !_cartOpen;
   if (_panel) _panel.classList.toggle('cart-open', _cartOpen);
   if (_cartToggle) {
@@ -113,17 +99,13 @@ function toggleCart() {
   }
 }
 
-/**
- * Toggle selection for a <li>.
- * @param {HTMLLIElement} li
- */
-function toggleSelection(li) {
+function toggleSelection(li: HTMLLIElement): void {
   const name = li.dataset.nameOriginal || '';
   if (!name) return;
   if (selected.has(name)) {
     removeSelection(name);
   } else {
-    const copyBtn = li.querySelector('.copy-button[data-copy]');
+    const copyBtn = li.querySelector('.copy-button[data-copy]') as HTMLElement | null;
     const command = copyBtn?.dataset.copy || '';
     selected.set(name, { name, command, li });
     li.classList.add('batch-selected');
@@ -131,21 +113,14 @@ function toggleSelection(li) {
   }
 }
 
-/**
- * Remove a single item from selection.
- * @param {string} name
- */
-function removeSelection(name) {
+function removeSelection(name: string): void {
   const item = selected.get(name);
   if (item?.li) item.li.classList.remove('batch-selected');
   selected.delete(name);
   updatePanel();
 }
 
-/**
- * Clear all selections.
- */
-function clearSelections() {
+function clearSelections(): void {
   for (const [, item] of selected) {
     if (item.li) item.li.classList.remove('batch-selected');
   }
@@ -159,11 +134,7 @@ function clearSelections() {
   updatePanel();
 }
 
-/**
- * Show the batch result modal.
- * @param {string} command
- */
-function showResultModal(command) {
+function showResultModal(command: string): void {
   const modal = document.createElement('div');
   modal.className = 'batch-result-modal';
   modal.addEventListener('click', e => {
@@ -213,19 +184,13 @@ function showResultModal(command) {
   document.body.appendChild(modal);
 }
 
-/**
- * Enter batch mode.
- */
-function enterBatchMode() {
+function enterBatchMode(): void {
   _active = true;
   document.body.classList.add('batch-mode');
   if (_panel) _panel.classList.toggle('visible', selected.size > 0);
 }
 
-/**
- * Exit batch mode.
- */
-function exitBatchMode() {
+function exitBatchMode(): void {
   _active = false;
   document.body.classList.remove('batch-mode');
   clearSelections();
@@ -234,11 +199,9 @@ function exitBatchMode() {
 
 /**
  * Initialize batch install system.
- * @param {HTMLElement} container - #links-container
  */
-export function initBatchInstall(container) {
+export function initBatchInstall(container: HTMLElement): void {
   if (!container) return;
-  _container = container;
 
   // Create toggle button
   const toggleBtn = document.createElement('button');
@@ -305,7 +268,7 @@ export function initBatchInstall(container) {
   const btnGroup = document.createElement('div');
   btnGroup.className = 'batch-panel-actions';
 
-  const genBtn = document.createElement('button');
+  const genBtn = document.createElement('button') as HTMLButtonElement;
   genBtn.type = 'button';
   genBtn.className = 'batch-panel-btn primary';
   genBtn.textContent = t('batch.generate');
@@ -317,7 +280,7 @@ export function initBatchInstall(container) {
   _genBtn = genBtn;
   btnGroup.appendChild(genBtn);
 
-  const clearBtn = document.createElement('button');
+  const clearBtn = document.createElement('button') as HTMLButtonElement;
   clearBtn.type = 'button';
   clearBtn.className = 'batch-panel-btn danger';
   clearBtn.textContent = t('batch.clear');
@@ -335,14 +298,14 @@ export function initBatchInstall(container) {
     'click',
     ev => {
       if (!_active) return;
-      const li = ev.target.closest('.category-card li.has-copy');
+      const li = (ev.target as HTMLElement).closest('.category-card li.has-copy') as HTMLLIElement | null;
       if (!li || !container.contains(li)) return;
       if (li.classList.contains('has-powershell')) return;
       // Don't interfere with info buttons or copy buttons
       if (
-        ev.target.closest('button.info-button') ||
-        ev.target.closest('.copy-button') ||
-        ev.target.closest('.share-btn')
+        (ev.target as HTMLElement).closest('button.info-button') ||
+        (ev.target as HTMLElement).closest('.copy-button') ||
+        (ev.target as HTMLElement).closest('.share-btn')
       ) {
         return;
       }

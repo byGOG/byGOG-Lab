@@ -1,43 +1,35 @@
-// @ts-check
 /**
  * Web Vitals monitoring (privacy-first — console only, no external reporting)
  * Tracks LCP, CLS, INP for performance awareness
  */
 
-/**
- * Observe Largest Contentful Paint
- */
-function observeLCP() {
+function observeLCP(): void {
   if (!('PerformanceObserver' in window)) return;
   try {
     const observer = new PerformanceObserver(list => {
       const entries = list.getEntries();
       const last = entries[entries.length - 1];
       if (last) {
-        console.debug('[Web Vitals] LCP:', Math.round(/** @type {any} */ (last).startTime), 'ms');
+        console.debug('[Web Vitals] LCP:', Math.round((last as PerformanceEntry & { startTime: number }).startTime), 'ms');
       }
     });
     observer.observe({ type: 'largest-contentful-paint', buffered: true });
-  } catch {}
+  } catch { /* PerformanceObserver desteklenmiyor */ }
 }
 
-/**
- * Observe Cumulative Layout Shift
- */
-function observeCLS() {
+function observeCLS(): void {
   if (!('PerformanceObserver' in window)) return;
   let clsValue = 0;
   try {
     const observer = new PerformanceObserver(list => {
       for (const entry of list.getEntries()) {
-        if (!(/** @type {any} */ (entry).hadRecentInput)) {
-          clsValue += /** @type {any} */ (entry).value;
+        if (!(entry as PerformanceEntry & { hadRecentInput: boolean }).hadRecentInput) {
+          clsValue += (entry as PerformanceEntry & { value: number }).value;
         }
       }
     });
     observer.observe({ type: 'layout-shift', buffered: true });
 
-    // Report on page hide
     document.addEventListener(
       'visibilitychange',
       () => {
@@ -47,16 +39,12 @@ function observeCLS() {
       },
       { once: true }
     );
-  } catch {}
+  } catch { /* PerformanceObserver desteklenmiyor */ }
 }
 
-/**
- * Observe Interaction to Next Paint
- */
-function observeINP() {
+function observeINP(): void {
   if (!('PerformanceObserver' in window)) return;
-  /** @type {number[]} */
-  const interactions = [];
+  const interactions: number[] = [];
   try {
     const observer = new PerformanceObserver(list => {
       for (const entry of list.getEntries()) {
@@ -76,13 +64,10 @@ function observeINP() {
       },
       { once: true }
     );
-  } catch {}
+  } catch { /* PerformanceObserver desteklenmiyor */ }
 }
 
-/**
- * Initialize Web Vitals monitoring
- */
-export function initWebVitals() {
+export function initWebVitals(): void {
   if (typeof window === 'undefined') return;
   observeLCP();
   observeCLS();

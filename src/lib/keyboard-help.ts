@@ -4,7 +4,7 @@
  */
 import { t } from './i18n.js';
 
-let overlay = null;
+let overlay: HTMLElement | null = null;
 
 const SHORTCUTS = [
   { keys: ['/', '.', 'Ctrl+K'], label: 'keyboard.focusSearch' },
@@ -12,9 +12,9 @@ const SHORTCUTS = [
   { keys: ['Enter'], label: 'keyboard.firstResult' },
   { keys: ['\u2191', '\u2193'], label: 'keyboard.prevNext' },
   { keys: ['?'], label: 'keyboard.help' }
-];
+] as const;
 
-function createOverlay() {
+function createOverlay(): HTMLElement {
   const el = document.createElement('div');
   el.className = 'kbd-help-overlay';
   el.setAttribute('aria-hidden', 'true');
@@ -80,34 +80,34 @@ function createOverlay() {
   return el;
 }
 
-function show() {
+function show(): void {
   if (!overlay) overlay = createOverlay();
   overlay.classList.add('show');
   overlay.setAttribute('aria-hidden', 'false');
   document.body.classList.add('modal-open');
   // Focus trap: focus close button
-  const closeBtn = overlay.querySelector('.kbd-help-close');
+  const closeBtn = overlay.querySelector('.kbd-help-close') as HTMLElement | null;
   if (closeBtn) closeBtn.focus();
 }
 
-function hide() {
+function hide(): void {
   if (!overlay) return;
   overlay.classList.remove('show');
   overlay.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('modal-open');
 }
 
-function isVisible() {
-  return overlay && overlay.classList.contains('show');
+function isVisible(): boolean {
+  return !!(overlay && overlay.classList.contains('show'));
 }
 
-export function initKeyboardHelp() {
+export function initKeyboardHelp(): void {
   document.addEventListener('keydown', e => {
     // '?' opens help (Shift+/ on most keyboards)
     if (e.key === '?' && !e.ctrlKey && !e.metaKey && !e.altKey) {
-      const tag = (e.target && e.target.tagName) || '';
+      const tag = ((e.target as HTMLElement)?.tagName) || '';
       if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
-      if (e.target && e.target.isContentEditable) return;
+      if (e.target && (e.target as HTMLElement).isContentEditable) return;
       e.preventDefault();
       if (isVisible()) hide();
       else show();

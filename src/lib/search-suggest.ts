@@ -5,11 +5,13 @@
 
 const MAX_SUGGESTIONS = 6;
 
-/**
- * @param {HTMLInputElement} input
- * @param {HTMLElement} container - #links-container
- */
-export function initSearchSuggest(input, container) {
+interface SuggestItem {
+  name: string;
+  icon: string;
+  url: string;
+}
+
+export function initSearchSuggest(input: HTMLInputElement, container: HTMLElement): void {
   if (!input || !container) return;
 
   const dropdown = document.createElement('div');
@@ -23,20 +25,20 @@ export function initSearchSuggest(input, container) {
   document.body.appendChild(dropdown);
 
   let activeIndex = -1;
-  let items = [];
+  let items: SuggestItem[] = [];
 
-  function getAllNames() {
-    const names = [];
+  function getAllNames(): SuggestItem[] {
+    const names: SuggestItem[] = [];
     container.querySelectorAll('li[data-name-original]').forEach(li => {
-      const name = li.dataset.nameOriginal;
+      const name = (li as HTMLElement).dataset.nameOriginal;
       const icon = li.querySelector('.site-icon')?.getAttribute('src') || '';
-      const url = li.querySelector('a[href]')?.href || '';
+      const url = (li.querySelector('a[href]') as HTMLAnchorElement)?.href || '';
       if (name) names.push({ name, icon, url });
     });
     return names;
   }
 
-  function render(matches) {
+  function render(matches: SuggestItem[]): void {
     dropdown.innerHTML = '';
     items = matches;
     activeIndex = -1;
@@ -83,7 +85,7 @@ export function initSearchSuggest(input, container) {
     dropdown.classList.add('visible');
   }
 
-  function selectItem(m) {
+  function selectItem(m: SuggestItem): void {
     input.value = m.name;
     input.dispatchEvent(new Event('input', { bubbles: true }));
     hide();
@@ -96,7 +98,7 @@ export function initSearchSuggest(input, container) {
     }
   }
 
-  function hide() {
+  function hide(): void {
     dropdown.classList.remove('visible');
     dropdown.innerHTML = '';
     items = [];
@@ -104,7 +106,7 @@ export function initSearchSuggest(input, container) {
     input.removeAttribute('aria-activedescendant');
   }
 
-  function setActive(idx) {
+  function setActive(idx: number): void {
     const children = dropdown.querySelectorAll('.search-suggest-item');
     children.forEach(c => c.classList.remove('active'));
     activeIndex = idx;
@@ -125,8 +127,8 @@ export function initSearchSuggest(input, container) {
     }
 
     const all = getAllNames();
-    const exact = [];
-    const partial = [];
+    const exact: SuggestItem[] = [];
+    const partial: SuggestItem[] = [];
 
     for (const entry of all) {
       const lower = entry.name.toLocaleLowerCase('tr');

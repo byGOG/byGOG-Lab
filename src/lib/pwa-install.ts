@@ -2,18 +2,28 @@
  * PWA install prompt handling and UI
  */
 
+interface InstallCard extends HTMLElement {
+  _updateInstallState?: () => void;
+  _hide?: () => void;
+}
+
+interface BeforeInstallPromptEvent extends Event {
+  prompt(): Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+}
+
 /**
  * Setup PWA install UI
  */
-export function setupPWAInstallUI() {
-  const state = { deferred: null, installed: false };
+export function setupPWAInstallUI(): void {
+  const state: { deferred: BeforeInstallPromptEvent | null; installed: boolean } = { deferred: null, installed: false };
   const cfg = { delayMs: 4500, minScroll: 200, snoozeDays: 7 };
 
-  const isStandalone = () =>
+  const isStandalone = (): boolean =>
     (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
-    (window.navigator && window.navigator.standalone);
+    !!(window.navigator as Navigator & { standalone?: boolean }).standalone;
 
-  const isAllowedPath = () => {
+  const isAllowedPath = (): boolean => {
     try {
       const p = new URL(window.location.href).pathname;
       return /(?:^|\/)index\.html$/.test(p) || /\/$/.test(p);
@@ -22,7 +32,7 @@ export function setupPWAInstallUI() {
     }
   };
 
-  const isSnoozed = () => {
+  const isSnoozed = (): boolean => {
     try {
       const until = Number(localStorage.getItem('pwaDismissUntil') || '0');
       return Date.now() < until;
@@ -31,20 +41,20 @@ export function setupPWAInstallUI() {
     }
   };
 
-  const snooze = () => {
+  const snooze = (): void => {
     try {
       localStorage.setItem('pwaDismissUntil', String(Date.now() + cfg.snoozeDays * 86400000));
     } catch {}
   };
 
-  const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent);
-  const isAndroid = () => /android/i.test(navigator.userAgent);
+  const isIOS = (): boolean => /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isAndroid = (): boolean => /android/i.test(navigator.userAgent);
 
-  let cardEl = null;
-  let miniEl = null;
+  let cardEl: InstallCard | null = null;
+  let miniEl: HTMLElement | null = null;
 
-  const createCard = () => {
-    const card = document.createElement('div');
+  const createCard = (): InstallCard => {
+    const card = document.createElement('div') as InstallCard;
     card.className = 'install-card';
     card.setAttribute('role', 'dialog');
     card.setAttribute('aria-live', 'polite');
@@ -97,7 +107,7 @@ export function setupPWAInstallUI() {
     card.appendChild(closeBtn);
     document.body.appendChild(card);
 
-    const hide = () => {
+    const hideCard = (): void => {
       try {
         card.classList.remove('visible');
       } catch {}
@@ -109,7 +119,7 @@ export function setupPWAInstallUI() {
           await state.deferred.prompt();
           const choice = await state.deferred.userChoice;
           state.deferred = null;
-          if (choice && choice.outcome === 'accepted') hide();
+          if (choice && choice.outcome === 'accepted') hideCard();
         } catch {}
       } else {
         alert(
@@ -120,10 +130,10 @@ export function setupPWAInstallUI() {
 
     closeBtn.addEventListener('click', () => {
       snooze();
-      hide();
+      hideCard();
     });
 
-    const updateState = () => {
+    const updateState = (): void => {
       const hasPrompt = !!state.deferred;
       if (hasPrompt) logoBtn.classList.add('ready');
       else logoBtn.classList.remove('ready');
@@ -142,12 +152,12 @@ export function setupPWAInstallUI() {
     };
 
     card._updateInstallState = updateState;
-    card._hide = hide;
+    card._hide = hideCard;
     updateState();
     return card;
   };
 
-  const createMini = () => {
+  const createMini = (): HTMLElement => {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'install-badge';
@@ -194,12 +204,12 @@ export function setupPWAInstallUI() {
     return btn;
   };
 
-  const showCard = () => {
+  const showCard = (): void => {
     if (!cardEl) cardEl = createCard();
     cardEl.classList.add('visible');
   };
 
-  const showMini = () => {
+  const showMini = (): void => {
     if (miniEl) return;
     miniEl = createMini();
 
@@ -211,14 +221,14 @@ export function setupPWAInstallUI() {
       document.body.appendChild(miniEl);
     }
 
-    requestAnimationFrame(() => miniEl.classList.add('visible'));
+    requestAnimationFrame(() => miniEl!.classList.add('visible'));
   };
 
-  const maybeShow = () => {
+  const maybeShow = (): void => {
     if (isStandalone() || !isAllowedPath() || isSnoozed() || state.installed) return;
 
     let triggered = false;
-    const trigger = () => {
+    const trigger = (): void => {
       if (triggered) return;
       triggered = true;
       showMini();
@@ -226,7 +236,7 @@ export function setupPWAInstallUI() {
 
     setTimeout(trigger, cfg.delayMs);
 
-    const onScroll = () => {
+    const onScroll = (): void => {
       if (window.scrollY >= cfg.minScroll) {
         trigger();
         window.removeEventListener('scroll', onScroll);
@@ -237,7 +247,7 @@ export function setupPWAInstallUI() {
 
   window.addEventListener('beforeinstallprompt', e => {
     e.preventDefault();
-    state.deferred = e;
+    state.deferred = e as BeforeInstallPromptEvent;
     if (cardEl && cardEl._updateInstallState) cardEl._updateInstallState();
   });
 

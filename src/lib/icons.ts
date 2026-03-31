@@ -2,7 +2,7 @@
  * Kategori ikonları - SVG tanımları
  */
 
-export const CATEGORY_ICONS = {
+export const CATEGORY_ICONS: Record<string, string> = {
   'sistem/ofis': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>`,
   'sistem araclari & bakim': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
   'guvenlik & gizlilik': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
@@ -19,7 +19,7 @@ export const CATEGORY_ICONS = {
 /**
  * Copy button icon şekilleri
  */
-export const COPY_ICON_SHAPES = {
+export const COPY_ICON_SHAPES: Record<string, string> = {
   copy: '<rect x="9" y="9" width="12" height="12" rx="2" ry="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h10"></path>',
   success: '<path d="M20 6 10 16l-4-4"></path>',
   error: '<path d="M18 6 6 18"></path><path d="M6 6l12 12"></path>',
@@ -30,7 +30,7 @@ export const COPY_ICON_SHAPES = {
 /**
  * Kategori başlığından ikon alır
  */
-export function getCategoryIcon(title) {
+export function getCategoryIcon(title: string): string | null {
   if (!title) return null;
   const normalized = String(title)
     .trim()
@@ -49,7 +49,7 @@ export function getCategoryIcon(title) {
 /**
  * Copy button icon'unu günceller
  */
-export function setCopyIconOnButton(btn, name) {
+export function setCopyIconOnButton(btn: HTMLElement, name: string): void {
   const svg = btn.querySelector('svg');
   if (svg) svg.innerHTML = COPY_ICON_SHAPES[name] || COPY_ICON_SHAPES.copy;
 }
