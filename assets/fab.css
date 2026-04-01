@@ -172,6 +172,65 @@
   animation: install-pulse 1.8s ease-in-out infinite;
 }
 
+/* ── Language toggle ── */
+.author-fab .lang-toggle {
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--bg, #080808);
+  background: rgba(59, 130, 246, 0.9);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.author-fab .lang-toggle:hover {
+  transform: scale(1.15);
+  background: rgba(59, 130, 246, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Fallback: when no .author-fab, float bottom-left */
+body > .lang-toggle {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(59, 130, 246, 0.9);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+  padding: 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+body > .lang-toggle:hover {
+  transform: scale(1.1);
+  background: rgba(59, 130, 246, 1);
+}
+
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   .author-fab {

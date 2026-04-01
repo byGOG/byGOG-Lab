@@ -2,7 +2,7 @@ import { initBackToTop } from './back-to-top.js';
 import { initCategoryNav } from './category-nav.js';
 import { initWebVitals } from './lib/web-vitals.js';
 import { initGlobalErrorHandler } from './lib/global-error-handler.js';
-import { initI18n, t, applyI18nToDom } from './lib/i18n.js';
+import { initI18n, t, applyI18nToDom, createLangSwitcher } from './lib/i18n.js';
 import { readUrlState, writeUrlState } from './lib/url-state.js';
 import { isNewLink, updateKnownLinks } from './lib/new-badge.js';
 import { trackClick, renderRecentStrip, getVisitedNames } from './lib/recent-links.js';
@@ -649,6 +649,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initOfflineBanner();
   initI18n();
   applyI18nToDom();
+  createLangSwitcher();
   initGlobalErrorHandler();
   initWebVitals();
 

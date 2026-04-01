@@ -1,3 +1,5 @@
+import { t } from './lib/i18n.js';
+
 // Click-to-load SoundCloud embed to improve LCP
 document.addEventListener('DOMContentLoaded', () => {
   try {
@@ -19,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cover = document.createElement('div');
     cover.className = 'sc-cover';
     cover.setAttribute('role', 'region');
-    cover.setAttribute('aria-label', 'SoundCloud oynatıcıyı yükle');
+    cover.setAttribute('aria-label', t('sc.loadPlayer'));
 
     // Compact cover: no text label, icon-only button
 
@@ -34,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     img.decoding = 'async';
     img.loading = 'lazy';
     btn.appendChild(img);
-    btn.setAttribute('aria-label', 'SoundCloud oynatıcıyı yükle');
+    btn.setAttribute('aria-label', t('sc.loadPlayer'));
 
     const load = () => {
       const real = iframe.getAttribute('data-src');

@@ -2,6 +2,8 @@
  * PWA install prompt handling and UI
  */
 
+import { t } from './i18n.js';
+
 interface InstallCard extends HTMLElement {
   _updateInstallState?: () => void;
   _hide?: () => void;
@@ -58,7 +60,7 @@ export function setupPWAInstallUI(): void {
     card.className = 'install-card';
     card.setAttribute('role', 'dialog');
     card.setAttribute('aria-live', 'polite');
-    card.setAttribute('aria-label', 'Uygulamayı yükle');
+    card.setAttribute('aria-label', t('pwa.install'));
 
     const icon = document.createElement('img');
     icon.className = 'install-icon';
@@ -71,10 +73,10 @@ export function setupPWAInstallUI(): void {
     textWrap.className = 'install-text';
     const title = document.createElement('div');
     title.className = 'install-title';
-    title.textContent = "byGOG'u yükle";
+    title.textContent = t('pwa.install');
     const sub = document.createElement('div');
     sub.className = 'install-sub';
-    sub.textContent = 'Hızlı erişim için ana ekrana ekle';
+    sub.textContent = t('pwa.installSub');
     textWrap.appendChild(title);
     textWrap.appendChild(sub);
 
@@ -85,7 +87,7 @@ export function setupPWAInstallUI(): void {
     const logoBtn = document.createElement('button');
     logoBtn.type = 'button';
     logoBtn.className = 'install-logo-btn';
-    logoBtn.setAttribute('aria-label', 'Ana ekrana ekle');
+    logoBtn.setAttribute('aria-label', t('pwa.install'));
     const logoImg = document.createElement('img');
     logoImg.src = 'icon/bygog-lab-icon.svg';
     logoImg.alt = '';
@@ -97,7 +99,7 @@ export function setupPWAInstallUI(): void {
     const closeBtn = document.createElement('button');
     closeBtn.type = 'button';
     closeBtn.className = 'install-close';
-    closeBtn.setAttribute('aria-label', 'Kapat');
+    closeBtn.setAttribute('aria-label', t('info.close'));
     closeBtn.innerHTML = '×';
 
     card.appendChild(icon);
@@ -122,9 +124,7 @@ export function setupPWAInstallUI(): void {
           if (choice && choice.outcome === 'accepted') hideCard();
         } catch {}
       } else {
-        alert(
-          'Uygulamayı ana ekrana eklemek için tarayıcınızın menüsünden "Ana Ekrana Ekle" seçeneğini kullanın.'
-        );
+        alert(t('pwa.manualHint'));
       }
     });
 
@@ -140,12 +140,12 @@ export function setupPWAInstallUI(): void {
 
       if (isIOS()) {
         hint.style.display = '';
-        hint.textContent = 'Safari: Paylaş menüsü → Ana Ekrana Ekle';
+        hint.textContent = t('pwa.iosHint');
       } else if (!hasPrompt) {
         hint.style.display = '';
         hint.textContent = isAndroid()
-          ? 'Chrome menüsü → Ana ekrana ekle'
-          : 'Tarayıcı menüsü → Ana ekrana ekle';
+          ? t('pwa.androidHint')
+          : t('pwa.browserHint');
       } else {
         hint.style.display = 'none';
       }
@@ -161,7 +161,7 @@ export function setupPWAInstallUI(): void {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'install-badge';
-    btn.setAttribute('aria-label', 'Ana ekrana ekle');
+    btn.setAttribute('aria-label', t('pwa.install'));
 
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('viewBox', '0 0 24 24');

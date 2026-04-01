@@ -1,3 +1,5 @@
+import { t } from './lib/i18n.js';
+
 export function initBackToTop() {
   const wrap = document.createElement('div');
   wrap.id = 'scroll-nav';
@@ -5,8 +7,8 @@ export function initBackToTop() {
   const btnUp = document.createElement('button');
   btnUp.className = 'scroll-nav-btn scroll-nav-up';
   btnUp.type = 'button';
-  btnUp.title = 'Yukarı Çık';
-  btnUp.setAttribute('aria-label', 'Yukarı Çık');
+  btnUp.title = t('nav.scrollUp');
+  btnUp.setAttribute('aria-label', t('nav.scrollUp'));
   btnUp.innerHTML =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M18 15l-6-6-6 6"/></svg>';
   btnUp.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -14,8 +16,8 @@ export function initBackToTop() {
   const btnDown = document.createElement('button');
   btnDown.className = 'scroll-nav-btn scroll-nav-down';
   btnDown.type = 'button';
-  btnDown.title = 'Aşağı İn';
-  btnDown.setAttribute('aria-label', 'Aşağı İn');
+  btnDown.title = t('nav.scrollDown');
+  btnDown.setAttribute('aria-label', t('nav.scrollDown'));
   btnDown.innerHTML =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M6 9l6 6 6-6"/></svg>';
   btnDown.onclick = () =>
@@ -55,4 +57,12 @@ export function initBackToTop() {
     },
     { passive: true }
   );
+
+  // Update labels on language change
+  window.addEventListener('langchange', () => {
+    btnUp.title = t('nav.scrollUp');
+    btnUp.setAttribute('aria-label', t('nav.scrollUp'));
+    btnDown.title = t('nav.scrollDown');
+    btnDown.setAttribute('aria-label', t('nav.scrollDown'));
+  });
 }

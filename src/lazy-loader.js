@@ -1,3 +1,5 @@
+import { t } from './lib/i18n.js';
+
 /**
  * Lazy Category Loader
  * Extracted from renderLinks.js to keep it focused on orchestration.
@@ -85,14 +87,14 @@ export function initLazyCategories(indexData, container, deps) {
     }
     msg.innerHTML = '';
     const text = document.createElement('span');
-    text.textContent = 'Kategori yüklenemedi.';
+    text.textContent = t('error.categoryLoad');
     msg.appendChild(text);
     const retryBtn = document.createElement('button');
     retryBtn.type = 'button';
     retryBtn.className = 'category-retry-btn';
-    retryBtn.textContent = 'Tekrar dene';
+    retryBtn.textContent = t('error.retry');
     retryBtn.addEventListener('click', () => {
-      msg.textContent = 'Yükleniyor...';
+      msg.textContent = t('loading.category');
       if (entry) {
         entry.loaded = false;
         entry.loading = false;
